@@ -120,9 +120,31 @@ body {
 }
 
 /*********************** Custom Styles ***********************/
+::selection{
+  @apply bg-primary-1000/20;
+}
 .text-outline {
   -webkit-text-stroke: 1px theme(--color-primary-1000);
   transition: all 0.4s ease-in-out;
+}
+/*_________________________ scrollbar ____________________________*/
+/*  Webkit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-primary-1000/30;  /* scrollbar bg color */
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary-1000/70;  /* scrollbar color */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+ @apply bg-primary-1000; /* scrollbar color in hovering  */
 }
 /*_________________________ Header ____________________________*/
 .header {
