@@ -4,8 +4,8 @@
 export default function About() {
   return (
     <div>
-      <h2 className="text-center border border-amber-200">About Page</h2>
-      <p>the more information at the resume page</p>
+      <h2 className="text-center border border-green-600">About Page</h2>
+
     </div>
   );
 }
