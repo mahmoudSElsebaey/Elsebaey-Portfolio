@@ -1,7 +1,7 @@
 export const colorOptions = {
+  gold: "#b99a57",
   pink: "#ef476f",
   red: "#e71d36",
-  gold: "#b99a57",
   yellow: "#F3C623",
   green: "#008c00",
   teal: "#087e8b",

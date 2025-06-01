@@ -14,9 +14,8 @@ export default function ThemeSwitcher() {
     setActiveColor(name);
   };
 
- 
   useEffect(() => {
-    setPrimaryColor("pink", colorOptions.pink);
+    setPrimaryColor("gold", colorOptions.gold);
   }, []);
 
   return (

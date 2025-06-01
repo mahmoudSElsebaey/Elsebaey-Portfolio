@@ -36,7 +36,7 @@ export default function AnnouncementBar() {
         </div>
         <button
           onClick={() => setShow(false)}
-          className="ml-4 px-3 cursor-pointer mr-1 text-2xl text-white font-extrabold transition-all rounded-[5px] duration-300"
+          className="ml-4 px-3 cursor-pointer mr-1 text-2xl text-white/70 font-extrabold transition-all rounded-[5px] duration-300"
           aria-label="Close"
         >
           ✕
