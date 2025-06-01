@@ -135,16 +135,17 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-primary-1000/30;  /* scrollbar bg color */
+  @apply bg-primary-1000/30;  /* scrollbar track bg color */
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary-1000/70;  /* scrollbar color */
+  @apply bg-primary-1000/70;  /* scrollbar thumb color */
   border-radius: 10px;
+  box-shadow: 0 0px 50px 15px rgb(240, 240, 240);
 }
 
 ::-webkit-scrollbar-thumb:hover {
- @apply bg-primary-1000; /* scrollbar color in hovering  */
+ @apply bg-primary-1000; /* scrollbar thumb color in hovering  */
 }
 /*_________________________ Header ____________________________*/
 .header {
