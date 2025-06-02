@@ -9,10 +9,10 @@ import CountUp from "react-countup";
 
 export default function Stats() {
   const stats: StatsType = [
-    { num: 5, text: "Years of Experience " },
-    { num: 25, text: "Projects Completed" },
-    { num: 99, text: "Technologies Masterd" },
-    { num: 120, text: "Code Commits" },
+    { num: 2, text: "+ Years of Experience " },
+    { num: 24, text: "Projects Completed" },
+    { num: 31, text: "Technologies Masterd" },
+    { num: 132, text: "Code Commits" },
   ];
   return (
     <section className="">
