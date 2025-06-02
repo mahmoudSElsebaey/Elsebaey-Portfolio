@@ -23,12 +23,13 @@ export default function Photo() {
            absolute top-1/2 left-1/2 transform-[translate(-50%,-52%)]"
         >
           <Image
-            src="/assets/hero-img.png"
-            quality={100}
+            // src="/assets/hero-img.png"
+            src="/assets/hoda3-rm.png"
+             quality={100}
             alt="Personal image"
             priority
             fill
-            className="object-contain"
+            className="object-contain scale-[95%] dark:sepia-40 dark:grayscale-50 sepia-70 grayscale-100 "
           />
         </motion.div>
         {/* Circle */}
