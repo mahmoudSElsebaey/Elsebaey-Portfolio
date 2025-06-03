@@ -10,77 +10,11 @@ interface Project {
 }
 
 export const projectsData: Project[] = [
-  // {
-  //   num: "01",
-  //   title: "Project 1",
-  //   category: "Project Name",
-  //   tools: [{ name: "html5" }, { name: "css3" }, { name: "bootstrap5" }],
-  //   description: "The description of this project informatiom about it",
-  //   image:
-  //     "/assets/certificates/Mahmoud Elsebaey - Certificate in Front-end Diploma.jpg",
-  //   live: "#1",
-  //   github: "#1",
-  // },
-  // {
-  //   num: "02",
-  //   title: "Project 2",
-  //   category: "Project Name",
-  //   tools: [{ name: "html5" }, { name: "css3" }, { name: "bootstrap5" }],
-  //   description: "The description of this project informatiom about it",
-  //   image:
-  //     "/assets/certificates/Mahmoud Elsebaey - Certificate in Front-end Diploma.jpg",
-  //   live: "#2",
-  //   github: "#2",
-  // },
-  // {
-  //   num: "03",
-  //   title: "Project 3",
-  //   category: "Project Name",
-  //   tools: [{ name: "html5" }, { name: "css3" }, { name: "bootstrap5" }],
-  //   description: "The description of this project informatiom about it",
-  //   image:
-  //     "/assets/certificates/Mahmoud Elsebaey - Certificate in Front-end Diploma.jpg",
-  //   live: "#3",
-  //   github: "#3",
-  // },
-  // {
-  //   num: "04",
-  //   title: "Project 4",
-  //   category: "Project Name",
-  //   tools: [{ name: "html5" }, { name: "css3" }, { name: "bootstrap5" }],
-  //   description: "The description of this project informatiom about it",
-  //   image:
-  //     "/assets/certificates/Mahmoud Elsebaey - Certificate in Front-end Diploma.jpg",
-  //   live: "#4",
-  //   github: "#4",
-  // },
-  // {
-  //   num: "05",
-  //   title: "Project 5",
-  //   category: "Project Name",
-  //   tools: [{ name: "html5" }, { name: "css3" }, { name: "bootstrap5" }],
-  //   description: "The description of this project informatiom about it",
-  //   image:
-  //     "/assets/certificates/Mahmoud Elsebaey - Certificate in Front-end Diploma.jpg",
-  //   live: "#5",
-  //   github: "#5",
-  // },
-  // {
-  //   num: "06",
-  //   title: "Project 6",
-  //   category: "Project Name",
-  //   tools: [{ name: "html5" }, { name: "css3" }, { name: "bootstrap5" }],
-  //   description: "The description of this project informatiom about it",
-  //   image:
-  //     "/assets/certificates/Mahmoud Elsebaey - Certificate in Front-end Diploma.jpg",
-  //   live: "#6",
-  //   github: "#6",
-  // },
   {
     num: "01",
     title: "Barber Shop",
     category: "Landing Page",
-    tools: [{ name: "HTML5" }, { name: "CSS3" }, { name: "JavaScript" }],
+    tools: [{ name: "HTML5" }, { name: "CSS3" },{ name: "Bootstrap" }, { name: "JavaScript" }],
     description:
       "A landing page for a barber shop, showcasing services and booking options.",
     image: "/assets/projects-images/Barber Shop.png",
@@ -95,7 +29,7 @@ export const projectsData: Project[] = [
       { name: "HTML5" },
       { name: "CSS3" },
       { name: "Bootstrap" },
-      { name: "JavaScript" },
+      // { name: "JavaScript" },
     ],
     description:
       "A landing page for a gaming platform, offering the latest game releases and features.",
@@ -153,7 +87,7 @@ export const projectsData: Project[] = [
     tools: [{ name: "HTML5" }, { name: "CSS3" }],
     description:
       "An online store showcasing various chairs and furniture products.",
-    image: "/assets/projects-images/Barber Shop.png",
+    image: "/assets/projects-images/chairs-shop.png",
     live: "https://mahmoudselsebaey.github.io/chairs-shops/",
     github: "https://github.com/mahmoudselsebaey/chairs-shops",
   },
@@ -191,10 +125,10 @@ export const projectsData: Project[] = [
     title: "Sakney",
     category: "Property Rental Platform",
     tools: [
-      { name: "React.js" },
       { name: "HTML5" },
       { name: "CSS3" },
       { name: "JavaScript" },
+      { name: "React.js" },
       { name: "Material UI" },
     ],
     description:
@@ -208,11 +142,11 @@ export const projectsData: Project[] = [
   title: "Sakney Dashboard",
   category: "Admin Panel",
   tools: [
-    { name: "React.js" },
     { name: "HTML5" },
     { name: "CSS3" },
     { name: "Bootstrap" },
     { name: "JavaScript" },
+    { name: "React.js" },
     { name: "Material UI" },
     { name: "Chart.js" },
   ],

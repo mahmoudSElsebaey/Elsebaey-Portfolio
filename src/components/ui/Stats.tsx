@@ -9,7 +9,7 @@ import CountUp from "react-countup";
 
 export default function Stats() {
   const stats: StatsType = [
-    { num: 2, text: "+ Years of Experience " },
+    { num: 2, text: "Years of Experience " },
     { num: 24, text: "Projects Completed" },
     { num: 31, text: "Technologies Masterd" },
     { num: 132, text: "Code Commits" },
