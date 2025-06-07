@@ -67,7 +67,7 @@ export default function Contact() {
     e.preventDefault();
 
     emailjs
-      .send("service_x5wsu17", "template_xyz123", formData, "dhJNNRyqravgKNwQV")
+      .send("service_x5wsu17", "template_pqh87ag", formData, "dhJNNRyqravgKNwQV")
       .then(
         () => {
           alert("Message sent successfully!");
