@@ -58,7 +58,7 @@ export default function Contact() {
     e.preventDefault();
 
     emailjs
-      .send("service_mmqd4ql", "template_xyz123", formData, "YOUR_PUBLIC_KEY")
+      .send("service_mmqd4ql", "template_xyz123", formData, "dhJNNRyqravgKNwQV")
       .then(
         () => {
           alert("Message sent successfully!");
