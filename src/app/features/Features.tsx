@@ -74,13 +74,11 @@ export default function FeaturesTabs() {
                   {section.features.map((f, i) => (
                     <li
                       key={i}
-                      className="text-[16px] flex items-center gap-3 text-white/60 p-2 hover:text-white group transition-all duration-300"
+                      className="text-[16px] flex items-center gap-3 text-white/60 p-2 hover:text-white"
                     >
                       <span className="font-bold text-outline text-transparent animate-pulse text-2xl">
-                       <span className={`${i <= 9 ? "hidden" : ""}`}>0</span>
-                       <span className=" group-hover:scale-[1.2] transition-all duration-300 ">{i+1}</span>
-                      
-                        {/* {String(i + 1).padStart(2, "0")} */}
+                        {/* 0{i+1} */}
+                        {String(i + 1).padStart(2, "0")}
                       </span>
                       <span className="">{f}</span>
                     </li>
