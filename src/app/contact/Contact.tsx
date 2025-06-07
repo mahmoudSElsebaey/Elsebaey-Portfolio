@@ -53,6 +53,10 @@ export default function Contact() {
     message: "",
   });
 
+  const [feedback, setFeedback] = useState<
+    { type: "success" | "error"; text: string } | null
+  >(null);
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
@@ -66,11 +70,34 @@ export default function Contact() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (
+      !formData.firstname.trim() ||
+      !formData.lastname.trim() ||
+      !formData.email.trim() ||
+      !formData.phone.trim() ||
+      !formData.service.trim() ||
+      !formData.message.trim()
+    ) {
+      setFeedback({ type: "error", text: "Please fill in all fields." });
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setFeedback({ type: "error", text: "Please enter a valid email address." });
+      return;
+    }
+
     emailjs
-      .send("service_x5wsu17", "template_pqh87ag", formData, "dhJNNRyqravgKNwQV")
+      .send(
+        "service_x5wsu17",
+        "template_pqh87ag",
+        formData,
+        "dhJNNRyqravgKNwQV"
+      )
       .then(
         () => {
-          alert("Message sent successfully!");
+          setFeedback({ type: "success", text: "Message sent successfully!" });
           setFormData({
             firstname: "",
             lastname: "",
@@ -81,10 +108,21 @@ export default function Contact() {
           });
         },
         () => {
-          alert("Failed to send message.");
+          setFeedback({
+            type: "error",
+            text: "Failed to send message. Please try again later.",
+          });
         }
       );
   };
+
+  const isFormValid =
+    formData.firstname.trim() &&
+    formData.lastname.trim() &&
+    formData.email.trim() &&
+    formData.phone.trim() &&
+    formData.service.trim() &&
+    formData.message.trim();
 
   return (
     <motion.section
@@ -110,6 +148,28 @@ export default function Contact() {
                 Whether you have a question, a project idea, or just want to
                 connect—feel free to reach out.
               </p>
+
+              {/* رسائل التنبيه */}
+              {feedback && (
+                <div
+                  className={`p-4 rounded-md mb-4 text-center font-semibold ${
+                    feedback.type === "error"
+                      ? "bg-red-100 text-red-700"
+                      : "bg-green-100 text-green-700"
+                  }`}
+                >
+                  {feedback.text}
+                  <button
+                    onClick={() => setFeedback(null)}
+                    className="ml-3 text-lg font-bold cursor-pointer"
+                    aria-label="Close message"
+                    type="button"
+                  >
+                    &times;
+                  </button>
+                </div>
+              )}
+
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
                 <Input
                   type="text"
@@ -140,19 +200,15 @@ export default function Contact() {
                   onChange={handleChange}
                 />
               </div>
-              <Select
-                value={formData.service}
-                onValueChange={handleSelectChange}
-              >
+
+              <Select value={formData.service} onValueChange={handleSelectChange}>
                 <SelectTrigger className="w-full ">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="UI Development">
-                      UI Development
-                    </SelectItem>
+                    <SelectItem value="UI Development">UI Development</SelectItem>
                     <SelectItem value="React.js Development">
                       React.js Development
                     </SelectItem>
@@ -181,8 +237,9 @@ export default function Contact() {
               />
               <Button
                 size="lg"
-                className="max-w-40 rounded-3xl bg-primary-1000 cursor-pointer text-md"
+                className="max-w-40 rounded-3xl bg-primary-1000 cursor-pointer text-md disabled:opacity-50"
                 type="submit"
+                disabled={!isFormValid}
               >
                 Send Message
               </Button>
