@@ -3,7 +3,7 @@ import Features from "./features/page";
 import Services from "./services/page";
 import Projects from "./projects/page";
 import Contact from "./contact/page";
-import Resume from "./resume/page";
+import Resume from "./about/page";
 import Title from "@/components/TitleSections/Title";
 import HomePage from "@/components/Home/Home";
 
