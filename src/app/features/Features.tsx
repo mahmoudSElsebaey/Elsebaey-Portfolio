@@ -1,56 +1,15 @@
-// "use client";
-
-// import * as Accordion from "@radix-ui/react-accordion";
-// import { featuresList } from "./data";
-// import { ChevronDownIcon } from "lucide-react";
-
-// export default function Features() {
-//   return (
-//     <div>
-//       <Accordion.Root
-//         type="multiple"
-//         className="w-[80%] mx-auto p-4 space-y-2"
-//       >
-//         {featuresList.map((section, index) => (
-//           <Accordion.Item
-//             key={index}
-//             value={section.category}
-//             className="border border-primary-1000 w-full rounded-lg overflow-hidden"
-//           >
-//             <Accordion.Header>
-//               <Accordion.Trigger className="group w-full text-primary-1000 flex items-center justify-between
-//                p-4 transition font-semibold text-left">
-//                 <div className="flex items-center gap-4">
-//                   {section.icon}
-//                   <span>{section.title}</span>
-//                 </div>
-//                 <ChevronDownIcon
-//                   className="w-5 h-5 transition-all duration-500 group-data-[state=open]:rotate-180"
-//                   aria-hidden
-//                 />
-//               </Accordion.Trigger>
-//             </Accordion.Header>
-//             <Accordion.Content className="p-4 bg-primary-1000/30 text-sm">
-//               <ul className="space-y-1">
-//                 {section.features.map((f, i) => (
-//                   <li key={i}>{f}</li>
-//                 ))}
-//               </ul>
-//             </Accordion.Content>
-//           </Accordion.Item>
-//         ))}
-//       </Accordion.Root>
-//     </div>
-//   );
-// }
-
 "use client";
 
 import * as Accordion from "@radix-ui/react-accordion";
 import * as Tabs from "@radix-ui/react-tabs";
 import { ChevronDownIcon } from "lucide-react";
 import { featuresList } from "./data";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
 
 export default function FeaturesTabs() {
   return (
@@ -70,7 +29,7 @@ export default function FeaturesTabs() {
                    cursor-pointer group transition-all duration-500 data-[state=active]:bg-primary-1000
                  data-[state=active]:text-white social-icon border border-transparent 
                    "
-              >
+                >
                   <span className=" text-2xl md:text-3xl transition-all">
                     {icon}
                   </span>
@@ -81,11 +40,16 @@ export default function FeaturesTabs() {
           </TooltipProvider>
         ))}
       </Tabs.List>
- 
+
       {/* Tab content */}
       {featuresList.map((section) => (
         <Tabs.Content key={section.category} value={section.category}>
-          <Accordion.Root type="single" collapsible className="space-y-2">
+          <Accordion.Root
+            type="single"
+            collapsible
+            className="space-y-2"
+            defaultValue={section.title}
+          >
             <Accordion.Item
               value={section.title}
               className="border border-primary-1000 w-full rounded-lg overflow-hidden"
@@ -93,7 +57,9 @@ export default function FeaturesTabs() {
               <Accordion.Header>
                 <Accordion.Trigger className="group w-full flex items-center cursor-pointer justify-between p-4 bg-primary-100/10 hover:bg-primary-100/20 transition font-bold text-left text-primary-1000">
                   <div className="flex items-center gap-3">
-                    <span className="animate-pulse text-2xl">{section.icon}</span>
+                    <span className="animate-pulse text-2xl">
+                      {section.icon}
+                    </span>
                     <span>{section.title}</span>
                   </div>
                   <ChevronDownIcon
@@ -112,7 +78,7 @@ export default function FeaturesTabs() {
                     >
                       <span className="font-bold text-outline text-transparent animate-pulse text-2xl">
                         {/* 0{i+1} */}
-                          {String(i + 1).padStart(2, "0")}
+                        {String(i + 1).padStart(2, "0")}
                       </span>
                       <span className="">{f}</span>
                     </li>
