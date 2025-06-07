@@ -26,13 +26,20 @@ type ContactInfoType = {
 
 const contactInfo: ContactInfoType = [
   {
-    icon: <FaPhoneAlt />, title: "phone", description: "(+20) 120 7247 967",
+    icon: <FaPhoneAlt />,
+    title: "phone",
+    description: "(+20) 120 7247 967",
   },
   {
-    icon: <FaEnvelope />, title: "Email", description: "mahmoudelsebaey710@gmail.com",
+    icon: <FaEnvelope />,
+    title: "Email",
+    description: "mahmoudelsebaey710@gmail.com",
   },
   {
-    icon: <FaMapMarkerAlt />, title: "Address", description: "Nasr City,Cairo,Egypt", optionAddtion: "Berkit El-saba,Menoufia",
+    icon: <FaMapMarkerAlt />,
+    title: "Address",
+    description: "Nasr City,Cairo,Egypt",
+    optionAddtion: "Berkit El-saba,Menoufia",
   },
 ];
 
@@ -46,7 +53,9 @@ export default function Contact() {
     message: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
@@ -58,7 +67,7 @@ export default function Contact() {
     e.preventDefault();
 
     emailjs
-      .send("service_mmqd4ql", "template_xyz123", formData, "dhJNNRyqravgKNwQV")
+      .send("service_x5wsu17", "template_xyz123", formData, "dhJNNRyqravgKNwQV")
       .then(
         () => {
           alert("Message sent successfully!");
@@ -80,40 +89,89 @@ export default function Contact() {
   return (
     <motion.section
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1, transition: { delay: 2.4, duration: 0.4, ease: "easeIn" } }}
+      animate={{
+        opacity: 1,
+        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+      }}
       className="mx-4 md:mx-0 mb-5 mt-3"
     >
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px] ">
           {/* Form */}
           <div className="order-2 xl:h-[55%] xl:order-none ">
-            <form onSubmit={handleSubmit} className="flex flex-col gap-6 p-10 bg-primary-1000/30 dark:bg-primary-1000/10 rounded-lg ">
-              <h3 className="text-4xl text-primary-1000">Let&apos;s Work Together</h3>
+            <form
+              onSubmit={handleSubmit}
+              className="flex flex-col gap-6 p-10 bg-primary-1000/30 dark:bg-primary-1000/10 rounded-lg "
+            >
+              <h3 className="text-4xl text-primary-1000">
+                Let&apos;s Work Together
+              </h3>
               <p className="opacity-70">
-                Whether you have a question, a project idea, or just want to connect—feel free to reach out.
+                Whether you have a question, a project idea, or just want to
+                connect—feel free to reach out.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
-                <Input type="text" name="firstname" placeholder="First Name" value={formData.firstname} onChange={handleChange} />
-                <Input type="text" name="lastname" placeholder="Last Name" value={formData.lastname} onChange={handleChange} />
-                <Input type="email" name="email" placeholder="Email Address" value={formData.email} onChange={handleChange} />
-                <Input type="tel" name="phone" placeholder="Phone Number" value={formData.phone} onChange={handleChange} />
+                <Input
+                  type="text"
+                  name="firstname"
+                  placeholder="First Name"
+                  value={formData.firstname}
+                  onChange={handleChange}
+                />
+                <Input
+                  type="text"
+                  name="lastname"
+                  placeholder="Last Name"
+                  value={formData.lastname}
+                  onChange={handleChange}
+                />
+                <Input
+                  type="email"
+                  name="email"
+                  placeholder="Email Address"
+                  value={formData.email}
+                  onChange={handleChange}
+                />
+                <Input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleChange}
+                />
               </div>
-              <Select onValueChange={handleSelectChange}>
+              <Select
+                value={formData.service}
+                onValueChange={handleSelectChange}
+              >
                 <SelectTrigger className="w-full ">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="UI Development">UI Development</SelectItem>
-                    <SelectItem value="React.js Development">React.js Development</SelectItem>
-                    <SelectItem value="Next.js Development">Next.js Development</SelectItem>
-                    <SelectItem value="Responsive Design">Responsive Design</SelectItem>
-                    <SelectItem value="E-commerce Page Development">E-commerce Page Development</SelectItem>
-                    <SelectItem value="Performance Optimization & Debugging">Performance Optimization & Debugging</SelectItem>
+                    <SelectItem value="UI Development">
+                      UI Development
+                    </SelectItem>
+                    <SelectItem value="React.js Development">
+                      React.js Development
+                    </SelectItem>
+                    <SelectItem value="Next.js Development">
+                      Next.js Development
+                    </SelectItem>
+                    <SelectItem value="Responsive Design">
+                      Responsive Design
+                    </SelectItem>
+                    <SelectItem value="E-commerce Page Development">
+                      E-commerce Page Development
+                    </SelectItem>
+                    <SelectItem value="Performance Optimization & Debugging">
+                      Performance Optimization & Debugging
+                    </SelectItem>
                   </SelectGroup>
                 </SelectContent>
               </Select>
+
               <Textarea
                 name="message"
                 placeholder="Type Your Message here"
@@ -121,7 +179,11 @@ export default function Contact() {
                 value={formData.message}
                 onChange={handleChange}
               />
-              <Button size="lg" className="max-w-40 rounded-3xl bg-primary-1000 cursor-pointer text-md" type="submit">
+              <Button
+                size="lg"
+                className="max-w-40 rounded-3xl bg-primary-1000 cursor-pointer text-md"
+                type="submit"
+              >
                 Send Message
               </Button>
             </form>
@@ -138,7 +200,12 @@ export default function Contact() {
                   <p className="text-2xl font-bold capitalize ">{item.title}</p>
                   <div className={`opacity-90 ${item.optionAddtion && "mt-7"}`}>
                     <div className="flex items-center gap-1  ">
-                      <span className={`${item.optionAddtion && "w-2 h-2 bg-primary-1000/50 block rounded-full animate-pulse "}`} />
+                      <span
+                        className={`${
+                          item.optionAddtion &&
+                          "w-2 h-2 bg-primary-1000/50 block rounded-full animate-pulse "
+                        }`}
+                      />
                       <p>{item.description}</p>
                     </div>
                     {item.optionAddtion && (
