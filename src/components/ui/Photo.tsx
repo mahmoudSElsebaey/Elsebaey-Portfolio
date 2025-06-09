@@ -29,7 +29,7 @@ export default function Photo() {
             alt="Personal image"
             priority
             fill
-            className="object-contain scale-[95%] dark:sepia-40 dark:grayscale-50 sepia-70 grayscale-100 "
+            className="object-contain scale-[95%]"
           />
         </motion.div>
         {/* Circle */}
