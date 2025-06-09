@@ -38,6 +38,7 @@ export const projectsData: Project[] = [
       { name: "React.js" },
       { name: "TypeScript" },
       { name: "Next.js" },
+      { name: "EmailJS" },
     ],
     description:
       "A personal portfolio website to showcase my projects, skills, and experience, built with React, TypeScript, and Next.js.",
