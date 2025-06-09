@@ -42,8 +42,8 @@ export const projectsData: Project[] = [
     description:
       "A personal portfolio website to showcase my projects, skills, and experience, built with React, TypeScript, and Next.js.",
     image: "/assets/projects-images/portfolio.png",
-    live: "https://mahmoudselsebaey.github.io/portfolio-app/",
-    github: "https://github.com/mahmoudselsebaey/portfolio-app"
+    live: "https://portfolio-uiwzvpmx1-mahmoud-elsebaeys-projects.vercel.app/",
+    github: "https://github.com/mahmoudSElsebaey/Elsebaey-Portfolio/tree/main"
   },
   {
     num: "03",
