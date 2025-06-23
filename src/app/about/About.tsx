@@ -209,7 +209,7 @@ export default function Resume() {
                       {skills.sections.map((sec, index) => {
                         return (
                           <li key={index}>
-                            <h3 className="text-primary-1000 text-[18px] sm:text-2xl font-bold mb-5 text-left flex items-center border gap-0">
+                            <h3 className="text-primary-1000 text-[18px] sm:text-2xl font-bold mb-5 text-left flex items-center gap-0">
                               <span className="text-outline text-transparent animate-pulse text-2xl sm:text-3xl pr-4">
                                 0{index + 1} 
                               </span>
