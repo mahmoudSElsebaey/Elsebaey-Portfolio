@@ -247,14 +247,14 @@ export default function Contact() {
           </div>
 
           {/* Contact Info */}
-          <div className="flex-1 flex items-center order-1 xl:order-none xl:justify-end mb-8 xl:mb-0 ">
+          <div className="flex-1 flex items-center order-1 xl:order-none xl:justify-end mb-8 xl:mb-0">
             <ul className="flex flex-col gap-10">
               {contactInfo.map((item, index) => (
-                <li key={index} className="flex items-center  gap-6">
-                  <div className="w-[52px] h-[52px] xl:w-[72px] xl:h-[72px] bg-primary-1000/20 text-primary-1000 rounded-[7px] flex items-center justify-center ">
-                    <div className="text-[28px] animate-pulse">{item.icon}</div>
+                <li key={index} className="flex items-center gap-2 md:gap-6">
+                  <div className="w-[40px] h-[40px] md:w-[52px] md:h-[52px] xl:w-[72px] xl:h-[72px] bg-primary-1000/20 text-primary-1000 rounded-[7px] flex items-center justify-center ">
+                    <div className="text-xl md:text-[28px] animate-pulse">{item.icon}</div>
                   </div>
-                  <p className="text-2xl font-bold capitalize ">{item.title}</p>
+                  <p className="text-[16px] md:text-2xl font-bold capitalize hidden sm:block">{item.title}</p>
                   <div className={`opacity-90 ${item.optionAddtion && "mt-7"}`}>
                     <div className="flex items-center gap-1  ">
                       <span
@@ -263,7 +263,7 @@ export default function Contact() {
                           "w-2 h-2 bg-primary-1000/50 block rounded-full animate-pulse "
                         }`}
                       />
-                      <p>{item.description}</p>
+                      <p className=''>{item.description}</p>
                     </div>
                     {item.optionAddtion && (
                       <div className="flex items-center gap-1 ">
