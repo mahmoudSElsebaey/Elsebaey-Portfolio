@@ -62,17 +62,17 @@ export default function Resume() {
                     </p>
                   </div>
                   {/* <ScrollArea className="h-[400px] transition-all"> */}
-                  <ul className="grid grid-cols-1 md:grid-cols-2 w-full text-xl leading-[2] mx-auto md:mx-0 ">
+                  <ul className="grid grid-cols-1 md:grid-cols-2 w-full text-base sm:text-xl leading-[2] mx-auto md:mx-0 ">
                     {about.info.map((item, index) => {
                       return (
                         <li
                           key={index}
-                          className="flex w-[80%] m-auto  md:w-full gap-2"
+                          className="flex items-center w-[80%] m-auto md:w-full gap-2"
                         >
                           <span className="text-primary-1000">
                             {item.fieldName}
                           </span>
-                          <span className=" animate-pulse">
+                          <span className=" animate-pulse ">
                           {item.fieldValue}
                           </span>
                         </li>
@@ -209,8 +209,8 @@ export default function Resume() {
                       {skills.sections.map((sec, index) => {
                         return (
                           <li key={index}>
-                            <h3 className="text-primary-1000 text-2xl font-bold mb-5 text-left">
-                              <span className="text-outline text-transparent animate-pulse text-3xl pr-4">
+                            <h3 className="text-primary-1000 text-[18px] sm:text-2xl font-bold mb-5 text-left flex items-center border gap-0">
+                              <span className="text-outline text-transparent animate-pulse text-2xl sm:text-3xl pr-4">
                                 0{index + 1} 
                               </span>
                               {sec.title}
@@ -223,7 +223,7 @@ export default function Resume() {
                                       <TooltipProvider>
                                         <Tooltip>
                                           <TooltipTrigger>
-                                            <div className="text-6xl transition-all">
+                                            <div className="text-5xl sm:text-6xl transition-all">
                                               {item.icon}
                                             </div>
                                           </TooltipTrigger>

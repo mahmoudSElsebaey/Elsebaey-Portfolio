@@ -38,7 +38,7 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        `tabs-trigger whitespace-nowrap rounded-lg p-3 text-base md:text-xl font-bold cursor-pointer
+        `tabs-trigger whitespace-nowrap rounded-lg m-1 p-1 sm:p-3 sm:text-base md:p-3 text-[14px] md:text-xl font-bold cursor-pointer
         ring-offset-white transition-all capitalize
 
         border-b-4 border-transparent

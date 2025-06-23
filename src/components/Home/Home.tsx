@@ -31,17 +31,18 @@ export default function HomePage() {
         {/*My Informatiom */}
         <div className="xl:h-[480px] flex flex-col gap-2 xl:gap-6 md:gap-1 items-center md:items-start justify-center order-2 md:order-none ">
           <p className="text-4xl font-bold flex gap-3 ">Hello <MdOutlineWavingHand  className="text-primary-1000"/> I&apos;m</p>
-          <p className="text-4xl xl:text-5xl font-bold uppercase relative animate-pulse">
+          <p className="text-3xl sm:text-4xl xl:text-5xl font-bold uppercase relative animate-pulse">
             Mahmoud Elsebaey
             <span
               className="absolute top-1/2 left-0 w-full my-name animate-pulse h-[0.0001px] opacity-80 z-[-1]
             shadow-[0_0_30px_5px_theme(--color-primary-1000)] lg:shadow-[0_0_40px_15px_theme(--color-primary-1000)]"
             ></span>
           </p>
-          <ul className="h-10 self-start ml-[16%] md:ml-0 ">
+          <ul className="h-10 self-start ml-[10%] sm:ml-[16%] md:ml-0">
             <li
               key={index}
-              className="typing text-3xl font-extrabold text-outline text-transparent "
+              style={{letterSpacing: "2px"}}
+              className="typing text-2xl sm:text-3xl font-extrabold text-outline text-transparent"
             >
               {titles[index]}
             </li>
