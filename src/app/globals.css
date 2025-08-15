@@ -148,9 +148,9 @@ body {
  @apply bg-primary-1000; /* scrollbar thumb color in hovering  */
 }
 /*_________________________ Header ____________________________*/
-/* .header {
-  box-shadow: 0px 0px 10px theme(--color-primary-1000);
-} */
+.header {
+  box-shadow: 0px 0px 3px 15px theme(--color-primary-1000);
+}
 /*_________________________ Theme Switcher ____________________________*/
 .gradient-text {
   background: linear-gradient(
