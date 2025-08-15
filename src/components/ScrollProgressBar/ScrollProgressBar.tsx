@@ -19,16 +19,14 @@ export default function ScrollProgressBar() {
 
   return (
     <div
-        style={{
+      style={{
         position: "fixed",
-        top: "50%",
-        left: 0,
-        transform: "translateY(-50%)",
-        width: "4px",
-        height: `${scroll * 2}%`,  
+        top: 0,
+        right: 0,
+        width: "4px",  
+        height: `${scroll}%`,  
         zIndex: 9999,
         transition: "height 0.1s ease-out",
-        transformOrigin: "center",  
       }}
       className="bg-gradient-to-b from-primary-1000/30 to-primary-1000"
     />
