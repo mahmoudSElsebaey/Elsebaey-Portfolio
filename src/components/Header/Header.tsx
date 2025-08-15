@@ -5,7 +5,7 @@ import Image from "next/image";
 import logo from "./../../../public/assets/me-removebg-preview.png";
 import { Nav } from "../Nav/Nav";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
- 
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showThemeColors, setShowThemeColors] = useState(false);
@@ -55,7 +55,10 @@ export default function Header() {
       </div>
 
       {/* Theme Switcher */}
-      <div className="flex justify-center items-center xl:translate-x-[75px] " ref={themeRef}>
+      <div
+        className="flex justify-center items-center xl:translate-x-[75px] "
+        ref={themeRef}
+      >
         <div className="relative group ">
           <button
             className="text-[22px] font-extrabold btn-colors gradient-text cursor-pointer flex gap-1 items-center"
@@ -67,7 +70,9 @@ export default function Header() {
 
           <div
             className={`absolute left-[50%] translate-x-[-50%] ${
-              showThemeColors ? "opacity-100 scale-100" : "opacity-0 scale-0 pointer-events-none"
+              showThemeColors
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-0 pointer-events-none"
             } transition-all duration-300`}
           >
             <ThemeSwitcher />
