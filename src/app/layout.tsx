@@ -8,6 +8,8 @@ import PageTransition from "@/components/ui/PageTransition";
 import DraggableNav from "@/components/DraggableMenu/DraggableMenu";
 import AnnouncementBar from "@/components/ui/AnnouncementBar";
 // import ThemeSwitcher from "@/components/ThemeSwitcher/ThemeSwitcher";
+import ScrollToTopButton from "../components/ScrollToTopButton/ScrollToTopButton";
+import ScrollProgressBar from "@/components/ScrollProgressBar/ScrollProgressBar";
 
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetBrainsMono",
@@ -34,19 +36,30 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${jetBrainsMono.variable}  antialiased`}>
+        {/* Provides theme context to the app */}
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
+          {/* Handles page transition animations */}
           <PageTransition>
+            {/* Main site header */}
             <Header />
+            {/* Draggable navigation menu */}
             <DraggableNav />
-            {/* <ThemeSwitcher/> */}
+
+            {/* Main page content */}
             {children}
+            {/* Site footer */}
             <Footer />
+            {/* Announcement bar for notifications */}
             <AnnouncementBar />
+            {/* Shows scroll progress at the top of the page */}
+            <ScrollProgressBar />
+            {/* Button to scroll back to top */}
+            <ScrollToTopButton />
           </PageTransition>
         </ThemeProvider>
       </body>

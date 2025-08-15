@@ -5,8 +5,7 @@ import Image from "next/image";
 import logo from "./../../../public/assets/me-removebg-preview.png";
 import { Nav } from "../Nav/Nav";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
-import ScrollProgressBar from "../ScrollProgressBar/ScrollProgressBar";
-
+ 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showThemeColors, setShowThemeColors] = useState(false);
@@ -43,7 +42,6 @@ export default function Header() {
         isScrolled ? "py-2 xl:py-2 px-10 header" : "py-4 xl:py-6"
       }`}
     >
-          <ScrollProgressBar />
       {/* logo */}
       <div className="relative flex justify-center items-center">
         <Image src={logo} width={90} alt="logo" />
