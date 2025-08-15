@@ -54,8 +54,8 @@ export default function ScrollToTopButton({
           title="Back to top"
           className={[
             "fixed z-50 inline-flex h-12 w-12 items-center justify-center rounded-full",
-            "bg-primary-1000/70 text-white shadow-lg backdrop-blur",
-            "hover:bg-primary-1000 focus:outline-none focus-visible:ring-2 focus-visible:ring-black/50",
+            "bg-primary-1000/70 text-white shadow-lg backdrop-blur hover:cursor-pointer",
+            "hover:bg-primary-1000 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-1000/50",
             "active:scale-95",
             offsetClasses,
             className,
