@@ -149,7 +149,7 @@ body {
 }
 /*_________________________ Header ____________________________*/
 .header {
-  box-shadow: 0px 0px 40px 3px theme(--color-primary-1000);
+  box-shadow: 0px 0px 8px 1px theme(--color-primary-1000) ;
 }
 /*_________________________ Theme Switcher ____________________________*/
 .gradient-text {
