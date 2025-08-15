@@ -64,7 +64,7 @@ export default function Header() {
             className="text-[22px] font-extrabold btn-colors gradient-text cursor-pointer flex gap-1 items-center"
             onClick={() => setShowThemeColors((prev) => !prev)}
           >
-            <span className="w-3 h-3 bg-primary-1000 block rounded-full transition-all duration-500 group-hover:scale-[1.5]"></span>
+            <span className="w-3 h-3 bg-primary-1000 block rounded-full transition-all duration-500 group-hover:h-5 group-hover:w-5"></span>
             Themes
           </button>
 
