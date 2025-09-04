@@ -2,7 +2,7 @@
 import { useEffect, useRef, useState } from "react";
 import ThemeToggle from "../ui/theme-toggle";
 import Image from "next/image";
-import logo from "./../../../public/assets/me-removebg-preview.png";
+import logo from "./../../../public/assets/logo-r.png";
 import { Nav } from "../Nav/Nav";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 
@@ -43,11 +43,9 @@ export default function Header() {
       }`}
     >
       {/* logo */}
-      <div className="relative flex justify-center items-center">
-        <Image src={logo} width={90} alt="logo" />
-        <div className="absolute w-[70%] h-[70%] rounded-full bg-primary-1000 top-[12%] z-[-5] opacity-60"></div>
-        <div className="absolute w-[75%] h-[77%] rounded-full bg-primary-1000 top-[12%] opacity-20"></div>
-      </div>
+      <div className="relative flex justify-center items-center" title="Mahmoud Elsebaey ">
+        <Image src={logo} width={100} height={100} className="w-22 h-16" alt="logo" />
+        </div>
 
       {/* Desktop Nav */}
       <div className="hidden lg:flex items-center xl:translate-x-[70px]">

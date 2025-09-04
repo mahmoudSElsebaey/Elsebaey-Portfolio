@@ -8,11 +8,14 @@ import Stats from "../ui/Stats";
 import { MdOutlineWavingHand } from "react-icons/md";
 
 const titles: string[] = [
+  "Full-Stack Developer",
   "Front-End Developer",
+  "Back-End Developer",
   "React.js Developer",
+  "Angular.js Developer",
   "Next.js Developer",
-  "MERN Stack",
-  "Freelancer ",
+  "MERN | MEAN Stack",
+  "Freelancer Developer",
 ];
 
 export default function HomePage() {
@@ -30,7 +33,9 @@ export default function HomePage() {
       <div className="container mx-auto my-3 flex flex-col md:flex-row justify-between items-center">
         {/*My Informatiom */}
         <div className="xl:h-[480px] flex flex-col gap-2 xl:gap-6 md:gap-1 items-center md:items-start justify-center order-2 md:order-none ">
-          <p className="text-4xl font-bold flex gap-3 ">Hello <MdOutlineWavingHand  className="text-primary-1000"/> I&apos;m</p>
+          <p className="text-4xl font-bold flex gap-3 ">
+            Hello <MdOutlineWavingHand className="text-primary-1000" /> I&apos;m
+          </p>
           <p className="text-3xl sm:text-4xl xl:text-5xl font-bold uppercase relative animate-pulse">
             Mahmoud Elsebaey
             <span
@@ -41,29 +46,31 @@ export default function HomePage() {
           <ul className="h-10 self-start ml-[10%] sm:ml-[16%] md:ml-0">
             <li
               key={index}
-              style={{letterSpacing: "2px"}}
+              style={{ letterSpacing: "2px" }}
               className="typing text-2xl sm:text-3xl font-extrabold text-outline text-transparent"
             >
               {titles[index]}
             </li>
           </ul>
           {/* <h2 className="typing">Front-End Developer</h2> */}
+           
           <p className=" dark:text-white/60 text-black/60 max-w-[500px] text-center md:text-left">
-            A front-end developer specialized in building
-            modern, responsive web apps using React.js and Next.js. I focus on
-            delivering smooth user experiences with clean and scalable code.
+           A Full-Stack Developer| MERN & MEAN I build modern, responsive,
+            and scalable web applications with clean code and seamless user
+            experiences. Always exploring new technologies to create
+            impactful digital solutions.
           </p>
           <div className="flex flex-col md:flex-row items-center gap-8">
             {/* Button */}
             <div className="btn-cv relative p-[2px] overflow-hidden rounded-full">
-                <a
+              <a
                 href="/assets/cv/Mahmoud Elsebaey- Frontend Developer_CV.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
                 tabIndex={-1}
                 className="inline-block"
-                >
+              >
                 <Button
                   size="lg"
                   className="uppercase cursor-pointer bg-primary-1000 hover:bg-primary-1000 text-white
@@ -71,10 +78,10 @@ export default function HomePage() {
                 >
                   <span>Download Cv</span>
                   <span className="text-5xl  animate-pulse">
-                  <MdOutlineFileDownload />
+                    <MdOutlineFileDownload />
                   </span>
                 </Button>
-                </a>
+              </a>
             </div>
             {/* Socials Icons */}
             <div className="">

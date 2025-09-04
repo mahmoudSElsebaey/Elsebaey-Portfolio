@@ -24,12 +24,12 @@ export default function Photo() {
         >
           <Image
             // src="/assets/hero-img.png"
-            src="/assets/hoda3-rm.png"
+            src="/assets/hoda1.png"
              quality={100}
             alt="Personal image"
             priority
             fill
-            className="object-contain scale-[95%]"
+            className="object-contain scale-[105%]"
           />
         </motion.div>
         {/* Circle */}

@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   },
   description: "The personal website , to show the information about me",
   icons: {
-    icon: "/assets/me-removebg-preview.png",
+    icon: "/assets/logo-r.png",
   },
 };
 
@@ -35,6 +35,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <link rel="shortcut icon" href="/assets/logo-r.png" type="image/x-icon" />
+      </head>
       <body className={`${jetBrainsMono.variable}  antialiased`}>
         {/* Provides theme context to the app */}
         <ThemeProvider
