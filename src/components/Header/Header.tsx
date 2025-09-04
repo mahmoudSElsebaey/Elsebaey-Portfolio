@@ -5,6 +5,8 @@ import Image from "next/image";
 import logo from "./../../../public/assets/logo-r.png";
 import { Nav } from "../Nav/Nav";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
+import Link from "next/link";
+ 
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -43,9 +45,20 @@ export default function Header() {
       }`}
     >
       {/* logo */}
-      <div className="relative flex justify-center items-center" title="Mahmoud Elsebaey ">
-        <Image src={logo} width={100} height={100} className="w-22 h-16" alt="logo" />
-        </div>
+      <div
+        className="relative flex justify-center items-center"
+        title="Mahmoud Elsebaey "
+      >
+        <Link href="/" className="sr-only">
+          <Image
+            src={logo}
+            width={100}
+            height={100}
+            className="w-22 h-16"
+            alt="logo"
+          />
+        </Link>
+      </div>
 
       {/* Desktop Nav */}
       <div className="hidden lg:flex items-center xl:translate-x-[70px]">
