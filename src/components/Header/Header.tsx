@@ -49,7 +49,7 @@ export default function Header() {
         className="relative flex justify-center items-center"
         title="Mahmoud Elsebaey "
       >
-        <Link href="/" className="sr-only">
+        <Link href="/" className="sr-only cursor-pointer">
           <Image
             src={logo}
             width={100}
