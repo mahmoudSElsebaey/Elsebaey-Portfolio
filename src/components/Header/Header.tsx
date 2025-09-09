@@ -45,7 +45,7 @@ export default function Header() {
     >
       {/* logo */}
       <div
-        className="relative flex justify-center items-center ml-[-15px] border"
+        className="relative flex justify-center items-center ml-[-15px]"
         title="Mahmoud Elsebaey "
       >
         <Link href="/" className="cursor-pointer">
@@ -64,7 +64,7 @@ export default function Header() {
         <Nav />
       </div>
 
-      <div className="flex justify-between items-center gap-2 border">
+      <div className="flex justify-between items-center gap-2 ">
         {/* Theme Switcher for colors */}
         <div className="flex justify-center items-center" ref={themeRef}>
           <div className="relative group" title="choose theme colors">
@@ -73,8 +73,11 @@ export default function Header() {
               onClick={() => setShowThemeColors((prev) => !prev)}
             >
               {/* Theme color indicator */}
-              <div className="flex justify-center items-center w-6">
-                <span className="w-6 h-6 bg-primary-1000 block rounded-full"></span>
+              <div className="flex justify-center items-center w-6 relative">
+                <span className="w-6 h-6 bg-primary-1000 block rounded-full absolute"></span>
+                <span className="w-6 h-6 bg-red-400 block rounded-full absolute left-1"></span>
+                <span className="w-6 h-6 bg-blue-400 block rounded-full absolute left-2"></span>
+                <span className="w-6 h-6 bg-green-400 block rounded-full absolute left-2"></span>
               </div>
               <p className="hidden">Themes</p>
             </button>
