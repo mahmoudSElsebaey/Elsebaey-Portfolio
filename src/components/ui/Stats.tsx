@@ -27,12 +27,12 @@ export default function Stats() {
                 end={item.num}
                 duration={5}
                 delay={2}
-                className="text-3xl xl:text-6xl font-extrabold text-primary-1000"
+                className="text-3xl md:text-6xl font-extrabold text-primary-1000"
               />
               <p
                 className={`${
                   item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
-                } leading-snug text-gray-500/80 sm:text-xs md:text-base`}
+                } leading-snug text-gray-500/80 sm:text-sm md:text-base`}
               >
                 {item.text}
               </p>
