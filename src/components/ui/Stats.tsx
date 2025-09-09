@@ -17,9 +17,9 @@ export default function Stats() {
   return (
     <section className="">
       <div className="container mx-auto">
-      <div className="flex flex-wrap justify-start gap-6 max-w-[80vw] xl:max-w-none mx-auto">
+      <div className="flex sm:flex-nowrap md:flex-wrap gap-6 max-w-[80vw] xl:max-w-none mx-auto">
         {stats.map((item, index) => (
-          <div key={index} className="flex flex-1 gap-4 items-center justify-center xl:justify-start">
+          <div key={index} className="flex flex-1 gap-4 items-center justify-start">
             <CountUp
               end={item.num}
               duration={5}
