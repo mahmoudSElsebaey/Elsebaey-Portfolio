@@ -17,7 +17,7 @@ export default function Stats() {
   return (
     <section className="">
       <div className="container mx-auto">
-        <div className="flex flex-wrap gap-6 max-w-[90vw] xl:max-w-none mx-auto">
+        <div className="flex flex-wrap justify-center gap-6 max-w-[90vw] xl:max-w-none mx-auto">
           {stats.map((item, index) => (
             <div
               key={index}
@@ -32,7 +32,7 @@ export default function Stats() {
               <p
                 className={`${
                   item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
-                } leading-snug text-gray-500/80 sm:text-sm md:text-base`}
+                } leading-snug text-gray-500/80 sm:text-xs md:text-base`}
               >
                 {item.text}
               </p>
