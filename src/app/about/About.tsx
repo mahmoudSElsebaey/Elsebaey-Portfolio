@@ -70,7 +70,7 @@ export default function Resume() {
                           key={index}
                           className="flex items-center w-[80%] m-auto md:w-full gap-2"
                         >
-                          <span className="text-primary-1000">
+                          <span className="text-primary-1000 flex gap-1 items-center">
                             <PiArrowBendDownRightFill /> {item.fieldName}
                           </span>
                           <span className=" animate-pulse ">
