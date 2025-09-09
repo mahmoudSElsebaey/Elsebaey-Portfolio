@@ -75,7 +75,7 @@ export default function Header() {
             >
               {/* Theme color indicator */}
               <div className="flex justify-center items-center w-6">
-                <RiColorFilterLine size={30} className="text-primary-1000" />
+                <RiColorFilterLine size={30} className="text-primary-1000 text-2xl" />
                  {/* <span className="w-6 h-6 bg-primary-1000 block rounded-full border border-white absolute z-10"></span> */}
                </div>
               <p className="hidden">Themes</p>
