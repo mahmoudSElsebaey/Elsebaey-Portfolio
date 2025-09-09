@@ -32,7 +32,7 @@ export default function Stats() {
               <p
                 className={`${
                   item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
-                } leading-snug text-gray-500/80 sm:text-[10px] md:text-base`}
+                } leading-snug text-gray-500/80 text-xs md:text-base`}
               >
                 {item.text}
               </p>
