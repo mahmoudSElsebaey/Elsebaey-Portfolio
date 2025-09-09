@@ -54,7 +54,7 @@ export default function HomePage() {
           </ul>
           {/* <h2 className="typing">Front-End Developer</h2> */}
            
-          <p className=" dark:text-white/60 text-black/60 max-w-[500px] text-center md:text-left">
+          <p className=" dark:text-white/60 text-black/60 max-w-[500px] text-center md:text-left text-sm md:text-base leading-relaxed">
            A Full-Stack Developer| MERN & MEAN I build modern, responsive,
             and scalable web applications with clean code and seamless user
             experiences. Always exploring new technologies to create
