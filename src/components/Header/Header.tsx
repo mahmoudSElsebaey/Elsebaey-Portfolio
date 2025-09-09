@@ -40,7 +40,7 @@ export default function Header() {
   return (
     <header
       className={`px-2 md:px-5 flex justify-between items-center sticky top-0 z-9999 transition-all duration-300 backdrop-blur-md ${
-        isScrolled ? "py-2 xl:py-2 px-10 header" : "py-4 xl:py-6"
+        isScrolled ? "py-2 xl:py-2 px-3 md:px-10 header" : "py-4 xl:py-6"
       }`}
     >
       {/* logo */}
@@ -64,7 +64,7 @@ export default function Header() {
         <Nav />
       </div>
 
-      <div className="flex justify-between items-center gap-3 border">
+      <div className="flex justify-between items-center gap-3 ">
         {/* Theme Switcher for colors */}
         <div className="flex justify-center items-center " ref={themeRef}>
           <div className="relative group ">
@@ -74,7 +74,7 @@ export default function Header() {
             >
               {/* Theme color indicator */}
               <div className="flex justify-center items-center w-6">
-                <span className="w-6 h-6 bg-primary-1000 block rounded-full transition-all duration-500 group-hover:h-5 group-hover:w-5"></span>
+                <span className="w-5 h-5 bg-primary-1000 block transition-all  duration-500"></span>
               </div>
               <p className="hidden md:block">Themes</p>
             </button>
