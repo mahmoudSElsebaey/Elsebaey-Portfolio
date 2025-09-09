@@ -7,6 +7,8 @@ import { Nav } from "../Nav/Nav";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import Link from "next/link";
 import { RiColorFilterLine } from "react-icons/ri";
+ 
+// import { BiSolidColorFill } from "react-icons/bi";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,9 +42,8 @@ export default function Header() {
 
   return (
     <header
-      className={`px-2 md:px-5 flex justify-between items-center sticky top-0 z-9999 transition-all duration-300 backdrop-blur-md ${
-        isScrolled ? "py-2 xl:py-2 px-3 md:px-10 header" : "py-4 xl:py-6"
-      }`}
+      className={`px-2 md:px-5 flex justify-between items-center sticky top-0 z-9999 transition-all duration-300 backdrop-blur-md ${isScrolled ? "py-2 xl:py-2 px-3 md:px-10 header" : "py-4 xl:py-6"
+        }`}
     >
       {/* logo */}
       <div
@@ -65,7 +66,7 @@ export default function Header() {
         <Nav />
       </div>
 
-      <div className="flex justify-between items-center gap-2 ">
+      <div className="flex justify-between items-center gap-2">
         {/* Theme Switcher for colors */}
         <div className="flex justify-center items-center" ref={themeRef}>
           <div className="relative group" title="choose theme colors">
@@ -74,18 +75,17 @@ export default function Header() {
               onClick={() => setShowThemeColors((prev) => !prev)}
             >
               {/* Theme color indicator */}
-              <div className="flex justify-center items-center w-6">
-                <RiColorFilterLine size={30} className="text-primary-1000 text-2xl" />
-                 {/* <span className="w-6 h-6 bg-primary-1000 block rounded-full border border-white absolute z-10"></span> */}
-               </div>
+              <div className="flex justify-center items-center w-8">
+                <RiColorFilterLine className="text-primary-1000 w-full h-full" />
+                {/* <BiSolidColorFill className="text-primary-1000 w-full h-full" /> */}
+              </div>
               <p className="hidden">Themes</p>
             </button>
             <div
-              className={`absolute left-[50%] translate-x-[-50%] ${
-                showThemeColors
-                  ? "opacity-100 scale-100"
-                  : "opacity-0 scale-0 pointer-events-none"
-              } transition-all duration-300`}
+              className={`absolute left-[50%] translate-x-[-50%] ${showThemeColors
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-0 pointer-events-none"
+                } transition-all duration-300`}
             >
               <ThemeSwitcher />
             </div>
