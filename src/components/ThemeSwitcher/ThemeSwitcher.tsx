@@ -25,12 +25,12 @@ export default function ThemeSwitcher() {
       // إذا لم يكن هناك لون محفوظ، تعيين اللون الافتراضي
       setPrimaryColor("gold", colorOptions.gold);
     }
-  }, []); 
+  }, []); // فقط عند تحميل المكون
 
   return (
     <div
       ref={sidebarRef}
-      className="grid grid-cols-6 mt-1.5 lg:grid-cols-4 gap-2 min-w-[180px] lg:min-w-[150px] py-2 px-3
+      className="grid grid-cols-6 mt-2 lg:grid-cols-4 gap-2 min-w-[180px] lg:min-w-[150px] py-2 px-3
        z-[99999] bg-primary-1000/30 rounded-[15px] border-x-4 border-primary-1000 backdrop-blur-md"
     >
       {Object.entries(colorOptions).map(([name, hex]) => {

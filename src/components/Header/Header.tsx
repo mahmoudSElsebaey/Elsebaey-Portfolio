@@ -75,7 +75,7 @@ export default function Header() {
             >
               {/* Theme color indicator */}
               <div className="flex justify-center items-center w-6">
-                <VscColorMode size={15} className="text-primary-1000" />
+                <VscColorMode size={25} className="text-primary-1000" />
                 {/* <span className="w-6 h-6 bg-primary-1000 block rounded-full border border-white absolute z-10"></span>
                 <span className="w-6 h-6 bg-green-600 block rounded-full absolute left-[-3px] z-5"></span>
                 <span className="w-6 h-6 bg-blue-400 block rounded-full absolute left-[-6px] z-4"></span>
