@@ -73,7 +73,7 @@ export default function Header() {
               onClick={() => setShowThemeColors((prev) => !prev)}
             >
               {/* Theme color indicator */}
-              <div className="flex justify-center items-center w-6 relative border top-0 left-0">
+              <div className="flex justify-center items-center w-6">
                 <span className="w-6 h-6 bg-primary-1000 block rounded-full border border-white absolute top-0 z-10"></span>
                 <span className="w-6 h-6 bg-green-400 block rounded-full absolute top-[-2px] left-[-2px] z-5"></span>
                 <span className="w-6 h-6 bg-blue-400 block rounded-full absolute top-[-4px] left-[-4px] z-4"></span>
