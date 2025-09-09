@@ -74,9 +74,9 @@ export default function Header() {
             >
               {/* Theme color indicator */}
               <div className="flex justify-center items-center w-6">
-                <span className="w-5 h-5 bg-primary-1000 block transition-all  duration-500"></span>
+                <span className="w-6 h-6 bg-primary-1000 block rounded-full"></span>
               </div>
-              <p className="hidden md:block">Themes</p>
+              <p className="hidden">Themes</p>
             </button>
 
             <div
@@ -91,7 +91,9 @@ export default function Header() {
           </div>
         </div>
         {/* Theme Toggle */}
-        <ThemeToggle />
+        <div className="order-1">
+          <ThemeToggle />
+        </div>
       </div>
     </header>
   );
