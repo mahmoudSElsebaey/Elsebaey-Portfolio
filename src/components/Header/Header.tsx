@@ -74,10 +74,10 @@ export default function Header() {
             >
               {/* Theme color indicator */}
               <div className="flex justify-center items-center w-6 relative">
-                <span className="w-6 h-6 bg-primary-1000 block rounded-full absolute"></span>
-                <span className="w-6 h-6 bg-red-400 block rounded-full absolute left-1"></span>
-                <span className="w-6 h-6 bg-blue-400 block rounded-full absolute left-2"></span>
-                <span className="w-6 h-6 bg-green-400 block rounded-full absolute left-2"></span>
+                <span className="w-6 h-6 bg-primary-1000 block rounded-full border border-white absolute top-0 z-10"></span>
+                <span className="w-6 h-6 bg-red-400 block rounded-full absolute top-0 left-[-2px] z-5"></span>
+                <span className="w-6 h-6 bg-blue-400 block rounded-full absolute top-0 left-[-4px] z-4"></span>
+                <span className="w-6 h-6 bg-green-400 block rounded-full absolute top-0 left-[-6px] z-3"></span>
               </div>
               <p className="hidden">Themes</p>
             </button>
