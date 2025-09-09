@@ -17,6 +17,7 @@ import { TbCertificate } from "react-icons/tb";
 import { GrOrganization } from "react-icons/gr";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import Link from "next/link";
+import { PiArrowBendDownRightFill } from "react-icons/pi";
 
 export default function Resume() {
   return (
@@ -57,7 +58,7 @@ export default function Resume() {
                     <h3 className="text-4xl md:text-5xl font-bold text-primary-1000">
                       {about.title}
                     </h3>
-                    <p className="opacity-70 mx-auto xl:mx-auto leading-7">
+                    <p className="opacity-70 mx-auto xl:mx-auto leading-7 text-sm md:text-base">
                       {about.description}
                     </p>
                   </div>
@@ -70,10 +71,10 @@ export default function Resume() {
                           className="flex items-center w-[80%] m-auto md:w-full gap-2"
                         >
                           <span className="text-primary-1000">
-                            {item.fieldName}
+                            <PiArrowBendDownRightFill /> {item.fieldName}
                           </span>
                           <span className=" animate-pulse ">
-                          {item.fieldValue}
+                            {item.fieldValue}
                           </span>
                         </li>
                       );
@@ -90,7 +91,7 @@ export default function Resume() {
                     <h3 className="text-4xl md:text-5xl font-bold text-primary-1000">
                       {education.title}
                     </h3>
-                    <p className="opacity-70 mx-auto md:mx-0 ">
+                    <p className="opacity-70 mx-auto md:mx-0 text-sm md:text-base ">
                       {education.description}
                     </p>
                   </div>
@@ -128,7 +129,7 @@ export default function Resume() {
                     <h3 className="text-4xl md:text-5xl  font-bold text-primary-1000">
                       {certificates.title}
                     </h3>
-                    <p className="opacity-70 mx-auto md:mx-0  ">
+                    <p className="opacity-70 mx-auto md:mx-0 text-sm md:text-base ">
                       {certificates.description}
                     </p>
                   </div>
@@ -166,7 +167,8 @@ export default function Resume() {
                             {/* Link */}
                             <div className="">
                               <Link
-                                href={item.link} target="_blank"
+                                href={item.link}
+                                target="_blank"
                                 className="flex justify-center items-center gap-4 border border-primary-1000 py-3 px-6 rounded-lg
                                  text-primary-1000 font-bold hover:bg-primary-1000 group hover:text-white transition-all duration-300"
                               >
@@ -199,7 +201,7 @@ export default function Resume() {
                     <h3 className="text-4xl md:text-5xl font-bold text-primary-1000">
                       {skills.title}
                     </h3>
-                    <p className="opacity-70 mx-auto md:mx-0  ">
+                    <p className="opacity-70 mx-auto md:mx-0 text-sm md:text-base ">
                       {skills.description}
                     </p>
                   </div>
@@ -211,7 +213,7 @@ export default function Resume() {
                           <li key={index}>
                             <h3 className="text-primary-1000 text-[18px] sm:text-2xl font-bold mb-5 text-left flex items-center gap-0">
                               <span className="text-outline text-transparent animate-pulse text-2xl sm:text-3xl pr-4">
-                                0{index + 1} 
+                                0{index + 1}
                               </span>
                               {sec.title}
                             </h3>

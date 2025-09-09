@@ -75,9 +75,7 @@ export const about: {
   info: InfoItem[];
 } = {
   title: "About Me",
-  description: `
-        I’m a passionate Front-End Developer with a strong background in computer science and hands-on experience in building modern web applications. I specialize in creating responsive, user-friendly interfaces using technologies like React.js and Next.js.
-    `,
+  description: `A Full-Stack Developer| MERN & MEAN I build modern, responsive,and scalable web applications with clean code and seamless user experiences. Always exploring new technologies to create impactful digital solutions.`,
   info: [
     { fieldName: "Name", fieldValue: "Mahmoud Salah Elsebaey" },
     { fieldName: "Phone", fieldValue: "(+20) 120 7247 967" },
