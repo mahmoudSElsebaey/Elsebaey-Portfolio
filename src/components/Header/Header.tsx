@@ -6,7 +6,6 @@ import logo from "./../../../public/assets/logo-r.png";
 import { Nav } from "../Nav/Nav";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import Link from "next/link";
- 
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,7 +39,7 @@ export default function Header() {
 
   return (
     <header
-      className={`px-5 flex justify-between items-center sticky top-0 z-9999 transition-all duration-300 backdrop-blur-md ${
+      className={`px-2 md:px-5 flex justify-between items-center sticky top-0 z-9999 transition-all duration-300 backdrop-blur-md ${
         isScrolled ? "py-2 xl:py-2 px-10 header" : "py-4 xl:py-6"
       }`}
     >
@@ -65,37 +64,33 @@ export default function Header() {
         <Nav />
       </div>
 
-      {/* Theme Switcher for colors */}
-      <div
-        className="flex justify-center items-center xl:translate-x-[75px] "
-        ref={themeRef}
-      >
-        <div className="relative group ">
-          <button
-            className="text-[22px] font-extrabold btn-colors gradient-text cursor-pointer flex gap-1 items-center"
-            onClick={() => setShowThemeColors((prev) => !prev)}
-          >
-            {/* Theme color indicator */}
-            <div className="flex justify-center items-center w-6">
-              <span className="w-3 h-3 bg-primary-1000 block rounded-full transition-all duration-500 group-hover:h-5 group-hover:w-5"></span>
-            </div>
-            Themes
-          </button>
+      <div className="flex justify-between items-center gap-3 border">
+        {/* Theme Switcher for colors */}
+        <div className="flex justify-center items-center " ref={themeRef}>
+          <div className="relative group ">
+            <button
+              className="text-[22px] font-extrabold btn-colors gradient-text cursor-pointer flex gap-1 items-center"
+              onClick={() => setShowThemeColors((prev) => !prev)}
+            >
+              {/* Theme color indicator */}
+              <div className="flex justify-center items-center w-6">
+                <span className="w-6 h-6 bg-primary-1000 block rounded-full transition-all duration-500 group-hover:h-5 group-hover:w-5"></span>
+              </div>
+              <p className="hidden md:block">Themes</p>
+            </button>
 
-          <div
-            className={`absolute left-[50%] translate-x-[-50%] ${
-              showThemeColors
-                ? "opacity-100 scale-100"
-                : "opacity-0 scale-0 pointer-events-none"
-            } transition-all duration-300`}
-          >
-            <ThemeSwitcher />
+            <div
+              className={`absolute left-[50%] translate-x-[-50%] ${
+                showThemeColors
+                  ? "opacity-100 scale-100"
+                  : "opacity-0 scale-0 pointer-events-none"
+              } transition-all duration-300`}
+            >
+              <ThemeSwitcher />
+            </div>
           </div>
         </div>
-      </div>
-
-      {/* Theme Toggle */}
-      <div>
+        {/* Theme Toggle */}
         <ThemeToggle />
       </div>
     </header>

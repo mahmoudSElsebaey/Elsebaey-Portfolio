@@ -5,7 +5,7 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { IoMoon } from "react-icons/io5";
 import { GoSun } from "react-icons/go";
- 
+
 export default function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -18,7 +18,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className={`w-14 h-8 flex items-center rounded-full px-1 transition-colors duration-300 cursor-pointer ${
+      className={`w-10 h-6 md:w-14 md:h-8 flex items-center rounded-full px-1 transition-colors duration-300 cursor-pointer ${
         isDark ? "bg-gray-800" : "bg-yellow-500"
       }`}
     >

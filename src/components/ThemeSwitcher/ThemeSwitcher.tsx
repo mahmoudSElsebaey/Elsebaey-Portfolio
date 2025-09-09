@@ -25,7 +25,7 @@ export default function ThemeSwitcher() {
       // إذا لم يكن هناك لون محفوظ، تعيين اللون الافتراضي
       setPrimaryColor("gold", colorOptions.gold);
     }
-  }, []); // فقط عند تحميل المكون
+  }, []);
 
   return (
     <div
