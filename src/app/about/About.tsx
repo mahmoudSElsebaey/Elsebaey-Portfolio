@@ -68,12 +68,12 @@ export default function Resume() {
                       return (
                         <li
                           key={index}
-                          className="flex items-center w-[80%] m-auto md:w-full gap-2"
+                          className="flex items-center w-[90%] m-auto md:w-full gap-1"
                         >
-                          <span className="text-primary-1000 flex gap-1 items-center">
+                          <span className="text-primary-1000 flex gap-[2px] items-center">
                             <PiArrowBendDownRightFill /> {item.fieldName}
                           </span>
-                          <span className=" animate-pulse ">
+                          <span className="animate-pulse text-sm sm:text-base ">
                             {item.fieldValue}
                           </span>
                         </li>
