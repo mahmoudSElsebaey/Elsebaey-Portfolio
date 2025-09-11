@@ -22,7 +22,7 @@ export default function FeaturesTabs() {
         {featuresList.map(({ category, title, icon }) => (
           <TooltipProvider key={category}>
             <Tooltip>
-              <TooltipTrigger>
+              <TooltipTrigger asChild>
                 <Tabs.Trigger
                   value={category}
                   className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] xl:w-[70px] xl:h-[70px] rounded-full bg-primary-1000/20 flex justify-center items-center

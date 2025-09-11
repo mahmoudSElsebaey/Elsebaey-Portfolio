@@ -21,7 +21,7 @@ export default function Services() {
             {services.map((item, index) => {
               return (
                 <div
-                  key={index} data-aos="zoom-in-up" data-aos-duration="700" 
+                  key={index} data-aos="zoom-in-up" data-aos-duration="700"
                   className="flex flex-1 flex-col gap-6 p-3 px-6 service-item rounded-2xl bg-primary-1000/10 group  "
                 >
                   <div className="flex justify-between w-full items-center ">
