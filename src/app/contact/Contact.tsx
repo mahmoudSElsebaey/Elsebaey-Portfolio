@@ -136,7 +136,7 @@ export default function Contact() {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row gap-[30px] ">
           {/* Form */}
-          <div className="order-2 xl:h-[55%] xl:order-none ">
+          <div className="order-2 xl:h-[55%] xl:order-none " data-aos="zoom-in-right">
             <form
               onSubmit={handleSubmit}
               className="flex flex-col gap-6 p-10 bg-primary-1000/30 dark:bg-primary-1000/10 rounded-lg "
@@ -247,7 +247,7 @@ export default function Contact() {
           </div>
 
           {/* Contact Info */}
-          <div className="flex-1 flex items-center order-1 xl:order-none xl:justify-end mb-8 xl:mb-0">
+          <div className="flex-1 flex items-center order-1 xl:order-none xl:justify-end mb-8 xl:mb-0"  data-aos="zoom-in-left">
             <ul className="flex flex-col gap-10">
               {contactInfo.map((item, index) => (
                 <li key={index} className="flex items-center gap-2 md:gap-6">

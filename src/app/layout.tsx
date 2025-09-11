@@ -10,6 +10,7 @@ import DraggableNav from "@/components/DraggableMenu/DraggableMenu";
 // import ThemeSwitcher from "@/components/ThemeSwitcher/ThemeSwitcher";
 import ScrollToTopButton from "../components/ScrollToTopButton/ScrollToTopButton";
 import ScrollProgressBar from "@/components/ScrollProgressBar/ScrollProgressBar";
+import AOSProvider from "@/components/ui/AOSProvider";
 
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetBrainsMono",
@@ -36,7 +37,11 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link rel="shortcut icon" href="/assets/logo-r.png" type="image/x-icon" />
+        <link
+          rel="shortcut icon"
+          href="/assets/logo-r.png"
+          type="image/x-icon"
+        />
       </head>
       <body className={`${jetBrainsMono.variable}  antialiased`}>
         {/* Provides theme context to the app */}
@@ -48,13 +53,13 @@ export default function RootLayout({
         >
           {/* Handles page transition animations */}
           <PageTransition>
+
             {/* Main site header */}
             <Header />
             {/* Draggable navigation menu */}
             <DraggableNav />
-
             {/* Main page content */}
-            {children}
+            <AOSProvider> {children}</AOSProvider>
             {/* Site footer */}
             <Footer />
             {/* Announcement bar for notifications */}

@@ -45,7 +45,7 @@ export default function Projects() {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px] ">
           {/* ----------- Left Side [Project Info] ----------- */}
-          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col gap-[25px] order-2 xl:order-none">
+          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col gap-[25px]">
             <div className="text-transparent text-outline text-8xl font-extrabold">
               {project.num}
             </div>

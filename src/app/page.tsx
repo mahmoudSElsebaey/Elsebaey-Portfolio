@@ -6,9 +6,7 @@ import Contact from "./contact/page";
 import Resume from "./about/page";
 import Title from "@/components/TitleSections/Title";
 import HomePage from "@/components/Home/Home";
-
-
-
+ 
 export default function Home() {
   return (
     <>
