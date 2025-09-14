@@ -22,7 +22,6 @@ export default function Footer() {
             height={100}
             alt="Mahmoud Elsebaey-QR"
             className="bg-white rounded-[10px]"
-            data-aos="zoom-in"
           />
         </div>
         <div className="flex flex-col gap-2 sm:gap-8" data-aos="zoom-in">
@@ -30,7 +29,7 @@ export default function Footer() {
             className="text-5xl md:text-6xl font-bold pl-0 md:pl-4"
             data-aos="zoom-in"
           >
-            Send Me{" "}
+            Send Me
           </p>
           <Socials />
         </div>

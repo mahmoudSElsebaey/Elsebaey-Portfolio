@@ -30,16 +30,19 @@ export default function HomePage() {
 
   return (
     <main className="h-full">
-      <div className="container mx-auto my-3 flex flex-col md:flex-row justify-between items-center">
+      <div
+        data-aos="zoom-in"
+        className="container mx-auto my-3 flex flex-col md:flex-row justify-between items-center"
+      >
         {/*My Informatiom */}
-        <div className="xl:h-[480px] flex flex-col gap-2 xl:gap-6 md:gap-1 items-center md:items-start justify-center order-2 md:order-none ">
-          <p className="text-4xl font-bold flex gap-3 " data-aos="zoom-in">
+        <div
+          data-aos="zoom-in"
+          className="xl:h-[480px] flex flex-col gap-2 xl:gap-6 md:gap-1 items-center md:items-start justify-center order-2 md:order-none "
+        >
+          <p className="text-4xl font-bold flex gap-3 ">
             Hello <MdOutlineWavingHand className="text-primary-1000" /> I&apos;m
           </p>
-          <p
-            className="text-3xl sm:text-4xl xl:text-5xl font-bold uppercase relative animate-pulse"
-            data-aos="zoom-in"
-          >
+          <p className="text-3xl sm:text-4xl xl:text-5xl font-bold uppercase relative animate-pulse">
             Mahmoud Elsebaey
             <span
               className="absolute top-1/2 left-0 w-full my-name animate-pulse h-[0.0001px] opacity-80 z-[-1]
@@ -61,8 +64,8 @@ export default function HomePage() {
           {/* <h2 className="typing">Front-End Developer</h2> */}
 
           <p
-            className=" dark:text-white/60 text-black/60 max-w-[500px] text-center md:text-left text-sm md:text-base leading-relaxed"
             data-aos="zoom-in"
+            className=" dark:text-white/60 text-black/60 max-w-[500px] text-center md:text-left text-sm md:text-base leading-relaxed"
           >
             A Full-Stack Developer| MERN & MEAN I build modern, responsive, and
             scalable web applications with clean code and seamless user
@@ -74,7 +77,10 @@ export default function HomePage() {
             data-aos="zoom-in"
           >
             {/* Button */}
-            <div className="btn-cv relative p-[2px] overflow-hidden rounded-full">
+            <div
+              className="btn-cv relative p-[2px] overflow-hidden rounded-full"
+              data-aos="zoom-in"
+            >
               <a
                 href="/assets/cv/Mahmoud Elsebaey- Frontend Developer_CV.pdf"
                 download
@@ -102,12 +108,12 @@ export default function HomePage() {
           </div>
         </div>
         {/* My Photo */}
-        <div className="order-1 md:order-none">
+        <div className="order-1 md:order-none" data-aos="zoom-in">
           <Photo />
         </div>
       </div>
       {/* Stats */}
-      <div className="mb-25 mt-10 xl:mt-6">
+      <div className="mb-25 mt-10 xl:mt-6" data-aos="zoom-in">
         <Stats />
       </div>
     </main>

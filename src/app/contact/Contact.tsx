@@ -140,8 +140,8 @@ export default function Contact() {
             <form
               onSubmit={handleSubmit}
               className="flex flex-col gap-6 p-10 bg-primary-1000/30 dark:bg-primary-1000/10 rounded-lg "
-            >
-              <h3 className="text-4xl text-primary-1000">
+             data-aos="zoom-in">
+              <h3 className="text-4xl text-primary-1000" data-aos="zoom-in">
                 Let&apos;s Work Together
               </h3>
               <p className="opacity-70">

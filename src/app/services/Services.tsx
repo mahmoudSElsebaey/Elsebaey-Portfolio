@@ -14,7 +14,7 @@ export default function Services() {
           }}
           className=""
         >
-          <h3 className="container pb-6 opacity-60">
+          <h3 className="container pb-6 opacity-60" data-aos="zoom-in">
             Full-stack web development with a focus on performance, scalability,
             and user experience — from frontend to backend .
           </h3>
