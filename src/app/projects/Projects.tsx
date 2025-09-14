@@ -45,7 +45,10 @@ export default function Projects() {
       <div className="container mx-auto">
         <div className="flex flex-col xl:flex-row xl:gap-[30px] ">
           {/* ----------- Left Side [Project Info] ----------- */}
-          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col gap-[25px]">
+          <div
+            className="w-full xl:w-[50%] xl:h-[460px] flex flex-col gap-[25px]"
+            data-aos="zoom-in" 
+          >
             <div className="text-transparent text-outline text-8xl font-extrabold">
               {project.num}
             </div>
@@ -104,6 +107,7 @@ export default function Projects() {
                   <div
                     className="h-[460px] relative flex justify-center items-center group cursor-pointer"
                     onClick={() => setFullscreenImage(project.image)}
+                    data-aos="zoom-in"
                   >
                     {/* Overlay */}
                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300 z-10 flex justify-end items-start p-2">

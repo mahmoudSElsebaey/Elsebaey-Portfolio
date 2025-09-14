@@ -16,21 +16,29 @@ export default function FeaturesTabs() {
     <Tabs.Root
       defaultValue={featuresList[0].category}
       className="w-full max-w-5xl mx-auto px-4 mt-15 mb-30"
+      data-aos="zoom-in"
     >
       {/* Tab buttons */}
-      <Tabs.List className="flex flex-wrap justify-center gap-1 md:gap-4 xl:gap-6 mb-6">
+      <Tabs.List
+        className="flex flex-wrap justify-center gap-1 md:gap-4 xl:gap-6 mb-6"
+        data-aos="zoom-in"
+      >
         {featuresList.map(({ category, title, icon }) => (
-          <TooltipProvider key={category}>
+          <TooltipProvider key={category} data-aos="zoom-in">
             <Tooltip>
-              <TooltipTrigger asChild>
+              <TooltipTrigger asChild data-aos="zoom-in">
                 <Tabs.Trigger
                   value={category}
                   className="w-[50px] h-[50px] md:w-[60px] md:h-[60px] xl:w-[70px] xl:h-[70px] rounded-full bg-primary-1000/20 flex justify-center items-center
                    cursor-pointer group transition-all duration-500 data-[state=active]:bg-primary-1000
                  data-[state=active]:text-white social-icon border border-transparent 
                    "
+                  data-aos="zoom-in"
                 >
-                  <span className=" text-2xl md:text-3xl transition-all">
+                  <span
+                    className=" text-2xl md:text-3xl transition-all"
+                    data-aos="zoom-in"
+                  >
                     {icon}
                   </span>
                 </Tabs.Trigger>
@@ -43,24 +51,30 @@ export default function FeaturesTabs() {
 
       {/* Tab content */}
       {featuresList.map((section) => (
-        <Tabs.Content key={section.category} value={section.category}>
+        <Tabs.Content
+          key={section.category}
+          value={section.category}
+          data-aos="zoom-in"
+        >
           <Accordion.Root
             type="single"
             collapsible
             className="space-y-2"
             defaultValue={section.title}
+            data-aos="zoom-in"
           >
             <Accordion.Item
               value={section.title}
               className="border border-primary-1000 w-full rounded-lg overflow-hidden"
+              data-aos="zoom-in"
             >
               <Accordion.Header>
                 <Accordion.Trigger className="group w-full flex items-center cursor-pointer justify-between p-4 bg-primary-100/10 hover:bg-primary-100/20 transition font-bold text-left text-primary-1000">
-                  <div className="flex items-center gap-3">
-                    <span className="animate-pulse text-2xl">
+                  <div className="flex items-center gap-3" data-aos="zoom-in">
+                    <span className="animate-pulse text-2xl" data-aos="zoom-in">
                       {section.icon}
                     </span>
-                    <span>{section.title}</span>
+                    <span data-aos="zoom-in">{section.title}</span>
                   </div>
                   <ChevronDownIcon
                     className="w-5 h-5 transition-transform duration-300 animate-pulse
@@ -75,12 +89,18 @@ export default function FeaturesTabs() {
                     <li
                       key={i}
                       className="text-[16px] flex items-center gap-3 opacity-70 p-2 hover:opacity-100"
+                      data-aos="zoom-in"
                     >
-                      <span className="font-bold text-outline text-transparent animate-pulse text-2xl">
+                      <span
+                        className="font-bold text-outline text-transparent animate-pulse text-2xl"
+                        data-aos="zoom-in"
+                      >
                         {/* 0{i+1} */}
                         {String(i + 1).padStart(2, "0")}
                       </span>
-                      <span className="">{f}</span>
+                      <span className="" data-aos="zoom-in">
+                        {f}
+                      </span>
                     </li>
                   ))}
                 </ul>

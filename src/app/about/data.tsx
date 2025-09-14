@@ -16,6 +16,7 @@ import {
   FaNodeJs,
   FaJava,
   FaPython,
+  FaAngular,
 } from "react-icons/fa";
 import { RiNextjsFill } from "react-icons/ri";
 import {
@@ -250,6 +251,7 @@ export const skills: {
         { name: "JavaScript (ES6+)", icon: <SiJavascript /> },
         { name: "TypeScript", icon: <SiTypescript /> },
         { name: "React.js", icon: <FaReact /> },
+        { name: "Angular.js", icon: <FaAngular /> },
         { name: "Next.js", icon: <RiNextjsFill /> },
         { name: "Redux Toolkit", icon: <SiRedux /> },
       ],

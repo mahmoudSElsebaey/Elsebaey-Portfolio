@@ -38,17 +38,18 @@ function TabsTrigger({
     <TabsPrimitive.Trigger
       data-slot="tabs-trigger"
       className={cn(
-        `tabs-trigger whitespace-nowrap rounded-lg m-1 p-1 sm:p-3 sm:text-base md:p-3 text-[14px] md:text-xl font-bold cursor-pointer
-        ring-offset-white transition-all capitalize
+        `tabs-trigger whitespace-nowrap rounded-lg m-1 p-1 px-2 sm:p-3 text-[15px] sm:text-base md:text-xl font-bold cursor-pointer ring-offset-white transition-all capitalize
 
-        border-b-4 border-transparent
+        border-b-4
+        border-transparent
         hover:border-b-2
         hover:border-primary-1000/20
         hover:rounded-full
 
-        data-[state=active]:text-primary-1000
+        data-[state=active]:text-primary-1000/85
         data-[state=active]:font-extrabold
-        data-[state=active]:border-b-4
+        data-[state=active]:border-b-2
+        md:data-[state=active]:border-b-4
         data-[state=active]:border-b-primary-1000
         data-[state=active]:text-shadow-[1px 1px 5px #fff]
         data-[state=active]:rounded-full`,

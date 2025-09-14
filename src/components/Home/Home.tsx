@@ -33,17 +33,23 @@ export default function HomePage() {
       <div className="container mx-auto my-3 flex flex-col md:flex-row justify-between items-center">
         {/*My Informatiom */}
         <div className="xl:h-[480px] flex flex-col gap-2 xl:gap-6 md:gap-1 items-center md:items-start justify-center order-2 md:order-none ">
-          <p className="text-4xl font-bold flex gap-3 ">
+          <p className="text-4xl font-bold flex gap-3 " data-aos="zoom-in">
             Hello <MdOutlineWavingHand className="text-primary-1000" /> I&apos;m
           </p>
-          <p className="text-3xl sm:text-4xl xl:text-5xl font-bold uppercase relative animate-pulse">
+          <p
+            className="text-3xl sm:text-4xl xl:text-5xl font-bold uppercase relative animate-pulse"
+            data-aos="zoom-in"
+          >
             Mahmoud Elsebaey
             <span
               className="absolute top-1/2 left-0 w-full my-name animate-pulse h-[0.0001px] opacity-80 z-[-1]
             shadow-[0_0_30px_5px_theme(--color-primary-1000)] lg:shadow-[0_0_40px_15px_theme(--color-primary-1000)]"
             ></span>
           </p>
-          <ul className="h-10 self-start ml-[10%] sm:ml-[16%] md:ml-0">
+          <ul
+            className="h-10 self-start ml-[10%] sm:ml-[16%] md:ml-0"
+            data-aos="zoom-in"
+          >
             <li
               key={index}
               style={{ letterSpacing: "2px" }}
@@ -53,14 +59,20 @@ export default function HomePage() {
             </li>
           </ul>
           {/* <h2 className="typing">Front-End Developer</h2> */}
-           
-          <p className=" dark:text-white/60 text-black/60 max-w-[500px] text-center md:text-left text-sm md:text-base leading-relaxed">
-           A Full-Stack Developer| MERN & MEAN I build modern, responsive,
-            and scalable web applications with clean code and seamless user
-            experiences. Always exploring new technologies to create
-            impactful digital solutions.
+
+          <p
+            className=" dark:text-white/60 text-black/60 max-w-[500px] text-center md:text-left text-sm md:text-base leading-relaxed"
+            data-aos="zoom-in"
+          >
+            A Full-Stack Developer| MERN & MEAN I build modern, responsive, and
+            scalable web applications with clean code and seamless user
+            experiences. Always exploring new technologies to create impactful
+            digital solutions.
           </p>
-          <div className="flex flex-col md:flex-row items-center gap-8">
+          <div
+            className="flex flex-col md:flex-row items-center gap-8"
+            data-aos="zoom-in"
+          >
             {/* Button */}
             <div className="btn-cv relative p-[2px] overflow-hidden rounded-full">
               <a
@@ -84,7 +96,7 @@ export default function HomePage() {
               </a>
             </div>
             {/* Socials Icons */}
-            <div className="">
+            <div className="" data-aos="zoom-in">
               <Socials />
             </div>
           </div>

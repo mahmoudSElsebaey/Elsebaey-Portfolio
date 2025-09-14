@@ -16,17 +16,19 @@ export default function Stats() {
   ];
   return (
     <section className="">
-      <div className="container mx-auto">
+      <div
+        className="container mx-auto"
+      >
         <div className="flex flex-wrap justify-center gap-6 max-w-[90vw] xl:max-w-none mx-auto">
           {stats.map((item, index) => (
             <div
               key={index}
-              className="flex flex-1 gap-4 items-center justify-start"
+              className="flex flex-1 gap-4 items-center justify-start" data-aos="zoom-in"
             >
               <CountUp
                 end={item.num}
-                duration={5}
-                delay={2}
+                duration={10}
+                delay={4}
                 className="text-3xl md:text-6xl font-extrabold text-primary-1000"
               />
               <p
