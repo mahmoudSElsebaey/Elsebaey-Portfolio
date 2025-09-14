@@ -8,12 +8,21 @@ import {
 
 export default function Skills() {
   return (
-    <div className="flex flex-col text-center gap-8 lg:text-left" data-aos="zoom-in">
+    <div
+      className="flex flex-col text-center gap-8 lg:text-left"
+      data-aos="zoom-in"
+    >
       <div className="flex flex-col gap-4" data-aos="zoom-in">
-        <h3 className="text-2xl md:text-4xl font-bold text-primary-1000" data-aos="zoom-in">
+        <h3
+          className="text-2xl md:text-4xl font-bold text-primary-1000"
+          data-aos="zoom-in"
+        >
           {skills.title}
         </h3>
-        <p className="opacity-70 mx-auto md:mx-0 text-xs md:text-base " data-aos="zoom-in">
+        <p
+          className="opacity-70 mx-auto md:mx-0 text-xs md:text-base "
+          data-aos="zoom-in"
+        >
           {skills.description}
         </p>
       </div>

@@ -34,6 +34,7 @@ const contactInfo: ContactInfoType = [
     icon: <FaEnvelope />,
     title: "Email",
     description: "mahmoudelsebaey710@gmail.com",
+    optionAddtion: "mahmoud.elsebaey999@gmail.com",
   },
   {
     icon: <FaMapMarkerAlt />,
@@ -53,9 +54,10 @@ export default function Contact() {
     message: "",
   });
 
-  const [feedback, setFeedback] = useState<
-    { type: "success" | "error"; text: string } | null
-  >(null);
+  const [feedback, setFeedback] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -84,7 +86,10 @@ export default function Contact() {
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      setFeedback({ type: "error", text: "Please enter a valid email address." });
+      setFeedback({
+        type: "error",
+        text: "Please enter a valid email address.",
+      });
       return;
     }
 
@@ -133,18 +138,31 @@ export default function Contact() {
       }}
       className="mx-4 md:mx-0 mb-5 mt-3"
     >
-      <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row gap-[30px] ">
+      <div className="sm:container mx-auto" data-aos="zoom-in">
+        <div
+          className="flex flex-col xl:flex-row gap-[30px] "
+          data-aos="zoom-in"
+        >
           {/* Form */}
-          <div className="order-2 xl:h-[55%] xl:order-none " data-aos="zoom-in-right">
+          <div
+            className="order-2 xl:h-[55%] xl:order-none"
+            data-aos="zooms-in-right"
+          >
             <form
               onSubmit={handleSubmit}
               className="flex flex-col gap-6 p-10 bg-primary-1000/30 dark:bg-primary-1000/10 rounded-lg "
-             data-aos="zoom-in">
-              <h3 className="text-4xl text-primary-1000" data-aos="zoom-in">
+              data-aos="zoom-in"
+            >
+              <h3
+                className="text-base sm:text-4xl text-primary-1000"
+                data-aos="zoom-in"
+              >
                 Let&apos;s Work Together
               </h3>
-              <p className="opacity-70">
+              <p
+                className="opacity-70 text-xs sm:text-sm md:text-base"
+                data-aos="zoom-in"
+              >
                 Whether you have a question, a project idea, or just want to
                 connect—feel free to reach out.
               </p>
@@ -170,13 +188,17 @@ export default function Contact() {
                 </div>
               )}
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
+              <div
+                className="grid grid-cols-1 md:grid-cols-2 gap-6 "
+                data-aos="zoom-in"
+              >
                 <Input
                   type="text"
                   name="firstname"
                   placeholder="First Name"
                   value={formData.firstname}
                   onChange={handleChange}
+                  data-aos="zoom-in"
                 />
                 <Input
                   type="text"
@@ -184,6 +206,7 @@ export default function Contact() {
                   placeholder="Last Name"
                   value={formData.lastname}
                   onChange={handleChange}
+                  data-aos="zoom-in"
                 />
                 <Input
                   type="email"
@@ -191,6 +214,7 @@ export default function Contact() {
                   placeholder="Email Address"
                   value={formData.email}
                   onChange={handleChange}
+                  data-aos="zoom-in"
                 />
                 <Input
                   type="tel"
@@ -198,17 +222,24 @@ export default function Contact() {
                   placeholder="Phone Number"
                   value={formData.phone}
                   onChange={handleChange}
+                  data-aos="zoom-in"
                 />
               </div>
 
-              <Select value={formData.service} onValueChange={handleSelectChange}>
+              <Select
+                value={formData.service}
+                onValueChange={handleSelectChange}
+                data-aos="zoom-in"
+              >
                 <SelectTrigger className="w-full ">
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
-                    <SelectItem value="UI Development">UI Development</SelectItem>
+                    <SelectItem value="UI Development">
+                      UI Development
+                    </SelectItem>
                     <SelectItem value="React.js Development">
                       React.js Development
                     </SelectItem>
@@ -234,12 +265,19 @@ export default function Contact() {
                 className="h-[200px] max-h-[400px] "
                 value={formData.message}
                 onChange={handleChange}
+                data-aos="zoom-in"
               />
               <Button
                 size="lg"
-                className="max-w-40 rounded-3xl bg-primary-1000 cursor-pointer text-md disabled:opacity-50"
+                className="max-w-40 rounded-3xl bg-primary-1000 cursor-pointer py-4 sm:py-5 text-sm sm:text-base outline disabled:opacity-30 disabled:cursor-not-allowed"
                 type="submit"
                 disabled={!isFormValid}
+                title={`${
+                  !isFormValid
+                    ? `Please fill all inputs , to able to send email `
+                    : ``
+                }`}
+                data-aos="zoom-in"
               >
                 Send Message
               </Button>
@@ -247,15 +285,32 @@ export default function Contact() {
           </div>
 
           {/* Contact Info */}
-          <div className="flex-1 flex items-center order-1 xl:order-none xl:justify-end mb-8 xl:mb-0"  data-aos="zoom-in-left">
-            <ul className="flex flex-col gap-10">
+          <div
+            className="flex-1 flex items-center order-1 xl:order-none xl:justify-end mb-8 xl:mb-0"
+            data-aos="zoom-in-left"
+          >
+            <ul className="flex flex-col gap-10" data-aos="zoom-in">
               {contactInfo.map((item, index) => (
-                <li key={index} className="flex items-center gap-2 md:gap-6">
+                <li
+                  key={index}
+                  className="flex items-center gap-2 md:gap-6"
+                  data-aos="zoom-in"
+                >
                   <div className="w-[40px] h-[40px] md:w-[52px] md:h-[52px] xl:w-[72px] xl:h-[72px] bg-primary-1000/20 text-primary-1000 rounded-[7px] flex items-center justify-center ">
-                    <div className="text-xl md:text-[28px] animate-pulse">{item.icon}</div>
+                    <div className="text-xl md:text-[28px] animate-pulse">
+                      {item.icon}
+                    </div>
                   </div>
-                  <p className="text-[16px] md:text-2xl font-bold capitalize hidden sm:block">{item.title}</p>
-                  <div className={`opacity-90 ${item.optionAddtion && "mt-7"}`}>
+                  <p
+                    className="text-[16px] md:text-2xl font-bold capitalize hidden sm:block"
+                    data-aos="zoom-in"
+                  >
+                    {item.title}
+                  </p>
+                  <div
+                    className={`opacity-90 ${item.optionAddtion && "mt-7"}`}
+                    data-aos="zoom-in"
+                  >
                     <div className="flex items-center gap-1  ">
                       <span
                         className={`${
@@ -263,12 +318,17 @@ export default function Contact() {
                           "w-2 h-2 bg-primary-1000/50 block rounded-full animate-pulse "
                         }`}
                       />
-                      <p className=''>{item.description}</p>
+                      <p className="" data-aos="zoom-in">
+                        {item.description}
+                      </p>
                     </div>
                     {item.optionAddtion && (
-                      <div className="flex items-center gap-1 ">
+                      <div
+                        className="flex items-center gap-1 "
+                        data-aos="zoom-in"
+                      >
                         <span className="w-2 h-2 bg-primary-1000/50 block rounded-full" />
-                        <p>{item.optionAddtion}</p>
+                        <p data-aos="zoom-in">{item.optionAddtion}</p>
                       </div>
                     )}
                   </div>

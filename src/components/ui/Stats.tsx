@@ -15,9 +15,9 @@ export default function Stats() {
     { num: 132, text: "Code Commits" },
   ];
   return (
-    <section className="">
+    <section className="" data-aos="zoom-in">
       <div
-        className="container mx-auto"
+        className="container mx-auto" data-aos="zoom-in"
       >
         <div className="flex flex-wrap justify-center gap-6 max-w-[90vw] xl:max-w-none mx-auto">
           {stats.map((item, index) => (
@@ -29,12 +29,12 @@ export default function Stats() {
                 end={item.num}
                 duration={10}
                 delay={4}
-                className="text-3xl md:text-6xl font-extrabold text-primary-1000"
+                className="text-3xl md:text-6xl font-extrabold text-primary-1000" data-aos="zoom-in"
               />
               <p
                 className={`${
                   item.text.length < 15 ? "max-w-[100px]" : "max-w-[150px]"
-                } leading-snug text-gray-500/80 text-xs md:text-base`}
+                } leading-snug text-gray-500/80 text-xs md:text-base`} data-aos="zoom-in"
               >
                 {item.text}
               </p>

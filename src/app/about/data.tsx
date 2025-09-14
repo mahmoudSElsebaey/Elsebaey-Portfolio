@@ -103,26 +103,25 @@ export const education: {
       institution: "Faculty of Computers and Information",
       degree: "Bachelor's Degree in Computer Science",
       duration: "2020 - 2023",
-      fadeDir: 'fade-right'
+      fadeDir: "fade-right",
     },
     {
       institution: "Online Course Platform",
       degree: "Full Stack Web Development Diploma",
       duration: "2022",
-      fadeDir: 'fade-left'
+      fadeDir: "fade-left",
     },
     {
       institution: "SFE Academy",
       degree: "Front-End Track Diploma",
       duration: "Summer 2022",
-      fadeDir: 'fade-right'
+      fadeDir: "fade-right",
     },
     {
       institution: "Online Courses",
       degree: "Basic Programming",
       duration: "2021 - 2022",
-      fadeDir: 'fade-left'
-
+      fadeDir: "fade-left",
     },
   ],
 };
@@ -146,7 +145,7 @@ export const certificates: {
       image:
         "/assets/certificates/Mahmoud Elsebaey - Certificate in Front-end Diploma.jpg",
       link: "https://drive.google.com/file/d/1tC9e_VD-6tWhfUf8A2TL5OWB7ZqLPNyA/view?usp=drive_link",
-      fadeDir: 'fade-right'
+      fadeDir: "fade-right",
     },
     {
       source: "SFE Academy",
@@ -157,7 +156,7 @@ export const certificates: {
         "Completed after attending interactive online sessions, submitting projects, and passing exams. Final certificate was awarded based on total grades.",
       image: "/assets/certificates/Mahmoud  Elsebaey - Back-end Diploma.jpg",
       link: "https://drive.google.com/file/d/1jyFvEf9ts47PxxxGp_oZRBPknQLsDApg/view?usp=drive_link",
-      fadeDir: 'fade-left'
+      fadeDir: "fade-left",
     },
     {
       source: "ITI (Self-Learning)",
@@ -168,7 +167,7 @@ export const certificates: {
       image:
         "/assets/certificates/Attendance_Certificate_Freelancing-Basics.jpg",
       link: "https://drive.google.com/file/d/1hGR1S1epU6SQBhrl-FWob3FuUOAf21mu/view?usp=drive_link",
-      fadeDir: 'fade-right'
+      fadeDir: "fade-right",
     },
     {
       source: "ITI (Self-Learning)",
@@ -178,7 +177,7 @@ export const certificates: {
       details: "Covered Upwork basics and freelancing workflows.",
       image: "/assets/certificates/Attendance_Certificate_Upwork.jpg",
       link: "https://drive.google.com/file/d/11W53W7ohIFtWb_L-zD1_d5nqeE64rCZ7/view?usp=drive_link",
-      fadeDir: 'fade-left'
+      fadeDir: "fade-left",
     },
     {
       source: "ITI (Self-Learning)",
@@ -189,7 +188,7 @@ export const certificates: {
         "Watched full course and implemented concepts in a React project.",
       image: "/assets/certificates/Course_Certificate_ES6.jpg",
       link: "https://drive.google.com/file/d/17TQiB0gIrx_3Vk9aPkDYD0Lm2dTI3UNH/view?usp=drive_link",
-      fadeDir: 'fade-right'
+      fadeDir: "fade-right",
     },
     {
       source: "ITI (Self-Learning)",
@@ -199,7 +198,7 @@ export const certificates: {
       details: "Built responsive layouts and UI templates.",
       image: "/assets/certificates/Course_Certificate_HTML&CSS.jpg",
       link: "https://drive.google.com/file/d/1_4RiyZnzuTArW7Btq6AuuKmhLQfbEk-k/view?usp=drive_link",
-      fadeDir: 'fade-left'
+      fadeDir: "fade-left",
     },
     {
       source: "ITI (Self-Learning)",
@@ -209,7 +208,7 @@ export const certificates: {
       details: "Learned JS fundamentals and DOM manipulation.",
       image: "/assets/certificates/Course_Certificate_Javascript.jpg",
       link: "https://drive.google.com/file/d/1vAfgP_Y5YBxqfqNXguNZlk7PQwykuQbi/view?usp=drive_link",
-      fadeDir: 'fade-right'
+      fadeDir: "fade-right",
     },
     {
       source: "ITI (Self-Learning)",
@@ -219,7 +218,7 @@ export const certificates: {
       details: "Completed course and built a full project using React.",
       image: "/assets/certificates/Course_Certificate_React-JS.jpg",
       link: "https://drive.google.com/file/d/1SUs2kz0tCf8uVIM3fS2qaTY1vsOn_Ma5/view?usp=drive_link",
-      fadeDir: 'fade-left'
+      fadeDir: "fade-left",
     },
     {
       source: "ITI (Self-Learning)",
@@ -229,7 +228,7 @@ export const certificates: {
       details: "Learned user experience principles and UI design basics.",
       image: "/assets/certificates/Course_Certificate_UX-Design.jpg",
       link: "https://drive.google.com/file/d/1hFF5_jPkVlJDIAUBBmKXTEpAiP1RfzNN/view?usp=drive_link",
-      fadeDir: 'fade-right'
+      fadeDir: "fade-right",
     },
   ],
 };
