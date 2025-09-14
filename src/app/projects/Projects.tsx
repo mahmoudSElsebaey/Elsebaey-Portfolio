@@ -47,30 +47,39 @@ export default function Projects() {
           {/* ----------- Left Side [Project Info] ----------- */}
           <div
             className="w-full xl:w-[50%] xl:h-[460px] flex flex-col gap-[25px]"
-            data-aos="zoom-in" 
+            data-aos="zoom-in"
           >
-            <div className="text-transparent text-outline text-8xl font-extrabold">
+            <div
+              className="text-transparent text-outline text-8xl font-extrabold"
+              data-aos="zoom-in"
+            >
               {project.num}
             </div>
-            <div className="text-[42px] font-bold leading-none">
+            <div
+              className="text-[42px] font-bold leading-none"
+              data-aos="zoom-in"
+            >
               {project.title}
             </div>
-            <p className="opacity-70">{project.description}</p>
+            <p className="opacity-70" data-aos="zoom-in">
+              {project.description}
+            </p>
             {/* project Tools*/}
-            <ul className="flex flex-wrap gap-2">
+            <ul className="flex flex-wrap gap-2" data-aos="zoom-in">
               {project.tools.map((item, index) => (
                 <li
                   key={index}
                   className="text-primary-1000 capitalize bg-primary-1000/20 px-3 rounded-[14px]"
+                  data-aos="zoom-in"
                 >
                   {item.name}
                 </li>
               ))}
             </ul>
-            <div className="border"></div>
-            <div className="flex gap-4">
+            <div className="border" data-aos="zoom-in"></div>
+            <div className="flex gap-4" data-aos="zoom-in">
               {/*Live Project */}
-              <Link href={project.live} target="_blank">
+              <Link href={project.live} target="_blank" data-aos="zoom-in">
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center cursor-pointer group">
@@ -81,7 +90,7 @@ export default function Projects() {
                 </TooltipProvider>
               </Link>
               {/*Github Repo */}
-              <Link href={project.github} target="_blank">
+              <Link href={project.github} target="_blank" data-aos="zoom-in">
                 <TooltipProvider>
                   <Tooltip>
                     <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center cursor-pointer group">
@@ -101,6 +110,7 @@ export default function Projects() {
               slidesPerView={1}
               className="xl:h-[520px] mb-12"
               onSlideChange={handleSlideChange}
+              data-aos="zoom-in"
             >
               {projectsData.map((project, index) => (
                 <SwiperSlide key={index} className="w-full">

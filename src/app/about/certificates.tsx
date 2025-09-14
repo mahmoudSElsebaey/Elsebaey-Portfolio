@@ -1,7 +1,4 @@
 import { certificates } from "./data";
-
-import { TabsContent } from "@/components/ui/tabs";
-
 import { TbCertificate } from "react-icons/tb";
 import { GrOrganization } from "react-icons/gr";
 import { FaExternalLinkAlt } from "react-icons/fa";
