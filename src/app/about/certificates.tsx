@@ -19,7 +19,7 @@ export default function Certificates() {
         </h3>
         <p
           className="opacity-70 mx-auto md:mx-0 text-xs md:text-base "
-          data-aos="zoom-in"
+          data-aos="zoom-in"ىحة 
         >
           {certificates.description}
         </p>

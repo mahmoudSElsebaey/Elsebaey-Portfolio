@@ -1,36 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mahmoud Elsebaey – Portfolio Website
 
-## Getting Started
+This is my personal portfolio website built with **Next.js**, **TypeScript**, and **Tailwind CSS**, showcasing my skills, services, projects, and resume.
 
-First, run the development server:
+🚀 Live Demo: [https://elsebaey-portfolio.vercel.app](https://elsebaey-portfolio.vercel.app)
+
+---
+
+## 📌 Tech Stack
+
+* **Framework:** Next.js (App Router)
+* **Language:** TypeScript
+* **Styling:** Tailwind CSS
+* **Animations:** Framer Motion & AOS
+* **Theme Handling:** next-themes
+* **Icons:** react-icons
+
+---
+
+## ⚡ Features
+
+### 🌙 Theme Toggle
+
+* **Description:** Allows users to switch between dark and light mode.
+* **Tech Used:** `next-themes`, `react-icons` (IoMoon, GoSun).
+
+### 📱 Draggable Navigation Menu
+
+* **Description:** An interactive, draggable navigation menu that enhances UX.
+* **Tech Used:** `framer-motion`.
+
+### 🔄 Page Transitions
+
+* **Description:** Smooth transitions between pages for better user experience.
+* **Tech Used:** `framer-motion`.
+
+### 📊 Scroll Progress Bar
+
+* **Description:** Displays a progress bar at the top to indicate how much of the page is scrolled.
+* **Tech Used:** Custom hook + Tailwind CSS.
+
+### ⬆️ Scroll To Top Button
+
+* **Description:** Floating button that scrolls the page back to the top.
+* **Tech Used:** React hooks + Tailwind CSS.
+
+### 🎬 AOS Animations
+
+* **Description:** Animations on scroll to make sections more engaging.
+* **Tech Used:** `AOS` (Animate On Scroll Library).
+
+### 📰 Announcement Bar (optional)
+
+* **Description:** Placeholder for future announcements or notifications.
+* **Status:** Currently commented out in code.
+
+### 🖼️ Reusable Title Component
+
+* **Description:** Displays section titles with a main title and subtitle for consistent design.
+
+---
+
+## 📂 Project Structure (Key Parts)
+
+```
+/components
+   /Header
+   /Footer
+   /Home
+   /DraggableMenu
+   /ui (ThemeProvider, PageTransition, AOSProvider, etc.)
+   /ScrollToTopButton
+   /ScrollProgressBar
+   /ThemeToggle
+
+/app
+   /about
+   /services
+   /projects
+   /features
+   /contact
+   layout.tsx
+   page.tsx
+```
+
+---
+
+## 📌 Sections Included
+
+* **Home Page** – Hero + introduction
+* **About Me (Resume)** – My background and experience and skills
+* **Services** – What I can do for clients
+* **Projects** – Showcase of my work
+* **Features** – Things I can build (interactive elements, UI/UX features)
+* **Contact** – Get in touch with me
+
+---
+
+## ⚙️ Getting Started
+
+Clone the repository and install dependencies:
+
+```bash
+git clone https://github.com/mahmoudSElsebaey/Elsebaey-Portfolio.git
+cd Elsebaey-Portfolio
+npm install
+```
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The app will be available at [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📧 Contact
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* **Name:** Mahmoud Elsebaey
+* **Role:** Frontend Developer (React/Next.js)
+* **Portfolio:** [elsebaey-portfolio.vercel.app](https://elsebaey-portfolio.vercel.app)
+* **LinkedIn:** [linkedin.com/in/mahmoud-elsebaey](https://linkedin.com/in/mahmoud-elsebaey)
+* **GitHub:** [github.com/mahmoudSElsebaey](https://github.com/mahmoudSElsebaey)
