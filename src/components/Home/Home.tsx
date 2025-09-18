@@ -52,6 +52,7 @@ export default function HomePage() {
           <ul
             className="h-10 self-start ml-[10%] sm:ml-[16%] md:ml-0"
             data-aos="zoom-in"
+            style={{ userSelect: "none" }}
           >
             <li
               key={index}
