@@ -231,11 +231,11 @@ export default function Contact() {
                 onValueChange={handleSelectChange}
                 data-aos="zoom-in"
               >
-                <SelectTrigger className="w-full ">
-                  <SelectValue placeholder="Select a service" />
+                <SelectTrigger className="w-full "  data-aos="zoom-in-left">
+                  <SelectValue placeholder="Select a service" data-aos="zoom-in-left" />
                 </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
+                <SelectContent data-aos="zoom-in-left">
+                  <SelectGroup  data-aos="zoom-in-left">
                     <SelectLabel>Select a service</SelectLabel>
                     <SelectItem value="UI Development">
                       UI Development

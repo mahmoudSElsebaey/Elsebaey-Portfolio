@@ -7,7 +7,8 @@ import { Nav } from "../Nav/Nav";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import Link from "next/link";
 import { RiColorFilterLine } from "react-icons/ri";
- 
+import "./header.css";
+
 // import { BiSolidColorFill } from "react-icons/bi";
 
 export default function Header() {
@@ -42,22 +43,35 @@ export default function Header() {
 
   return (
     <header
-      className={`px-2 md:px-5 flex justify-between items-center sticky top-0 z-9999 transition-all duration-300 backdrop-blur-md ${isScrolled ? "py-2 xl:py-2 px-3 md:px-10 header" : "py-4 xl:py-6"
-        }`}
+      className={`px-2 md:px-5 flex justify-between items-center sticky top-0 z-9999 transition-all duration-300 backdrop-blur-md ${
+        isScrolled ? "py-2 xl:py-2 px-3 md:px-10 header" : "py-4 xl:py-6"
+      }`}
     >
       {/* logo */}
       <div
         className="relative flex justify-center items-center ml-[-15px]"
         title="Mahmoud Elsebaey "
       >
-        <Link href="/" className="cursor-pointer">
+        <Link href="/" className="cursor-pointer flex items-center">
           <Image
             src={logo}
             width={100}
             height={100}
-            className="w-22 h-16"
+            className="w-22 h-16 hidden sm:block"
             alt="logo"
           />
+          <p
+            data-text="elseba3y"
+            className="lg:hidden logo-name py-1 ml-[17px] text-[22px] sm:text-3xl font-extrabold text-outline text-transparent rotate-[-3deg]  sm:rotate-0"
+            style={{
+              fontFamily: "JetBrains Mono, JetBrains Mono Fallback",
+              userSelect: "none",
+            }}
+          >
+            <span className="opacity-70">
+              els<span className="rotate-[-45deg]">e</span>ba3y
+            </span>
+          </p>
         </Link>
       </div>
 
@@ -82,10 +96,11 @@ export default function Header() {
               <p className="hidden">Themes</p>
             </button>
             <div
-              className={`absolute left-[50%] translate-x-[-50%] ${showThemeColors
-                ? "opacity-100 scale-100"
-                : "opacity-0 scale-0 pointer-events-none"
-                } transition-all duration-300`}
+              className={`absolute left-[50%] translate-x-[-50%] ${
+                showThemeColors
+                  ? "opacity-100 scale-100"
+                  : "opacity-0 scale-0 pointer-events-none"
+              } transition-all duration-300`}
             >
               <ThemeSwitcher />
             </div>

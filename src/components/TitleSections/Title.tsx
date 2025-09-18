@@ -7,7 +7,7 @@ export default function Title({ mainTitle, subTitle }: TitleProps) {
   return (
     <div className="pt-15" data-aos="zoom-in">
       <h2
-        className=" text-center text-4xl sm:text-5xl md:text-6xl text-primary-1000 uppercase font-extrabold"
+        className=" text-center text-4xl sm:text-5xl md:text-6xl text-primary-1000 uppercase font-extrabold "
         data-aos="zoom-in"
       >
         {mainTitle}

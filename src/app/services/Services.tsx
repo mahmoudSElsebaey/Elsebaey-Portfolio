@@ -38,7 +38,8 @@ export default function Services() {
                       data-aos="zoom-in"
                     >
                       <span
-                        className={`group-hover:text-4xl transition-all duration-300  ${
+                        style={{ userSelect: "none" }}
+                        className={`group-hover:text-4xl transition-all duration-300 ${
                           index >= 9 ? " hidden" : "block"
                         }`}
                       >
