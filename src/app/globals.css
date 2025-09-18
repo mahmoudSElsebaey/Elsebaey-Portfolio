@@ -120,7 +120,7 @@ body {
 }
 
 /*********************** Custom Styles ***********************/
-::selection{
+::selection {
   @apply bg-primary-1000/20;
 }
 .text-outline {
@@ -135,32 +135,32 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-primary-1000/30;  /* scrollbar track bg color */
+  @apply bg-primary-1000/30; /* scrollbar track bg color */
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-primary-1000/70;  /* scrollbar thumb color */
+  @apply bg-primary-1000/70; /* scrollbar thumb color */
   border-radius: 10px;
   box-shadow: 0 0px 50px 15px rgb(240, 240, 240);
 }
 
 ::-webkit-scrollbar-thumb:hover {
- @apply bg-primary-1000; /* scrollbar thumb color in hovering  */
+  @apply bg-primary-1000; /* scrollbar thumb color in hovering  */
 }
 /*_________________________ Header ____________________________*/
 .header {
   box-shadow: 0px 0px 10px theme(--color-primary-1000);
-    @apply shadow-primary-1000/50
+  @apply shadow-primary-1000/50;
 }
 /*_________________________ Theme Switcher ____________________________*/
 .gradient-text {
   background: linear-gradient(
     to bottom right,
     #e2ed18 0%,
-     #00ff00 25%,
-     #ff0000 50%,
+    #00ff00 25%,
+    #ff0000 50%,
     #0000ff 75%,
-     #ff00a2 100%  
+    #ff00a2 100%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -222,16 +222,16 @@ body {
     width: 22ch;
   }
 }
-.btn-cv::after{
-  content:'';
+.btn-cv::after {
+  content: "";
   position: absolute;
   top: 10%;
   left: -10%;
   width: 120%;
   height: 80%;
   background: linear-gradient(
-   theme(--color-primary-1000) 0%,
-   theme(--color-primary-1000) 50%,
+    theme(--color-primary-1000) 0%,
+    theme(--color-primary-1000) 50%,
     transparent 50%,
     transparent 100%
   );
@@ -248,11 +248,11 @@ body {
   background: linear-gradient(
     transparent 0%,
     transparent 50%,
-   theme(--color-primary-1000) 50%,
-   theme(--color-primary-1000) 100%
+    theme(--color-primary-1000) 50%,
+    theme(--color-primary-1000) 100%
   );
   z-index: -2;
-   transform: rotate(150deg);
+  transform: rotate(150deg);
   animation: animate-spin 4s infinite linear;
 }
 
@@ -326,7 +326,6 @@ body {
   /* -webkit-text-stroke-color: theme(--color-primary-1000); */
 }
 
-
 /*_________________________ Projects ____________________________*/
 .project-category h3 {
   position: relative;
@@ -386,4 +385,51 @@ body {
 }
 .animate-marquee {
   animation: marquee 20s linear infinite;
+}
+
+/*_________________________ Vertical Timeline ____________________________*/
+.vertical-timeline-element-content {
+  /* background-color: theme(--color-primary-1000) !important; */
+  background-color: transparent !important;
+  @apply text-black dark:text-white;
+  position: relative;
+  /* box-shadow: none !important; */
+}
+.vertical-timeline-element-content::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: theme(--color-primary-1000) !important;
+  opacity: 0.2;
+  border-radius: 7px;
+}
+.vertical-timeline-element-date {
+  @apply text-black dark:text-white sm:text-primary-1000;
+}
+.vertical-timeline-element-icon {
+  @apply bg-primary-1000 text-white;
+  box-shadow: none !important;
+}
+.vertical-timeline-element-content-arrow {
+  content: "";
+  border: 7px solid #0000;
+  border-right-color: theme(--color-primary-1000) !important;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 16px;
+  right: 100%;
+  opacity: 0.2;
+}
+.vertical-timeline::before {
+  content: "";
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  top: 0px;
+  left: 18px;
+  background: theme(--color-primary-1000) !important;
 }

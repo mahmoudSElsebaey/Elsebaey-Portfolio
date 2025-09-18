@@ -19,7 +19,7 @@ export default function Certificates() {
         </h3>
         <p
           className="opacity-70 mx-auto md:mx-0 text-xs md:text-base "
-          data-aos="zoom-in"ىحة 
+          data-aos="zoom-in"
         >
           {certificates.description}
         </p>
@@ -32,12 +32,11 @@ export default function Certificates() {
               <li
                 key={index}
                 data-aos={item.fadeDir}
-                className="flex flex-col gap-4 px-10 py-5 justify-center items-center
-                             dark:bg-primary-1000/10 bg-primary-1000/40 rounded-lg"
+                className="flex flex-col gap-4 px-10 py-5 justify-center items-center dark:bg-primary-1000/10 bg-primary-1000/40 rounded-lg"
               >
                 {/* Text information */}
                 <div className="w-full " data-aos="zoom-in">
-                  <p className="font-bold text-base md:text-2xl">
+                  <p className="font-bold text-base md:text-2xl text-center">
                     {item.title}
                   </p>
                   <p className="text-primary-1000 text-center">{item.date}</p>

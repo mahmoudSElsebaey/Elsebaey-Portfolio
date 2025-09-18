@@ -35,6 +35,7 @@ import {
 } from "react-icons/tb";
 import { LuComponent } from "react-icons/lu";
 import { MdOutlineSwipe } from "react-icons/md";
+import { MdSchool, MdWork, MdMilitaryTech } from "react-icons/md";
 
 // Define TypeScript types
 type InfoItem = {
@@ -47,6 +48,7 @@ type EducationItem = {
   degree: string;
   duration: string;
   fadeDir?: string;
+  icon: React.ReactElement | undefined;
 };
 
 type CertificateItem = {
@@ -100,32 +102,50 @@ export const education: {
   description: "A summary of my academic and technical background.",
   items: [
     {
-      institution: "Faculty of Computers and Information",
+      institution: "Faculty of Computers and Information, Menoufia University",
       degree: "Bachelor's Degree in Computer Science",
-      duration: "2020 - 2023",
+      duration: "2019 - 2023",
       fadeDir: "fade-right",
+      icon: <MdSchool />,
     },
     {
-      institution: "Online Course Platform",
-      degree: "Full Stack Web Development Diploma",
-      duration: "2022",
+      institution: "MUFIX Community (University Club)",
+      degree:
+        "Front-End Development Training (HTML, CSS, Bootstrap, JavaScript)",
+      duration: "Summer 2021",
       fadeDir: "fade-left",
+      icon: <FaHtml5 />,
+    },
+    {
+      institution: "Information Technology Institute (ITI)",
+      degree: "React.js & Freelancing Online Course",
+      duration: "06/2022 - 09/2022",
+      fadeDir: "fade-right",
+      icon: <FaReact />,
     },
     {
       institution: "SFE Academy",
-      degree: "Front-End Track Diploma",
-      duration: "Summer 2022",
-      fadeDir: "fade-right",
+      degree: "Full Stack Web Development (Front-End & Back-End)",
+      duration: "2022 - 2023",
+      fadeDir: "fade-left",
+      icon: <MdWork />,
     },
     {
-      institution: "Online Courses",
-      degree: "Basic Programming",
-      duration: "2021 - 2022",
+      institution: "Military Service",
+      degree: "Mandatory Service (Post-Graduation)",
+      duration: "10/2023 - 12/2024",
+      fadeDir: "fade-right",
+      icon: <MdMilitaryTech />,
+    },
+    {
+      institution: "Online Course Platform",
+      degree: "MEAN Stack Development",
+      duration: "07/2025 - Present",
       fadeDir: "fade-left",
+      icon: <FaNodeJs />,
     },
   ],
 };
-
 export const certificates: {
   title: string;
   description: string;
