@@ -19,7 +19,6 @@ import {
   FaBootstrap,
   FaGitAlt,
   FaGithub,
-  FaNodeJs,
   FaJava,
   FaPython,
   FaAngular,
