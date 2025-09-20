@@ -62,15 +62,13 @@ export default function Header() {
           />
           <p
             data-text="elseba3y"
-            className="lg:hidden logo-name py-1 ml-[17px] text-[22px] sm:text-3xl font-extrabold text-outline text-transparent rotate-[-3deg]  sm:rotate-0"
+            className="lg:hidden xl:block logo-name py-1 ml-[17px] text-[22px] sm:text-3xl font-extrabold text-outline text-transparent rotate-[-3deg]  sm:rotate-0"
             style={{
               fontFamily: "JetBrains Mono, JetBrains Mono Fallback",
               userSelect: "none",
             }}
           >
-            <span className="opacity-70">
-              els<span className="rotate-[-45deg]">e</span>ba3y
-            </span>
+            <span className="opacity-70">elseba3y</span>
           </p>
         </Link>
       </div>

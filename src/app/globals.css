@@ -394,6 +394,8 @@ body {
   @apply text-black dark:text-white;
   position: relative;
   /* box-shadow: none !important; */
+  box-shadow: 0 3px theme(--color-primary-1000) !important;
+  z-index: 5;
 }
 .vertical-timeline-element-content::before {
   position: absolute;
@@ -405,9 +407,12 @@ body {
   background-color: theme(--color-primary-1000) !important;
   opacity: 0.2;
   border-radius: 7px;
+  box-shadow: 0 3px theme(--color-primary-1000) !important;
+  z-index: 0;
 }
 .vertical-timeline-element-date {
-  @apply text-black dark:text-white sm:text-primary-1000;
+  @apply text-black dark:text-primary-1000 text-center sm:text-left;
+  opacity: 1 !important;
 }
 .vertical-timeline-element-icon {
   @apply bg-primary-1000 text-white;

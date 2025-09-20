@@ -100,16 +100,26 @@ export default function Education() {
             <h3
               className="text-base sm:text-xl font-bold"
               data-aos="zoom-in"
-              data-aos-once="true"
+              // data-aos-once="true"
             >
               {item.institution}
             </h3>
-            <p
-              className="text-xs sm:text-sm text-black/60 dark:text-white/60"
+            <div
+              className="text-xs sm:text-base flex gap-2 sm:items-center my-2"
               data-aos="zoom-in"
-              data-aos-once="true"
             >
-              {item.degree}
+              <div
+                className="text-base sm:text-2xl text-primary-1000 "
+                data-aos="zoom-in"
+              >
+                {item.icon}
+              </div>
+              <div className="opacity-70 text-primary-1000" data-aos="zoom-in">
+                {item.degree}
+              </div>
+            </div>
+            <p className="text-[12px] text-gray-400 " data-aos="zoom-in">
+              {item.desc}
             </p>
           </VerticalTimelineElement>
         ))}

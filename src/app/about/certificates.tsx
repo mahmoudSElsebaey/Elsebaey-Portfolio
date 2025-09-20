@@ -1,3 +1,11 @@
+"use client";
+
+import {
+  VerticalTimeline,
+  VerticalTimelineElement,
+} from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+
 import { certificates } from "./data";
 import { TbCertificate } from "react-icons/tb";
 import { GrOrganization } from "react-icons/gr";
@@ -10,67 +18,81 @@ export default function Certificates() {
       className="flex flex-col text-center gap-8 xl:gap-8 lg:text-left"
       data-aos="zoom-in"
     >
-      <div className="w-full flex flex-col gap-4 " data-aos="zoom-in">
-        <h3
-          className="text-2xl md:text-4xl  font-bold text-primary-1000"
-          data-aos="zoom-in"
-        >
+      {/* Title & Description */}
+      <div className="w-full flex flex-col gap-4" data-aos="zoom-in">
+        <h3 className="text-2xl md:text-4xl font-bold text-primary-1000">
           {certificates.title}
         </h3>
-        <p
-          className="opacity-70 mx-auto md:mx-0 text-xs md:text-base "
-          data-aos="zoom-in"
-        >
+        <p className="text-gray-500 mx-auto md:mx-0 text-xs md:text-base">
           {certificates.description}
         </p>
       </div>
-      {/* certificates items */}
-      <div className="">
-        <ul className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-          {certificates.items.map((item, index) => {
-            return (
-              <li
-                key={index}
-                data-aos={item.fadeDir}
-                className="flex flex-col gap-4 px-10 py-5 justify-center items-center dark:bg-primary-1000/10 bg-primary-1000/40 rounded-lg"
+
+      {/* Timeline */}
+      <VerticalTimeline data-aos="zoom-in">
+        {certificates.items.map((item, index) => (
+          <VerticalTimelineElement
+            key={index}
+            date={item.date}
+            icon={item.icon}
+            iconClassName="bg-primary-1000 text-white"
+            data-aos="zoom-in"
+            contentStyle={{
+              backgroundColor: "rgba(13, 77, 110, 0.1)",
+              borderRadius: "0.5rem",
+              padding: "1.5rem 2rem",
+              boxShadow: "none",
+            }}
+            contentArrowStyle={{
+              borderRight: "7px solid rgba(13, 77, 110, 0.1)",
+            }}
+            className="text-left"
+          >
+            {/* Title */}
+            <h3 className=" text-xl font-bold" data-aos="zoom-in">
+              {item.title}
+            </h3>
+
+            {/* Icons Info Row */}
+            <div
+              className="flex flex-col justify-start my-3 gap-3 text-xs md:text-base text-primary-1000"
+              data-aos="zoom-in"
+            >
+              <div className="flex gap-3 items-center " data-aos="zoom-in">
+                <TbCertificate />
+                <div className="opacity-70 text-primary-1000">{item.type}</div>
+              </div>
+              <div className="flex gap-3  items-center" data-aos="zoom-in">
+                <GrOrganization />
+                <div className="opacity-70 text-primary-1000">
+                  {item.source}
+                </div>
+              </div>
+            </div>
+
+            {/* Details */}
+            <p className="text-[12px] text-gray-400 " data-aos="zoom-in">
+              {item.details}
+            </p>
+
+            {/* Link */}
+            <div className="mt-4 flex justify-center" data-aos="zoom-in">
+              <Link
+                href={item.link}
+                target="_blank"
+                className="flex justify-center items-center gap-4 border border-primary-1000 text-sm md:text-base py-2 md:py-3 px-4 md:px-6 rounded-lg text-primary-1000 font-bold hover:bg-primary-1000 group hover:text-white transition-all duration-300"
+                data-aos="zoom-in"
               >
-                {/* Text information */}
-                <div className="w-full " data-aos="zoom-in">
-                  <p className="font-bold text-base md:text-2xl text-center">
-                    {item.title}
-                  </p>
-                  <p className="text-primary-1000 text-center">{item.date}</p>
-                  {/* icons */}
-                  <div className="flex flex-wrap justify-center md:justify-between my-3 gap-3">
-                    <div className="flex gap-2 justify-center items-center xl:justify-start">
-                      <TbCertificate className="text-primary-1000 animate-pulse" />
-                      <p className="text-xs md:text-base">{item.type}</p>
-                    </div>
-                    <div className="flex gap-2 justify-center items-center xl:justify-start">
-                      <GrOrganization className="text-primary-1000 animate-pulse" />
-                      <p className="text-xs md:text-base">{item.source}</p>
-                    </div>
-                  </div>
-                  <p className="opacity-50 text-xs md:text-sm">
-                    {item.details}
-                  </p>
-                </div>
-                {/* Link */}
-                <div className="" data-aos="zoom-in">
-                  <Link
-                    href={item.link}
-                    target="_blank"
-                    className="flex justify-center items-center gap-4 border border-primary-1000 text-sm md:text-base py-2 md:py-3 px-4 md:px-6 rounded-lg text-primary-1000 font-bold hover:bg-primary-1000 group hover:text-white transition-all duration-300"
-                  >
-                    Show Certificate
-                    <FaExternalLinkAlt className="group-hover:text-[22px] transition-all duration-300" />
-                  </Link>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-      </div>
+                Show Certificate
+                <FaExternalLinkAlt
+                  className="group-hover:text-[22px] transition-all duration-300"
+                  data-aos="zoom-in"
+                />
+              </Link>
+            </div>
+          </VerticalTimelineElement>
+        ))}
+      </VerticalTimeline>
     </div>
   );
 }

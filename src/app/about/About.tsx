@@ -26,7 +26,7 @@ export default function Resume() {
       >
         <div className="container mx-auto ">
           <Tabs
-            defaultValue="about"
+            defaultValue="myJourney"
             className="flex flex-col gap-10"
             data-aos="zoom-in"
           >
@@ -34,14 +34,6 @@ export default function Resume() {
               className=" md:w-[80%] md:m-auto flex items-center justify-around "
               data-aos="zoom-in"
             >
-              <TabsTrigger
-                value="about"
-                className="rounded-r-none flex gap-3 items-center"
-                data-aos="zoom-in"
-              >
-                <IoPersonSharp className="hidden sm:block text-2xl" />
-                <span className="text-black dark:text-white">about me</span>
-              </TabsTrigger>
               <TabsTrigger
                 value="myJourney"
                 className="rounded-none flex gap-3 items-center"
@@ -58,17 +50,25 @@ export default function Resume() {
                 <MdSettingsSuggest className="hidden sm:block text-2xl" />
                 <span className="text-black dark:text-white  "> skills</span>
               </TabsTrigger>
+              <TabsTrigger
+                value="about"
+                className="rounded-r-none flex gap-3 items-center"
+                data-aos="zoom-in"
+              >
+                <IoPersonSharp className="hidden sm:block text-2xl" />
+                <span className="text-black dark:text-white">about me</span>
+              </TabsTrigger>
             </TabsList>
             {/*________________________________  Tabs Content ________________________________*/}
             <div className="w-full overflow-hidden">
-              <TabsContent value="about" className="w-full">
-                <AboutMe />
-              </TabsContent>
               <TabsContent value="myJourney" className="w-full">
                 <MyJourney />
               </TabsContent>
               <TabsContent value="skills" className="w-full">
                 <Skills />
+              </TabsContent>
+              <TabsContent value="about" className="w-full">
+                <AboutMe />
               </TabsContent>
             </div>
           </Tabs>

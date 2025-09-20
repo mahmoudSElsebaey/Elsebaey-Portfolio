@@ -17,8 +17,9 @@ import {
   FaJava,
   FaPython,
   FaAngular,
+  FaLaptopCode,
 } from "react-icons/fa";
-import { RiNextjsFill } from "react-icons/ri";
+import { RiNextjsFill, RiPagesLine } from "react-icons/ri";
 import {
   TbBrandTailwind,
   TbDeviceMobileCode,
@@ -34,8 +35,12 @@ import {
   TbVectorTriangle,
 } from "react-icons/tb";
 import { LuComponent } from "react-icons/lu";
-import { MdOutlineSwipe } from "react-icons/md";
-import { MdSchool, MdWork, MdMilitaryTech } from "react-icons/md";
+import { MdDesignServices, MdOutlineSwipe } from "react-icons/md";
+import { MdSchool } from "react-icons/md";
+import { BsDatabaseFillGear } from "react-icons/bs";
+import { FaPersonMilitaryRifle, FaSquareJs, FaUpwork } from "react-icons/fa6";
+import { LiaPhoenixFramework } from "react-icons/lia";
+import { IoLogoHtml5, IoLogoJavascript, IoLogoReact } from "react-icons/io5";
 
 // Define TypeScript types
 type InfoItem = {
@@ -47,7 +52,7 @@ type EducationItem = {
   institution: string;
   degree: string;
   duration: string;
-  fadeDir?: string;
+  desc: string;
   icon: React.ReactElement | undefined;
 };
 
@@ -60,7 +65,7 @@ type CertificateItem = {
   details: string;
   image: string;
   link: string;
-  fadeDir?: string;
+  icon?: React.ReactElement | undefined;
 };
 
 type SkillItem = {
@@ -105,7 +110,7 @@ export const education: {
       institution: "Faculty of Computers and Information, Menoufia University",
       degree: "Bachelor's Degree in Computer Science",
       duration: "2019 - 2023",
-      fadeDir: "fade-right",
+      desc: "Studied core computer science topics including programming, data structures, and databases.",
       icon: <MdSchool />,
     },
     {
@@ -113,36 +118,43 @@ export const education: {
       degree:
         "Front-End Development Training (HTML, CSS, Bootstrap, JavaScript)",
       duration: "Summer 2021",
-      fadeDir: "fade-left",
-      icon: <FaHtml5 />,
+      desc: "Summer training focused on front-end web development fundamentals and UI building.",
+      icon: <FaLaptopCode />,
     },
     {
-      institution: "Information Technology Institute (ITI)",
+      institution: "ITI & Mahra Tech",
       degree: "React.js & Freelancing Online Course",
       duration: "06/2022 - 09/2022",
-      fadeDir: "fade-right",
+      desc: "Crash course in React development and freelancing basics via Upwork.",
       icon: <FaReact />,
     },
     {
       institution: "SFE Academy",
-      degree: "Full Stack Web Development (Front-End & Back-End)",
-      duration: "2022 - 2023",
-      fadeDir: "fade-left",
-      icon: <MdWork />,
+      degree: "Full Stack (MERN Stack) Web Development (Front-End React.js)",
+      duration: "10/2022 - 3/2023",
+      desc: "Trained in building advanced UIs and SPA projects using React.js.",
+      icon: <FaLaptopCode />,
+    },
+    {
+      institution: "SFE Academy",
+      degree: "Full Stack (MERN Stack) Web Development (Back-End Node.js)",
+      duration: "4/2022 - 7/2023",
+      desc: "Focused on backend development with Node.js, Express, and MongoDB.",
+      icon: <BsDatabaseFillGear />,
     },
     {
       institution: "Military Service",
       degree: "Mandatory Service (Post-Graduation)",
       duration: "10/2023 - 12/2024",
-      fadeDir: "fade-right",
-      icon: <MdMilitaryTech />,
+      desc: "Completed mandatory military service after graduation.",
+      icon: <FaPersonMilitaryRifle />,
     },
     {
-      institution: "Online Course Platform",
-      degree: "MEAN Stack Development",
+      institution: "NTI",
+      degree: "MEAN Stack Development & Freelancing",
       duration: "07/2025 - Present",
-      fadeDir: "fade-left",
-      icon: <FaNodeJs />,
+      desc: "Currently training in MEAN stack development with a focus on freelancing skills.",
+      icon: <RiPagesLine />,
     },
   ],
 };
@@ -165,7 +177,7 @@ export const certificates: {
       image:
         "/assets/certificates/Mahmoud Elsebaey - Certificate in Front-end Diploma.jpg",
       link: "https://drive.google.com/file/d/1tC9e_VD-6tWhfUf8A2TL5OWB7ZqLPNyA/view?usp=drive_link",
-      fadeDir: "fade-right",
+      icon: <FaLaptopCode />,
     },
     {
       source: "SFE Academy",
@@ -176,7 +188,7 @@ export const certificates: {
         "Completed after attending interactive online sessions, submitting projects, and passing exams. Final certificate was awarded based on total grades.",
       image: "/assets/certificates/Mahmoud  Elsebaey - Back-end Diploma.jpg",
       link: "https://drive.google.com/file/d/1jyFvEf9ts47PxxxGp_oZRBPknQLsDApg/view?usp=drive_link",
-      fadeDir: "fade-left",
+      icon: <BsDatabaseFillGear />,
     },
     {
       source: "ITI (Self-Learning)",
@@ -187,7 +199,7 @@ export const certificates: {
       image:
         "/assets/certificates/Attendance_Certificate_Freelancing-Basics.jpg",
       link: "https://drive.google.com/file/d/1hGR1S1epU6SQBhrl-FWob3FuUOAf21mu/view?usp=drive_link",
-      fadeDir: "fade-right",
+      icon: <LiaPhoenixFramework />,
     },
     {
       source: "ITI (Self-Learning)",
@@ -197,7 +209,7 @@ export const certificates: {
       details: "Covered Upwork basics and freelancing workflows.",
       image: "/assets/certificates/Attendance_Certificate_Upwork.jpg",
       link: "https://drive.google.com/file/d/11W53W7ohIFtWb_L-zD1_d5nqeE64rCZ7/view?usp=drive_link",
-      fadeDir: "fade-left",
+      icon: <FaUpwork />,
     },
     {
       source: "ITI (Self-Learning)",
@@ -208,7 +220,7 @@ export const certificates: {
         "Watched full course and implemented concepts in a React project.",
       image: "/assets/certificates/Course_Certificate_ES6.jpg",
       link: "https://drive.google.com/file/d/17TQiB0gIrx_3Vk9aPkDYD0Lm2dTI3UNH/view?usp=drive_link",
-      fadeDir: "fade-right",
+      icon: <FaSquareJs  />,
     },
     {
       source: "ITI (Self-Learning)",
@@ -218,7 +230,7 @@ export const certificates: {
       details: "Built responsive layouts and UI templates.",
       image: "/assets/certificates/Course_Certificate_HTML&CSS.jpg",
       link: "https://drive.google.com/file/d/1_4RiyZnzuTArW7Btq6AuuKmhLQfbEk-k/view?usp=drive_link",
-      fadeDir: "fade-left",
+      icon: <IoLogoHtml5  />,
     },
     {
       source: "ITI (Self-Learning)",
@@ -228,7 +240,7 @@ export const certificates: {
       details: "Learned JS fundamentals and DOM manipulation.",
       image: "/assets/certificates/Course_Certificate_Javascript.jpg",
       link: "https://drive.google.com/file/d/1vAfgP_Y5YBxqfqNXguNZlk7PQwykuQbi/view?usp=drive_link",
-      fadeDir: "fade-right",
+      icon: <IoLogoJavascript  />,
     },
     {
       source: "ITI (Self-Learning)",
@@ -238,7 +250,7 @@ export const certificates: {
       details: "Completed course and built a full project using React.",
       image: "/assets/certificates/Course_Certificate_React-JS.jpg",
       link: "https://drive.google.com/file/d/1SUs2kz0tCf8uVIM3fS2qaTY1vsOn_Ma5/view?usp=drive_link",
-      fadeDir: "fade-left",
+      icon: <IoLogoReact />,
     },
     {
       source: "ITI (Self-Learning)",
@@ -248,7 +260,7 @@ export const certificates: {
       details: "Learned user experience principles and UI design basics.",
       image: "/assets/certificates/Course_Certificate_UX-Design.jpg",
       link: "https://drive.google.com/file/d/1hFF5_jPkVlJDIAUBBmKXTEpAiP1RfzNN/view?usp=drive_link",
-      fadeDir: "fade-right",
+      icon: <MdDesignServices />,
     },
   ],
 };
