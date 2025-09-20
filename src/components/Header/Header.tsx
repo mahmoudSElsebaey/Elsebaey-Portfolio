@@ -62,7 +62,7 @@ export default function Header() {
           />
           <p
             data-text="elseba3y"
-            className="lg:hidden xl:block logo-name py-1 ml-[17px] text-[22px] sm:text-3xl font-extrabold text-outline text-transparent rotate-[-3deg]  sm:rotate-0"
+            className="lg:hidden xl:block logo-name py-1 ml-[17px] sm:ml-0 text-[22px] sm:text-3xl font-extrabold text-outline text-transparent rotate-[-3deg]  sm:rotate-0"
             style={{
               fontFamily: "JetBrains Mono, JetBrains Mono Fallback",
               userSelect: "none",

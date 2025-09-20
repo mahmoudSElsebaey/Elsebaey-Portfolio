@@ -4,6 +4,12 @@ import {
   SiRedux,
   SiMongodb,
   SiPostman,
+  SiCloudinary,
+  SiGraphql,
+  SiVercel,
+  SiNetlify,
+  SiDiscord,
+  SiJira,
 } from "react-icons/si";
 
 import {
@@ -18,6 +24,9 @@ import {
   FaPython,
   FaAngular,
   FaLaptopCode,
+  FaDocker,
+  FaCcStripe,
+  FaNode,
 } from "react-icons/fa";
 import { RiNextjsFill, RiPagesLine } from "react-icons/ri";
 import {
@@ -33,6 +42,10 @@ import {
   TbNetwork,
   TbTestPipe,
   TbVectorTriangle,
+  TbCircleRectangle,
+  TbSettingsCode,
+  TbBinaryTree,
+  TbLock,
 } from "react-icons/tb";
 import { LuComponent } from "react-icons/lu";
 import { MdDesignServices, MdOutlineSwipe } from "react-icons/md";
@@ -40,7 +53,14 @@ import { MdSchool } from "react-icons/md";
 import { BsDatabaseFillGear } from "react-icons/bs";
 import { FaPersonMilitaryRifle, FaSquareJs, FaUpwork } from "react-icons/fa6";
 import { LiaPhoenixFramework } from "react-icons/lia";
-import { IoLogoHtml5, IoLogoJavascript, IoLogoReact } from "react-icons/io5";
+import {
+  IoLogoFirebase,
+  IoLogoHtml5,
+  IoLogoJavascript,
+  IoLogoNpm,
+  IoLogoReact,
+} from "react-icons/io5";
+import { VscVscode } from "react-icons/vsc";
 
 // Define TypeScript types
 type InfoItem = {
@@ -220,7 +240,7 @@ export const certificates: {
         "Watched full course and implemented concepts in a React project.",
       image: "/assets/certificates/Course_Certificate_ES6.jpg",
       link: "https://drive.google.com/file/d/17TQiB0gIrx_3Vk9aPkDYD0Lm2dTI3UNH/view?usp=drive_link",
-      icon: <FaSquareJs  />,
+      icon: <FaSquareJs />,
     },
     {
       source: "ITI (Self-Learning)",
@@ -230,7 +250,7 @@ export const certificates: {
       details: "Built responsive layouts and UI templates.",
       image: "/assets/certificates/Course_Certificate_HTML&CSS.jpg",
       link: "https://drive.google.com/file/d/1_4RiyZnzuTArW7Btq6AuuKmhLQfbEk-k/view?usp=drive_link",
-      icon: <IoLogoHtml5  />,
+      icon: <IoLogoHtml5 />,
     },
     {
       source: "ITI (Self-Learning)",
@@ -240,7 +260,7 @@ export const certificates: {
       details: "Learned JS fundamentals and DOM manipulation.",
       image: "/assets/certificates/Course_Certificate_Javascript.jpg",
       link: "https://drive.google.com/file/d/1vAfgP_Y5YBxqfqNXguNZlk7PQwykuQbi/view?usp=drive_link",
-      icon: <IoLogoJavascript  />,
+      icon: <IoLogoJavascript />,
     },
     {
       source: "ITI (Self-Learning)",
@@ -282,7 +302,7 @@ export const skills: {
         { name: "JavaScript (ES6+)", icon: <SiJavascript /> },
         { name: "TypeScript", icon: <SiTypescript /> },
         { name: "React.js", icon: <FaReact /> },
-        { name: "Angular.js", icon: <FaAngular /> },
+        { name: "Angular", icon: <FaAngular /> },
         { name: "Next.js", icon: <RiNextjsFill /> },
         { name: "Redux Toolkit", icon: <SiRedux /> },
       ],
@@ -310,6 +330,16 @@ export const skills: {
         { name: "Postman", icon: <SiPostman /> },
         { name: "Testing (Jest / RTL)", icon: <TbTestPipe /> },
         { name: "Debugging & DevTools", icon: <TbBug /> },
+        { name: "Cloudinary", icon: <SiCloudinary /> },
+        { name: "Docker", icon: <FaDocker /> },
+        { name: "Npm (Node Package Manager)", icon: <IoLogoNpm /> },
+        { name: "Vscode", icon: <VscVscode /> },
+        { name: "Firebase", icon: <IoLogoFirebase /> },
+        { name: "Stripe", icon: <FaCcStripe /> },
+        { name: "Vercel", icon: <SiVercel /> },
+        { name: "Netlify", icon: <SiNetlify /> },
+        { name: "Jira", icon: <SiJira /> },
+        { name: "Discord", icon: <SiDiscord /> },
       ],
     },
     {
@@ -317,13 +347,15 @@ export const skills: {
       items: [
         { name: "Responsive Design", icon: <TbDeviceMobileCode /> },
         { name: "API Integration", icon: <TbNetwork /> },
+        { name: "GraphQL", icon: <SiGraphql /> },
         { name: "Performance Optimization", icon: <TbGauge /> },
+        { name: "Authentication & Authorization", icon: <TbLock /> },
       ],
     },
     {
       title: "Back-End & Database Basics",
       items: [
-        { name: "Node.js (Basics)", icon: <FaNodeJs /> },
+        { name: "Node.js (Basics)", icon: <FaNode /> },
         { name: "MongoDB (Basics)", icon: <SiMongodb /> },
         { name: "Database Design (Basics)", icon: <TbSchema /> },
       ],
@@ -331,7 +363,13 @@ export const skills: {
     {
       title: "Computer Science Concepts",
       items: [
+        {
+          name: "Object-Oriented Programming (OOP)",
+          icon: <TbCircleRectangle />,
+        },
+        { name: "Clean Code / SOLID Principles", icon: <TbSettingsCode /> },
         { name: "Data Structures", icon: <TbListDetails /> },
+        { name: "Algorithms & Problem Solving", icon: <TbBinaryTree /> },
         { name: "Design Patterns", icon: <TbVectorTriangle /> },
       ],
     },
