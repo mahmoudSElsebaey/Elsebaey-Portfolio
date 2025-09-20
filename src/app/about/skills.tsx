@@ -26,7 +26,6 @@ export default function Skills() {
           {skills.description}
         </p>
       </div>
-      {/* <ScrollArea className="h-[400px] transition-all"> */}
       <div className="">
         <ul className="flex flex-col gap-[40px]">
           {skills.sections.map((sec, index) => {
@@ -39,19 +38,26 @@ export default function Skills() {
                   {sec.title}
                 </h3>
                 <div className="">
-                  <ul className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-[30px]">
+                  <ul className="grid  grid-cols-3 md:grid-cols-4 gap-[30px]">
                     {sec.items.map((item, i) => {
                       return (
                         <li key={i} data-aos="zoom-in">
                           <TooltipProvider>
                             <Tooltip>
                               <TooltipTrigger>
-                                <div className="text-5xl sm:text-6xl transition-all">
+                                <div
+                                  className="text-5xl sm:text-6xl transition-all"
+                                  data-aos="zoom-in"
+                                >
                                   {item.icon}
                                 </div>
                               </TooltipTrigger>
-                              <TooltipContent>
-                                <p className="text-accent font-bold">
+                              <TooltipContent >
+                                <p
+                                  className="text-accent font-bold"
+                                  data-aos="zoom-in"
+                                  data-aos-duration="400"
+                                >
                                   {item.name}
                                 </p>
                               </TooltipContent>
