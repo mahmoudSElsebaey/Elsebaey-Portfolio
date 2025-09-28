@@ -20,7 +20,7 @@ export default function Photo() {
             transition: { delay: 2.4, duration: 0.4, ease: "easeInOut" },
           }}
           className="w-[280px] h-[280px] xl:w-[480px] xl:h-[480px] rounded-full overflow-hidden
-           absolute top-1/2 left-1/2 transform-[translate(-50%,-52%)] animate-pulse"
+           absolute top-1/2 left-1/2 transform-[translate(-50%,-52%)]"
         >
           <Image
             // src="/assets/hero-img.png"

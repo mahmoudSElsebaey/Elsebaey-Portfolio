@@ -13,6 +13,16 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Certificates() {
+  // ✅ ترتيب الشهادات حسب التاريخ (DD-MM-YYYY)
+  const sortedCertificates = certificates.items.slice().sort((a, b) => {
+    const parseDate = (dateStr: string): Date => {
+      const [day, month, year] = dateStr.split("-").map(Number);
+      return new Date(year, month - 1, day);
+    };
+
+    return parseDate(b.date).getTime() - parseDate(a.date).getTime();
+  });
+
   return (
     <div
       className="flex flex-col text-center gap-8 xl:gap-8 lg:text-left"
@@ -30,7 +40,7 @@ export default function Certificates() {
 
       {/* Timeline */}
       <VerticalTimeline data-aos="zoom-in">
-        {certificates.items.map((item, index) => (
+        {sortedCertificates.map((item, index) => (
           <VerticalTimelineElement
             key={index}
             date={item.date}
@@ -58,11 +68,11 @@ export default function Certificates() {
               className="flex flex-col justify-start my-3 gap-3 text-xs md:text-base text-primary-1000"
               data-aos="zoom-in"
             >
-              <div className="flex gap-3 items-center " data-aos="zoom-in">
+              <div className="flex gap-3 items-center" data-aos="zoom-in">
                 <TbCertificate />
                 <div className="opacity-70 text-primary-1000">{item.type}</div>
               </div>
-              <div className="flex gap-3  items-center" data-aos="zoom-in">
+              <div className="flex gap-3 items-center" data-aos="zoom-in">
                 <GrOrganization />
                 <div className="opacity-70 text-primary-1000">
                   {item.source}
@@ -81,13 +91,9 @@ export default function Certificates() {
                 href={item.link}
                 target="_blank"
                 className="flex justify-center items-center gap-4 border border-primary-1000 text-sm md:text-base py-2 md:py-3 px-4 md:px-6 rounded-lg text-primary-1000 font-bold hover:bg-primary-1000 group hover:text-white transition-all duration-300"
-                data-aos="zoom-in"
               >
                 Show Certificate
-                <FaExternalLinkAlt
-                  className="group-hover:text-[22px] transition-all duration-300"
-                  data-aos="zoom-in"
-                />
+                <FaExternalLinkAlt className="group-hover:text-[22px] transition-all duration-300" />
               </Link>
             </div>
           </VerticalTimelineElement>
