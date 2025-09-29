@@ -13,15 +13,17 @@ import { FaExternalLinkAlt } from "react-icons/fa";
 import Link from "next/link";
 
 export default function Certificates() {
-  // ✅ ترتيب الشهادات حسب التاريخ (DD-MM-YYYY)
-  const sortedCertificates = certificates.items.slice().sort((a, b) => {
-    const parseDate = (dateStr: string): Date => {
-      const [day, month, year] = dateStr.split("-").map(Number);
-      return new Date(year, month - 1, day);
-    };
+  const sortedCertificates = certificates.items
+    .filter((item) => item.date)
+    .slice()
+    .sort((a, b) => {
+      const parseDate = (dateStr: string): number => {
+        const [day, month, year] = dateStr.split("-").map(Number);
+        return new Date(year, month - 1, day).getTime();
+      };
 
-    return parseDate(b.date).getTime() - parseDate(a.date).getTime();
-  });
+      return parseDate(b.date!) - parseDate(a.date!);
+    });
 
   return (
     <div
@@ -59,11 +61,11 @@ export default function Certificates() {
             className="text-left"
           >
             {/* Title */}
-            <h3 className=" text-xl font-bold" data-aos="zoom-in">
+            <h3 className="text-xl font-bold" data-aos="zoom-in">
               {item.title}
             </h3>
 
-            {/* Icons Info Row */}
+            {/* Info Row */}
             <div
               className="flex flex-col justify-start my-3 gap-3 text-xs md:text-base text-primary-1000"
               data-aos="zoom-in"
@@ -81,7 +83,7 @@ export default function Certificates() {
             </div>
 
             {/* Details */}
-            <p className="text-[12px] text-gray-400 " data-aos="zoom-in">
+            <p className="text-[12px] text-gray-400" data-aos="zoom-in">
               {item.details}
             </p>
 
