@@ -68,11 +68,23 @@ export default function Services() {
                   </h3>
                   {/* Description of Service  */}
                   <p
-                    className="opacity-50 group-hover:opacity-80 transition-all duration-300 "
+                    className="text-sm dark:text-white/50 dark:group-hover:text-white/90 text-black/50 group-hover:text-black/90 transition-all duration-600 leading-8 "
                     data-aos="zoom-in"
                   >
                     {item.description}
                   </p>
+                  {/* Tags of Service  */}
+                  <div className="flex flex-wrap gap-2 mt-2" data-aos="zoom-in">
+                    {item.tags.map((tag, i) => (
+                      <span
+                        key={i}
+                        className=" bg-primary-1000/10 text-primary-1000 text-xs px-5 py-1 rounded-full "
+                        data-aos="zoom-in"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               );
             })}

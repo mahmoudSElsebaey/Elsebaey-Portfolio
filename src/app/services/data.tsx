@@ -1,112 +1,82 @@
-import { LuLayoutDashboard, LuMonitorSmartphone } from "react-icons/lu";
-import { FaDatabase, FaLayerGroup, FaReact } from "react-icons/fa";
+import { LuMonitorSmartphone } from "react-icons/lu";
+import { FaDatabase, FaFigma, FaReact } from "react-icons/fa";
 import {
-  RiApps2AiLine,
   RiCloudLine,
   RiNextjsFill,
   RiServerLine,
   RiShieldUserLine,
-  RiTailwindCssFill,
 } from "react-icons/ri";
-import { CgPerformance } from "react-icons/cg";
 import { TiShoppingCart } from "react-icons/ti";
-import { SiTypescript } from "react-icons/si";
 
 type ServicesType = {
   title: string;
   description: string;
   icon: React.ReactElement;
+  tags: string[];
 }[];
+
 export const services: ServicesType = [
   {
-    title: "UI Development",
+    title: "Convert Designs to Code",
     description:
-      "Design and build attractive, responsive user interfaces using HTML, CSS, and JavaScript with a focus on user experience.",
-    icon: <LuLayoutDashboard />,
+      "Turn any design (Figma, PSD, XD) into a fully functional website that works smoothly on all devices.",
+    icon: <FaFigma />,
+    tags: ["Figma", "PSD", "XD", "HTML", "CSS", "JavaScript"],
   },
   {
-    title: "React.js Development",
+    title: "Modern Frontend Development",
     description:
-      "Build fast, interactive web applications using React.js with clean, reusable component-based architecture.",
+      "Build interactive and fast user interfaces using React.js or Angular with a focus on great user experience.",
     icon: <FaReact />,
+    tags: ["React.js", "Angular", "JavaScript", "TypeScript"],
   },
   {
     title: "Next.js Development",
     description:
-      "Create high-performance, SEO-friendly websites using Next.js with support for both static and dynamic pages.",
+      "Create high-performance, SEO-friendly websites with Next.js using server-side rendering and optimized routing.",
     icon: <RiNextjsFill />,
+    tags: ["Next.js", "React.js", "SSR", "SEO"],
   },
   {
-    title: "Responsive Design",
+    title: "Responsive & Mobile-Friendly Design",
     description:
-      "Develop websites that look great and function well on all devices including mobile, tablet, and desktop.",
+      "Ensure websites look great and function perfectly across mobile, tablet, and desktop devices.",
     icon: <LuMonitorSmartphone />,
+    tags: ["Responsive", "CSS3", "Flexbox", "Grid", "Tailwind CSS"],
   },
   {
-    title: "TypeScript Development",
+    title: "Backend & API Development",
     description:
-      "Write safer, scalable, and maintainable JavaScript code using TypeScript with static type checking and powerful tooling support.",
-    icon: <SiTypescript />,
+      "Develop secure and scalable back-end systems with Node.js, Express, and MongoDB to power applications.",
+    icon: <RiServerLine />,
+    tags: ["Node.js", "Express", "MongoDB", "REST API"],
   },
   {
-    title: "Tailwind CSS Styling",
+    title: "Authentication & Security",
     description:
-      "Create modern, responsive, and utility-first UI designs using Tailwind CSS with custom themes and animations.",
-    icon: <RiTailwindCssFill />,
+      "Implement secure login systems with JWT, OAuth, and role-based access to protect user data.",
+    icon: <RiShieldUserLine />,
+    tags: ["JWT", "OAuth", "Session", "RBAC"],
   },
   {
-    title: "Redux State Management",
+    title: "E-commerce Development",
     description:
-      "Implement robust and scalable global state management in React applications using Redux Toolkit and middleware.",
-    icon: <FaDatabase />,
-  },
-
-  {
-    title: "Performance Optimization & Debugging",
-    description:
-      "Improve website speed, reduce load times, and fix front-end technical issues for better performance.",
-    icon: <CgPerformance />,
-  },
-  {
-    title: "E-commerce Page Development",
-    description:
-      "Build custom e-commerce pages using React, including product displays, shopping carts, and a smooth user experience.",
+      "Build custom online stores with product listings, shopping carts, and secure checkout functionality.",
     icon: <TiShoppingCart />,
+    tags: ["React.js", "Redux", "Stripe", "PayPal", "E-commerce"],
   },
   {
-    title: "Back-End Development",
+    title: "Database Design & Management",
     description:
-      "Build robust, scalable, and secure back-end APIs using Node.js and Express with RESTful architecture and MongoDB integration.",
-    icon: <RiServerLine />, // يمكنك استخدام أيقونة مناسبة مثل RiServerLine من react-icons
-  },
-  {
-    title: "MongoDB Database Design",
-    description:
-      "Design efficient, schema-flexible NoSQL databases using MongoDB with Mongoose ODM for structured data modeling.",
-    icon: <FaDatabase />, // نفس الأيقونة ممكن تتكرر هنا عادي
-  },
-  {
-    title: "REST API Development",
-    description:
-      "Develop and maintain RESTful APIs to connect front-end interfaces with powerful back-end services.",
-    icon: <RiApps2AiLine />, // أيقونة API
-  },
-  {
-    title: "Full Stack MERN / MEAN Development",
-    description:
-      "Deliver end-to-end web applications using MongoDB, Express.js, React or Angular, and Node.js with complete frontend and backend integration.",
-    icon: <FaLayerGroup />, // أو أيقونة تعبر عن full stack
-  },
-  {
-    title: "Authentication & Authorization",
-    description:
-      "Implement secure login systems using JWT, OAuth, and session-based authentication for both frontend and backend.",
-    icon: <RiShieldUserLine />, // أيقونة أمان
+      "Design and manage efficient databases with MongoDB to handle structured and unstructured data effectively.",
+    icon: <FaDatabase />,
+    tags: ["MongoDB", "Mongoose", "NoSQL", "Data Modeling"],
   },
   {
     title: "Deployment & Hosting",
     description:
-      "Deploy full-stack applications on platforms like Vercel, Netlify, and Render, and manage server deployments on platforms like Heroku or VPS.",
-    icon: <RiCloudLine />, // أيقونة Cloud أو Deploy
+      "Deploy and host full-stack applications on Vercel, Netlify, Render, or cloud servers for live production use.",
+    icon: <RiCloudLine />,
+    tags: ["Vercel", "Netlify", "Render", "Heroku", "VPS"],
   },
 ];

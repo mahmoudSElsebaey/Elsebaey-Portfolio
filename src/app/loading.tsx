@@ -1,9 +1,10 @@
 import React from "react";
+import HashLoader from "react-spinners/HashLoader";
 
-export default function loading() {
+export default function Loading() {
   return (
-    <div className="w-dvw h-dvh flex justify-center items-center text-3xl capitalize">
-      loading...
+    <div className="w-dvw h-dvh flex justify-center items-center ">
+      <HashLoader color={`rgb(var(--primary-1000))`} size={60} />
     </div>
   );
 }
