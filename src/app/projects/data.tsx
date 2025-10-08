@@ -43,7 +43,7 @@ export const projectsData: Project[] = [
     description:
       "A personal portfolio website to showcase my projects, skills, and experience, built with React, TypeScript, and Next.js.",
     image: "/assets/projects-images/portfolio.png",
-    live: "https://portfolio-uiwzvpmx1-mahmoud-elsebaeys-projects.vercel.app/",
+    live: "https://mahmoud-elsebaey-portfolio.vercel.app/",
     github: "https://github.com/mahmoudSElsebaey/Elsebaey-Portfolio/tree/main"
   },
   {
