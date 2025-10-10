@@ -440,10 +440,4 @@ body {
   left: 18px;
   background: theme(--color-primary-1000) !important;
 } 
-
-.drop-cap::first-letter {
-  @apply text-red-500 font-bold float-left pr-2 mt-[-3px];
-  font-size: 70px;
-  line-height: 60px;
-  
-}
+ 

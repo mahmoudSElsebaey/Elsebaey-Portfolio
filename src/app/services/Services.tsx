@@ -36,6 +36,7 @@ export default function Services() {
                       className="text-5xl font-extrabold text-outline text-transparent flex 
                   justify-center items-center h-[50px] gap-1 group-hover:gap-2"
                       data-aos="zoom-in"
+                        style={{ userSelect: "none" }}
                     >
                       <span
                         style={{ userSelect: "none" }}

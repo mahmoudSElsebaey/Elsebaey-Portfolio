@@ -52,6 +52,7 @@ export default function Projects() {
             <div
               className="text-transparent text-outline text-8xl font-extrabold"
               data-aos="zoom-in"
+              style={{ userSelect: "none" }}
             >
               {project.num}
             </div>

@@ -33,7 +33,10 @@ export default function Skills() {
               return (
                 <li key={index} data-aos="fade-up" data-aos-duration="700">
                   <h3 className="text-primary-1000 text-[18px] sm:text-2xl font-bold mb-5 text-left flex items-center gap-0">
-                    <span className="text-outline text-transparent animate-pulse text-2xl sm:text-3xl pr-4">
+                    <span
+                      className="text-outline text-transparent animate-pulse text-2xl sm:text-3xl pr-4"
+                      style={{ userSelect: "none" }}
+                    >
                       0{index + 1}
                     </span>
                     {sec.title}

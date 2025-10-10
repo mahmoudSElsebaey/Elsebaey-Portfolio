@@ -92,6 +92,7 @@ export default function FeaturesTabs() {
                       <span
                         className="font-bold text-outline text-transparent text-xs md:text-2xl"
                         data-aos="zoom-in"
+                        style={{ userSelect: "none" }}
                       >
                         {String(index + 1).padStart(2, "0")}
                       </span>
