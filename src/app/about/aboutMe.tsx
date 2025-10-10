@@ -4,7 +4,7 @@ export default function AboutMe() {
   return (
     <div className="container mx-auto my-5" data-aos="zoom-in">
       <div
-        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 "
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mt-15"
         data-aos="zoom-in"
       >
         {about.map((item, index) => {
