@@ -62,10 +62,10 @@ import {
 import { VscVscode } from "react-icons/vsc";
 
 // Define TypeScript types
-type InfoItem = {
-  fieldName: string;
-  fieldValue: string;
-};
+type AboutMeItem = {
+  title: string;
+  desc: string;
+}[];
 
 type EducationItem = {
   institution: string;
@@ -98,24 +98,48 @@ type SkillSection = {
 };
 
 // Define the data with types
-export const about: {
-  title: string;
-  description: string;
-  info: InfoItem[];
-} = {
-  title: "About Me",
-  description: `A Full-Stack Developer| MERN & MEAN I build modern, responsive,and scalable web applications with clean code and seamless user experiences. Always exploring new technologies to create impactful digital solutions.`,
-  info: [
-    { fieldName: "Name", fieldValue: "Mahmoud Salah Elsebaey" },
-    { fieldName: "Phone", fieldValue: "(+20) 120 7247 967" },
-    { fieldName: "Experience", fieldValue: "2+ Years" },
-    { fieldName: "Nationality", fieldValue: "Egyption" },
-    { fieldName: "Freelance", fieldValue: "Available" },
-    { fieldName: "Languages", fieldValue: "English , Arabic" },
-    { fieldName: "Military service", fieldValue: "Completed" },
-    { fieldName: "Marital status", fieldValue: "single" },
-  ],
-};
+
+export const about: AboutMeItem = [
+  {
+    title: "My Name",
+    desc: "My name is Mahmoud Salah Elsebaey, a passionate Front-End Developer who enjoys building modern, responsive, and accessible web applications.",
+  },
+  {
+    title: "My Education",
+    desc: "I graduated from Menoufia University with a Bachelor's degree in Computer Science, where I learned the fundamentals of algorithms, data structures, and web development.",
+  },
+  {
+    title: "Frontend & Backend",
+    desc: "I specialize in Front-End development using React.js and Next.js, and I’m currently expanding my skills in backend technologies with Node.js and Express.js to build full-stack projects.",
+  },
+  {
+    title: "Military Service",
+    desc: "I have completed my military service, allowing me to fully focus on advancing my professional career and improving my technical expertise.",
+  },
+  {
+    title: "My Future",
+    desc: "I aim to become a Full-Stack Web Developer, continuously learning and contributing to impactful projects that solve real-world problems.",
+  },
+];
+
+// export const about: {
+//   title: string;
+//   description: string;
+//   info: InfoItem[];
+// } = {
+//   title: "About Me",
+//   description: `A Full-Stack Developer| MERN & MEAN I build modern, responsive,and scalable web applications with clean code and seamless user experiences. Always exploring new technologies to create impactful digital solutions.`,
+//   info: [
+//     { fieldName: "Name", fieldValue: "Mahmoud Salah Elsebaey" },
+//     { fieldName: "Phone", fieldValue: "(+20) 120 7247 967" },
+//     { fieldName: "Experience", fieldValue: "2+ Years" },
+//     { fieldName: "Nationality", fieldValue: "Egyption" },
+//     { fieldName: "Freelance", fieldValue: "Available" },
+//     { fieldName: "Languages", fieldValue: "English , Arabic" },
+//     { fieldName: "Military service", fieldValue: "Completed" },
+//     { fieldName: "Marital status", fieldValue: "single" },
+//   ],
+// };
 
 export const education: {
   title: string;
