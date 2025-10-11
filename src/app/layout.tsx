@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 import Header from "@/components/Header/Header";
 import { ThemeProvider } from "@/components/ui/theme-provider";
 import Footer from "@/components/Footer/Footer";
 import PageTransition from "@/components/ui/PageTransition";
 import DraggableNav from "@/components/DraggableMenu/DraggableMenu";
-// import AnnouncementBar from "@/components/ui/AnnouncementBar";
-// import ThemeSwitcher from "@/components/ThemeSwitcher/ThemeSwitcher";
 import ScrollToTopButton from "../components/ScrollToTopButton/ScrollToTopButton";
 import ScrollProgressBar from "@/components/ScrollProgressBar/ScrollProgressBar";
 import AOSProvider from "@/components/ui/AOSProvider";
@@ -37,31 +36,33 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${jetBrainsMono.variable}  antialiased`}>
-        {/* Provides theme context to the app */}
+        {/*_____________________ Provides theme context to the app _____________________*/}
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          {/* Handles page transition animations */}
+          {/*_____________________ Handles page transition animations _____________________*/}
           <PageTransition>
-            {/* Main site header */}
+            {/*_____________________ Main site header _____________________*/}
             <Header />
-            {/* Draggable navigation menu */}
+            {/*_____________________ Draggable navigation menu _____________________*/}
             <DraggableNav />
-            {/* Main page content */}
+            {/*_____________________ Main page content _____________________*/}
             <AOSProvider> {children}</AOSProvider>
-            {/* Site footer */}
+            {/*_____________________ Site footer _____________________*/}
             <Footer />
-            {/* Announcement bar for notifications */}
+            {/*_____________________ Announcement bar for notifications _____________________*/}
             {/* <AnnouncementBar /> */}
-            {/* Shows scroll progress at the top of the page */}
+            {/*_____________________ Shows scroll progress at the top of the page _____________________*/}
             <ScrollProgressBar />
-            {/* Button to scroll back to top */}
+            {/*_____________________ Button to scroll back to top _____________________*/}
             <ScrollToTopButton />
           </PageTransition>
         </ThemeProvider>
+        {/*_____________________ Analytics of users behavior at vercel  _____________________*/}
+         <Analytics />
       </body>
     </html>
   );

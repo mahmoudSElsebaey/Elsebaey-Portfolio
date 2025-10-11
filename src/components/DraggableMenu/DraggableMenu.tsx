@@ -6,19 +6,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { AiOutlineHome } from "react-icons/ai";
 import { FaUser } from "react-icons/fa";
-import { TbFileCv } from "react-icons/tb";
 import { GrProjects } from "react-icons/gr";
 import { BsFillSendFill } from "react-icons/bs";
-import { MdWork } from "react-icons/md";
+import { MdTipsAndUpdates, MdWork } from "react-icons/md";
 import { IoMenu , IoClose} from "react-icons/io5";
-  
+   
 const navItems = [
   { icon: AiOutlineHome, label: "Home", ref: "/" },
   { icon: FaUser, label: "About Me", ref: "/about" },
   { icon: GrProjects, label: "Projects", ref: "/projects" },
-  { icon: TbFileCv, label: "Resume", ref: "/resume" },
+  { icon: MdTipsAndUpdates, label: "Features", ref: "/features" },
   { icon: MdWork, label: "Services", ref: "/services" },
-  { icon: BsFillSendFill, label: "contact", ref: "/contact" },
+  { icon: BsFillSendFill, label: "Contact", ref: "/contact" },
 ];
 
 export default function DraggableNav() {
