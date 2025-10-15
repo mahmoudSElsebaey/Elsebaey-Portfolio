@@ -5,12 +5,14 @@ export const metadata: Metadata = {
 };
 
 import React from 'react'
-import Projects from "./Projects";
+// import Projects from "./Projects";
+import AllProjects from "./AllProjects";
 
 export default function projectPage() {
   return (
     <>
-    <Projects />
+    {/* <Projects /> */}
+    <AllProjects />
     </>
   )
 }

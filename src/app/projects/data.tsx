@@ -22,7 +22,7 @@ export const projectsData: Project[] = [
     ],
     description:
       "A modern website for a gym, featuring class schedules, trainer profiles, and membership options.",
-    image: "/assets/projects-images/Gym Website Template.png",
+    image: "/assets/projects-images/gem.png",
     live: "https://mahmoudselsebaey.github.io/GYM/",
     github: "https://github.com/mahmoudSElsebaey/GYM/tree/master",
   },
@@ -59,7 +59,7 @@ export const projectsData: Project[] = [
     ],
     description:
       "A platform for expatriate students to find rental properties in their area with search functionality and account management.",
-    image: "/assets/projects-images/Sakney.png",
+    image: "/assets/projects-images/skaney.png",
     live: "https://mahmoudselsebaey.github.io/Sakney/",
     github: "https://github.com/mahmoudSElsebaey/Sakney/tree/master",
   },
