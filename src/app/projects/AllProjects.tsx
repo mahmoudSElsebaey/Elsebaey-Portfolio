@@ -23,8 +23,13 @@ const AllProjects: React.FC = () => {
     //     },
     //   }}
     // >
-    <div className="container ">
-      {/* <h1 className="my-10">All Projects</h1> */}
+    <div className="container " data-aos="zoom-in">
+      <h1
+        className="mb-3 text-xl md:text-3xl border-b-3 border-primary-1000 inline-block py-2"
+        data-aos="zoom-in"
+      >
+        All Projects
+      </h1>
       <ul className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10">
         {projectsData.map((project, index) => {
           return (
@@ -32,6 +37,7 @@ const AllProjects: React.FC = () => {
               key={index}
               className="group rounded-[15px] overflow-hidden border-b hover:border-primary-1000 
              hover:bg-primary-1000/30 dark:hover:bg-primary-1000/10 transition-all duration-1000 pb-5 project-parent"
+              data-aos="zoom-in"
             >
               <div className="w-full h-[300px] relative top-0 left-0">
                 {/*_______________ Project Category _______________*/}
@@ -56,6 +62,7 @@ const AllProjects: React.FC = () => {
                   <div
                     className="flex gap-4 absolute top-[-50%] scale-0 group-hover:scale-100 group-hover:top-2
                    transition-all group-hover:duration-1000 duration-600 left-4 z-50"
+                    data-aos="zoom-in"
                   >
                     {/*Live Project */}
                     <Link href={project.live} target="_blank">
@@ -87,25 +94,36 @@ const AllProjects: React.FC = () => {
                 <div
                   className="text-transparent text-outline text-4xl font-extrabold"
                   style={{ userSelect: "none" }}
+                  data-aos="zoom-in"
                 >
                   {project.num}
                 </div>
                 {/*_______________ Project Title _______________*/}
-                <h3 className="text-[25px] font-bold leading-none project-title ">
+                <h3
+                  className="text-[25px] font-bold leading-none project-title "
+                  data-aos="zoom-in"
+                >
                   {project.title}
                 </h3>
               </div>
               {/*_______________ Project Discription _______________*/}
-              <p className="opacity-70 px-6 my-3 text-[14px] leading-relaxed">
+              <p
+                className="opacity-70 px-6 my-3 text-[14px] leading-relaxed"
+                data-aos="zoom-in"
+              >
                 {project.description}
               </p>
               {/*_______________ Project Tools _______________*/}
-              <ul className="flex flex-wrap items-center gap-2 px-6">
+              <ul
+                className="flex flex-wrap items-center gap-2 px-6"
+                data-aos="zoom-in"
+              >
                 {project.tools.map((tool, i) => {
                   return (
                     <li
                       key={i}
                       className="text-primary-1000 text-sm capitalize border border-primary-1000/50 bg-primary-1000/20 py-1 px-3 rounded-[14px]"
+                      data-aos="zoom-in"
                     >
                       {tool.name}
                     </li>
