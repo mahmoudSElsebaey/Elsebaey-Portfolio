@@ -9,7 +9,7 @@ export default function Photo() {
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          transition: { delay: 2, duration: 0.4, ease: "easeIn" },
+          transition: { delay: 0, duration: 0.4, ease: "easeIn" },
         }}
       >
         {/* Image */}
@@ -25,7 +25,7 @@ export default function Photo() {
           <Image
             // src="/assets/hero-img.png"
             src="/assets/hoda1.png"
-             quality={100}
+            quality={100}
             alt="Personal image"
             priority
             fill
@@ -57,7 +57,7 @@ export default function Photo() {
               repeat: Infinity,
               repeatType: "reverse",
             }}
-            className='stroke-primary-1000'
+            className="stroke-primary-1000"
           />
         </motion.svg>
       </motion.div>

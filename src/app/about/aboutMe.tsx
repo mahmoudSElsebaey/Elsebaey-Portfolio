@@ -12,7 +12,7 @@ export default function AboutMe() {
             <p
               key={index}
               className="first-letter:font-bold first-letter:float-left first-letter:text-[70px] first-letter:leading-[60px]
-               first-letter:ml-[-3px] first-letter:pr-1
+               first-letter:ml-[-3px] first-letter:pr-1 leading-relaxed
                  tracking-wide border-dashed border-r-2 border-b-2 rounded-[30px] border-primary-1000/10 hover:border-primary-1000/50 pr-3 pb-3"
               data-aos="zoom-in"
             >
