@@ -62,7 +62,6 @@ const AllProjects: React.FC = () => {
                   <div
                     className="flex gap-4 absolute top-[-50%] scale-0 group-hover:scale-100 group-hover:top-2
                    transition-all group-hover:duration-1000 duration-600 left-4 z-50"
-                    data-aos="zoom-in"
                   >
                     {/*Live Project */}
                     <Link href={project.live} target="_blank">
