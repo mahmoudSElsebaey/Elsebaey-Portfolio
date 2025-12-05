@@ -48,6 +48,17 @@ export const projectsData: Project[] = [
   },
   {
     num: "03",
+    title: "Full Stack Authentication App",
+    category: "Full Stack Website",
+    tools: [{ name: "React.js" }, { name: "Node.js" }, { name: "Express.js" }, { name: "Node.js" }, { name: "Node.js" }, { name: "MongoDB" }, { name: "JWT" }],
+    description:
+      "A full stack authentication application with user registration, login, and protected routes using React for the frontend and Node.js with Express for the backend.",
+    image: "/assets/projects-images/auth-app.png",
+    live: "https://authentication-app-frontend-seven.vercel.app/",
+    github: "https://github.com/mahmoudSElsebaey/Authentication_app_Backend",
+  },
+  {
+    num: "04",
     title: "Sakney",
     category: "Rental Platform",
     tools: [
@@ -64,7 +75,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Sakney/tree/master",
   },
   {
-    num: "04",
+    num: "05",
     title: "E-commerce Electronics Store",
     category: "E-commerce Website",
     tools: [
@@ -82,7 +93,24 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Ecommerce_ReactJS",
   },
   {
-    num: "05",
+    num: "06",
+    title: "Social Feed - SPA",
+    category: "Social Media Site",
+    tools: [
+      { name: "HTML5" },
+      { name: "CSS3" },
+      { name: "JavaScript" },
+      { name: "Tailwind css" },
+      { name: "React.js" },
+      { name: "Next.js" },
+    ],
+    description: " A social media platform built with React and Next.js, allowing users to create profiles, post updates, and connect with friends.",
+    image: "/assets/projects-images/social-site.png",
+    github: "https://github.com/mahmoudSElsebaey/Social-Feed",
+    live: "#",
+  },
+  {
+    num: "07",
     title: "Sakney Dashboard",
     category: "Admin Dashboard",
     tools: [
@@ -101,7 +129,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/SakneyDashboard/tree/master ",
   },
   {
-    num: "06",
+    num: "08",
     title: "Game Warrior",
     category: "Gaming Brand",
     tools: [
@@ -117,7 +145,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Game-Warrior",
   },
   {
-    num: "07",
+    num: "09",
     title: "Directory Ads",
     category: "Business Directory",
     tools: [
@@ -133,7 +161,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/DirectoryAds",
   },
   {
-    num: "08",
+    num: "10",
     title: "Barber Shop",
     category: "Landing Page",
     tools: [
@@ -149,14 +177,14 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Barber-Shop",
   },
   {
-    num: "09",
+    num: "11",
     title: "Amin Games",
     category: "Gaming Platform",
     tools: [
       { name: "HTML5" },
       { name: "CSS3" },
       { name: "Bootstrap" },
-      // { name: "JavaScript" },
+      { name: "JavaScript" },
     ],
     description:
       "A landing page for a gaming platform, offering the latest game releases and features.",
@@ -165,7 +193,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Amin-Games",
   },
   {
-    num: "10",
+    num: "12",
     title: "Chairs Shops",
     category: "Furniture Store",
     tools: [{ name: "HTML5" }, { name: "CSS3" }],
@@ -176,7 +204,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/chairs-shops",
   },
   {
-    num: "11",
+    num: "13",
     title: "Wave Cafe",
     category: "Coffee Shop Website",
     tools: [{ name: "HTML5" }, { name: "CSS3" }],
@@ -186,4 +214,5 @@ export const projectsData: Project[] = [
     live: "https://mahmoudselsebaey.github.io/wave_cafe/",
     github: "https://github.com/mahmoudselsebaey/wave_cafe",
   },
+
 ];
