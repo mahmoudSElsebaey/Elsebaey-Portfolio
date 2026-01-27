@@ -71,7 +71,7 @@ export default function Projects() {
               <div className="border" data-aos="zoom-in"></div>
               <div className="flex gap-4" data-aos="zoom-in">
                 {/*Live Project */}
-                <Link href={project.live} target="_blank" data-aos="zoom-in">
+                {project.live && (<Link href={project.live} target="_blank" data-aos="zoom-in">
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center cursor-pointer group">
@@ -80,9 +80,9 @@ export default function Projects() {
                       <TooltipContent>Live Project</TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
-                </Link>
+                </Link>)}
                 {/*Github Repo */}
-                <Link href={project.github} target="_blank" data-aos="zoom-in">
+                {project.github && (<Link href={project.github} target="_blank" data-aos="zoom-in">
                   <TooltipProvider>
                     <Tooltip>
                       <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center cursor-pointer group">
@@ -91,7 +91,7 @@ export default function Projects() {
                       <TooltipContent>Github Repo</TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
-                </Link>
+                </Link>)}
               </div>
             </div>
             {/* ----------- Right Side [Swiper] ----------- */}
@@ -124,7 +124,7 @@ export default function Projects() {
                           src={project.image}
                           fill
                           alt={project.title}
-                          // className="object-cover"
+                        // className="object-cover"
                         />
                       </div>
                     </div>
