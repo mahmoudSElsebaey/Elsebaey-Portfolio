@@ -64,18 +64,21 @@ const AllProjects: React.FC = () => {
                    transition-all group-hover:duration-1000 duration-600 left-4 z-50"
                   >
                     {/*Live Project */}
-                    <Link href={project.live} target="_blank">
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger className="w-[60px] h-[60px] rounded-full bg-primary-1000/70 hover:bg-primary-1000 flex justify-center items-center cursor-pointer group">
-                            <BsArrowUpRight className="text-[30px] transition-all" />
-                          </TooltipTrigger>
-                          <TooltipContent>Live Project</TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </Link>
+                    {project.live && (
+                      <Link href={project.live} target="_blank">
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger className="w-[60px] h-[60px] rounded-full bg-primary-1000/70 hover:bg-primary-1000 flex justify-center items-center cursor-pointer group">
+                              <BsArrowUpRight className="text-[30px]" />
+                            </TooltipTrigger>
+                            <TooltipContent>Live Project</TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </Link>
+                    )}
+
                     {/*Github Repo */}
-                    <Link href={project.github} target="_blank">
+                    {project.github && (<Link href={project.github} target="_blank">
                       <TooltipProvider>
                         <Tooltip>
                           <TooltipTrigger className="w-[60px] h-[60px] rounded-full bg-primary-1000/70 hover:bg-primary-1000 flex justify-center items-center cursor-pointer group">
@@ -84,7 +87,7 @@ const AllProjects: React.FC = () => {
                           <TooltipContent>Github Repo</TooltipContent>
                         </Tooltip>
                       </TooltipProvider>
-                    </Link>
+                    </Link>)}
                   </div>
                 </div>
               </div>
