@@ -32,9 +32,9 @@ export default function Skills() {
             {skills.sections.map((sec, index) => {
               return (
                 <li key={index} data-aos="fade-up" data-aos-duration="700">
-                  <h3 className="text-primary-1000 text-[18px] sm:text-2xl font-bold mb-5 text-left flex items-center gap-0">
+                  <h3 className="text-primary-1000 text-base sm:text-2xl font-bold mb-5 text-left flex items-center gap-0">
                     <span
-                      className="text-outline text-transparent animate-pulse text-2xl sm:text-3xl pr-4"
+                      className="text-outline text-transparent animate-pulse text-xl sm:text-3xl pr-2 sm:pr-4"
                       style={{ userSelect: "none" }}
                     >
                       0{index + 1}

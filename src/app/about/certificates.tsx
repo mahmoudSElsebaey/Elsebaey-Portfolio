@@ -61,7 +61,7 @@ export default function Certificates() {
             className="text-left"
           >
             {/* Title */}
-            <h3 className="text-xl font-bold" data-aos="zoom-in">
+            <h3 className="sm:text-xl font-bold" data-aos="zoom-in">
               {item.title}
             </h3>
 
@@ -83,7 +83,7 @@ export default function Certificates() {
             </div>
 
             {/* Details */}
-            <p className="text-[12px] text-gray-400" data-aos="zoom-in">
+            <p className="text-[10px] sm:text-[12px] text-gray-400" data-aos="zoom-in">
               {item.details}
             </p>
 
@@ -92,10 +92,10 @@ export default function Certificates() {
               <Link
                 href={item.link}
                 target="_blank"
-                className="flex justify-center items-center gap-4 border border-primary-1000 text-sm md:text-base py-2 md:py-3 px-4 md:px-6 rounded-lg text-primary-1000 font-bold hover:bg-primary-1000 group hover:text-white transition-all duration-300"
+                className="flex justify-center items-center gap-4 border border-primary-1000 text-[11px] md:text-base py-2 md:py-3 px-4 md:px-6 rounded-lg font-bold sm:text-primary-1000 bg-primary-1000 sm:bg-primary-1000/10 sm:hover:bg-primary-1000 group sm:hover:text-white transition-all duration-300"
               >
                 Show Certificate
-                <FaExternalLinkAlt className="group-hover:text-[22px] transition-all duration-300" />
+                <FaExternalLinkAlt className="sm:group-hover:text-[22px] transition-all duration-300" />
               </Link>
             </div>
           </VerticalTimelineElement>

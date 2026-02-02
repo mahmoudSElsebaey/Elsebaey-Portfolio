@@ -8,14 +8,14 @@ import Stats from "../ui/Stats";
 import { MdOutlineWavingHand } from "react-icons/md";
 
 const titles: string[] = [
-  "Full-Stack Developer",
-  "Front-End Developer",
+  "FullStack Developer",
+  "FrontEnd Developer",
   "Back-End Developer",
   "React.js Developer",
-  "Angular.js Developer",
+  "Angular Developer",
   "Next.js Developer",
   "MERN | MEAN Stack",
-  "Freelancer Developer",
+  "Freelancer",
 ];
 
 export default function HomePage() {
@@ -37,7 +37,7 @@ export default function HomePage() {
         {/*My Informatiom */}
         <div
           data-aos="zoom-in"
-          className="xl:h-[480px] flex flex-col gap-2 xl:gap-6 md:gap-1 items-center md:items-start justify-center order-2 md:order-none "
+          className="overflow-hidden xl:h-[480px] flex flex-col gap-2 xl:gap-6 md:gap-1 items-center md:items-start justify-center order-2 md:order-none"
         >
           <p className="text-4xl font-bold flex gap-3 ">
             Hello <MdOutlineWavingHand className="text-primary-1000" /> I&apos;m
@@ -50,14 +50,14 @@ export default function HomePage() {
             ></span>
           </p>
           <ul
-            className="h-10 self-start ml-[10%] sm:ml-[16%] md:ml-0"
+            className="h-10 self-start ml-[2%] sm:ml-[15%] md:ml-0"
             data-aos="zoom-in"
             style={{ userSelect: "none" }}
           >
             <li
               key={index}
               style={{ letterSpacing: "2px" }}
-              className="typing text-2xl sm:text-3xl font-extrabold text-outline text-transparent"
+              className=" typing text-xl sm:text-3xl font-extrabold text-outline text-transparent"
             >
               {titles[index]}
             </li>
@@ -66,12 +66,12 @@ export default function HomePage() {
 
           <p
             data-aos="zoom-in"
-            className=" dark:text-white/60 text-black/60 max-w-[500px] text-center md:text-left text-sm md:text-base leading-relaxed"
+            className="dark:text-white/60 text-black/60 max-w-[500px] text-center md:text-left text-sm md:text-base leading-relaxed"
           >
             A Full-Stack Developer| MERN & MEAN I build modern, responsive, and
             scalable web applications with clean code and seamless user
-            experiences. Always exploring new technologies to create impactful
-            digital solutions.
+            experiences. <span className="hidden sm:inline-block"> Always exploring new technologies to create impactful
+            digital solutions.</span>
           </p>
           <div
             className="flex flex-col md:flex-row items-center gap-8"
