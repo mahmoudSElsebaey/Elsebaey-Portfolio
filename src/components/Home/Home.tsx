@@ -50,7 +50,7 @@ export default function HomePage() {
             ></span>
           </p>
           <ul
-            className="h-10 self-start ml-[2%] sm:ml-[15%] md:ml-0"
+            className="h-10 self-start ml-[10%] sm:ml-[15%] md:ml-0"
             data-aos="zoom-in"
             style={{ userSelect: "none" }}
           >

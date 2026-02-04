@@ -41,27 +41,27 @@ const AllProjects: React.FC = () => {
             >
               <div className="w-full h-[300px] relative top-0 left-0">
                 {/*_______________ Project Category _______________*/}
-                <div className="absolute inset-0 z-10 flex justify-end items-start p-2 ">
+                {/* <div className="absolute inset-0 z-10 flex justify-end items-start p-2 ">
                   <div className="project-category w-fit p-[2px] rounded-br-[13px] rounded-tl-[13px] overflow-hidden ">
                     <h3 className="bg-primary-1000 w-fit p-3 rounded-br-[13px] rounded-tl-[13px]">
                       {project.category}
                     </h3>
                   </div>
-                </div>
+                </div> */}
                 {/*_______________ Project Image _______________*/}
-                <div className="w-full h-full overflow-hidden relative ">
+                <div className="w-full h-[80%] sm:h-full overflow-hidden relative ">
                   <Image
                     src={project.image}
                     width="10000"
                     height="10000"
                     alt={project.title}
-                    className="w-full h-full scale-x-[101.5%] group-hover:scale-[115%] group-hover:transition-all
-                     group-hover:duration-2000 duration-1000 "
+                    className="w-full h-full scale-x-[101.5%] group-hover:scale-[110%] group-hover:transition-all
+                     group-hover:duration-2000 duration-500 "
                   />
-                  {/*_______________ Project Buttons _______________*/}
+                  {/*_______________ Project Buttons (pc and ipad) _______________*/}
                   <div
-                    className="flex gap-4 absolute top-[-50%] scale-0 group-hover:scale-100 group-hover:top-2
-                   transition-all group-hover:duration-1000 duration-600 left-4 z-50"
+                    className="flex gap-4 absolute top-[-50%] scale-0 sm:group-hover:scale-100 sm:group-hover:top-2
+                   transition-all sm:group-hover:duration-1000 duration-600 left-4 z-50"
                   >
                     {/*Live Project */}
                     {project.live && (
@@ -102,12 +102,13 @@ const AllProjects: React.FC = () => {
                 </div>
                 {/*_______________ Project Title _______________*/}
                 <h3
-                  className="text-[25px] font-bold leading-none project-title "
+                  className="text-[20px] sm:text-[25px] font-bold leading-none project-title "
                   data-aos="zoom-in"
                 >
                   {project.title}
                 </h3>
               </div>
+
               {/*_______________ Project Discription _______________*/}
               <p
                 className="opacity-70 px-6 my-3 text-[14px] leading-relaxed"
@@ -132,7 +133,43 @@ const AllProjects: React.FC = () => {
                   );
                 })}
               </ul>
+              {/*_______________ Project links (mobile) _______________*/}
+              <div className="sm:hidden flex justify-center gap-2 mt-5" data-aos="zoom-in">
+                {/* Live Project */}
+                <div className="project-category p-[2px] rounded-[15px] overflow-hidden "   data-aos="zoom-in">
+                  <h3 className="bg-primary-1000 rounded-[15px]">
+                    {project.live && (
+                      <Link href={project.live} target="_blank" className="w-[42%]">
+                        <TooltipProvider>
+                          <Tooltip>
+                            <TooltipTrigger className="w-full h-[50px] px-5 rounded-[10px] bg-primary-1000/70 hover:bg-primary-1000 flex gap-3 justify-center items-center cursor-pointer group">
+                              Live <BsArrowUpRight className="text-[20px]" />
+                            </TooltipTrigger>
+                            <TooltipContent>Live Project</TooltipContent>
+                          </Tooltip>
+                        </TooltipProvider>
+                      </Link>
+                    )}
+                  </h3>
+                </div>
+
+                {/*Github Repo */}
+                <div className="project-category p-[2px] rounded-[15px] overflow-hidden "   data-aos="zoom-in">
+                  <h3 className="bg-primary-1000 rounded-[15px]">
+                    {project.github && (<Link href={project.github} className="w-[42%]" target="_blank">
+                      <TooltipProvider>
+                        <Tooltip>
+                          <TooltipTrigger className="w-full h-[50px] px-5 rounded-[10px] bg-primary-1000/70 hover:bg-primary-1000 flex justify-center items-center gap-3 cursor-pointer group">
+                            Github  <BsGithub className="text-[20px] transition-all" />
+                          </TooltipTrigger>
+                          <TooltipContent>Github Repo</TooltipContent>
+                        </Tooltip>
+                      </TooltipProvider>
+                    </Link>)}</h3>
+                </div>
+              </div>
             </li>
+
           );
         })}
       </ul>

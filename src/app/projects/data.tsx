@@ -31,7 +31,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "A full-stack MERN e-commerce application with authentication, payments, multi-language support, and product management.",
-    image: "/assets/projects-images/E-Commerce FullStack.png",
+    // image: "/assets/projects-images/E-Commerce FullStack.png",
+    image: "/assets/projects images multi devices/1.png",
     live: "https://electric-store-mern.vercel.app/",
     github: "https://github.com/mahmoudSElsebaey/electric-store-mern",
   },
@@ -48,7 +49,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "A modern gym website featuring class schedules, trainer profiles, and membership options.",
-    image: "/assets/projects-images/gem.png",
+    // image: "/assets/projects-images/gem.png",
+     image: "/assets/projects images multi devices/2.png",
     live: "https://mahmoudselsebaey.github.io/GYM/",
     github: "https://github.com/mahmoudSElsebaey/GYM",
   },
@@ -68,7 +70,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "A personal portfolio website to showcase projects, skills, and experience with smooth animations.",
-    image: "/assets/projects-images/portfolio.png",
+    // image: "/assets/projects-images/portfolio.png",
+     image: "/assets/projects images multi devices/3.png",
     live: "https://mahmoud-elsebaey-portfolio.vercel.app/",
     github: "https://github.com/mahmoudSElsebaey/Elsebaey-Portfolio",
   },
@@ -85,7 +88,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "A full-stack authentication system with secure login, registration, and protected routes.",
-    image: "/assets/projects-images/auth-app.png",
+    // image: "/assets/projects-images/auth-app.png",
+     image: "/assets/projects images multi devices/4.png",
     live: "https://authentication-app-frontend-seven.vercel.app/",
     github: "https://github.com/mahmoudSElsebaey/Authentication_app_Backend",
   },
@@ -102,7 +106,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "A rental platform helping expatriate students find suitable accommodation with search and filtering features.",
-    image: "/assets/projects-images/skaney.png",
+    // image: "/assets/projects-images/skaney.png",
+     image: "/assets/projects images multi devices/5.png",
     live: "https://mahmoudselsebaey.github.io/Sakney/",
     github: "https://github.com/mahmoudSElsebaey/Sakney",
   },
@@ -120,7 +125,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "A simple e-commerce website showcasing electronic products with cart functionality.",
-    image: "/assets/projects-images/Electronics Store.png",
+    // image: "/assets/projects-images/Electronics Store.png",
+     image: "/assets/projects images multi devices/6.png",
     live: "https://mahmoudselsebaey.github.io/Ecommerce_ReactJS/",
     github: "https://github.com/mahmoudselsebaey/Ecommerce_ReactJS",
   },
@@ -157,7 +163,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "An admin dashboard for managing users, properties, and analytics efficiently.",
-    image: "/assets/projects-images/skney dashboard.png",
+    // image: "/assets/projects-images/skney dashboard.png",
+     image: "/assets/projects images multi devices/7.png",
     live: "https://mahmoudselsebaey.github.io/SakneyDashboard/",
     github: "https://github.com/mahmoudSElsebaey/SakneyDashboard",
   },
@@ -173,7 +180,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "A bold landing page for a gaming brand showcasing news, team, and community.",
-    image: "/assets/projects-images/gamewarrior.png",
+    // image: "/assets/projects-images/gamewarrior.png",
+     image: "/assets/projects images multi devices/8.png",
     live: "https://mahmoudselsebaey.github.io/Game-Warrior/",
     github: "https://github.com/mahmoudselsebaey/Game-Warrior",
   },
@@ -189,7 +197,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "A business directory website for showcasing services and advertisements.",
-    image: "/assets/projects-images/directoryads.png",
+    // image: "/assets/projects-images/directoryads.png",
+     image: "/assets/projects images multi devices/9.png",
     live: "https://mahmoudselsebaey.github.io/DirectoryAds/",
     github: "https://github.com/mahmoudselsebaey/DirectoryAds",
   },
@@ -205,7 +214,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "A landing page for a barber shop showcasing services and booking options.",
-    image: "/assets/projects-images/Barber Shop.png",
+    // image: "/assets/projects-images/Barber Shop.png",
+     image: "/assets/projects images multi devices/10.png",
     live: "https://mahmoudselsebaey.github.io/Barber-Shop/",
     github: "https://github.com/mahmoudselsebaey/Barber-Shop",
   },
@@ -221,7 +231,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "A landing page for a gaming platform highlighting featured games and releases.",
-    image: "/assets/projects-images/amin.png",
+    // image: "/assets/projects-images/amin.png",
+     image: "/assets/projects images multi devices/11.png",
     live: "https://mahmoudselsebaey.github.io/Amin-Games/",
     github: "https://github.com/mahmoudselsebaey/Amin-Games",
   },
@@ -235,7 +246,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "An online furniture store showcasing different chair designs and products.",
-    image: "/assets/projects-images/chairs-shop.png",
+    // image: "/assets/projects-images/chairs-shop.png",
+     image: "/assets/projects images multi devices/12.png",
     live: "https://mahmoudselsebaey.github.io/chairs-shops/",
     github: "https://github.com/mahmoudselsebaey/chairs-shops",
   },
@@ -249,7 +261,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "A modern coffee shop website showcasing menu, services, and opening hours.",
-    image: "/assets/projects-images/wave-cafe.png",
+    // image: "/assets/projects-images/wave-cafe.png",
+     image: "/assets/projects images multi devices/13.png",
     live: "https://mahmoudselsebaey.github.io/wave_cafe/",
     github: "https://github.com/mahmoudselsebaey/wave_cafe",
   },

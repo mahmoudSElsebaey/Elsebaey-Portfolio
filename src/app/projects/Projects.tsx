@@ -111,15 +111,15 @@ export default function Projects() {
                       data-aos="zoom-in"
                     >
                       {/* Overlay */}
-                      <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300 z-10 flex justify-end items-start p-2">
+                      {/* <div className=" absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300 z-10 flex justify-end items-start p-2">
                         <div className="project-category w-fit p-[2px] rounded-br-[13px] rounded-tl-[13px] overflow-hidden">
                           <h3 className="bg-primary-1000 w-fit p-3 rounded-br-[13px] rounded-tl-[13px]">
                             {project.category}
                           </h3>
                         </div>
-                      </div>
+                      </div> */}
                       {/* image */}
-                      <div className="relative w-full h-full z-0">
+                      <div className="relative w-full h-[50%] sm:h-[80%] z-0">
                         <Image
                           src={project.image}
                           fill
@@ -131,8 +131,8 @@ export default function Projects() {
                   </SwiperSlide>
                 ))}
                 <WorkSliderBtns
-                  containerStyles="flex absolute gap-3 right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                  btnStyles="bg-primary-1000 hover:bg-primary-1000/90 text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all cursor-pointer"
+                  containerStyles="flex absolute gap-3 right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none border border-red-500 "
+                  btnStyles="bg-primary-1000/20 sm:bg-primary-1000 hover:bg-primary-1000/90 text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all cursor-pointer"
                   iconsStyles=""
                 />
               </Swiper>
@@ -169,7 +169,7 @@ export default function Projects() {
             <Button
               size="lg"
               className="uppercase cursor-pointer bg-primary-1000 hover:bg-primary-1000 text-white
-                   rounded-full gap-2 group border border-primary-1000 transition-all duration-300 "
+                   rounded-full gap-2 group border border-primary-1000 transition-all duration-300 py-7 px-8 "
             >
               <span>view all projects</span>
             </Button>
