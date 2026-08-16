@@ -3,174 +3,120 @@
 import Image from "next/image";
 import Link from "next/link";
 import { projectsData } from "./data";
-import {
-  Tooltip,
-  TooltipProvider,
-  TooltipContent,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { BsArrowUpRight, BsGithub, BsEye } from "react-icons/bs";
+import { BsArrowUpRight, BsGithub, BsArrowRight } from "react-icons/bs";
 
 const AllProjects: React.FC = () => {
   return (
-    <div className="container " data-aos="zoom-in">
-      <h1
-        className="mb-3 text-xl md:text-3xl border-b-3 border-primary-1000 inline-block py-2"
-        data-aos="zoom-in"
-      >
-        All Projects
-      </h1>
-      <ul className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10">
-        {projectsData.map((project, index) => {
-          return (
-            <li
-              key={project.slug}
-              className="group rounded-[15px] overflow-hidden border-b hover:border-primary-1000 
-             hover:bg-primary-1000/30 dark:hover:bg-primary-1000/10 transition-all duration-1000 pb-5 project-parent"
-              data-aos="zoom-in"
+    <div className="container mx-auto px-4 py-8 md:py-12">
+      <div className="mb-8 md:mb-10">
+        <h1 className="text-2xl md:text-3xl font-bold border-b-2 border-primary-1000 inline-block pb-2">
+          All Projects
+        </h1>
+        <p className="mt-3 opacity-70 text-sm md:text-base max-w-xl">
+          Selected work across full-stack apps, dashboards, and landing pages.
+        </p>
+      </div>
+
+      <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5 md:gap-6">
+        {projectsData.map((project, index) => (
+          <li
+            key={project.slug}
+            className="group flex flex-col rounded-2xl overflow-hidden border border-primary-1000/15
+              bg-primary-1000/5 hover:border-primary-1000/40 hover:bg-primary-1000/10
+              transition-all duration-300"
+          >
+            {/* Image */}
+            <Link
+              href={`/projects/${project.slug}`}
+              className="relative block w-full aspect-[16/11] overflow-hidden bg-black/5 dark:bg-white/5"
             >
-              <div className="w-full h-[300px] relative top-0 left-0">
-                <div className="w-full h-[80%] sm:h-full overflow-hidden relative">
-                  <Link href={`/projects/${project.slug}`} className="absolute inset-0 z-0">
-                    <Image
-                      src={project.image}
-                      fill
-                      alt={project.title}
-                      sizes="(max-width: 1024px) 100vw, 50vw"
-                      quality={70}
-                      priority={index < 2}
-                      className="object-cover scale-x-[101.5%] group-hover:scale-[110%] transition-transform duration-500 group-hover:duration-2000"
-                    />
-                  </Link>
+              <Image
+                src={project.image}
+                fill
+                alt={project.title}
+                sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                quality={70}
+                priority={index < 3}
+                className="object-contain p-3 group-hover:scale-105 transition-transform duration-500"
+              />
+              <span className="absolute top-3 left-3 text-[11px] uppercase tracking-wide px-2.5 py-1 rounded-full bg-primary-1000 text-white">
+                {project.category}
+              </span>
+            </Link>
 
-                  {/* Hover buttons (desktop) */}
-                  <div
-                    className="flex gap-4 absolute top-[-50%] scale-0 sm:group-hover:scale-100 sm:group-hover:top-2
-                   transition-all sm:group-hover:duration-1000 duration-600 left-4 z-50"
-                  >
-                    <Link href={`/projects/${project.slug}`}>
-                      <TooltipProvider>
-                        <Tooltip>
-                          <TooltipTrigger className="w-[60px] h-[60px] rounded-full bg-primary-1000/70 hover:bg-primary-1000 flex justify-center items-center cursor-pointer">
-                            <BsEye className="text-[30px]" />
-                          </TooltipTrigger>
-                          <TooltipContent>View Details</TooltipContent>
-                        </Tooltip>
-                      </TooltipProvider>
-                    </Link>
-
-                    {project.live && project.live !== "#" && (
-                      <Link href={project.live} target="_blank">
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger className="w-[60px] h-[60px] rounded-full bg-primary-1000/70 hover:bg-primary-1000 flex justify-center items-center cursor-pointer">
-                              <BsArrowUpRight className="text-[30px]" />
-                            </TooltipTrigger>
-                            <TooltipContent>Live Project</TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </Link>
-                    )}
-
-                    {project.github && (
-                      <Link href={project.github} target="_blank">
-                        <TooltipProvider>
-                          <Tooltip>
-                            <TooltipTrigger className="w-[60px] h-[60px] rounded-full bg-primary-1000/70 hover:bg-primary-1000 flex justify-center items-center cursor-pointer">
-                              <BsGithub className="text-[30px] transition-all" />
-                            </TooltipTrigger>
-                            <TooltipContent>Github Repo</TooltipContent>
-                          </Tooltip>
-                        </TooltipProvider>
-                      </Link>
-                    )}
-                  </div>
-                </div>
-              </div>
-
-              <Link href={`/projects/${project.slug}`} className="block">
-                <div className="flex gap-3 items-center my-3 px-6">
-                  <div
-                    className="text-transparent text-outline text-4xl font-extrabold"
-                    style={{ userSelect: "none" }}
-                    data-aos="zoom-in"
-                  >
-                    {project.num}
-                  </div>
-                  <h3
-                    className="text-[20px] sm:text-[25px] font-bold leading-none project-title group-hover:text-primary-1000 transition-colors"
-                    data-aos="zoom-in"
-                  >
+            {/* Content */}
+            <div className="flex flex-col flex-1 p-4 md:p-5 gap-3">
+              <div className="flex items-start gap-3">
+                <span
+                  className="text-transparent text-outline text-2xl font-extrabold leading-none shrink-0"
+                  style={{ userSelect: "none" }}
+                >
+                  {project.num}
+                </span>
+                <Link href={`/projects/${project.slug}`} className="min-w-0">
+                  <h3 className="text-base md:text-lg font-bold leading-snug group-hover:text-primary-1000 transition-colors line-clamp-2">
                     {project.title}
                   </h3>
-                </div>
+                </Link>
+              </div>
 
-                <p
-                  className="opacity-70 px-6 my-3 text-[14px] leading-relaxed"
-                  data-aos="zoom-in"
-                >
-                  {project.description}
-                </p>
-              </Link>
+              <p className="opacity-70 text-sm leading-relaxed line-clamp-2">
+                {project.description}
+              </p>
 
-              <ul
-                className="flex flex-wrap items-center gap-2 px-6"
-                data-aos="zoom-in"
-              >
-                {project.tools.map((tool, i) => (
+              <ul className="flex flex-wrap gap-1.5">
+                {project.tools.slice(0, 4).map((tool, i) => (
                   <li
                     key={i}
-                    className="text-primary-1000 text-sm capitalize border border-primary-1000/50 bg-primary-1000/20 py-1 px-3 rounded-[14px]"
-                    data-aos="zoom-in"
+                    className="text-[11px] md:text-xs text-primary-1000 border border-primary-1000/40 bg-primary-1000/15 px-2 py-0.5 rounded-full"
                   >
                     {tool.name}
                   </li>
                 ))}
+                {project.tools.length > 4 && (
+                  <li className="text-[11px] md:text-xs opacity-60 px-1 py-0.5">
+                    +{project.tools.length - 4}
+                  </li>
+                )}
               </ul>
 
-              {/* Mobile links */}
-              <div
-                className="sm:hidden flex justify-center gap-2 mt-5 px-4 flex-wrap"
-                data-aos="zoom-in"
-              >
+              {/* Actions */}
+              <div className="mt-auto pt-2 flex items-center gap-2">
                 <Link
                   href={`/projects/${project.slug}`}
-                  className="project-category p-[2px] rounded-[15px] overflow-hidden"
+                  className="inline-flex items-center gap-1.5 text-sm font-medium px-3.5 py-2 rounded-full
+                    bg-primary-1000 text-white hover:opacity-90 transition-opacity"
                 >
-                  <h3 className="bg-primary-1000 rounded-[15px]">
-                    <span className="w-full h-[50px] px-5 rounded-[10px] bg-primary-1000/70 flex gap-3 justify-center items-center text-white">
-                      Details <BsEye className="text-[18px]" />
-                    </span>
-                  </h3>
+                  Details <BsArrowRight className="text-sm" />
                 </Link>
 
                 {project.live && project.live !== "#" && (
-                  <div className="project-category p-[2px] rounded-[15px] overflow-hidden">
-                    <h3 className="bg-primary-1000 rounded-[15px]">
-                      <Link href={project.live} target="_blank">
-                        <span className="w-full h-[50px] px-5 rounded-[10px] bg-primary-1000/70 flex gap-3 justify-center items-center text-white">
-                          Live <BsArrowUpRight className="text-[18px]" />
-                        </span>
-                      </Link>
-                    </h3>
-                  </div>
+                  <Link
+                    href={project.live}
+                    target="_blank"
+                    className="inline-flex items-center justify-center w-9 h-9 rounded-full
+                      border border-primary-1000/40 text-primary-1000 hover:bg-primary-1000/15 transition-colors"
+                    aria-label="Live demo"
+                  >
+                    <BsArrowUpRight className="text-base" />
+                  </Link>
                 )}
 
                 {project.github && (
-                  <div className="project-category p-[2px] rounded-[15px] overflow-hidden">
-                    <h3 className="bg-primary-1000 rounded-[15px]">
-                      <Link href={project.github} target="_blank">
-                        <span className="w-full h-[50px] px-5 rounded-[10px] bg-primary-1000/70 flex gap-3 justify-center items-center text-white">
-                          Github <BsGithub className="text-[18px]" />
-                        </span>
-                      </Link>
-                    </h3>
-                  </div>
+                  <Link
+                    href={project.github}
+                    target="_blank"
+                    className="inline-flex items-center justify-center w-9 h-9 rounded-full
+                      border border-primary-1000/40 text-primary-1000 hover:bg-primary-1000/15 transition-colors"
+                    aria-label="GitHub repository"
+                  >
+                    <BsGithub className="text-base" />
+                  </Link>
                 )}
               </div>
-            </li>
-          );
-        })}
+            </div>
+          </li>
+        ))}
       </ul>
     </div>
   );
