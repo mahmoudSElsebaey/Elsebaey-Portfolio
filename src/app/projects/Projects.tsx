@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
-import { BsArrowUpRight, BsGithub } from "react-icons/bs";
+import { BsArrowUpRight, BsGithub, BsEye } from "react-icons/bs";
 import {
   Tooltip,
   TooltipProvider,
@@ -47,12 +47,13 @@ export default function Projects() {
               >
                 {project.num}
               </div>
-              <div
-                className="text-[42px] font-bold leading-none"
+              <Link
+                href={`/projects/${project.slug}`}
+                className="text-[42px] font-bold leading-none hover:text-primary-1000 transition-colors"
                 data-aos="zoom-in"
               >
                 {project.title}
-              </div>
+              </Link>
               <p className="opacity-70" data-aos="zoom-in">
                 {project.description}
               </p>
@@ -70,28 +71,43 @@ export default function Projects() {
               </ul>
               <div className="border" data-aos="zoom-in"></div>
               <div className="flex gap-4" data-aos="zoom-in">
+                {/* Details Page */}
+                <Link href={`/projects/${project.slug}`} data-aos="zoom-in">
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center cursor-pointer group">
+                        <BsEye className="text-3xl group-hover:text-primary-1000 transition-all animate-pulse" />
+                      </TooltipTrigger>
+                      <TooltipContent>View Details</TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Link>
                 {/*Live Project */}
-                {project.live && (<Link href={project.live} target="_blank" data-aos="zoom-in">
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center cursor-pointer group">
-                        <BsArrowUpRight className="text-3xl group-hover:text-primary-1000 transition-all animate-pulse" />
-                      </TooltipTrigger>
-                      <TooltipContent>Live Project</TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>)}
+                {project.live && project.live !== "#" && (
+                  <Link href={project.live} target="_blank" data-aos="zoom-in">
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center cursor-pointer group">
+                          <BsArrowUpRight className="text-3xl group-hover:text-primary-1000 transition-all animate-pulse" />
+                        </TooltipTrigger>
+                        <TooltipContent>Live Project</TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
                 {/*Github Repo */}
-                {project.github && (<Link href={project.github} target="_blank" data-aos="zoom-in">
-                  <TooltipProvider>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center cursor-pointer group">
-                        <BsGithub className="text-3xl group-hover:text-primary-1000 transition-all animate-pulse" />
-                      </TooltipTrigger>
-                      <TooltipContent>Github Repo</TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>)}
+                {project.github && (
+                  <Link href={project.github} target="_blank" data-aos="zoom-in">
+                    <TooltipProvider>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center cursor-pointer group">
+                          <BsGithub className="text-3xl group-hover:text-primary-1000 transition-all animate-pulse" />
+                        </TooltipTrigger>
+                        <TooltipContent>Github Repo</TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                )}
               </div>
             </div>
             {/* ----------- Right Side [Swiper] ----------- */}
@@ -103,35 +119,29 @@ export default function Projects() {
                 onSlideChange={handleSlideChange}
                 data-aos="zoom-in"
               >
-                {projectsData.map((project, index) => (
+                {projectsData.map((proj, index) => (
                   <SwiperSlide key={index} className="w-full">
-                    <div
-                      className="h-[460px] relative flex justify-center items-center group cursor-pointer"
-                      onClick={() => setFullscreenImage(project.image)}
+                    <Link
+                      href={`/projects/${proj.slug}`}
+                      className="h-[460px] relative flex justify-center items-center group cursor-pointer block"
                       data-aos="zoom-in"
                     >
-                      {/* Overlay */}
-                      {/* <div className=" absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all duration-300 z-10 flex justify-end items-start p-2">
-                        <div className="project-category w-fit p-[2px] rounded-br-[13px] rounded-tl-[13px] overflow-hidden">
-                          <h3 className="bg-primary-1000 w-fit p-3 rounded-br-[13px] rounded-tl-[13px]">
-                            {project.category}
-                          </h3>
-                        </div>
-                      </div> */}
-                      {/* image */}
                       <div className="relative w-full h-[50%] sm:h-[80%] z-0">
                         <Image
-                          src={project.image}
+                          src={proj.image}
                           fill
-                          alt={project.title}
-                        // className="object-cover"
+                          alt={proj.title}
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                          quality={75}
+                          priority={index === 0}
+                          className="object-contain"
                         />
                       </div>
-                    </div>
+                    </Link>
                   </SwiperSlide>
                 ))}
                 <WorkSliderBtns
-                  containerStyles="flex absolute gap-3 right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none border border-red-500 "
+                  containerStyles="flex absolute gap-3 right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
                   btnStyles="bg-primary-1000/20 sm:bg-primary-1000 hover:bg-primary-1000/90 text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all cursor-pointer"
                   iconsStyles=""
                 />
@@ -155,6 +165,8 @@ export default function Projects() {
                 fill
                 alt="Fullscreen Project"
                 className="object-contain rounded-xl"
+                sizes="100vw"
+                quality={85}
               />
             </div>
           </motion.div>
@@ -165,7 +177,7 @@ export default function Projects() {
           className="btn-cv relative p-[2px] overflow-hidden rounded-full"
           data-aos="zoom-in"
         >
-          <a href="/projects" className="inline-block">
+          <Link href="/projects" className="inline-block">
             <Button
               size="lg"
               className="uppercase cursor-pointer bg-primary-1000 hover:bg-primary-1000 text-white
@@ -173,7 +185,7 @@ export default function Projects() {
             >
               <span>view all projects</span>
             </Button>
-          </a>
+          </Link>
         </div>
       </div>
     </section>
