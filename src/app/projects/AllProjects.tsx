@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { projectsData } from "./data";
@@ -28,24 +30,23 @@ const AllProjects: React.FC = () => {
               data-aos="zoom-in"
             >
               <div className="w-full h-[300px] relative top-0 left-0">
-                <Link
-                  href={`/projects/${project.slug}`}
-                  className="w-full h-[80%] sm:h-full overflow-hidden relative block"
-                >
-                  <Image
-                    src={project.image}
-                    fill
-                    alt={project.title}
-                    sizes="(max-width: 1024px) 100vw, 50vw"
-                    quality={70}
-                    priority={index < 2}
-                    className="object-cover scale-x-[101.5%] group-hover:scale-[110%] transition-transform duration-500 group-hover:duration-2000"
-                  />
+                <div className="w-full h-[80%] sm:h-full overflow-hidden relative">
+                  <Link href={`/projects/${project.slug}`} className="absolute inset-0 z-0">
+                    <Image
+                      src={project.image}
+                      fill
+                      alt={project.title}
+                      sizes="(max-width: 1024px) 100vw, 50vw"
+                      quality={70}
+                      priority={index < 2}
+                      className="object-cover scale-x-[101.5%] group-hover:scale-[110%] transition-transform duration-500 group-hover:duration-2000"
+                    />
+                  </Link>
+
                   {/* Hover buttons (desktop) */}
                   <div
                     className="flex gap-4 absolute top-[-50%] scale-0 sm:group-hover:scale-100 sm:group-hover:top-2
                    transition-all sm:group-hover:duration-1000 duration-600 left-4 z-50"
-                    onClick={(e) => e.preventDefault()}
                   >
                     <Link href={`/projects/${project.slug}`}>
                       <TooltipProvider>
@@ -84,7 +85,7 @@ const AllProjects: React.FC = () => {
                       </Link>
                     )}
                   </div>
-                </Link>
+                </div>
               </div>
 
               <Link href={`/projects/${project.slug}`} className="block">
@@ -159,7 +160,7 @@ const AllProjects: React.FC = () => {
                   <div className="project-category p-[2px] rounded-[15px] overflow-hidden">
                     <h3 className="bg-primary-1000 rounded-[15px]">
                       <Link href={project.github} target="_blank">
-                        <span className="w-full h-[50px] px-5 rounded-[10px] bg-primary-1000/70 flex gap-3 justify-center items-center gap-3 text-white">
+                        <span className="w-full h-[50px] px-5 rounded-[10px] bg-primary-1000/70 flex gap-3 justify-center items-center text-white">
                           Github <BsGithub className="text-[18px]" />
                         </span>
                       </Link>
