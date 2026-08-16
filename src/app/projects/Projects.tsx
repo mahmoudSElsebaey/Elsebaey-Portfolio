@@ -1,8 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 import { BsArrowUpRight, BsGithub, BsEye } from "react-icons/bs";
 import {
   Tooltip,
@@ -14,180 +16,197 @@ import Link from "next/link";
 import Image from "next/image";
 import { projectsData } from "./data";
 import { useState } from "react";
-import WorkSliderBtns from "@/components/ui/WorkSliderBtns";
 import { Button } from "@/components/ui/button";
-
-interface SwiperInstance {
-  activeIndex: number;
-}
+import type { Swiper as SwiperType } from "swiper";
 
 export default function Projects() {
   const [project, setProject] = useState(projectsData[0]);
-  const [fullscreenImage, setFullscreenImage] = useState<string | null>(null);
 
-  const handleSlideChange = (swiper: SwiperInstance): void => {
-    const currentIndex = swiper.activeIndex;
-    setProject(projectsData[currentIndex]);
+  const handleSlideChange = (swiper: SwiperType) => {
+    setProject(projectsData[swiper.realIndex]);
   };
 
   return (
-    <section>
-      <div className="min-h-80vh flex flex-col py-12 xl:px-0">
-        <div className="container mx-auto">
-          <div className="flex flex-col xl:flex-row xl:gap-[30px] ">
-            {/* ----------- Left Side [Project Info] ----------- */}
+    <section className="py-8 md:py-12">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col xl:flex-row xl:items-center gap-8 xl:gap-12">
+          {/* ----------- Info ----------- */}
+          <div className="w-full xl:w-[45%] flex flex-col gap-4 md:gap-5 order-2 xl:order-1">
             <div
-              className="w-full xl:w-[50%] xl:h-[460px] flex flex-col gap-[25px]"
-              data-aos="zoom-in"
+              className="text-transparent text-outline text-5xl md:text-7xl xl:text-8xl font-extrabold leading-none"
+              style={{ userSelect: "none" }}
             >
-              <div
-                className="text-transparent text-outline text-8xl font-extrabold"
-                data-aos="zoom-in"
-                style={{ userSelect: "none" }}
-              >
-                {project.num}
-              </div>
-              <Link
-                href={`/projects/${project.slug}`}
-                className="text-[42px] font-bold leading-none hover:text-primary-1000 transition-colors"
-                data-aos="zoom-in"
-              >
-                {project.title}
+              {project.num}
+            </div>
+
+            <span className="text-primary-1000 text-xs md:text-sm uppercase tracking-widest">
+              {project.category}
+            </span>
+
+            <Link
+              href={`/projects/${project.slug}`}
+              className="text-2xl sm:text-3xl md:text-4xl font-bold leading-tight hover:text-primary-1000 transition-colors"
+            >
+              {project.title}
+            </Link>
+
+            <p className="opacity-70 text-sm md:text-base leading-relaxed line-clamp-3">
+              {project.description}
+            </p>
+
+            <ul className="flex flex-wrap gap-2">
+              {project.tools.slice(0, 6).map((item, index) => (
+                <li
+                  key={index}
+                  className="text-primary-1000 text-xs md:text-sm capitalize bg-primary-1000/20 px-2.5 py-1 rounded-full"
+                >
+                  {item.name}
+                </li>
+              ))}
+              {project.tools.length > 6 && (
+                <li className="text-primary-1000/70 text-xs md:text-sm px-2.5 py-1">
+                  +{project.tools.length - 6}
+                </li>
+              )}
+            </ul>
+
+            <div className="h-px w-full bg-border" />
+
+            <div className="flex items-center gap-3">
+              <Link href={`/projects/${project.slug}`}>
+                <TooltipProvider>
+                  <Tooltip>
+                    <TooltipTrigger className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary-1000 text-white flex justify-center items-center hover:opacity-90 transition-opacity">
+                      <BsEye className="text-xl md:text-2xl" />
+                    </TooltipTrigger>
+                    <TooltipContent>View Details</TooltipContent>
+                  </Tooltip>
+                </TooltipProvider>
               </Link>
-              <p className="opacity-70" data-aos="zoom-in">
-                {project.description}
-              </p>
-              {/* project Tools*/}
-              <ul className="flex flex-wrap gap-2" data-aos="zoom-in">
-                {project.tools.map((item, index) => (
-                  <li
-                    key={index}
-                    className="text-primary-1000 capitalize bg-primary-1000/20 px-3 rounded-[14px]"
-                    data-aos="zoom-in"
-                  >
-                    {item.name}
-                  </li>
-                ))}
-              </ul>
-              <div className="border" data-aos="zoom-in"></div>
-              <div className="flex gap-4" data-aos="zoom-in">
-                {/* Details Page */}
-                <Link href={`/projects/${project.slug}`} data-aos="zoom-in">
+
+              {project.live && project.live !== "#" && (
+                <Link href={project.live} target="_blank">
                   <TooltipProvider>
                     <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center cursor-pointer group">
-                        <BsEye className="text-3xl group-hover:text-primary-1000 transition-all animate-pulse" />
+                      <TooltipTrigger className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center hover:text-primary-1000 transition-colors">
+                        <BsArrowUpRight className="text-xl md:text-2xl" />
                       </TooltipTrigger>
-                      <TooltipContent>View Details</TooltipContent>
+                      <TooltipContent>Live Project</TooltipContent>
                     </Tooltip>
                   </TooltipProvider>
                 </Link>
-                {/*Live Project */}
-                {project.live && project.live !== "#" && (
-                  <Link href={project.live} target="_blank" data-aos="zoom-in">
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center cursor-pointer group">
-                          <BsArrowUpRight className="text-3xl group-hover:text-primary-1000 transition-all animate-pulse" />
-                        </TooltipTrigger>
-                        <TooltipContent>Live Project</TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                  </Link>
-                )}
-                {/*Github Repo */}
-                {project.github && (
-                  <Link href={project.github} target="_blank" data-aos="zoom-in">
-                    <TooltipProvider>
-                      <Tooltip>
-                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center cursor-pointer group">
-                          <BsGithub className="text-3xl group-hover:text-primary-1000 transition-all animate-pulse" />
-                        </TooltipTrigger>
-                        <TooltipContent>Github Repo</TooltipContent>
-                      </Tooltip>
-                    </TooltipProvider>
-                  </Link>
-                )}
-              </div>
+              )}
+
+              {project.github && (
+                <Link href={project.github} target="_blank">
+                  <TooltipProvider>
+                    <Tooltip>
+                      <TooltipTrigger className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/10 dark:bg-white/10 flex justify-center items-center hover:text-primary-1000 transition-colors">
+                        <BsGithub className="text-xl md:text-2xl" />
+                      </TooltipTrigger>
+                      <TooltipContent>Github Repo</TooltipContent>
+                    </Tooltip>
+                  </TooltipProvider>
+                </Link>
+              )}
             </div>
-            {/* ----------- Right Side [Swiper] ----------- */}
-            <div className="w-full xl:w-[50%]">
-              <Swiper
-                spaceBetween={30}
-                slidesPerView={1}
-                className="xl:h-[520px] mb-12"
-                onSlideChange={handleSlideChange}
-                data-aos="zoom-in"
-              >
-                {projectsData.map((proj, index) => (
-                  <SwiperSlide key={index} className="w-full">
-                    <Link
-                      href={`/projects/${proj.slug}`}
-                      className="h-[460px] relative flex justify-center items-center group cursor-pointer block"
-                      data-aos="zoom-in"
-                    >
-                      <div className="relative w-full h-[50%] sm:h-[80%] z-0">
-                        <Image
-                          src={proj.image}
-                          fill
-                          alt={proj.title}
-                          sizes="(max-width: 768px) 100vw, 50vw"
-                          quality={75}
-                          priority={index === 0}
-                          className="object-contain"
-                        />
-                      </div>
-                    </Link>
-                  </SwiperSlide>
-                ))}
-                <WorkSliderBtns
-                  containerStyles="flex absolute gap-3 right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                  btnStyles="bg-primary-1000/20 sm:bg-primary-1000 hover:bg-primary-1000/90 text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all cursor-pointer"
-                  iconsStyles=""
-                />
-              </Swiper>
-            </div>
+          </div>
+
+          {/* ----------- Swiper ----------- */}
+          <div className="w-full xl:w-[55%] order-1 xl:order-2">
+            <Swiper
+              modules={[Autoplay, Pagination, Navigation]}
+              spaceBetween={20}
+              slidesPerView={1}
+              loop
+              speed={700}
+              autoplay={{
+                delay: 4000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+              }}
+              pagination={{
+                clickable: true,
+                dynamicBullets: true,
+              }}
+              navigation
+              onSlideChange={handleSlideChange}
+              className="projects-swiper !pb-12"
+            >
+              {projectsData.map((proj, index) => (
+                <SwiperSlide key={proj.slug}>
+                  <Link
+                    href={`/projects/${proj.slug}`}
+                    className="relative block w-full aspect-[16/11] sm:aspect-[16/10] rounded-2xl overflow-hidden border border-primary-1000/15 bg-primary-1000/5"
+                  >
+                    <Image
+                      src={proj.image}
+                      fill
+                      alt={proj.title}
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 55vw"
+                      quality={75}
+                      priority={index === 0}
+                      className="object-contain p-2 sm:p-4"
+                    />
+                  </Link>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
         </div>
 
-        {/* ----------- Fullscreen Image Modal ----------- */}
-        {fullscreenImage && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/90 flex justify-center items-center z-100000"
-            onClick={() => setFullscreenImage(null)}
-          >
-            <div className="relative w-[96vw] h-[90vh] ">
-              <Image
-                src={fullscreenImage}
-                fill
-                alt="Fullscreen Project"
-                className="object-contain rounded-xl"
-                sizes="100vw"
-                quality={85}
-              />
-            </div>
-          </motion.div>
-        )}
-      </div>
-      <div className="w-full flex justify-center mt-[-50px] mb-30" data-aos="zoom-in">
-        <div
-          className="btn-cv relative p-[2px] overflow-hidden rounded-full"
-          data-aos="zoom-in"
-        >
-          <Link href="/projects" className="inline-block">
-            <Button
-              size="lg"
-              className="uppercase cursor-pointer bg-primary-1000 hover:bg-primary-1000 text-white
-                   rounded-full gap-2 group border border-primary-1000 transition-all duration-300 py-7 px-8 "
-            >
-              <span>view all projects</span>
-            </Button>
-          </Link>
+        <div className="w-full flex justify-center mt-6 md:mt-10">
+          <div className="btn-cv relative p-[2px] overflow-hidden rounded-full">
+            <Link href="/projects" className="inline-block">
+              <Button
+                size="lg"
+                className="uppercase cursor-pointer bg-primary-1000 hover:bg-primary-1000 text-white
+                     rounded-full border border-primary-1000 transition-all duration-300 py-6 px-7 text-sm md:text-base"
+              >
+                view all projects
+              </Button>
+            </Link>
+          </div>
         </div>
       </div>
+
+      <style jsx global>{`
+        .projects-swiper .swiper-button-prev,
+        .projects-swiper .swiper-button-next {
+          width: 40px;
+          height: 40px;
+          border-radius: 9999px;
+          background: color-mix(in oklab, var(--color-primary-1000) 85%, transparent);
+          color: white;
+          top: auto;
+          bottom: 0;
+          margin-top: 0;
+        }
+        .projects-swiper .swiper-button-prev {
+          left: 0;
+        }
+        .projects-swiper .swiper-button-next {
+          right: 0;
+        }
+        .projects-swiper .swiper-button-prev::after,
+        .projects-swiper .swiper-button-next::after {
+          font-size: 14px;
+          font-weight: 700;
+        }
+        .projects-swiper .swiper-pagination-bullet {
+          background: var(--color-primary-1000);
+          opacity: 0.35;
+        }
+        .projects-swiper .swiper-pagination-bullet-active {
+          opacity: 1;
+        }
+        @media (max-width: 640px) {
+          .projects-swiper .swiper-button-prev,
+          .projects-swiper .swiper-button-next {
+            display: none;
+          }
+        }
+      `}</style>
     </section>
   );
 }
