@@ -29,9 +29,8 @@ export const projectsData: Project[] = [
     ],
     description:
       "A reusable and white-label booking management SaaS platform for businesses to manage services, staff, customers, schedules, and bookings. Built with MERN, TypeScript, Tailwind CSS, and React.",
-    // TODO: replace with actual project mockup image
-    image: "/assets/projects images multi devices/1.png",
-    live: "https://universal-booking-saas-client-kappa.vercel.app",
+    image: "/assets/projects images multi devices/14.png",
+    live: "https://universal-booking-saas-client.vercel.app/",
     github: "https://github.com/mahmoudSElsebaey/universal-booking-saas",
   },
   {
