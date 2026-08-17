@@ -17,9 +17,9 @@ export default function Resume() {
         animate={{
           opacity: 1,
           transition: {
-            delay: 2.4,
-            duration: 0.4,
-            ease: "easeIn",
+            delay: 0.05,
+            duration: 0.35,
+            ease: "easeOut",
           },
         }}
         className="flex justify-center items-center xl:py-0"
@@ -28,16 +28,14 @@ export default function Resume() {
           <Tabs
             defaultValue="myJourney"
             className="flex flex-col gap-10"
-            data-aos="zoom-in"
+            data-aos="fade-up"
           >
             <TabsList
               className=" md:w-[80%] md:m-auto flex items-center justify-around "
-              data-aos="zoom-in"
             >
               <TabsTrigger
                 value="myJourney"
                 className="rounded-none flex gap-3 items-center"
-                data-aos="zoom-in"
               >
                 <FaGraduationCap className="hidden sm:block text-2xl" />
                 <span className="text-black dark:text-white">My Journey</span>
@@ -45,7 +43,6 @@ export default function Resume() {
               <TabsTrigger
                 value="skills"
                 className="rounded-l-none flex gap-3 items-center "
-                data-aos="zoom-in"
               >
                 <MdSettingsSuggest className="hidden sm:block text-2xl" />
                 <span className="text-black dark:text-white  "> skills</span>
@@ -53,13 +50,11 @@ export default function Resume() {
               <TabsTrigger
                 value="about"
                 className="rounded-r-none flex gap-3 items-center"
-                data-aos="zoom-in"
               >
                 <IoPersonSharp className="hidden sm:block text-2xl" />
                 <span className="text-black dark:text-white">about me</span>
               </TabsTrigger>
             </TabsList>
-            {/*________________________________  Tabs Content ________________________________*/}
             <div className="w-full overflow-hidden">
               <TabsContent value="myJourney" className="w-full">
                 <MyJourney />
