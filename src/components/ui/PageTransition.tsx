@@ -1,7 +1,8 @@
 "use client";
 
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
 interface PageTransitionProps {
   children: React.ReactNode;
@@ -10,17 +11,18 @@ interface PageTransitionProps {
 export default function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: "instant" as ScrollBehavior });
+  }, [pathname]);
+
   return (
-    <AnimatePresence mode="wait">
-      <div key={pathname}>
-        <motion.div
-          initial={{ opacity: 0.55 }}
-          animate={{ opacity: 0 }}
-          transition={{ delay: 0.15, duration: 0.35, ease: "easeOut" }}
-          className="h-screen w-screen fixed top-0 left-0 bg-black pointer-events-none z-[9998]"
-        />
-        {children}
-      </div>
-    </AnimatePresence>
+    <motion.div
+      key={pathname}
+      initial={{ opacity: 0.85 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2, ease: "easeOut" }}
+    >
+      {children}
+    </motion.div>
   );
 }
