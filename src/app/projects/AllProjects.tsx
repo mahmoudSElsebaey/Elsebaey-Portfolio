@@ -38,11 +38,7 @@ const AllProjects: React.FC = () => {
         {pageItems.map((project, index) => (
           <li key={project.slug} className="project-card-3d group/card">
             <div className="project-card-border relative p-[2px] rounded-2xl overflow-hidden h-full">
-              <article
-                className="relative z-10 flex flex-col h-full rounded-2xl overflow-hidden
-                  bg-background dark:bg-[#0f1420] border border-white/5
-                  transition-transform duration-500 ease-out"
-              >
+              <article className="relative z-10 flex flex-col h-full rounded-2xl overflow-hidden bg-background dark:bg-[#0f1420] border border-white/5 transition-transform duration-500 ease-out">
                 <Link
                   href={`/projects/${project.slug}`}
                   className="relative block w-full aspect-[16/11] overflow-hidden bg-black/5 dark:bg-white/5"
@@ -56,11 +52,7 @@ const AllProjects: React.FC = () => {
                     priority={index < 3}
                     className="object-contain p-3 transition-transform duration-700 ease-out group-hover/card:scale-110"
                   />
-                  <span
-                    className="absolute top-3 left-3 text-[10px] md:text-[11px] uppercase tracking-wide
-                      px-2.5 py-1 rounded-full border border-primary-1000/60
-                      bg-background/90 dark:bg-[#0f1420]/90 text-primary-1000 backdrop-blur-sm"
-                  >
+                  <span className="absolute top-3 left-3 text-[10px] md:text-[11px] uppercase tracking-wide px-2.5 py-1 rounded-full border border-primary-1000/60 bg-background/90 dark:bg-[#0f1420]/90 text-primary-1000 backdrop-blur-sm">
                     {project.category}
                   </span>
                   <span className="project-card-shine pointer-events-none absolute inset-0" />
@@ -104,8 +96,7 @@ const AllProjects: React.FC = () => {
                   <div className="mt-auto pt-2 flex items-center gap-2">
                     <Link
                       href={`/projects/${project.slug}`}
-                      className="inline-flex items-center gap-1.5 text-sm font-medium px-3.5 py-2 rounded-full
-                        bg-primary-1000 text-white hover:opacity-90 transition-opacity shadow-md shadow-primary-1000/25"
+                      className="inline-flex items-center gap-1.5 text-sm font-medium px-3.5 py-2 rounded-full bg-primary-1000 text-white hover:opacity-90 transition-opacity shadow-md shadow-primary-1000/25"
                     >
                       Details <BsArrowRight className="text-sm" />
                     </Link>
@@ -114,8 +105,7 @@ const AllProjects: React.FC = () => {
                       <Link
                         href={project.live}
                         target="_blank"
-                        className="inline-flex items-center justify-center w-9 h-9 rounded-full
-                          border border-primary-1000/40 text-primary-1000 hover:bg-primary-1000/15 transition-colors"
+                        className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-primary-1000/40 text-primary-1000 hover:bg-primary-1000/15 transition-colors"
                         aria-label="Live demo"
                       >
                         <BsArrowUpRight className="text-base" />
@@ -126,8 +116,7 @@ const AllProjects: React.FC = () => {
                       <Link
                         href={project.github}
                         target="_blank"
-                        className="inline-flex items-center justify-center w-9 h-9 rounded-full
-                          border border-primary-1000/40 text-primary-1000 hover:bg-primary-1000/15 transition-colors"
+                        className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-primary-1000/40 text-primary-1000 hover:bg-primary-1000/15 transition-colors"
                         aria-label="GitHub repository"
                       >
                         <BsGithub className="text-base" />
@@ -147,8 +136,7 @@ const AllProjects: React.FC = () => {
             type="button"
             onClick={() => goTo(Math.max(1, page - 1))}
             disabled={page === 1}
-            className="w-10 h-10 rounded-full border border-primary-1000/40 flex items-center justify-center
-              text-primary-1000 disabled:opacity-30 hover:bg-primary-1000/15 transition-colors cursor-pointer disabled:cursor-not-allowed"
+            className="w-10 h-10 rounded-full border border-primary-1000/40 flex items-center justify-center text-primary-1000 disabled:opacity-30 hover:bg-primary-1000/15 transition-colors cursor-pointer disabled:cursor-not-allowed"
             aria-label="Previous page"
           >
             <HiChevronLeft className="text-xl" />
@@ -159,12 +147,11 @@ const AllProjects: React.FC = () => {
               key={p}
               type="button"
               onClick={() => goTo(p)}
-              className={`w-10 h-10 rounded-full text-sm font-semibold transition-all cursor-pointer
-                ${
-                  p === page
-                    ? "bg-primary-1000 text-white shadow-md shadow-primary-1000/30"
-                    : "border border-primary-1000/40 text-primary-1000 hover:bg-primary-1000/15"
-                }`}
+              className={
+                p === page
+                  ? "w-10 h-10 rounded-full text-sm font-semibold transition-all cursor-pointer bg-primary-1000 text-white shadow-md shadow-primary-1000/30"
+                  : "w-10 h-10 rounded-full text-sm font-semibold transition-all cursor-pointer border border-primary-1000/40 text-primary-1000 hover:bg-primary-1000/15"
+              }
             >
               {p}
             </button>
@@ -174,8 +161,7 @@ const AllProjects: React.FC = () => {
             type="button"
             onClick={() => goTo(Math.min(totalPages, page + 1))}
             disabled={page === totalPages}
-            className="w-10 h-10 rounded-full border border-primary-1000/40 flex items-center justify-center
-              text-primary-1000 disabled:opacity-30 hover:bg-primary-1000/15 transition-colors cursor-pointer disabled:cursor-not-allowed"
+            className="w-10 h-10 rounded-full border border-primary-1000/40 flex items-center justify-center text-primary-1000 disabled:opacity-30 hover:bg-primary-1000/15 transition-colors cursor-pointer disabled:cursor-not-allowed"
             aria-label="Next page"
           >
             <HiChevronRight className="text-xl" />
