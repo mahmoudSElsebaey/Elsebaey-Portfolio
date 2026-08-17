@@ -36,16 +36,13 @@ const AllProjects: React.FC = () => {
 
       <ul className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8">
         {pageItems.map((project, index) => (
-          <li key={project.slug} className="project-card-3d">
-            {/* Spinning border like btn-cv */}
+          <li key={project.slug} className="project-card-3d group/card">
             <div className="project-card-border relative p-[2px] rounded-2xl overflow-hidden h-full">
               <article
                 className="relative z-10 flex flex-col h-full rounded-2xl overflow-hidden
                   bg-background dark:bg-[#0f1420] border border-white/5
-                  transition-transform duration-500 ease-out
-                  group-hover/card:translate-y-[-4px]"
+                  transition-transform duration-500 ease-out"
               >
-                {/* Image */}
                 <Link
                   href={`/projects/${project.slug}`}
                   className="relative block w-full aspect-[16/11] overflow-hidden bg-black/5 dark:bg-white/5"
@@ -59,7 +56,6 @@ const AllProjects: React.FC = () => {
                     priority={index < 3}
                     className="object-contain p-3 transition-transform duration-700 ease-out group-hover/card:scale-110"
                   />
-                  {/* Category — distinct from Details button */}
                   <span
                     className="absolute top-3 left-3 text-[10px] md:text-[11px] uppercase tracking-wide
                       px-2.5 py-1 rounded-full border border-primary-1000/60
@@ -67,12 +63,9 @@ const AllProjects: React.FC = () => {
                   >
                     {project.category}
                   </span>
-
-                  {/* Shine sweep */}
                   <span className="project-card-shine pointer-events-none absolute inset-0" />
                 </Link>
 
-                {/* Content */}
                 <div className="flex flex-col flex-1 p-4 md:p-5 gap-3">
                   <div className="flex items-start gap-3">
                     <span
@@ -148,7 +141,6 @@ const AllProjects: React.FC = () => {
         ))}
       </ul>
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="mt-10 flex items-center justify-center gap-2 flex-wrap">
           <button
@@ -201,10 +193,6 @@ const AllProjects: React.FC = () => {
           box-shadow:
             0 20px 40px -12px color-mix(in oklab, var(--color-primary-1000) 35%, transparent),
             0 8px 16px -8px rgba(0, 0, 0, 0.25);
-        }
-
-        .project-card-border {
-          --card-radius: 1rem;
         }
 
         .project-card-border::before,
