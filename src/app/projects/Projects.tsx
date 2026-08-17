@@ -135,7 +135,7 @@ export default function Projects() {
                 <SwiperSlide key={proj.slug}>
                   <Link
                     href={`/projects/${proj.slug}`}
-                    className="relative block w-full aspect-[16/11] sm:aspect-[16/10] rounded-2xl overflow-hidden border border-primary-1000/15 bg-primary-1000/5"
+                    className="relative block w-full aspect-[16/11] sm:aspect-[16/10] overflow-hidden"
                   >
                     <Image
                       src={proj.image}
@@ -144,7 +144,7 @@ export default function Projects() {
                       sizes="(max-width: 768px) 100vw, (max-width: 1280px) 90vw, 55vw"
                       quality={75}
                       priority={index === 0}
-                      className="object-contain p-2 sm:p-4"
+                      className="object-contain"
                     />
                   </Link>
                 </SwiperSlide>
