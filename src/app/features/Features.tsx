@@ -15,21 +15,14 @@ export default function FeaturesTabs() {
 
   return (
     <section className="w-full max-w-6xl mx-auto px-4 mt-10 mb-20 md:mb-28">
-      {/* Desktop / tablet: card grid */}
       <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-5">
         {featuresList.map((section) => (
           <article
             key={section.category}
-            className="group relative flex flex-col rounded-2xl border border-primary-1000/20
-              bg-primary-1000/5 p-5 md:p-6 transition-all duration-300
-              hover:border-primary-1000/50 hover:bg-primary-1000/10 hover:-translate-y-1
-              hover:shadow-lg hover:shadow-primary-1000/10"
+            className="group relative flex flex-col rounded-2xl border border-primary-1000/20 bg-primary-1000/5 p-5 md:p-6 transition-all duration-300 hover:border-primary-1000/50 hover:bg-primary-1000/10 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary-1000/10"
             data-aos="zoom-in"
           >
-            <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary-1000/15 border border-primary-1000/40
-              flex items-center justify-center text-primary-1000 text-2xl md:text-3xl mb-4
-              group-hover:bg-primary-1000 group-hover:text-white transition-colors duration-300"
-            >
+            <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary-1000/15 border border-primary-1000/40 flex items-center justify-center text-primary-1000 text-2xl md:text-3xl mb-4 group-hover:bg-primary-1000 group-hover:text-white transition-colors duration-300">
               {section.icon}
             </div>
 
@@ -57,7 +50,6 @@ export default function FeaturesTabs() {
         ))}
       </div>
 
-      {/* Mobile: accordion list */}
       <div className="sm:hidden space-y-3">
         {featuresList.map((section) => {
           const isOpen = openCategory === section.category;
@@ -72,9 +64,7 @@ export default function FeaturesTabs() {
                 className="w-full flex items-center justify-between gap-3 p-4 text-left cursor-pointer"
               >
                 <div className="flex items-center gap-3 min-w-0">
-                  <span className="w-10 h-10 rounded-full bg-primary-1000/15 border border-primary-1000/40
-                    flex items-center justify-center text-primary-1000 text-xl shrink-0"
-                  >
+                  <span className="w-10 h-10 rounded-full bg-primary-1000/15 border border-primary-1000/40 flex items-center justify-center text-primary-1000 text-xl shrink-0">
                     {section.icon}
                   </span>
                   <span className="font-semibold text-sm text-primary-1000 truncate">
@@ -82,16 +72,12 @@ export default function FeaturesTabs() {
                   </span>
                 </div>
                 <ChevronDownIcon
-                  className={`w-5 h-5 text-primary-1000 transition-transform duration-300 shrink-0 ${
-                    isOpen ? "rotate-180" : ""
-                  }`}
+                  className={`w-5 h-5 text-primary-1000 transition-transform duration-300 shrink-0 ${isOpen ? "rotate-180" : ""}`}
                 />
               </button>
 
               <div
-                className={`grid transition-all duration-300 ease-out ${
-                  isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
-                }`}
+                className={`grid transition-all duration-300 ease-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}
               >
                 <div className="overflow-hidden">
                   <ul className="px-4 pb-4 space-y-2">
