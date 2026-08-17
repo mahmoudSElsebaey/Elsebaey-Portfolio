@@ -30,7 +30,6 @@ export default function Projects() {
     <section className="py-8 md:py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col xl:flex-row xl:items-center gap-8 xl:gap-12">
-          {/* ----------- Info ----------- */}
           <div className="w-full xl:w-[45%] flex flex-col gap-4 md:gap-5 order-2 xl:order-1">
             <div
               className="text-transparent text-outline text-5xl md:text-7xl xl:text-8xl font-extrabold leading-none"
@@ -112,7 +111,6 @@ export default function Projects() {
             </div>
           </div>
 
-          {/* ----------- Swiper ----------- */}
           <div className="w-full xl:w-[55%] order-1 xl:order-2">
             <Swiper
               modules={[Autoplay, Pagination, Navigation]}
@@ -160,8 +158,7 @@ export default function Projects() {
             <Link href="/projects" className="inline-block">
               <Button
                 size="lg"
-                className="uppercase cursor-pointer bg-primary-1000 hover:bg-primary-1000 text-white
-                     rounded-full border border-primary-1000 transition-all duration-300 py-6 px-7 text-sm md:text-base"
+                className="uppercase cursor-pointer bg-primary-1000 hover:bg-primary-1000 text-white rounded-full border border-primary-1000 transition-all duration-300 py-6 px-7 text-sm md:text-base"
               >
                 view all projects
               </Button>
