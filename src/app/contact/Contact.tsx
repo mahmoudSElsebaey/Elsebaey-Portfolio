@@ -146,7 +146,7 @@ export default function Contact() {
               className="flex flex-col gap-6 p-10 bg-primary-1000/30 dark:bg-primary-1000/10 rounded-lg"
             >
               <h3 className="text-base sm:text-4xl text-primary-1000">
-                Let's Work Together
+                {"Let's Work Together"}
               </h3>
               <p className="opacity-70 text-xs sm:text-sm md:text-base">
                 Whether you have a question, a project idea, or just want to
