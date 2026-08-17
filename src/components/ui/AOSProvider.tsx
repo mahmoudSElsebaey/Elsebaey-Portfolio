@@ -8,8 +8,7 @@ import "aos/dist/aos.css";
 function revealVisibleAosElements() {
   document.querySelectorAll<HTMLElement>("[data-aos]").forEach((el) => {
     const rect = el.getBoundingClientRect();
-    const inView =
-      rect.top < window.innerHeight + 80 && rect.bottom > -80;
+    const inView = rect.top < window.innerHeight + 80 && rect.bottom > -80;
     if (inView) {
       el.classList.add("aos-animate");
     }
@@ -25,14 +24,17 @@ export default function AOSProvider({
 
   useEffect(() => {
     AOS.init({
-      duration: 400,
+      duration: 350,
       once: true,
-      offset: 20,
+      offset: 40,
       delay: 0,
       easing: "ease-out",
       mirror: false,
+      // Avoid aggressive reflow while user is scrolling
+      debounceDelay: 50,
+      throttleDelay: 80,
     });
-    // Reveal above-the-fold content immediately after first paint
+
     const id = window.setTimeout(() => {
       AOS.refresh();
       revealVisibleAosElements();
