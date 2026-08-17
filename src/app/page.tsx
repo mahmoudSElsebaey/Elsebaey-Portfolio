@@ -1,7 +1,5 @@
 import Features from "./features/page";
 import Services from "./services/page";
-// import Projects from "./projects/page";
-// import Resume from "./about/page";
 import Contact from "./contact/page";
 import Title from "@/components/TitleSections/Title";
 import HomePage from "@/components/Home/Home";
@@ -9,6 +7,7 @@ import Skills from "./about/skills";
 import AboutMe from "./about/aboutMe";
 import MyJourney from "./about/myJourney";
 import Projects from "./projects/Projects";
+import WhyWorkWithMe from "@/components/WhyWorkWithMe/WhyWorkWithMe";
 
 export default function Home() {
   return (
@@ -26,6 +25,8 @@ export default function Home() {
       <Services />
       <Title mainTitle="Features" subTitle="What I Can Build ?" />
       <Features />
+      <Title mainTitle="Why Work With Me" subTitle="What You Get" />
+      <WhyWorkWithMe />
       <Title mainTitle="Contact" subTitle="Get In Touch" />
       <Contact />
     </>
