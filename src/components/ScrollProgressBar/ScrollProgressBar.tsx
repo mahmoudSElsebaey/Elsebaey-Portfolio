@@ -6,13 +6,23 @@ export default function ScrollProgressBar() {
   const [scroll, setScroll] = useState(0);
 
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      const totalHeight = document.body.scrollHeight - window.innerHeight;
-      const progress = (window.scrollY / totalHeight) * 100;
-      setScroll(progress);
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        const totalHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const progress =
+          totalHeight > 0 ? (window.scrollY / totalHeight) * 100 : 0;
+        setScroll(progress);
+        ticking = false;
+      });
     };
 
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -25,7 +35,6 @@ export default function ScrollProgressBar() {
         height: "2px",
         width: `${scroll}%`,
         zIndex: 9999,
-        transition: "width 0.1s ease-out",
       }}
       className="bg-gradient-to-r from-primary-1000/30 to-primary-1000"
     />
