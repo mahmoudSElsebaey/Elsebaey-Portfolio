@@ -11,13 +11,13 @@ export default function PageTransition({ children }: PageTransitionProps) {
   const pathname = usePathname();
 
   return (
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       <div key={pathname}>
         <motion.div
-          initial={{ opacity: 1 }}
+          initial={{ opacity: 0.55 }}
           animate={{ opacity: 0 }}
-          transition={{ delay: 1, duration: 0.5, ease: "easeInOut" }}
-          className="h-screen w-screen fixed top-0 left-0 bg-black opacity-50  pointer-events-none"
+          transition={{ delay: 0.15, duration: 0.35, ease: "easeOut" }}
+          className="h-screen w-screen fixed top-0 left-0 bg-black pointer-events-none z-[9998]"
         />
         {children}
       </div>
