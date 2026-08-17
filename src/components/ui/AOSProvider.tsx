@@ -5,6 +5,17 @@ import { usePathname } from "next/navigation";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
+function revealVisibleAosElements() {
+  document.querySelectorAll<HTMLElement>("[data-aos]").forEach((el) => {
+    const rect = el.getBoundingClientRect();
+    const inView =
+      rect.top < window.innerHeight + 80 && rect.bottom > -80;
+    if (inView) {
+      el.classList.add("aos-animate");
+    }
+  });
+}
+
 export default function AOSProvider({
   children,
 }: {
@@ -14,21 +25,26 @@ export default function AOSProvider({
 
   useEffect(() => {
     AOS.init({
-      duration: 500,
+      duration: 400,
       once: true,
-      offset: 40,
+      offset: 20,
       delay: 0,
       easing: "ease-out",
       mirror: false,
-      startEvent: "DOMContentLoaded",
     });
+    // Reveal above-the-fold content immediately after first paint
+    const id = window.setTimeout(() => {
+      AOS.refresh();
+      revealVisibleAosElements();
+    }, 30);
+    return () => window.clearTimeout(id);
   }, []);
 
   useEffect(() => {
-    // Re-scan elements after client navigation so content is not stuck hidden
     const id = window.setTimeout(() => {
-      AOS.refreshHard();
-    }, 50);
+      AOS.refresh();
+      revealVisibleAosElements();
+    }, 40);
     return () => window.clearTimeout(id);
   }, [pathname]);
 
