@@ -10,11 +10,11 @@ export default function Services() {
           initial={{ opacity: 0 }}
           animate={{
             opacity: 1,
-            transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+            transition: { delay: 0.05, duration: 0.35, ease: "easeOut" },
           }}
           className=""
         >
-          <h3 className="container pb-6 opacity-60" data-aos="zoom-in">
+          <h3 className="container pb-6 opacity-60" data-aos="fade-up">
             Full-stack web development with a focus on performance, scalability,
             and user experience — from frontend to backend .
           </h3>
@@ -23,20 +23,15 @@ export default function Services() {
               return (
                 <div
                   key={index}
-                  data-aos="zoom-in-up"
-                  data-aos-duration="700"
+                  data-aos="fade-up"
+                  data-aos-duration="500"
                   className="flex flex-1 flex-col gap-6 p-3 px-6 service-item rounded-2xl bg-primary-1000/10 group  "
                 >
-                  <div
-                    className="flex justify-between w-full items-center "
-                    data-aos="zoom-in"
-                  >
-                    {/* Num of Service */}
+                  <div className="flex justify-between w-full items-center ">
                     <div
                       className="text-5xl font-extrabold text-outline text-transparent flex 
                   justify-center items-center h-[50px] gap-1 group-hover:gap-2"
-                      data-aos="zoom-in"
-                        style={{ userSelect: "none" }}
+                      style={{ userSelect: "none" }}
                     >
                       <span
                         style={{ userSelect: "none" }}
@@ -52,35 +47,21 @@ export default function Services() {
                         {index + 1}
                       </span>
                     </div>
-                    {/* Icon of Service  */}
-                    <span
-                      className="text-3xl group-hover:text-4xl transition-all duration-300"
-                      data-aos="zoom-in"
-                    >
+                    <span className="text-3xl group-hover:text-4xl transition-all duration-300">
                       {item.icon}
                     </span>
                   </div>
-                  {/* Title of Service  */}
-                  <h3
-                    className="text-primary-1000 font-bold text-xl"
-                    data-aos="zoom-in"
-                  >
+                  <h3 className="text-primary-1000 font-bold text-xl">
                     {item.title}
                   </h3>
-                  {/* Description of Service  */}
-                  <p
-                    className="text-sm dark:text-white/50 dark:group-hover:text-white/90 text-black/50 group-hover:text-black/90 transition-all duration-600 leading-8 "
-                    data-aos="zoom-in"
-                  >
+                  <p className="text-sm dark:text-white/50 dark:group-hover:text-white/90 text-black/50 group-hover:text-black/90 transition-all duration-600 leading-8 ">
                     {item.description}
                   </p>
-                  {/* Tags of Service  */}
-                  <div className="flex flex-wrap gap-2 mt-2 z-20" data-aos="zoom-in">
+                  <div className="flex flex-wrap gap-2 mt-2 z-20">
                     {item.tags.map((tag, i) => (
                       <span
                         key={i}
                         className=" bg-primary-1000/10 text-primary-1000 text-xs px-5 py-1 rounded-full z-20 "
-                        data-aos="zoom-in"
                       >
                         {tag}
                       </span>
