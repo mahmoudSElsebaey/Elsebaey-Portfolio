@@ -134,40 +134,25 @@ export default function Contact() {
       initial={{ opacity: 0 }}
       animate={{
         opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+        transition: { delay: 0.05, duration: 0.35, ease: "easeOut" },
       }}
       className="mx-4 md:mx-0 mb-5 mt-3"
     >
-      <div className="sm:container mx-auto" data-aos="zoom-in">
-        <div
-          className="flex flex-col xl:flex-row gap-[30px] "
-          data-aos="zoom-in"
-        >
-          {/* Form */}
-          <div
-            className="order-2 xl:h-[55%] xl:order-none"
-            data-aos="zooms-in-right"
-          >
+      <div className="sm:container mx-auto" data-aos="fade-up">
+        <div className="flex flex-col xl:flex-row gap-[30px]">
+          <div className="order-2 xl:h-[55%] xl:order-none">
             <form
               onSubmit={handleSubmit}
-              className="flex flex-col gap-6 p-10 bg-primary-1000/30 dark:bg-primary-1000/10 rounded-lg "
-              data-aos="zoom-in"
+              className="flex flex-col gap-6 p-10 bg-primary-1000/30 dark:bg-primary-1000/10 rounded-lg"
             >
-              <h3
-                className="text-base sm:text-4xl text-primary-1000"
-                data-aos="zoom-in"
-              >
-                Let&apos;s Work Together
+              <h3 className="text-base sm:text-4xl text-primary-1000">
+                Let's Work Together
               </h3>
-              <p
-                className="opacity-70 text-xs sm:text-sm md:text-base"
-                data-aos="zoom-in"
-              >
+              <p className="opacity-70 text-xs sm:text-sm md:text-base">
                 Whether you have a question, a project idea, or just want to
                 connect—feel free to reach out.
               </p>
 
-              {/* رسائل التنبيه */}
               {feedback && (
                 <div
                   className={`p-4 rounded-md mb-4 text-center font-semibold ${
@@ -188,17 +173,13 @@ export default function Contact() {
                 </div>
               )}
 
-              <div
-                className="grid grid-cols-1 md:grid-cols-2 gap-6 "
-                data-aos="zoom-in"
-              >
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <Input
                   type="text"
                   name="firstname"
                   placeholder="First Name"
                   value={formData.firstname}
                   onChange={handleChange}
-                  data-aos="zoom-in"
                 />
                 <Input
                   type="text"
@@ -206,7 +187,6 @@ export default function Contact() {
                   placeholder="Last Name"
                   value={formData.lastname}
                   onChange={handleChange}
-                  data-aos="zoom-in"
                 />
                 <Input
                   type="email"
@@ -214,7 +194,6 @@ export default function Contact() {
                   placeholder="Email Address"
                   value={formData.email}
                   onChange={handleChange}
-                  data-aos="zoom-in"
                 />
                 <Input
                   type="tel"
@@ -222,20 +201,18 @@ export default function Contact() {
                   placeholder="Phone Number"
                   value={formData.phone}
                   onChange={handleChange}
-                  data-aos="zoom-in"
                 />
               </div>
 
               <Select
                 value={formData.service}
                 onValueChange={handleSelectChange}
-                data-aos="zoom-in"
               >
-                <SelectTrigger className="w-full "  data-aos="zoom-in-left">
-                  <SelectValue placeholder="Select a service" data-aos="zoom-in-left" />
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
-                <SelectContent data-aos="zoom-in-left">
-                  <SelectGroup  data-aos="zoom-in-left">
+                <SelectContent>
+                  <SelectGroup>
                     <SelectLabel>Select a service</SelectLabel>
                     <SelectItem value="UI Development">
                       UI Development
@@ -262,10 +239,9 @@ export default function Contact() {
               <Textarea
                 name="message"
                 placeholder="Type Your Message here"
-                className="h-[200px] max-h-[400px] "
+                className="h-[200px] max-h-[400px]"
                 value={formData.message}
                 onChange={handleChange}
-                data-aos="zoom-in"
               />
               <Button
                 size="lg"
@@ -277,58 +253,41 @@ export default function Contact() {
                     ? `Please fill all inputs , to able to send email `
                     : ``
                 }`}
-                data-aos="zoom-in"
               >
                 Send Message
               </Button>
             </form>
           </div>
 
-          {/* Contact Info */}
-          <div
-            className="flex-1 flex items-center order-1 xl:order-none xl:justify-end mb-8 xl:mb-0"
-            data-aos="zoom-in-left"
-          >
-            <ul className="flex flex-col gap-10" data-aos="zoom-in">
+          <div className="flex-1 flex items-center order-1 xl:order-none xl:justify-end mb-8 xl:mb-0">
+            <ul className="flex flex-col gap-10">
               {contactInfo.map((item, index) => (
                 <li
                   key={index}
                   className="flex items-center gap-2 md:gap-6"
-                  data-aos="zoom-in"
                 >
                   <div className="w-[40px] h-[40px] md:w-[52px] md:h-[52px] xl:w-[72px] xl:h-[72px] bg-primary-1000/20 text-primary-1000 rounded-[7px] flex items-center justify-center ">
                     <div className="text-xl md:text-[28px] animate-pulse">
                       {item.icon}
                     </div>
                   </div>
-                  <p
-                    className="text-[16px] md:text-2xl font-bold capitalize hidden sm:block"
-                    data-aos="zoom-in"
-                  >
+                  <p className="text-[16px] md:text-2xl font-bold capitalize hidden sm:block">
                     {item.title}
                   </p>
-                  <div
-                    className={`opacity-90 ${item.optionAddtion && "mt-7"}`}
-                    data-aos="zoom-in"
-                  >
-                    <div className="flex items-center gap-1  ">
+                  <div className={`opacity-90 ${item.optionAddtion && "mt-7"}`}>
+                    <div className="flex items-center gap-1">
                       <span
                         className={`${
                           item.optionAddtion &&
                           "w-2 h-2 bg-primary-1000/50 block rounded-full animate-pulse "
                         }`}
                       />
-                      <p className="" data-aos="zoom-in">
-                        {item.description}
-                      </p>
+                      <p>{item.description}</p>
                     </div>
                     {item.optionAddtion && (
-                      <div
-                        className="flex items-center gap-1 "
-                        data-aos="zoom-in"
-                      >
+                      <div className="flex items-center gap-1">
                         <span className="w-2 h-2 bg-primary-1000/50 block rounded-full" />
-                        <p data-aos="zoom-in">{item.optionAddtion}</p>
+                        <p>{item.optionAddtion}</p>
                       </div>
                     )}
                   </div>
