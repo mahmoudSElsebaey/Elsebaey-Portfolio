@@ -35,34 +35,23 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${jetBrainsMono.variable}  antialiased`}>
-        {/*_____________________ Provides theme context to the app _____________________*/}
+      <body className={`${jetBrainsMono.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
           disableTransitionOnChange
         >
-          {/*_____________________ Handles page transition animations _____________________*/}
-          <PageTransition>
-            {/*_____________________ Main site header _____________________*/}
-            <Header />
-            {/*_____________________ Draggable navigation menu _____________________*/}
-            <DraggableNav />
-            {/*_____________________ Main page content _____________________*/}
-            <AOSProvider> {children}</AOSProvider>
-            {/*_____________________ Site footer _____________________*/}
-            <Footer />
-            {/*_____________________ Announcement bar for notifications _____________________*/}
-            {/* <AnnouncementBar /> */}
-            {/*_____________________ Shows scroll progress at the top of the page _____________________*/}
-            <ScrollProgressBar />
-            {/*_____________________ Button to scroll back to top _____________________*/}
-            <ScrollToTopButton />
-          </PageTransition>
+          <Header />
+          <DraggableNav />
+          <AOSProvider>
+            <PageTransition>{children}</PageTransition>
+          </AOSProvider>
+          <Footer />
+          <ScrollProgressBar />
+          <ScrollToTopButton />
         </ThemeProvider>
-        {/*_____________________ Analytics of users behavior at vercel  _____________________*/}
-         <Analytics />
+        <Analytics />
       </body>
     </html>
   );
