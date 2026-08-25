@@ -110,6 +110,56 @@ export const projectsData: Project[] = [
   },
   {
     num: "03",
+    slug: "examflow",
+    title: "ExamFlow",
+    category: "EdTech SaaS",
+    tools: [
+      { name: "React" },
+      { name: "TypeScript" },
+      { name: "Node.js" },
+      { name: "Express" },
+      { name: "MongoDB" },
+      { name: "Tailwind CSS" },
+      { name: "i18next" },
+      { name: "JWT" },
+      { name: "Stripe" },
+      { name: "Resend" },
+      { name: "Zod" },
+    ],
+    description:
+      "Multi-tenant assessment SaaS platform for modern education — build question banks, deliver exams, analyze results, and issue certificates with full Arabic/English support.",
+    longDescription:
+      "ExamFlow is a production-ready multi-tenant EdTech SaaS for institutions and educators. It covers the full assessment lifecycle: content hierarchy (subjects/topics/lessons), question banks, exam builder & engine, student learning portal, analytics, certificates, manual grading, organizations with roles, Stripe billing, email notifications, and complete English/Arabic RTL experience.",
+    features: [
+      "Multi-tenant organizations with role-based access",
+      "Content hierarchy: Subjects → Topics → Lessons",
+      "Question banks + Exam builder & timed exam engine",
+      "Student Learn portal with lesson content",
+      "Analytics dashboards & certificates",
+      "Manual grading + autosave short answers",
+      "Full EN/AR + RTL support",
+      "Stripe billing (Checkout, Portal, Webhooks) + plan limits",
+      "Email notifications (publish, grade, cert, invite)",
+      "White-label ready design system",
+    ],
+    challenges: [
+      "Building a scalable multi-tenant architecture with organization isolation",
+      "Supporting full RTL layout and bilingual content across complex flows",
+      "Designing a reliable exam engine with timing, autosave, and grading",
+      "Integrating billing, email, and role permissions without coupling",
+    ],
+    problems: [
+      "Membership role as tenant source of truth + permissions module",
+      "Centralized i18n with direction-aware layouts and design tokens",
+      "Exam session state, autosave, and server-side validation",
+      "Stripe webhook handling + mock billing fallback for development",
+    ],
+    image: "/assets/projects images multi devices/14.png",
+    live: "https://client-indol-beta-85.vercel.app/",
+    github: "https://github.com/mahmoudSElsebaey/examflow-saas-platform",
+  },
+  {
+    num: "04",
     slug: "gym-website",
     title: "Gym Website",
     category: "Fitness Website",
@@ -143,7 +193,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/GYM",
   },
   {
-    num: "04",
+    num: "05",
     slug: "portfolio-app",
     title: "Portfolio App",
     category: "Personal Portfolio",
@@ -181,7 +231,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Elsebaey-Portfolio",
   },
   {
-    num: "05",
+    num: "06",
     slug: "authentication-app",
     title: "Authentication App",
     category: "Full Stack Website",
@@ -215,7 +265,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Authentication_app_Backend",
   },
   {
-    num: "06",
+    num: "07",
     slug: "sakney",
     title: "Sakney",
     category: "Rental Platform",
@@ -248,7 +298,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Sakney",
   },
   {
-    num: "07",
+    num: "08",
     slug: "electronics-store",
     title: "Electronics Store",
     category: "E-commerce Website",
@@ -275,7 +325,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Ecommerce_ReactJS",
   },
   {
-    num: "08",
+    num: "09",
     slug: "social-feed",
     title: "Social Feed",
     category: "Social Media SPA",
@@ -302,7 +352,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Social-Feed",
   },
   {
-    num: "09",
+    num: "10",
     slug: "sakney-dashboard",
     title: "Sakney Dashboard",
     category: "Admin Dashboard",
@@ -330,7 +380,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/SakneyDashboard",
   },
   {
-    num: "10",
+    num: "11",
     slug: "game-warrior",
     title: "Game Warrior",
     category: "Gaming Brand",
@@ -355,7 +405,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Game-Warrior",
   },
   {
-    num: "11",
+    num: "12",
     slug: "directory-ads",
     title: "Directory Ads",
     category: "Business Directory",
@@ -377,7 +427,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/DirectoryAds",
   },
   {
-    num: "12",
+    num: "13",
     slug: "barber-shop",
     title: "Barber Shop",
     category: "Landing Page",
@@ -399,7 +449,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Barber-Shop",
   },
   {
-    num: "13",
+    num: "14",
     slug: "amin-games",
     title: "Amin Games",
     category: "Gaming Platform",
@@ -421,7 +471,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Amin-Games",
   },
   {
-    num: "14",
+    num: "15",
     slug: "chairs-shop",
     title: "Chairs Shop",
     category: "Furniture Store",
@@ -441,7 +491,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/chairs-shops",
   },
   {
-    num: "15",
+    num: "16",
     slug: "wave-cafe",
     title: "Wave Cafe",
     category: "Coffee Shop Website",
