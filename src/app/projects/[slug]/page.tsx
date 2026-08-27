@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BsArrowLeft, BsArrowUpRight, BsGithub } from "react-icons/bs";
@@ -8,6 +7,7 @@ import {
   getProjectBySlug,
   projectsData,
 } from "../data";
+import ProjectImageLightbox from "./ProjectImageLightbox";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -56,17 +56,7 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
       {/* Header */}
       <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
         <div className="w-full lg:w-[48%]">
-          <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-primary-1000/20 bg-primary-1000/5">
-            <Image
-              src={project.image}
-              alt={project.title}
-              fill
-              sizes="(max-width: 1024px) 100vw, 50vw"
-              quality={80}
-              priority
-              className="object-contain p-2"
-            />
-          </div>
+          <ProjectImageLightbox src={project.image} alt={project.title} />
         </div>
 
         <div className="w-full lg:w-[52%] flex flex-col gap-5">
