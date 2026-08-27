@@ -111,8 +111,8 @@ export const projectsData: Project[] = [
   {
     num: "03",
     slug: "examflow",
-    title: "ExamFlow",
-    category: "EdTech SaaS",
+    title: "ExamFlow — SaaS MVP",
+    category: "SaaS / EdTech MVP",
     tools: [
       { name: "React" },
       { name: "TypeScript" },
@@ -127,9 +127,9 @@ export const projectsData: Project[] = [
       { name: "Zod" },
     ],
     description:
-      "Multi-tenant assessment SaaS platform for modern education — build question banks, deliver exams, analyze results, and issue certificates with full Arabic/English support.",
+      "Multi-tenant assessment SaaS MVP for modern education — question banks, timed exams, analytics, certificates, billing, and full Arabic/English RTL support.",
     longDescription:
-      "ExamFlow is a production-ready multi-tenant EdTech SaaS for institutions and educators. It covers the full assessment lifecycle: content hierarchy (subjects/topics/lessons), question banks, exam builder & engine, student learning portal, analytics, certificates, manual grading, organizations with roles, Stripe billing, email notifications, and complete English/Arabic RTL experience.",
+      "ExamFlow is a multi-tenant EdTech SaaS MVP for institutions and educators. It covers the full assessment lifecycle: content hierarchy (subjects/topics/lessons), question banks, exam builder & engine, student learning portal, analytics, certificates, manual grading, organizations with roles, Stripe billing, email notifications, and a complete English/Arabic RTL experience.",
     features: [
       "Multi-tenant organizations with role-based access",
       "Content hierarchy: Subjects → Topics → Lessons",
@@ -154,7 +154,7 @@ export const projectsData: Project[] = [
       "Exam session state, autosave, and server-side validation",
       "Stripe webhook handling + mock billing fallback for development",
     ],
-    image: "/assets/projects images multi devices/14.png",
+    image: "/assets/projects images multi devices/15.png",
     live: "https://client-indol-beta-85.vercel.app/",
     github: "https://github.com/mahmoudSElsebaey/examflow-saas-platform",
   },
@@ -303,12 +303,12 @@ export const projectsData: Project[] = [
     title: "Electronics Store",
     category: "E-commerce Website",
     tools: [
-      { name: "React" },
       { name: "HTML5" },
       { name: "CSS3" },
       { name: "Bootstrap" },
       { name: "Swiper" },
       { name: "JavaScript" },
+      { name: "React" },
     ],
     description:
       "A simple e-commerce website showcasing electronic products with cart functionality.",
