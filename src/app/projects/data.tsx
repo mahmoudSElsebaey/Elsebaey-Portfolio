@@ -65,6 +65,54 @@ export const projectsData: Project[] = [
   },
   {
     num: "02",
+    slug: "delta-news",
+    title: "Delta News / دلتا نيوز",
+    category: "MERN Website",
+    tools: [
+      { name: "React 19" },
+      { name: "TypeScript" },
+      { name: "Vite" },
+      { name: "Tailwind CSS" },
+      { name: "Node.js" },
+      { name: "Express" },
+      { name: "MongoDB" },
+      { name: "i18next" },
+      { name: "JWT" },
+      { name: "Zod" },
+      { name: "Cloudinary" },
+      { name: "Helmet" },
+    ],
+    description:
+      "Multilingual News & Sports media SaaS platform with full Arabic/English UI, editorial public site, SEO, and an admin dashboard for content and roles.",
+    longDescription:
+      "Delta News (دلتا نيوز) is a production-oriented News & Media platform built with the MERN stack. It delivers an editorial public experience (hero, breaking ticker, trending, categories) with complete Arabic RTL and English LTR support via /ar and /en routes, multilingual article content, JWT auth with httpOnly cookies, role-based access, bookmarks, Cloudinary uploads, rate limiting, Helmet, Zod validation, and SEO features including canonical, hreflang, Open Graph, JSON-LD, sitemap, and robots.",
+    features: [
+      "Editorial public site: hero, breaking ticker, trending, categories",
+      "Full Arabic + English UI and content with /en and /ar URLs",
+      "SEO: canonical, hreflang, Open Graph, JSON-LD, sitemap, robots",
+      "Admin dashboard: articles, categories, analytics, roles",
+      "Multilingual article editor",
+      "JWT auth (httpOnly cookies) + role-based access",
+      "Bookmarks API",
+      "Rate limiting, Helmet, centralized Zod validation",
+    ],
+    challenges: [
+      "Supporting full RTL/LTR layouts and bilingual content without duplicating components",
+      "Building a flexible multilingual article model and editor",
+      "Implementing strong SEO for dual-language media (canonical, hreflang, sitemap)",
+      "Securing admin routes and APIs with roles, rate limits, and validation",
+    ],
+    problems: [
+      "Centralized i18n with i18next and locale-aware routing (/en, /ar)",
+      "Structured article schema with localized fields and slug handling",
+      "Server-generated sitemap/robots plus meta tags and JSON-LD on the client",
+      "JWT + httpOnly cookies, Helmet, express-rate-limit, and Zod middleware",
+    ],
+    image: "/assets/projects images multi devices/16.png",
+    github: "https://github.com/mahmoudSElsebaey/delta-news-mern",
+  },
+  {
+    num: "03",
     slug: "e-commerce-full-stack",
     title: "E-Commerce Full Stack",
     category: "MERN Website",
@@ -109,7 +157,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/electric-store-mern",
   },
   {
-    num: "03",
+    num: "04",
     slug: "examflow",
     title: "ExamFlow — SaaS MVP",
     category: "SaaS / EdTech MVP",
@@ -159,7 +207,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/examflow-saas-platform",
   },
   {
-    num: "04",
+    num: "05",
     slug: "gym-website",
     title: "Gym Website",
     category: "Fitness Website",
@@ -193,7 +241,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/GYM",
   },
   {
-    num: "05",
+    num: "06",
     slug: "portfolio-app",
     title: "Portfolio App",
     category: "Personal Portfolio",
@@ -231,7 +279,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Elsebaey-Portfolio",
   },
   {
-    num: "06",
+    num: "07",
     slug: "authentication-app",
     title: "Authentication App",
     category: "Full Stack Website",
@@ -265,7 +313,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Authentication_app_Backend",
   },
   {
-    num: "07",
+    num: "08",
     slug: "sakney",
     title: "Sakney",
     category: "Rental Platform",
@@ -298,7 +346,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Sakney",
   },
   {
-    num: "08",
+    num: "09",
     slug: "electronics-store",
     title: "Electronics Store",
     category: "E-commerce Website",
@@ -325,7 +373,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Ecommerce_ReactJS",
   },
   {
-    num: "09",
+    num: "10",
     slug: "social-feed",
     title: "Social Feed",
     category: "Social Media SPA",
@@ -352,7 +400,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Social-Feed",
   },
   {
-    num: "10",
+    num: "11",
     slug: "sakney-dashboard",
     title: "Sakney Dashboard",
     category: "Admin Dashboard",
@@ -380,7 +428,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/SakneyDashboard",
   },
   {
-    num: "11",
+    num: "12",
     slug: "game-warrior",
     title: "Game Warrior",
     category: "Gaming Brand",
@@ -405,7 +453,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Game-Warrior",
   },
   {
-    num: "12",
+    num: "13",
     slug: "directory-ads",
     title: "Directory Ads",
     category: "Business Directory",
@@ -427,7 +475,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/DirectoryAds",
   },
   {
-    num: "13",
+    num: "14",
     slug: "barber-shop",
     title: "Barber Shop",
     category: "Landing Page",
@@ -449,7 +497,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Barber-Shop",
   },
   {
-    num: "14",
+    num: "15",
     slug: "amin-games",
     title: "Amin Games",
     category: "Gaming Platform",
@@ -471,7 +519,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Amin-Games",
   },
   {
-    num: "15",
+    num: "16",
     slug: "chairs-shop",
     title: "Chairs Shop",
     category: "Furniture Store",
@@ -491,7 +539,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/chairs-shops",
   },
   {
-    num: "16",
+    num: "17",
     slug: "wave-cafe",
     title: "Wave Cafe",
     category: "Coffee Shop Website",

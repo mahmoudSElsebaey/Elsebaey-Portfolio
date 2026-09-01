@@ -24,7 +24,12 @@ export const metadata: Metadata = {
   },
   description: "The personal website , to show the information about me",
   icons: {
-    icon: "/assets/logo-r.png",
+    icon: [
+      { url: "/assets/logo-r.png", type: "image/png" },
+      { url: "/assets/logo.png", type: "image/png" },
+    ],
+    shortcut: "/assets/logo-r.png",
+    apple: "/assets/logo-r.png",
   },
 };
 
