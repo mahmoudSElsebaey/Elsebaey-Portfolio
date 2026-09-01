@@ -66,7 +66,7 @@ export const projectsData: Project[] = [
   {
     num: "02",
     slug: "delta-news",
-    title: "Delta News / دلتا نيوز",
+    title: "Delta News",
     category: "MERN Website",
     tools: [
       { name: "React 19" },
@@ -85,7 +85,7 @@ export const projectsData: Project[] = [
     description:
       "Multilingual News & Sports media SaaS platform with full Arabic/English UI, editorial public site, SEO, and an admin dashboard for content and roles.",
     longDescription:
-      "Delta News (دلتا نيوز) is a production-oriented News & Media platform built with the MERN stack. It delivers an editorial public experience (hero, breaking ticker, trending, categories) with complete Arabic RTL and English LTR support via /ar and /en routes, multilingual article content, JWT auth with httpOnly cookies, role-based access, bookmarks, Cloudinary uploads, rate limiting, Helmet, Zod validation, and SEO features including canonical, hreflang, Open Graph, JSON-LD, sitemap, and robots.",
+      "Delta News is a production-oriented News & Media platform built with the MERN stack. It delivers an editorial public experience (hero, breaking ticker, trending, categories) with complete Arabic RTL and English LTR support via /ar and /en routes, multilingual article content, JWT auth with httpOnly cookies, role-based access, bookmarks, Cloudinary uploads, rate limiting, Helmet, Zod validation, and SEO features including canonical, hreflang, Open Graph, JSON-LD, sitemap, and robots.",
     features: [
       "Editorial public site: hero, breaking ticker, trending, categories",
       "Full Arabic + English UI and content with /en and /ar URLs",
@@ -109,6 +109,7 @@ export const projectsData: Project[] = [
       "JWT + httpOnly cookies, Helmet, express-rate-limit, and Zod middleware",
     ],
     image: "/assets/projects images multi devices/16.png",
+    live: "https://deltanewsclient.vercel.app/ar",
     github: "https://github.com/mahmoudSElsebaey/delta-news-mern",
   },
   {

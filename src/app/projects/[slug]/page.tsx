@@ -8,6 +8,7 @@ import {
   projectsData,
 } from "../data";
 import ProjectImageLightbox from "./ProjectImageLightbox";
+import ProjectDetailSections from "./ProjectDetailSections";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -119,63 +120,12 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
         </ul>
       </div>
 
-      {/* Features */}
-      {project.features && project.features.length > 0 && (
-        <div className="mt-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-5 text-primary-1000">
-            Key Features
-          </h2>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {project.features.map((feature, i) => (
-              <li
-                key={i}
-                className="flex items-start gap-3 p-4 rounded-xl border border-primary-1000/20 bg-primary-1000/5"
-              >
-                <span className="mt-1 h-2 w-2 rounded-full bg-primary-1000 shrink-0" />
-                <span className="opacity-90">{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* Challenges */}
-      {project.challenges && project.challenges.length > 0 && (
-        <div className="mt-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-5 text-primary-1000">
-            Challenges
-          </h2>
-          <ul className="space-y-3">
-            {project.challenges.map((item, i) => (
-              <li
-                key={i}
-                className="p-4 rounded-xl border border-primary-1000/20 bg-primary-1000/5 opacity-90"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* Problems & Solutions */}
-      {project.problems && project.problems.length > 0 && (
-        <div className="mt-12">
-          <h2 className="text-2xl md:text-3xl font-bold mb-5 text-primary-1000">
-            Problems & Solutions
-          </h2>
-          <ul className="space-y-3">
-            {project.problems.map((item, i) => (
-              <li
-                key={i}
-                className="p-4 rounded-xl border border-primary-1000/20 bg-primary-1000/5 opacity-90"
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {/* Animated Feature / Challenge / Solution sections */}
+      <ProjectDetailSections
+        features={project.features}
+        challenges={project.challenges}
+        problems={project.problems}
+      />
 
       {/* Prev / Next */}
       <div className="mt-16 pt-8 border-t border-primary-1000/20 flex flex-col sm:flex-row justify-between gap-4">
