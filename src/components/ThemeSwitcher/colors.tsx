@@ -1,14 +1,35 @@
-export const colorOptions = {
-  gold: "#b99a57",
-  pink: "#ef476f",
-  red: "#e71d36",
-  yellow: "#F3C623",
-  green: "#008c00",
-  teal: "#087e8b",
-  orange: "#fa7921",
-  c1: "#B771E5",
-  c2: "#46ecd5",
-  c3: "#06d6a0",
-  c4: "#7b2cbf",
-  c5: "#00b4d8",
+/**
+ * Curated theme palette — 8 modern, high-contrast, portfolio-ready accents.
+ * Chosen for: uniqueness, readability on light & dark, and professional feel.
+ */
+export const colorOptions: Record<string, string> = {
+  // Signature warm metal — elegant, premium (default)
+  gold: "#C6A15B",
+  // Deep ocean teal — calm, tech, trustworthy
+  aqua: "#0D9488",
+  // Electric indigo — modern SaaS / AI vibe
+  indigo: "#6366F1",
+  // Soft violet — creative without being loud
+  violet: "#8B5CF6",
+  // Coral rose — energetic, friendly CTA energy
+  coral: "#F43F5E",
+  // Emerald — growth, success, clean contrast
+  emerald: "#10B981",
+  // Amber — warm highlight, high visibility
+  amber: "#F59E0B",
+  // Sky — fresh, light, product-UI feel
+  sky: "#0EA5E9",
 };
+
+export const colorLabels: Record<string, string> = {
+  gold: "Gold",
+  aqua: "Aqua",
+  indigo: "Indigo",
+  violet: "Violet",
+  coral: "Coral",
+  emerald: "Emerald",
+  amber: "Amber",
+  sky: "Sky",
+};
+
+export const DEFAULT_COLOR = "gold";
