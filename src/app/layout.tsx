@@ -10,6 +10,7 @@ import DraggableNav from "@/components/DraggableMenu/DraggableMenu";
 import ScrollToTopButton from "../components/ScrollToTopButton/ScrollToTopButton";
 import ScrollProgressBar from "@/components/ScrollProgressBar/ScrollProgressBar";
 import AOSProvider from "@/components/ui/AOSProvider";
+import WhatsAppButton from "@/components/WhatsAppButton/WhatsAppButton";
 
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetBrainsMono",
@@ -54,6 +55,7 @@ export default function RootLayout({
           </AOSProvider>
           <Footer />
           <ScrollProgressBar />
+          <WhatsAppButton />
           <ScrollToTopButton />
         </ThemeProvider>
         <Analytics />
