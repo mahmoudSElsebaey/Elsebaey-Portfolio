@@ -1,82 +1,146 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { TabsList, TabsTrigger, Tabs, TabsContent } from "@/components/ui/tabs";
+import { useRef, useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { FaGraduationCap, FaQuoteLeft } from "react-icons/fa";
+import { MdSettingsSuggest } from "react-icons/md";
+import { IoPersonSharp } from "react-icons/io5";
 import Skills from "./skills";
 import AboutMe from "./aboutMe";
 import MyJourney from "./myJourney";
 import Recommendations from "@/components/Recommendations/Recommendations";
-import { MdSettingsSuggest } from "react-icons/md";
-import { IoPersonSharp } from "react-icons/io5";
+import { cn } from "@/lib/utils";
+
+const tabs = [
+  {
+    value: "myJourney",
+    label: "My Journey",
+    icon: FaGraduationCap,
+  },
+  {
+    value: "skills",
+    label: "Skills",
+    icon: MdSettingsSuggest,
+  },
+  {
+    value: "about",
+    label: "About Me",
+    icon: IoPersonSharp,
+  },
+  {
+    value: "recommendations",
+    label: "Recommendations",
+    icon: FaQuoteLeft,
+  },
+] as const;
+
+type TabValue = (typeof tabs)[number]["value"];
 
 export default function Resume() {
+  const [active, setActive] = useState<TabValue>("myJourney");
+  const listRef = useRef<HTMLDivElement>(null);
+
+  // Click outside collapses visual focus (keeps selection)
+  useEffect(() => {
+    const onPointerDown = (e: PointerEvent) => {
+      if (!listRef.current?.contains(e.target as Node)) {
+        // no-op: selection stays; only used if we want collapse behavior later
+      }
+    };
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => document.removeEventListener("pointerdown", onPointerDown);
+  }, []);
+
   return (
     <section className="mt-5">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          transition: {
-            delay: 0.05,
-            duration: 0.35,
-            ease: "easeOut",
-          },
+          transition: { delay: 0.05, duration: 0.35, ease: "easeOut" },
         }}
         className="flex justify-center items-center xl:py-0"
       >
         <div className="container mx-auto px-2 sm:px-4">
-          <Tabs
-            defaultValue="myJourney"
-            className="flex flex-col gap-6 sm:gap-10"
-            data-aos="fade-up"
-          >
-            <TabsList className="w-full max-w-4xl mx-auto flex items-center justify-between sm:justify-around gap-1 sm:gap-2 overflow-x-auto no-scrollbar p-1">
-              <TabsTrigger
-                value="myJourney"
-                className="flex-1 min-w-0 rounded-none flex gap-1.5 sm:gap-2 items-center justify-center text-[11px] sm:text-sm md:text-base px-1 sm:px-2"
+          <div className="flex flex-col gap-6 sm:gap-10" data-aos="fade-up">
+            {/* Expanded Tabs — 21st.dev style */}
+            <div className="w-full flex justify-center">
+              <div
+                ref={listRef}
+                className={cn(
+                  "inline-flex items-center gap-1 sm:gap-1.5 p-1.5 rounded-full",
+                  "border border-primary-1000/20 bg-primary-1000/5 backdrop-blur-sm",
+                  "shadow-sm"
+                )}
+                role="tablist"
+                aria-label="About sections"
               >
-                <FaGraduationCap className="hidden sm:block text-xl md:text-2xl shrink-0" />
-                <span className="text-black dark:text-white truncate">My Journey</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="skills"
-                className="flex-1 min-w-0 rounded-none flex gap-1.5 sm:gap-2 items-center justify-center text-[11px] sm:text-sm md:text-base px-1 sm:px-2"
-              >
-                <MdSettingsSuggest className="hidden sm:block text-xl md:text-2xl shrink-0" />
-                <span className="text-black dark:text-white truncate">Skills</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="about"
-                className="flex-1 min-w-0 rounded-none flex gap-1.5 sm:gap-2 items-center justify-center text-[11px] sm:text-sm md:text-base px-1 sm:px-2"
-              >
-                <IoPersonSharp className="hidden sm:block text-xl md:text-2xl shrink-0" />
-                <span className="text-black dark:text-white truncate">About Me</span>
-              </TabsTrigger>
-              <TabsTrigger
-                value="recommendations"
-                className="flex-1 min-w-0 rounded-none flex gap-1.5 sm:gap-2 items-center justify-center text-[11px] sm:text-sm md:text-base px-1 sm:px-2"
-              >
-                <FaQuoteLeft className="hidden sm:block text-lg md:text-xl shrink-0" />
-                <span className="text-black dark:text-white truncate">Recommendations</span>
-              </TabsTrigger>
-            </TabsList>
+                {tabs.map((tab) => {
+                  const isActive = active === tab.value;
+                  const Icon = tab.icon;
 
-            <div className="w-full overflow-hidden">
-              <TabsContent value="myJourney" className="w-full">
-                <MyJourney />
-              </TabsContent>
-              <TabsContent value="skills" className="w-full">
-                <Skills />
-              </TabsContent>
-              <TabsContent value="about" className="w-full">
-                <AboutMe />
-              </TabsContent>
-              <TabsContent value="recommendations" className="w-full">
-                <Recommendations />
-              </TabsContent>
+                  return (
+                    <button
+                      key={tab.value}
+                      type="button"
+                      role="tab"
+                      aria-selected={isActive}
+                      onClick={() => setActive(tab.value)}
+                      className={cn(
+                        "relative flex items-center justify-center gap-2 rounded-full",
+                        "transition-all duration-300 ease-out cursor-pointer",
+                        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1000/40",
+                        isActive
+                          ? "bg-primary-1000 text-white shadow-md shadow-primary-1000/25 px-3.5 sm:px-5 py-2.5 sm:py-3"
+                          : "text-primary-1000/70 hover:text-primary-1000 hover:bg-primary-1000/10 px-2.5 sm:px-3 py-2.5 sm:py-3"
+                      )}
+                    >
+                      <Icon
+                        className={cn(
+                          "shrink-0 transition-transform duration-300",
+                          isActive ? "text-base sm:text-xl" : "text-base sm:text-lg",
+                          isActive && "scale-110"
+                        )}
+                      />
+
+                      <AnimatePresence initial={false}>
+                        {isActive && (
+                          <motion.span
+                            key="label"
+                            initial={{ width: 0, opacity: 0 }}
+                            animate={{ width: "auto", opacity: 1 }}
+                            exit={{ width: 0, opacity: 0 }}
+                            transition={{ duration: 0.28, ease: "easeOut" }}
+                            className="overflow-hidden whitespace-nowrap text-xs sm:text-sm md:text-base font-semibold"
+                          >
+                            {tab.label}
+                          </motion.span>
+                        )}
+                      </AnimatePresence>
+                    </button>
+                  );
+                })}
+              </div>
             </div>
-          </Tabs>
+
+            {/* Content */}
+            <div className="w-full overflow-hidden min-h-[480px]">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={active}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -8 }}
+                  transition={{ duration: 0.25, ease: "easeOut" }}
+                >
+                  {active === "myJourney" && <MyJourney />}
+                  {active === "skills" && <Skills />}
+                  {active === "about" && <AboutMe />}
+                  {active === "recommendations" && <Recommendations />}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+          </div>
         </div>
       </motion.div>
     </section>
