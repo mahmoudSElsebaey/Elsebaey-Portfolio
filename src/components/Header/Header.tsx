@@ -6,7 +6,7 @@ import logo from "./../../../public/assets/logo-r.png";
 import { Nav } from "../Nav/Nav";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import Link from "next/link";
-import { RiColorFilterLine } from "react-icons/ri";
+import { Palette } from "lucide-react";
 import "./header.css";
 
 export default function Header() {
@@ -80,23 +80,29 @@ export default function Header() {
 
       <div className="flex justify-between items-center gap-2">
         <div className="flex justify-center items-center" ref={themeRef}>
-          <div className="relative group" title="choose theme colors">
+          <div className="relative group" title="Choose theme color">
             <button
               type="button"
-              className="text-[22px] font-extrabold btn-colors gradient-text cursor-pointer flex gap-1 items-center"
+              aria-label="Choose theme color"
+              aria-expanded={showThemeColors}
+              className="w-10 h-10 rounded-full cursor-pointer flex items-center justify-center
+                border border-primary-1000/25 bg-primary-1000/5
+                hover:bg-primary-1000/15 hover:border-primary-1000/40
+                transition-all duration-300 active:scale-95
+                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1000/40"
               onClick={() => setShowThemeColors((prev) => !prev)}
             >
-              <div className="flex justify-center items-center w-8">
-                <RiColorFilterLine className="text-primary-1000 w-full h-full" />
-              </div>
-              <p className="hidden">Themes</p>
+              <Palette
+                className="h-[18px] w-[18px] text-primary-1000"
+                strokeWidth={2}
+              />
             </button>
             <div
-              className={`absolute left-[50%] translate-x-[-50%] ${
+              className={`absolute right-0 sm:left-[50%] sm:translate-x-[-50%] top-full mt-2 ${
                 showThemeColors
                   ? "opacity-100 scale-100"
-                  : "opacity-0 scale-0 pointer-events-none"
-              } transition-all duration-300`}
+                  : "opacity-0 scale-95 pointer-events-none"
+              } transition-all duration-300 origin-top`}
             >
               <ThemeSwitcher />
             </div>
