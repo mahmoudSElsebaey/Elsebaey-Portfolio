@@ -3,46 +3,37 @@
 import { useEffect, useRef, useState } from "react";
 import { Plus } from "lucide-react";
 import { colorOptions, colorLabels, DEFAULT_COLOR } from "./colors";
-
-const CUSTOM_KEY = "custom";
-const STORAGE_NAME = "selectedColor";
-const STORAGE_CUSTOM = "customColor";
+import {
+  applyThemeColor,
+  persistThemeColor,
+  restoreThemeColor,
+  CUSTOM_KEY,
+} from "./applyThemeColor";
 
 export default function ThemeSwitcher() {
   const [activeColor, setActiveColor] = useState<string>(DEFAULT_COLOR);
   const [customHex, setCustomHex] = useState<string>("#7C3AED");
   const colorInputRef = useRef<HTMLInputElement>(null);
 
-  const applyColor = (name: string, hex: string) => {
-    document.documentElement.style.setProperty("--color-primary", hex);
-    document.documentElement.style.setProperty("--color-primary-1000", hex);
+  const selectColor = (name: string, hex: string) => {
+    applyThemeColor(hex);
+    persistThemeColor(name, hex);
     setActiveColor(name);
-    localStorage.setItem(STORAGE_NAME, name);
-    if (name === CUSTOM_KEY) {
-      localStorage.setItem(STORAGE_CUSTOM, hex);
-      setCustomHex(hex);
-    }
+    if (name === CUSTOM_KEY) setCustomHex(hex);
   };
 
   useEffect(() => {
-    const savedName = localStorage.getItem(STORAGE_NAME);
-    const savedCustom = localStorage.getItem(STORAGE_CUSTOM);
+    const { name, hex } = restoreThemeColor();
+    setActiveColor(name);
+    if (name === CUSTOM_KEY) setCustomHex(hex);
 
+    const savedCustom = localStorage.getItem("customColor");
     if (savedCustom) setCustomHex(savedCustom);
-
-    if (savedName === CUSTOM_KEY && savedCustom) {
-      applyColor(CUSTOM_KEY, savedCustom);
-    } else if (savedName && colorOptions[savedName]) {
-      applyColor(savedName, colorOptions[savedName]);
-    } else {
-      applyColor(DEFAULT_COLOR, colorOptions[DEFAULT_COLOR]);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onCustomChange = (hex: string) => {
     if (!/^#[0-9A-Fa-f]{6}$/.test(hex)) return;
-    applyColor(CUSTOM_KEY, hex);
+    selectColor(CUSTOM_KEY, hex);
   };
 
   return (
@@ -61,7 +52,7 @@ export default function ThemeSwitcher() {
             <button
               key={name}
               type="button"
-              onClick={() => applyColor(name, hex)}
+              onClick={() => selectColor(name, hex)}
               title={colorLabels[name] ?? name}
               aria-label={colorLabels[name] ?? name}
               className={`relative w-9 h-9 mx-auto rounded-full cursor-pointer transition-all duration-300
