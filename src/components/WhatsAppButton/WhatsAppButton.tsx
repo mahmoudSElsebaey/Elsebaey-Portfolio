@@ -26,7 +26,8 @@ export default function WhatsAppButton() {
         "bg-[#25D366] text-white shadow-lg",
         "hover:bg-[#20bd5a] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366]/50",
         "active:scale-95 transition-colors",
-        "bottom-24 right-6", // sits above the scroll-to-top (bottom-6)
+        // Below ScrollToTop (which is at bottom-24)
+        "bottom-6 right-6",
       ].join(" ")}
     >
       <FaWhatsapp className="h-7 w-7" />
