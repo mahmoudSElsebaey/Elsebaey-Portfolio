@@ -1,6 +1,5 @@
 /**
- * Curated theme palette — 8 modern, high-contrast, portfolio-ready accents.
- * Chosen for: uniqueness, readability on light & dark, and professional feel.
+ * Curated theme palette — modern, high-contrast, portfolio-ready accents.
  */
 export const colorOptions: Record<string, string> = {
   // Signature warm metal — elegant, premium (default)
@@ -19,6 +18,14 @@ export const colorOptions: Record<string, string> = {
   amber: "#F59E0B",
   // Sky — fresh, light, product-UI feel
   sky: "#0EA5E9",
+  // Fuchsia — bold creative accent
+  fuchsia: "#D946EF",
+  // Cyan — crisp digital / neon-modern
+  cyan: "#22D3EE",
+  // Lime — sharp, energetic, uncommon
+  lime: "#84CC16",
+  // Rose — soft warm pink, elegant
+  rose: "#FB7185",
 };
 
 export const colorLabels: Record<string, string> = {
@@ -30,6 +37,10 @@ export const colorLabels: Record<string, string> = {
   emerald: "Emerald",
   amber: "Amber",
   sky: "Sky",
+  fuchsia: "Fuchsia",
+  cyan: "Cyan",
+  lime: "Lime",
+  rose: "Rose",
 };
 
 export const DEFAULT_COLOR = "gold";
