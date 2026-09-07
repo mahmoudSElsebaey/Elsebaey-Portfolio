@@ -1,38 +1,62 @@
-// components/ThemeToggle.tsx
 "use client";
 
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
-import { IoMoon } from "react-icons/io5";
-import { GoSun } from "react-icons/go";
- 
+import { Moon, Sun } from "lucide-react";
+import { cn } from "@/lib/utils";
+
 export default function ThemeToggle() {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => setMounted(true), []);
-  if (!mounted) return null;
 
-  const isDark = theme === "dark";
+  if (!mounted) {
+    return (
+      <div className="w-10 h-10 rounded-full border border-primary-1000/20 bg-primary-1000/5" />
+    );
+  }
+
+  const isDark = (resolvedTheme ?? theme) === "dark";
 
   return (
     <button
+      type="button"
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className={`w-14 h-8 flex items-center rounded-full px-1 transition-colors duration-300 cursor-pointer ${
-        isDark ? "bg-gray-800" : "bg-yellow-500"
-      }`}
+      aria-label={isDark ? "Switch to light mode" : "Switch to dark mode"}
+      title={isDark ? "Light mode" : "Dark mode"}
+      className={cn(
+        "relative w-10 h-10 rounded-full cursor-pointer",
+        "flex items-center justify-center",
+        "border border-primary-1000/25 bg-primary-1000/5",
+        "hover:bg-primary-1000/15 hover:border-primary-1000/40",
+        "transition-all duration-300 active:scale-95",
+        "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1000/40"
+      )}
     >
-      <div
-        className={`w-6 h-6 rounded-full shadow-md transform transition-transform duration-300 flex items-center justify-center ${
-          isDark ? "translate-x-6 bg-gray-200" : "translate-x-0 bg-white"
-        }`}
-      >
-        {isDark ? (
-          <IoMoon size={16} className="text-primary-1000" />
-        ) : (
-          <GoSun size={16} className="text-primary-1000" />
+      {/* Sun — visible in dark mode (click to go light) */}
+      <Sun
+        className={cn(
+          "absolute h-[18px] w-[18px] text-primary-1000",
+          "transition-all duration-500 ease-out",
+          isDark
+            ? "rotate-0 scale-100 opacity-100"
+            : "rotate-90 scale-0 opacity-0"
         )}
-      </div>
+        strokeWidth={2}
+      />
+
+      {/* Moon — visible in light mode (click to go dark) */}
+      <Moon
+        className={cn(
+          "absolute h-[18px] w-[18px] text-primary-1000",
+          "transition-all duration-500 ease-out",
+          isDark
+            ? "-rotate-90 scale-0 opacity-0"
+            : "rotate-0 scale-100 opacity-100"
+        )}
+        strokeWidth={2}
+      />
     </button>
   );
 }
