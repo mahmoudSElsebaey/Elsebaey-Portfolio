@@ -1,4 +1,5 @@
 import { about } from "./data";
+import Recommendations from "@/components/Recommendations/Recommendations";
 
 export default function AboutMe() {
   return (
@@ -28,6 +29,17 @@ export default function AboutMe() {
             </p>
           );
         })}
+      </div>
+
+      {/* Recommendations */}
+      <div className="mt-12 md:mt-16" data-aos="fade-up">
+        <h3 className="text-center text-2xl md:text-3xl font-bold text-primary-1000 mb-2">
+          Recommendations
+        </h3>
+        <p className="text-center text-sm md:text-base opacity-70 mb-6">
+          What people say about me
+        </p>
+        <Recommendations />
       </div>
     </div>
   );
