@@ -6,7 +6,7 @@ import logo from "./../../../public/assets/logo-r.png";
 import { Nav } from "../Nav/Nav";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import Link from "next/link";
-import { Palette } from "lucide-react";
+import { SwatchBook } from "lucide-react";
 import "./header.css";
 
 export default function Header() {
@@ -78,39 +78,35 @@ export default function Header() {
         <Nav />
       </div>
 
-      <div className="flex justify-between items-center gap-2">
-        <div className="flex justify-center items-center" ref={themeRef}>
-          <div className="relative group" title="Choose theme color">
-            <button
-              type="button"
-              aria-label="Choose theme color"
-              aria-expanded={showThemeColors}
-              className="w-10 h-10 rounded-full cursor-pointer flex items-center justify-center
-                border border-primary-1000/25 bg-primary-1000/5
-                hover:bg-primary-1000/15 hover:border-primary-1000/40
-                transition-all duration-300 active:scale-95
-                focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1000/40"
-              onClick={() => setShowThemeColors((prev) => !prev)}
-            >
-              <Palette
-                className="h-[18px] w-[18px] text-primary-1000"
-                strokeWidth={2}
-              />
-            </button>
-            <div
-              className={`absolute right-0 sm:left-[50%] sm:translate-x-[-50%] top-full mt-2 ${
-                showThemeColors
-                  ? "opacity-100 scale-100"
-                  : "opacity-0 scale-95 pointer-events-none"
-              } transition-all duration-300 origin-top`}
-            >
+      <div className="flex items-center gap-2 shrink-0">
+        <div className="relative" ref={themeRef}>
+          <button
+            type="button"
+            aria-label="Choose theme color"
+            aria-expanded={showThemeColors}
+            title="Choose theme color"
+            className="w-10 h-10 rounded-full cursor-pointer flex items-center justify-center
+              border border-primary-1000/25 bg-primary-1000/5
+              hover:bg-primary-1000/15 hover:border-primary-1000/40
+              transition-all duration-300 active:scale-95
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1000/40"
+            onClick={() => setShowThemeColors((prev) => !prev)}
+          >
+            <SwatchBook
+              className="h-[18px] w-[18px] text-primary-1000"
+              strokeWidth={2}
+            />
+          </button>
+
+          {/* Anchored to the right edge of the trigger — never overflows viewport */}
+          {showThemeColors && (
+            <div className="absolute top-full right-0 mt-2 z-[10000]">
               <ThemeSwitcher />
             </div>
-          </div>
+          )}
         </div>
-        <div className="order-1">
-          <ThemeToggle />
-        </div>
+
+        <ThemeToggle />
       </div>
     </header>
   );
