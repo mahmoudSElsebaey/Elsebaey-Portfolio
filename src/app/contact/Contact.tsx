@@ -201,7 +201,7 @@ export default function Contact() {
             >
               <div>
                 <h3 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary-1000">
-                  Let's Work Together
+                  {"Let's Work Together"}
                 </h3>
                 <p className="mt-2 opacity-70 text-sm md:text-base leading-relaxed max-w-xl">
                   Whether you have a question, a project idea, or just want to
