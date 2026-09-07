@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
+import type { Swiper as SwiperType } from "swiper";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -83,26 +84,26 @@ function RecommendationCard({
   expanded: boolean;
   onToggle: () => void;
 }) {
-  const isLong = rec.text.length > 160;
+  const isLong = rec.text.length > 150;
 
   return (
     <article
-      onClick={isLong ? onToggle : undefined}
       className={[
-        "h-full rounded-2xl border border-primary-1000/15 bg-background/80 backdrop-blur-sm",
-        "px-5 py-5 sm:px-7 sm:py-6",
+        "h-full rounded-2xl border border-primary-1000/15",
+        "bg-background/90 backdrop-blur-sm",
+        "px-5 py-5 sm:px-6 sm:py-6",
         "transition-all duration-300",
-        "hover:border-primary-1000/35 hover:shadow-md hover:shadow-primary-1000/5",
-        isLong ? "cursor-pointer" : "",
-        expanded ? "border-primary-1000/40 shadow-lg shadow-primary-1000/10 scale-[1.02]" : "",
+        expanded
+          ? "border-primary-1000/40 shadow-lg shadow-primary-1000/10"
+          : "",
       ].join(" ")}
     >
       <FaQuoteLeft className="text-primary-1000/35 text-xl mb-3" />
 
       <p
         className={[
-          "mb-5 text-sm md:text-[15px] opacity-80 leading-relaxed",
-          expanded ? "" : "line-clamp-4",
+          "text-sm md:text-[15px] opacity-80 leading-relaxed",
+          expanded ? "mb-4" : "mb-3 line-clamp-4",
         ].join(" ")}
       >
         {rec.text}
@@ -111,17 +112,19 @@ function RecommendationCard({
       {isLong && (
         <button
           type="button"
-          className="text-xs text-primary-1000 font-medium mb-4 hover:underline"
+          className="text-xs text-primary-1000 font-semibold mb-4 hover:underline relative z-20"
           onClick={(e) => {
+            e.preventDefault();
             e.stopPropagation();
             onToggle();
           }}
+          onPointerDown={(e) => e.stopPropagation()}
         >
           {expanded ? "Show less" : "Read more..."}
         </button>
       )}
 
-      <div className="flex items-center gap-3 pt-4 border-t border-primary-1000/10">
+      <div className="flex items-center gap-3 pt-4 border-t border-primary-1000/10 mt-auto">
         <div className="w-10 h-10 rounded-full bg-primary-1000/15 border border-primary-1000/30 flex items-center justify-center text-primary-1000 font-bold text-sm shrink-0">
           {rec.name
             .split(" ")
@@ -145,53 +148,109 @@ function RecommendationCard({
 
 export default function Recommendations() {
   const [expandedName, setExpandedName] = useState<string | null>(null);
+  const swiperRef = useRef<SwiperType | null>(null);
+
+  const handleToggle = (name: string) => {
+    setExpandedName((prev) => {
+      const next = prev === name ? null : name;
+
+      // Pause autoplay while reading full text
+      if (swiperRef.current?.autoplay) {
+        if (next) {
+          swiperRef.current.autoplay.stop();
+        } else {
+          swiperRef.current.autoplay.start();
+        }
+      }
+
+      return next;
+    });
+  };
 
   return (
     <section className="py-6 md:py-10 overflow-hidden">
       <div className="container mx-auto px-4">
-        <div className="recommendations-coverflow max-w-4xl mx-auto mb-6">
+        <div className="recommendations-coverflow mx-auto mb-6 max-w-6xl">
           <Swiper
             modules={[Autoplay, EffectCoverflow, Pagination]}
             effect="coverflow"
             grabCursor
             centeredSlides
             slidesPerView={1}
-            spaceBetween={28}
-            loop={recommendations.length > 2}
+            spaceBetween={16}
+            loop={recommendations.length >= 5}
             autoplay={{
               delay: 5000,
               disableOnInteraction: false,
               pauseOnMouseEnter: true,
             }}
-            speed={650}
+            speed={700}
             pagination={{
               clickable: true,
-              dynamicBullets: true,
+              dynamicBullets: false,
             }}
             coverflowEffect={{
               rotate: 0,
-              stretch: 0,
-              depth: 140,
-              modifier: 1.35,
+              stretch: -20,
+              depth: 180,
+              modifier: 1.6,
               slideShadows: false,
             }}
             breakpoints={{
-              768: { slidesPerView: 1.3, spaceBetween: 32 },
-              1024: { slidesPerView: 1.5, spaceBetween: 36 },
+              // Mobile: 1 card
+              0: {
+                slidesPerView: 1,
+                spaceBetween: 14,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 80,
+                  modifier: 1,
+                  slideShadows: false,
+                },
+              },
+              // Tablet: 3 cards
+              768: {
+                slidesPerView: 3,
+                spaceBetween: 18,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: -10,
+                  depth: 140,
+                  modifier: 1.4,
+                  slideShadows: false,
+                },
+              },
+              // Desktop: 5 cards
+              1024: {
+                slidesPerView: 5,
+                spaceBetween: 16,
+                coverflowEffect: {
+                  rotate: 0,
+                  stretch: -18,
+                  depth: 200,
+                  modifier: 1.7,
+                  slideShadows: false,
+                },
+              },
             }}
-            className="!pb-14"
-            onSlideChange={() => setExpandedName(null)}
+            className="!pb-16"
+            onSwiper={(swiper) => {
+              swiperRef.current = swiper;
+            }}
+            onSlideChange={() => {
+              setExpandedName(null);
+              if (swiperRef.current?.autoplay) {
+                swiperRef.current.autoplay.start();
+              }
+            }}
           >
             {recommendations.map((rec) => (
               <SwiperSlide key={rec.name} className="!h-auto">
                 <RecommendationCard
                   rec={rec}
                   expanded={expandedName === rec.name}
-                  onToggle={() =>
-                    setExpandedName((prev) =>
-                      prev === rec.name ? null : rec.name
-                    )
-                  }
+                  onToggle={() => handleToggle(rec.name)}
                 />
               </SwiperSlide>
             ))}
@@ -212,36 +271,90 @@ export default function Recommendations() {
       </div>
 
       <style jsx global>{`
-        .recommendations-coverflow .swiper-pagination {
-          bottom: 0 !important;
-        }
-        .recommendations-coverflow .swiper-pagination-bullet {
-          width: 6px;
-          height: 6px;
-          background: var(--color-primary-1000);
-          opacity: 0.25;
-          transition: all 0.3s ease;
-        }
-        .recommendations-coverflow .swiper-pagination-bullet-active-prev,
-        .recommendations-coverflow .swiper-pagination-bullet-active-next {
-          width: 8px;
-          height: 8px;
-          opacity: 0.45;
-        }
-        .recommendations-coverflow .swiper-pagination-bullet-active-prev-prev,
-        .recommendations-coverflow .swiper-pagination-bullet-active-next-next {
-          width: 5px;
-          height: 5px;
-          opacity: 0.2;
-        }
-        .recommendations-coverflow .swiper-pagination-bullet-active {
-          width: 22px;
-          height: 8px;
-          border-radius: 9999px;
-          opacity: 1;
-        }
+        /* Progressive opacity + scale by distance from center */
         .recommendations-coverflow .swiper-slide {
           height: auto;
+          transition: opacity 0.45s ease, transform 0.45s ease, filter 0.45s ease;
+          opacity: 0.18;
+          filter: blur(1px);
+        }
+
+        /* Outer sides (±2) — almost hidden */
+        .recommendations-coverflow .swiper-slide-prev-prev,
+        .recommendations-coverflow .swiper-slide-next-next {
+          opacity: 0.22;
+          filter: blur(0.8px);
+        }
+
+        /* Inner sides (±1) — 50% */
+        .recommendations-coverflow .swiper-slide-prev,
+        .recommendations-coverflow .swiper-slide-next {
+          opacity: 0.5;
+          filter: blur(0.3px);
+        }
+
+        /* Active center card — fully visible */
+        .recommendations-coverflow .swiper-slide-active {
+          opacity: 1 !important;
+          filter: none !important;
+          z-index: 5;
+        }
+
+        /* Creative pagination: ring + filled core */
+        .recommendations-coverflow .swiper-pagination {
+          bottom: 0 !important;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .recommendations-coverflow .swiper-pagination-bullet {
+          width: 10px;
+          height: 10px;
+          margin: 0 !important;
+          background: transparent;
+          border: 2px solid color-mix(in oklab, var(--color-primary-1000) 45%, transparent);
+          opacity: 1;
+          border-radius: 9999px;
+          transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+          position: relative;
+        }
+
+        .recommendations-coverflow .swiper-pagination-bullet::after {
+          content: "";
+          position: absolute;
+          inset: 2px;
+          border-radius: 9999px;
+          background: transparent;
+          transition: background 0.35s ease, transform 0.35s ease;
+        }
+
+        .recommendations-coverflow .swiper-pagination-bullet-active {
+          width: 28px;
+          height: 10px;
+          border-color: var(--color-primary-1000);
+          background: color-mix(in oklab, var(--color-primary-1000) 20%, transparent);
+          box-shadow: 0 0 12px color-mix(in oklab, var(--color-primary-1000) 35%, transparent);
+        }
+
+        .recommendations-coverflow .swiper-pagination-bullet-active::after {
+          background: var(--color-primary-1000);
+          inset: 2px 6px;
+        }
+
+        /* Neighbor bullets slightly stronger */
+        .recommendations-coverflow .swiper-pagination-bullet:hover {
+          border-color: var(--color-primary-1000);
+          transform: scale(1.15);
+        }
+
+        /* Prevent side cards from stealing clicks */
+        .recommendations-coverflow .swiper-slide:not(.swiper-slide-active) {
+          pointer-events: none;
+        }
+        .recommendations-coverflow .swiper-slide-active {
+          pointer-events: auto;
         }
       `}</style>
     </section>
