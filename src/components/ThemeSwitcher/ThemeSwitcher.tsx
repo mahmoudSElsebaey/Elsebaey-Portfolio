@@ -47,14 +47,13 @@ export default function ThemeSwitcher() {
 
   return (
     <div
-      className="min-w-[200px] sm:min-w-[220px] p-3 z-[99999] rounded-2xl
-        border border-primary-1000/30 bg-background/90 backdrop-blur-md shadow-lg shadow-black/10"
+      className="w-[220px] max-w-[calc(100vw-1.5rem)] p-3 z-[99999] rounded-2xl
+        border border-primary-1000/30 bg-background/95 backdrop-blur-md shadow-lg shadow-black/10"
     >
       <p className="text-[11px] font-semibold uppercase tracking-wider text-primary-1000/70 mb-2.5 px-0.5">
         Theme color
       </p>
 
-      {/* Preset colors */}
       <div className="grid grid-cols-4 gap-2.5 mb-3">
         {Object.entries(colorOptions).map(([name, hex]) => {
           const isActive = activeColor === name;
@@ -84,7 +83,6 @@ export default function ThemeSwitcher() {
         })}
       </div>
 
-      {/* Custom color */}
       <div className="pt-2.5 border-t border-primary-1000/15">
         <p className="text-[11px] font-semibold uppercase tracking-wider text-primary-1000/70 mb-2 px-0.5">
           Custom color
@@ -104,7 +102,7 @@ export default function ThemeSwitcher() {
               background:
                 activeColor === CUSTOM_KEY
                   ? customHex
-                  : `conic-gradient(from 0deg, #C6A15B, #0D9488, #6366F1, #8B5CF6, #F43F5E, #10B981, #F59E0B, #0EA5E9, #C6A15B)`,
+                  : `conic-gradient(from 0deg, #C6A15B, #0D9488, #6366F1, #D946EF, #F43F5E, #84CC16, #22D3EE, #FB7185, #C6A15B)`,
               // @ts-expect-error CSS custom property for ring color
               "--tw-ring-color": customHex,
             }}
