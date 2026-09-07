@@ -24,35 +24,35 @@ export default function Resume() {
         }}
         className="flex justify-center items-center xl:py-0"
       >
-        <div className="container mx-auto ">
+        <div className="container mx-auto px-2 sm:px-4">
           <Tabs
             defaultValue="myJourney"
-            className="flex flex-col gap-10"
+            className="flex flex-col gap-6 sm:gap-10"
             data-aos="fade-up"
           >
             <TabsList
-              className=" md:w-[80%] md:m-auto flex items-center justify-around "
+              className="w-full max-w-3xl mx-auto flex items-center justify-between sm:justify-around gap-1 sm:gap-2 overflow-x-auto no-scrollbar p-1"
             >
               <TabsTrigger
                 value="myJourney"
-                className="rounded-none flex gap-3 items-center"
+                className="flex-1 min-w-0 rounded-none flex gap-1.5 sm:gap-3 items-center justify-center text-xs sm:text-sm md:text-base px-1 sm:px-3"
               >
-                <FaGraduationCap className="hidden sm:block text-2xl" />
-                <span className="text-black dark:text-white">My Journey</span>
+                <FaGraduationCap className="hidden sm:block text-xl md:text-2xl shrink-0" />
+                <span className="text-black dark:text-white truncate">My Journey</span>
               </TabsTrigger>
               <TabsTrigger
                 value="skills"
-                className="rounded-l-none flex gap-3 items-center "
+                className="flex-1 min-w-0 rounded-none flex gap-1.5 sm:gap-3 items-center justify-center text-xs sm:text-sm md:text-base px-1 sm:px-3"
               >
-                <MdSettingsSuggest className="hidden sm:block text-2xl" />
-                <span className="text-black dark:text-white  "> skills</span>
+                <MdSettingsSuggest className="hidden sm:block text-xl md:text-2xl shrink-0" />
+                <span className="text-black dark:text-white truncate">Skills</span>
               </TabsTrigger>
               <TabsTrigger
                 value="about"
-                className="rounded-r-none flex gap-3 items-center"
+                className="flex-1 min-w-0 rounded-none flex gap-1.5 sm:gap-3 items-center justify-center text-xs sm:text-sm md:text-base px-1 sm:px-3"
               >
-                <IoPersonSharp className="hidden sm:block text-2xl" />
-                <span className="text-black dark:text-white">about me</span>
+                <IoPersonSharp className="hidden sm:block text-xl md:text-2xl shrink-0" />
+                <span className="text-black dark:text-white truncate">About Me</span>
               </TabsTrigger>
             </TabsList>
             <div className="w-full overflow-hidden">
