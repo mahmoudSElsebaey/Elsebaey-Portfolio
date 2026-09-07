@@ -7,21 +7,19 @@ import { AnimatePresence, motion } from "framer-motion";
 
 interface ScrollToTopButtonProps {
   threshold?: number;
-
   className?: string;
-
   offsetClasses?: string;
 }
 
 export default function ScrollToTopButton({
   threshold = 240,
   className = "",
-  offsetClasses = "bottom-6 right-6",
+  // Above WhatsApp (bottom-6)
+  offsetClasses = "bottom-24 right-6",
 }: ScrollToTopButtonProps) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Guard for SSR
     if (typeof window === "undefined") return;
 
     const onScroll = () => {
@@ -29,7 +27,6 @@ export default function ScrollToTopButton({
       setVisible(y > threshold);
     };
 
-    // Fire once to set initial state, then listen
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
