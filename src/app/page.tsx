@@ -8,6 +8,7 @@ import AboutMe from "./about/aboutMe";
 import MyJourney from "./about/myJourney";
 import Projects from "./projects/Projects";
 import WhyWorkWithMe from "@/components/WhyWorkWithMe/WhyWorkWithMe";
+import Recommendations from "@/components/Recommendations/Recommendations";
 
 export default function Home() {
   return (
@@ -25,6 +26,8 @@ export default function Home() {
       <Services />
       <Title mainTitle="Features" subTitle="What I Can Build ?" />
       <Features />
+      <Title mainTitle="Recommendations" subTitle="What People Say About Me" />
+      <Recommendations />
       <Title mainTitle="Why Work With Me" subTitle="What You Get" />
       <WhyWorkWithMe />
       <Title mainTitle="Contact" subTitle="Get In Touch" />
