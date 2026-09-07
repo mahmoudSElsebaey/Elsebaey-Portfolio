@@ -57,8 +57,7 @@ import {
   TbSparkles,
 } from "react-icons/tb";
 import { LuComponent } from "react-icons/lu";
-import { MdDesignServices, MdOutlineSwipe } from "react-icons/md";
-import { MdSchool } from "react-icons/md";
+import { MdDesignServices, MdOutlineSwipe, MdSchool } from "react-icons/md";
 import { BsDatabaseFillGear } from "react-icons/bs";
 import { FaPersonMilitaryRifle, FaSquareJs, FaUpwork } from "react-icons/fa6";
 import { LiaPhoenixFramework } from "react-icons/lia";
@@ -70,9 +69,7 @@ import {
   IoLogoReact,
 } from "react-icons/io5";
 import { VscVscode } from "react-icons/vsc";
-import { BiLogoPostgresql } from "react-icons/bi";
 import { HiOutlineLightBulb } from "react-icons/hi";
-import { SiClaude } from "react-icons/si"; // may not exist, fallback later if needed
 
 // Define TypeScript types
 type AboutMeItem = {
