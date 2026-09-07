@@ -75,40 +75,52 @@ const recommendations = [
 
 type RecItem = (typeof recommendations)[0];
 
+interface CardSize {
+  width: number;
+  height: number;
+  isMobile: boolean;
+}
+
 interface TestimonialCardProps {
   position: number;
   testimonial: RecItem;
   handleMove: (steps: number) => void;
-  cardSize: number;
+  size: CardSize;
 }
 
 const TestimonialCard: React.FC<TestimonialCardProps> = ({
   position,
   testimonial,
   handleMove,
-  cardSize,
+  size,
 }) => {
   const isCenter = position === 0;
+  const { width, height, isMobile } = size;
+  const corner = isMobile ? 28 : 50;
+  const yOffset = isMobile ? (isCenter ? -40 : position % 2 ? 8 : -8) : isCenter ? -65 : position % 2 ? 15 : -15;
+  const rotate = isMobile ? 0 : isCenter ? 0 : position % 2 ? 2.5 : -2.5;
 
   return (
     <div
       onClick={() => handleMove(position)}
       className={cn(
-        "absolute left-1/2 top-1/2 cursor-pointer border-2 p-6 sm:p-8 transition-all duration-500 ease-in-out overflow-hidden",
+        "absolute left-1/2 top-1/2 cursor-pointer border-2 transition-all duration-500 ease-in-out",
+        "flex flex-col",
+        isMobile ? "p-4" : "p-6 sm:p-8",
         isCenter
           ? "z-10 bg-primary-1000 text-white border-primary-1000"
           : "z-0 bg-background text-foreground border-primary-1000/20 hover:border-primary-1000/50"
       )}
       style={{
-        width: cardSize,
-        height: cardSize,
-        clipPath: `polygon(50px 0%, calc(100% - 50px) 0%, 100% 50px, 100% 100%, calc(100% - 50px) 100%, 50px 100%, 0 100%, 0 0)`,
+        width,
+        height,
+        clipPath: `polygon(${corner}px 0%, calc(100% - ${corner}px) 0%, 100% ${corner}px, 100% 100%, calc(100% - ${corner}px) 100%, ${corner}px 100%, 0 100%, 0 0)`,
         transform: `
           translate(-50%, -50%)
-          translateX(${(cardSize / 1.5) * position}px)
-          translateY(${isCenter ? -65 : position % 2 ? 15 : -15}px)
-          rotate(${isCenter ? 0 : position % 2 ? 2.5 : -2.5}deg)
-          scale(${isCenter ? 1 : Math.max(0.72, 1 - Math.abs(position) * 0.08)})
+          translateX(${(width / 1.5) * position}px)
+          translateY(${yOffset}px)
+          rotate(${rotate}deg)
+          scale(${isCenter ? 1 : Math.max(0.78, 1 - Math.abs(position) * 0.07)})
         `,
         opacity: isCenter
           ? 1
@@ -126,7 +138,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         )}
         style={{
           right: -2,
-          top: 48,
+          top: corner - 2,
           width: SQRT_5000,
           height: 2,
         }}
@@ -135,7 +147,8 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
       {/* Avatar initials */}
       <div
         className={cn(
-          "mb-4 h-12 w-12 flex items-center justify-center font-bold text-sm",
+          "shrink-0 flex items-center justify-center font-bold",
+          isMobile ? "mb-2 h-9 w-9 text-xs" : "mb-3 h-12 w-12 text-sm",
           isCenter
             ? "bg-white text-primary-1000"
             : "bg-primary-1000/15 text-primary-1000 border border-primary-1000/30"
@@ -151,24 +164,31 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
       <FaQuoteLeft
         className={cn(
-          "mb-2 text-lg",
+          "shrink-0",
+          isMobile ? "mb-1.5 text-sm" : "mb-2 text-lg",
           isCenter ? "text-white/50" : "text-primary-1000/30"
         )}
       />
 
+      {/* Quote text — grows and doesn't collide with footer */}
       <h3
         className={cn(
-          "text-sm sm:text-base font-medium leading-relaxed line-clamp-5",
+          "font-medium leading-relaxed flex-1 min-h-0 overflow-hidden",
+          isMobile ? "text-[13px] line-clamp-6" : "text-sm sm:text-base line-clamp-5",
           isCenter ? "text-white" : "text-foreground"
         )}
       >
         &ldquo;{testimonial.testimonial}&rdquo;
       </h3>
 
+      {/* Author — normal flow, no absolute positioning */}
       <p
         className={cn(
-          "absolute bottom-6 left-6 right-6 mt-2 text-xs sm:text-sm italic line-clamp-2",
-          isCenter ? "text-white/80" : "opacity-60"
+          "shrink-0 mt-3 pt-2 border-t italic",
+          isMobile ? "text-[11px] line-clamp-2" : "text-xs sm:text-sm line-clamp-2",
+          isCenter
+            ? "text-white/80 border-white/20"
+            : "opacity-60 border-primary-1000/10"
         )}
       >
         — {testimonial.by}
@@ -178,7 +198,11 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 };
 
 export default function Recommendations() {
-  const [cardSize, setCardSize] = useState(340);
+  const [size, setSize] = useState<CardSize>({
+    width: 360,
+    height: 360,
+    isMobile: false,
+  });
   const [list, setList] = useState(recommendations);
 
   const handleMove = (steps: number) => {
@@ -203,17 +227,24 @@ export default function Recommendations() {
   useEffect(() => {
     const updateSize = () => {
       const w = window.innerWidth;
-      if (w < 480) setCardSize(260);
-      else if (w < 640) setCardSize(290);
-      else if (w < 1024) setCardSize(320);
-      else setCardSize(360);
+      if (w < 400) {
+        // Small phones: wider-ish + taller so text + name fit
+        setSize({ width: 280, height: 360, isMobile: true });
+      } else if (w < 480) {
+        setSize({ width: 300, height: 380, isMobile: true });
+      } else if (w < 640) {
+        setSize({ width: 320, height: 400, isMobile: true });
+      } else if (w < 1024) {
+        setSize({ width: 340, height: 360, isMobile: false });
+      } else {
+        setSize({ width: 360, height: 360, isMobile: false });
+      }
     };
     updateSize();
     window.addEventListener("resize", updateSize);
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  // Auto-advance every 5s
   useEffect(() => {
     const id = setInterval(() => handleMove(1), 5000);
     return () => clearInterval(id);
@@ -224,7 +255,7 @@ export default function Recommendations() {
     <section className="py-4 md:py-8 overflow-hidden">
       <div
         className="relative w-full overflow-hidden"
-        style={{ height: cardSize + 180 }}
+        style={{ height: size.height + (size.isMobile ? 120 : 180) }}
       >
         {list.map((item, index) => {
           const position =
@@ -238,18 +269,17 @@ export default function Recommendations() {
               testimonial={item}
               handleMove={handleMove}
               position={position}
-              cardSize={cardSize}
+              size={size}
             />
           );
         })}
 
-        {/* Nav buttons */}
         <div className="absolute bottom-2 left-1/2 flex -translate-x-1/2 gap-3 z-20">
           <button
             type="button"
             onClick={() => handleMove(-1)}
             className={cn(
-              "flex h-12 w-12 items-center justify-center text-xl transition-all duration-300",
+              "flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center text-xl transition-all duration-300",
               "bg-background border-2 border-primary-1000/30 text-primary-1000",
               "hover:bg-primary-1000 hover:text-white hover:border-primary-1000",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1000/50",
@@ -257,13 +287,13 @@ export default function Recommendations() {
             )}
             aria-label="Previous recommendation"
           >
-            <ChevronLeft className="h-6 w-6" />
+            <ChevronLeft className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
           <button
             type="button"
             onClick={() => handleMove(1)}
             className={cn(
-              "flex h-12 w-12 items-center justify-center text-xl transition-all duration-300",
+              "flex h-11 w-11 sm:h-12 sm:w-12 items-center justify-center text-xl transition-all duration-300",
               "bg-background border-2 border-primary-1000/30 text-primary-1000",
               "hover:bg-primary-1000 hover:text-white hover:border-primary-1000",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1000/50",
@@ -271,7 +301,7 @@ export default function Recommendations() {
             )}
             aria-label="Next recommendation"
           >
-            <ChevronRight className="h-6 w-6" />
+            <ChevronRight className="h-5 w-5 sm:h-6 sm:w-6" />
           </button>
         </div>
       </div>
