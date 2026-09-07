@@ -47,7 +47,7 @@ export default function ThemeSwitcher() {
 
   return (
     <div
-      className="w-[220px] max-w-[calc(100vw-1.5rem)] p-3 z-[99999] rounded-2xl
+      className="w-full box-border p-3 rounded-2xl
         border border-primary-1000/30 bg-background/95 backdrop-blur-md shadow-lg shadow-black/10"
     >
       <p className="text-[11px] font-semibold uppercase tracking-wider text-primary-1000/70 mb-2.5 px-0.5">
