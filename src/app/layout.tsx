@@ -11,6 +11,7 @@ import ScrollToTopButton from "../components/ScrollToTopButton/ScrollToTopButton
 import ScrollProgressBar from "@/components/ScrollProgressBar/ScrollProgressBar";
 import AOSProvider from "@/components/ui/AOSProvider";
 import WhatsAppButton from "@/components/WhatsAppButton/WhatsAppButton";
+import ThemeColorInit from "@/components/ThemeSwitcher/ThemeColorInit";
 
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetBrainsMono",
@@ -34,6 +35,26 @@ export const metadata: Metadata = {
   },
 };
 
+/** Inline script: restore accent color before paint to avoid flash of default gold */
+const themeColorBootScript = `
+(function(){
+  try {
+    var name = localStorage.getItem('selectedColor');
+    var custom = localStorage.getItem('customColor');
+    var map = {
+      gold:'#C6A15B', aqua:'#0D9488', indigo:'#6366F1', violet:'#8B5CF6',
+      coral:'#F43F5E', emerald:'#10B981', amber:'#F59E0B', sky:'#0EA5E9',
+      fuchsia:'#D946EF', cyan:'#22D3EE', lime:'#84CC16', rose:'#FB7185'
+    };
+    var hex = (name === 'custom' && custom) ? custom : (name && map[name]) ? map[name] : map.gold;
+    if (hex) {
+      document.documentElement.style.setProperty('--color-primary', hex);
+      document.documentElement.style.setProperty('--color-primary-1000', hex);
+    }
+  } catch (e) {}
+})();
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -41,6 +62,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeColorBootScript }} />
+      </head>
       <body className={`${jetBrainsMono.variable} antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -48,6 +72,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <ThemeColorInit />
           <Header />
           <DraggableNav />
           <AOSProvider>
