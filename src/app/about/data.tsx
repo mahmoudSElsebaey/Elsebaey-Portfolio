@@ -10,6 +10,11 @@ import {
   SiNetlify,
   SiDiscord,
   SiJira,
+  SiPostgresql,
+  SiPrisma,
+  SiOpenai,
+  SiGoogle,
+  SiGithubcopilot,
 } from "react-icons/si";
 
 import {
@@ -26,6 +31,8 @@ import {
   FaDocker,
   FaCcStripe,
   FaNode,
+  FaRobot,
+  FaBrain,
 } from "react-icons/fa";
 import { RiNextjsFill, RiPagesLine } from "react-icons/ri";
 import {
@@ -45,6 +52,9 @@ import {
   TbSettingsCode,
   TbBinaryTree,
   TbLock,
+  TbDatabase,
+  TbRocket,
+  TbSparkles,
 } from "react-icons/tb";
 import { LuComponent } from "react-icons/lu";
 import { MdDesignServices, MdOutlineSwipe } from "react-icons/md";
@@ -60,6 +70,9 @@ import {
   IoLogoReact,
 } from "react-icons/io5";
 import { VscVscode } from "react-icons/vsc";
+import { BiLogoPostgresql } from "react-icons/bi";
+import { HiOutlineLightBulb } from "react-icons/hi";
+import { SiClaude } from "react-icons/si"; // may not exist, fallback later if needed
 
 // Define TypeScript types
 type AboutMeItem = {
@@ -358,14 +371,32 @@ export const skills: {
         { name: "GraphQL", icon: <SiGraphql /> },
         { name: "Performance Optimization", icon: <TbGauge /> },
         { name: "Authentication & Authorization", icon: <TbLock /> },
+        { name: "SaaS", icon: <TbRocket /> },
+        { name: "MVP", icon: <HiOutlineLightBulb /> },
       ],
     },
     {
-      title: "Back-End & Database Basics",
+      title: "Back-End & Database",
       items: [
-        { name: "Node.js (Basics)", icon: <FaNode /> },
-        { name: "MongoDB (Basics)", icon: <SiMongodb /> },
-        { name: "Database Design (Basics)", icon: <TbSchema /> },
+        { name: "Node.js", icon: <FaNode /> },
+        { name: "MongoDB", icon: <SiMongodb /> },
+        { name: "PostgreSQL", icon: <SiPostgresql /> },
+        { name: "SQL", icon: <TbDatabase /> },
+        { name: "Prisma", icon: <SiPrisma /> },
+        { name: "Database Design", icon: <TbSchema /> },
+      ],
+    },
+    {
+      title: "AI Tools for Developers",
+      items: [
+        { name: "ChatGPT", icon: <SiOpenai /> },
+        { name: "Grok (xAI)", icon: <FaRobot /> },
+        { name: "Claude (Anthropic)", icon: <FaBrain /> },
+        { name: "Gemini (Google)", icon: <SiGoogle /> },
+        { name: "GitHub Copilot", icon: <SiGithubcopilot /> },
+        { name: "Cursor", icon: <VscVscode /> },
+        { name: "v0 (Vercel)", icon: <SiVercel /> },
+        { name: "Perplexity", icon: <TbSparkles /> },
       ],
     },
     {
