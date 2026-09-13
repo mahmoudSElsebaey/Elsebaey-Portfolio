@@ -7,7 +7,7 @@ import { projectsData } from "./data";
 import { BsArrowUpRight, BsGithub, BsArrowRight } from "react-icons/bs";
 import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
 
-const PER_PAGE = 6;
+const PER_PAGE = 9;
 
 const AllProjects: React.FC = () => {
   const [page, setPage] = useState(1);
