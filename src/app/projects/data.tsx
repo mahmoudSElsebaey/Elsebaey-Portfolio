@@ -18,7 +18,7 @@ export const projectsData: Project[] = [
   {
     num: "01",
     slug: "five-fashion",
-    title: "FIVE Fashion",
+    title: "FIVE Fashion 3D",
     category: "MERN Website",
     tools: [
       { name: "React" },
