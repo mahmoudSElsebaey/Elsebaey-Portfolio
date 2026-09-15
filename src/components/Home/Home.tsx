@@ -40,7 +40,7 @@ export default function HomePage() {
           className="overflow-hidden xl:h-[480px] flex flex-col gap-2 xl:gap-6 md:gap-1 items-center md:items-start justify-center order-2 md:order-none"
         >
           <p className="text-4xl font-bold flex gap-3 ">
-            Hello <MdOutlineWavingHand className="text-primary-1000" /> I&apos;m
+            Hello <MdOutlineWavingHand className="text-primary-1000" /> I'm
           </p>
           <p className="text-3xl sm:text-4xl xl:text-5xl font-bold uppercase relative animate-pulse">
             Mahmoud Elsebaey
@@ -83,7 +83,7 @@ export default function HomePage() {
               data-aos="zoom-in"
             >
               <a
-                href="/assets/cv/Mahmoud Elsebaey- Frontend Developer_CV.pdf"
+                href="/assets/cv/Mahmoud_Elsebaey_Full_Stack_MERN_CV.pdf"
                 download
                 target="_blank"
                 rel="noopener noreferrer"
