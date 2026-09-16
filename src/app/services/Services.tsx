@@ -128,9 +128,6 @@ export default function Services() {
 
           {/* ===== Service Images Carousel (below the cards) ===== */}
           <div className="mt-16" data-aos="fade-up" data-aos-duration="600">
-            <h3 className="text-center text-primary-1000 font-bold text-xl mb-8">
-              Services Gallery
-            </h3>
             <CircularCarousel
               items={serviceImages}
               autoPlay
