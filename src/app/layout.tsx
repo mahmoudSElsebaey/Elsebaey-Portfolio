@@ -20,7 +20,7 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://elsebaey-portfolio.vercel.app"),
+  metadataBase: new URL("https://mahmoud-elsebaey-portfolio.vercel.app"),
   title: {
     default: "Mahmoud Elsebaey | Full-Stack MERN Developer",
     template: "Mahmoud Elsebaey | %s",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "Web Developer",
     "Portfolio",
   ],
-  authors: [{ name: "Mahmoud Elsebaey", url: "https://elsebaey-portfolio.vercel.app" }],
+  authors: [{ name: "Mahmoud Elsebaey", url: "https://mahmoud-elsebaey-portfolio.vercel.app" }],
   creator: "Mahmoud Elsebaey",
   alternates: {
     canonical: "/",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://elsebaey-portfolio.vercel.app",
+    url: "https://mahmoud-elsebaey-portfolio.vercel.app",
     siteName: "Mahmoud Elsebaey Portfolio",
     title: "Mahmoud Elsebaey | Full-Stack MERN Developer",
     description:
@@ -103,7 +103,7 @@ const personJsonLd = {
   "@type": "Person",
   name: "Mahmoud Elsebaey",
   jobTitle: "Full-Stack MERN Developer",
-  url: "https://elsebaey-portfolio.vercel.app",
+  url: "https://mahmoud-elsebaey-portfolio.vercel.app",
   sameAs: [
     "https://github.com/mahmoudSElsebaey",
     "https://www.linkedin.com/in/mahmoud-elsebaey-888797223/",
@@ -124,7 +124,7 @@ const websiteJsonLd = {
   "@context": "https://schema.org",
   "@type": "WebSite",
   name: "Mahmoud Elsebaey Portfolio",
-  url: "https://elsebaey-portfolio.vercel.app",
+  url: "https://mahmoud-elsebaey-portfolio.vercel.app",
   description:
     "Portfolio of Mahmoud Elsebaey, a Full-Stack MERN Developer specializing in React, TypeScript, Node.js, Express.js, and MongoDB.",
   author: {
