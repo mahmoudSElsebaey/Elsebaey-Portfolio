@@ -1,5 +1,15 @@
 import Image from "next/image";
+import Link from "next/link";
 import Socials from "../ui/Socials";
+
+const footerLinks = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Projects", href: "/projects" },
+  { name: "Services", href: "/services" },
+  { name: "Features", href: "/features" },
+  { name: "Contact", href: "/contact" },
+];
 
 export default function Footer() {
   return (
@@ -22,7 +32,22 @@ export default function Footer() {
         </div>
       </div>
 
-      <p className="text-center opacity-60 pt-15 text-[15px]">
+      <nav
+        className="flex flex-wrap justify-center gap-x-5 gap-y-2 mt-10 px-4"
+        aria-label="Footer navigation"
+      >
+        {footerLinks.map((link) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            className="text-sm opacity-70 hover:opacity-100 hover:text-primary-1000 transition-opacity capitalize"
+          >
+            {link.name}
+          </Link>
+        ))}
+      </nav>
+
+      <p className="text-center opacity-60 pt-8 text-[15px]">
         © {new Date().getFullYear()} All Rights Reserved, Mahmoud Elsebaey
       </p>
     </div>
