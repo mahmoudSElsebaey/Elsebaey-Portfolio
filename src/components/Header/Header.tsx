@@ -94,7 +94,7 @@ export default function Header() {
             width={100}
             height={100}
             className="w-22 h-16 hidden sm:block"
-            alt="logo"
+            alt="Mahmoud Elsebaey portfolio logo"
             priority
           />
           <p
