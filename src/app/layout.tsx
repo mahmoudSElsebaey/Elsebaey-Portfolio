@@ -41,6 +41,9 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Mahmoud Elsebaey", url: "https://mahmoud-elsebaey-portfolio.vercel.app" }],
   creator: "Mahmoud Elsebaey",
+  verification: {
+    google: "tpXoLReOVw0KO2SIus-prx1aLp1AZ-vLeuvR1RHrd8k",
+  },
   alternates: {
     canonical: "/",
   },
