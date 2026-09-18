@@ -26,7 +26,7 @@ export default function Photo() {
             // src="/assets/hero-img.png"
             src="/assets/hoda1.png"
             quality={100}
-            alt="Personal image"
+            alt="Mahmoud Elsebaey, Full-Stack MERN Developer"
             priority
             fill
             className="object-contain scale-[105%]"

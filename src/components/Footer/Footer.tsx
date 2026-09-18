@@ -12,7 +12,7 @@ export default function Footer() {
             src="/assets/Mahmoud_Elsebaey-QR-removebg-preview.png"
             width={150}
             height={100}
-            alt="Mahmoud Elsebaey-QR"
+            alt="QR code linking to Mahmoud Elsebaey contact"
             className="bg-white rounded-[10px]"
           />
         </div>
