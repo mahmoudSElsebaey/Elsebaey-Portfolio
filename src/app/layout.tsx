@@ -20,11 +20,54 @@ const jetBrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://elsebaey-portfolio.vercel.app"),
   title: {
-    default: "Mahmoud Elsebaey",
+    default: "Mahmoud Elsebaey | Full-Stack MERN Developer",
     template: "Mahmoud Elsebaey | %s",
   },
-  description: "The personal website , to show the information about me",
+  description:
+    "Portfolio of Mahmoud Elsebaey, a Full-Stack MERN Developer specializing in React, TypeScript, Node.js, Express.js, and MongoDB. Building modern, responsive, and scalable web applications.",
+  keywords: [
+    "Mahmoud Elsebaey",
+    "Full-Stack Developer",
+    "MERN Stack",
+    "React Developer",
+    "Next.js",
+    "TypeScript",
+    "Node.js",
+    "MongoDB",
+    "Web Developer",
+    "Portfolio",
+  ],
+  authors: [{ name: "Mahmoud Elsebaey", url: "https://elsebaey-portfolio.vercel.app" }],
+  creator: "Mahmoud Elsebaey",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://elsebaey-portfolio.vercel.app",
+    siteName: "Mahmoud Elsebaey Portfolio",
+    title: "Mahmoud Elsebaey | Full-Stack MERN Developer",
+    description:
+      "Portfolio of Mahmoud Elsebaey, a Full-Stack MERN Developer specializing in React, TypeScript, Node.js, Express.js, and MongoDB.",
+    images: [
+      {
+        url: "/assets/logo-r.png",
+        width: 512,
+        height: 512,
+        alt: "Mahmoud Elsebaey - Full-Stack MERN Developer",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Mahmoud Elsebaey | Full-Stack MERN Developer",
+    description:
+      "Portfolio of Mahmoud Elsebaey, a Full-Stack MERN Developer specializing in React, TypeScript, Node.js, Express.js, and MongoDB.",
+    images: ["/assets/logo-r.png"],
+  },
   icons: {
     icon: [
       { url: "/assets/logo-r.png", type: "image/png" },
@@ -55,6 +98,41 @@ const themeColorBootScript = `
 })();
 `;
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Mahmoud Elsebaey",
+  jobTitle: "Full-Stack MERN Developer",
+  url: "https://elsebaey-portfolio.vercel.app",
+  sameAs: [
+    "https://github.com/mahmoudSElsebaey",
+    "https://www.linkedin.com/in/mahmoud-elsebaey-888797223/",
+    "https://www.facebook.com/hoodaa11",
+  ],
+  knowsAbout: [
+    "React",
+    "TypeScript",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "Next.js",
+    "MERN Stack",
+  ],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Mahmoud Elsebaey Portfolio",
+  url: "https://elsebaey-portfolio.vercel.app",
+  description:
+    "Portfolio of Mahmoud Elsebaey, a Full-Stack MERN Developer specializing in React, TypeScript, Node.js, Express.js, and MongoDB.",
+  author: {
+    "@type": "Person",
+    name: "Mahmoud Elsebaey",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -64,6 +142,14 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeColorBootScript }} />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
+        />
       </head>
       <body className={`${jetBrainsMono.variable} antialiased`}>
         <ThemeProvider
