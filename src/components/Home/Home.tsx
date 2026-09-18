@@ -68,10 +68,13 @@ export default function HomePage() {
             data-aos="zoom-in"
             className="dark:text-white/60 text-black/60 max-w-[500px] text-center md:text-left text-sm md:text-base leading-relaxed"
           >
-            A Full-Stack Developer| MERN & MEAN I build modern, responsive, and
+            Full-Stack MERN & MEAN Developer. I build modern, responsive, and
             scalable web applications with clean code and seamless user
-            experiences. <span className="hidden sm:inline-block"> Always exploring new technologies to create impactful
-            digital solutions.</span>
+            experiences using React, TypeScript, Node.js, Express, and MongoDB.
+            <span className="hidden sm:inline-block">
+              {" "}Always exploring new technologies to create impactful digital
+              solutions.
+            </span>
           </p>
           <div
             className="flex flex-col md:flex-row items-center gap-8"
