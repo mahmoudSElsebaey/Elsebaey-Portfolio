@@ -23,10 +23,45 @@ export async function generateMetadata({
 }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const project = getProjectBySlug(slug);
-  if (!project) return { title: "Project Not Found" };
+  if (!project) {
+    return {
+      title: "Project Not Found",
+      robots: { index: false, follow: false },
+    };
+  }
+
+  const title = project.title;
+  const description =
+    project.longDescription ||
+    project.description ||
+    `${project.title} — a project by Mahmoud Elsebaey, Full-Stack MERN Developer.`;
+
   return {
-    title: project.title,
-    description: project.description,
+    title,
+    description,
+    alternates: {
+      canonical: `/projects/${slug}`,
+    },
+    openGraph: {
+      title: `${title} | Mahmoud Elsebaey`,
+      description,
+      url: `/projects/${slug}`,
+      type: "article",
+      images: project.image
+        ? [
+            {
+              url: project.image,
+              alt: title,
+            },
+          ]
+        : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: `${title} | Mahmoud Elsebaey`,
+      description,
+      images: project.image ? [project.image] : undefined,
+    },
   };
 }
 
