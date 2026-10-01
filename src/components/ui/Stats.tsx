@@ -11,7 +11,7 @@ export default function Stats() {
   const stats: StatsType = [
     { num: 2, text: "Years of Experience " },
     { num: 24, text: "Projects Completed" },
-    { num: 31, text: "Technologies Masterd" },
+    { num: 35, text: "Technologies Mastered" },
     // Portfolio alone ~100+ commits; total across active repos
     { num: 850, text: "Code Commits" },
   ];
