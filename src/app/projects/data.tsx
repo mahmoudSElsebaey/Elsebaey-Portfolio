@@ -114,7 +114,7 @@ export const projectsData: Project[] = [
       "JWT auth, middleware route protection, and granular role checks",
       "Zod env validation, Helmet + CSP, express-rate-limit, /health + /ready, ensureIndexes",
     ],
-    image: "/assets/projects images multi devices/1.png",
+    image: "/assets/projects images multi devices/18.png",
     live: "https://fixer-client.vercel.app/",
     github: "https://github.com/mahmoudSElsebaey/repair-center-management-SaaS",
   },
