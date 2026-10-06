@@ -115,6 +115,7 @@ export const projectsData: Project[] = [
       "Zod env validation, Helmet + CSP, express-rate-limit, /health + /ready, ensureIndexes",
     ],
     image: "/assets/projects images multi devices/1.png",
+    live: "https://fixer-client.vercel.app/",
     github: "https://github.com/mahmoudSElsebaey/repair-center-management-SaaS",
   },
   {
