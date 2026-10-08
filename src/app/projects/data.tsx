@@ -163,7 +163,7 @@ export const projectsData: Project[] = [
       "JWT sessions with jose + Zod on auth and listing APIs",
     ],
     image: "/assets/projects images multi devices/19.png",
-    live: "https://real-estate-platform-beta-two.vercel.app/",
+    live: "https://aqarco.vercel.app/",
     github: "https://github.com/mahmoudSElsebaey/real-estate-platform",
   },
   {
