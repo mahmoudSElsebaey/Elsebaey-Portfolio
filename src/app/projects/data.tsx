@@ -162,7 +162,7 @@ export const projectsData: Project[] = [
       "Structured property model covering multiple listing types",
       "JWT sessions with jose + Zod on auth and listing APIs",
     ],
-    image: "/assets/projects images multi devices/9.png",
+    image: "/assets/projects images multi devices/19.png",
     live: "https://real-estate-platform-beta-two.vercel.app/",
     github: "https://github.com/mahmoudSElsebaey/real-estate-platform",
   },
