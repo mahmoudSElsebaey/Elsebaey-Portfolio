@@ -120,6 +120,54 @@ export const projectsData: Project[] = [
   },
   {
     num: "03",
+    slug: "aqarco",
+    title: "Aqarco — عقاركو",
+    category: "Real Estate Platform",
+    tools: [
+      { name: "Next.js 16" },
+      { name: "React 19" },
+      { name: "TypeScript" },
+      { name: "Tailwind CSS v4" },
+      { name: "MongoDB" },
+      { name: "Mongoose" },
+      { name: "next-intl" },
+      { name: "jose (JWT)" },
+      { name: "Zod" },
+      { name: "bcryptjs" },
+      { name: "Cloudinary" },
+    ],
+    description:
+      "Premium bilingual (AR/EN) real estate platform for property sales, rentals, investments, hotels, resorts, and apartment booking — with role-based dashboards for buyers, owners, agents, and operators.",
+    longDescription:
+      "Aqarco (عقاركو) is a premium full-stack real estate platform built with Next.js 16 App Router and MongoDB. It covers property listings, discovery and comparison, bookings, investment opportunities, inquiries, favorites, and multi-role experiences for buyers, renters, investors, owners, agents, hotel operators, and admins. Full Arabic/English with RTL/LTR via next-intl, JWT sessions (jose), Zod validation, admin moderation for users and properties, and a polished brand system for exceptional living and investment.",
+    features: [
+      "Property listings: sale, rent, investment, hotel & resort stays",
+      "Multi-role access: buyer, renter, investor, owner, agent, hotel operator, admin",
+      "Full Arabic + English with RTL/LTR (next-intl)",
+      "Discover, compare, favorites, and property detail pages",
+      "Bookings inbox and investment workflows",
+      "Owner/agent listing management (create & edit)",
+      "Admin: users and properties moderation",
+      "JWT auth (jose), Zod validation, Cloudinary-ready uploads",
+    ],
+    challenges: [
+      "Supporting many user roles with different dashboards and permissions",
+      "Building a unified product for sale, rent, investment, and hospitality booking",
+      "Full RTL/LTR and bilingual content across marketing and app flows",
+      "Keeping listing, booking, and investment flows consistent in one platform",
+    ],
+    problems: [
+      "Role-based route protection and dashboard views per persona",
+      "Locale-aware App Router with next-intl and direction-aware layouts",
+      "Structured property model covering multiple listing types",
+      "JWT sessions with jose + Zod on auth and listing APIs",
+    ],
+    image: "/assets/projects images multi devices/9.png",
+    live: "https://real-estate-platform-beta-two.vercel.app/",
+    github: "https://github.com/mahmoudSElsebaey/real-estate-platform",
+  },
+  {
+    num: "04",
     slug: "delta-news",
     title: "Delta News",
     category: "MERN Website",
@@ -168,7 +216,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/delta-news-mern",
   },
   {
-    num: "04",
+    num: "05",
     slug: "universal-booking-saas",
     title: "Universal Booking SaaS",
     category: "MERN Website",
@@ -216,7 +264,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/universal-booking-saas",
   },
   {
-    num: "05",
+    num: "06",
     slug: "e-commerce-full-stack",
     title: "E-Commerce Full Stack",
     category: "MERN Website",
@@ -261,7 +309,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/electric-store-mern",
   },
   {
-    num: "06",
+    num: "07",
     slug: "examflow",
     title: "ExamFlow — SaaS MVP",
     category: "SaaS / EdTech MVP",
@@ -311,7 +359,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/examflow-saas-platform",
   },
   {
-    num: "07",
+    num: "08",
     slug: "gym-website",
     title: "Gym Website",
     category: "Fitness Website",
@@ -345,7 +393,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/GYM",
   },
   {
-    num: "08",
+    num: "09",
     slug: "portfolio-app",
     title: "Portfolio App",
     category: "Personal Portfolio",
@@ -383,7 +431,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Elsebaey-Portfolio",
   },
   {
-    num: "09",
+    num: "10",
     slug: "authentication-app",
     title: "Authentication App",
     category: "Full Stack Website",
@@ -417,7 +465,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Authentication_app_Backend",
   },
   {
-    num: "10",
+    num: "11",
     slug: "sakney",
     title: "Sakney",
     category: "Rental Platform",
@@ -450,7 +498,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Sakney",
   },
   {
-    num: "11",
+    num: "12",
     slug: "electronics-store",
     title: "Electronics Store",
     category: "E-commerce Website",
@@ -477,7 +525,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Ecommerce_ReactJS",
   },
   {
-    num: "12",
+    num: "13",
     slug: "social-feed",
     title: "Social Feed",
     category: "Social Media SPA",
@@ -504,7 +552,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Social-Feed",
   },
   {
-    num: "13",
+    num: "14",
     slug: "sakney-dashboard",
     title: "Sakney Dashboard",
     category: "Admin Dashboard",
@@ -527,7 +575,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/SakneyDashboard",
   },
   {
-    num: "14",
+    num: "15",
     slug: "game-warrior",
     title: "Game Warrior",
     category: "Gaming Website",
@@ -549,7 +597,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Game-Warrior",
   },
   {
-    num: "15",
+    num: "16",
     slug: "directory-ads",
     title: "Directory Ads",
     category: "Directory Website",
@@ -569,7 +617,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/DirectoryAds",
   },
   {
-    num: "16",
+    num: "17",
     slug: "barber-shop",
     title: "Barber Shop",
     category: "Business Website",
@@ -590,7 +638,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudSElsebaey/Barber-Shop",
   },
   {
-    num: "17",
+    num: "18",
     slug: "amin-games",
     title: "Amin Games",
     category: "Gaming Portal",
@@ -611,7 +659,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/Amin-Games",
   },
   {
-    num: "18",
+    num: "19",
     slug: "chairs-shop",
     title: "Chairs Shop",
     category: "Furniture Store",
@@ -631,7 +679,7 @@ export const projectsData: Project[] = [
     github: "https://github.com/mahmoudselsebaey/chairs-shops",
   },
   {
-    num: "19",
+    num: "20",
     slug: "wave-cafe",
     title: "Wave Cafe",
     category: "Coffee Shop Website",
