@@ -5,14 +5,16 @@ import Link from "next/link";
 import { useMemo, useState, useEffect } from "react";
 import { projectsData, ALL_TAGS } from "./data";
 import { BsArrowUpRight, BsGithub, BsArrowRight, BsSearch, BsX } from "react-icons/bs";
-import { HiChevronLeft, HiChevronRight } from "react-icons/hi2";
+import { HiChevronLeft, HiChevronRight, HiChevronDown, HiChevronUp } from "react-icons/hi2";
 
 const PER_PAGE = 9;
+const MOBILE_VISIBLE_TAGS = 6;
 
 const AllProjects: React.FC = () => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
   const [activeTags, setActiveTags] = useState<string[]>([]);
+  const [showAllTags, setShowAllTags] = useState(false);
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -62,6 +64,17 @@ const AllProjects: React.FC = () => {
 
   const hasFilters = search.trim() !== "" || activeTags.length > 0;
 
+  // Keep active tags always visible, then fill with remaining up to limit on mobile
+  const visibleTags = useMemo(() => {
+    if (showAllTags) return [...ALL_TAGS];
+    const active = ALL_TAGS.filter((t) => activeTags.includes(t));
+    const rest = ALL_TAGS.filter((t) => !activeTags.includes(t));
+    const combined = [...active, ...rest];
+    return combined.slice(0, MOBILE_VISIBLE_TAGS);
+  }, [showAllTags, activeTags]);
+
+  const hiddenCount = ALL_TAGS.length - visibleTags.length;
+
   return (
     <div className="container mx-auto px-4 py-8 md:py-12">
       <div className="mb-8 md:mb-10">
@@ -73,15 +86,16 @@ const AllProjects: React.FC = () => {
         </p>
       </div>
 
-      <div className="mb-8 space-y-4">
+      <div className="mb-8 space-y-3 md:space-y-4">
+        {/* Search */}
         <div className="relative max-w-xl">
-          <BsSearch className="absolute left-4 top-1/2 -translate-y-1/2 text-primary-1000/70 text-base pointer-events-none" />
+          <BsSearch className="absolute left-3.5 md:left-4 top-1/2 -translate-y-1/2 text-primary-1000/70 text-sm md:text-base pointer-events-none" />
           <input
             type="text"
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            placeholder="Search projects by name, tech, or keyword..."
-            className="w-full pl-11 pr-10 py-3 rounded-full border border-primary-1000/40 bg-background dark:bg-[#0f1420] text-sm md:text-base outline-none focus:border-primary-1000 focus:ring-2 focus:ring-primary-1000/20 transition-all placeholder:opacity-50"
+            placeholder="Search projects..."
+            className="w-full pl-10 md:pl-11 pr-10 py-2.5 md:py-3 rounded-full border border-primary-1000/40 bg-background dark:bg-[#0f1420] text-sm md:text-base outline-none focus:border-primary-1000 focus:ring-2 focus:ring-primary-1000/20 transition-all placeholder:opacity-50"
             aria-label="Search projects"
           />
           {search && (
@@ -96,39 +110,94 @@ const AllProjects: React.FC = () => {
           )}
         </div>
 
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-xs uppercase tracking-wider opacity-50 font-medium mr-1">
-            Filter:
-          </span>
-          {ALL_TAGS.map((tag) => {
-            const isActive = activeTags.includes(tag);
-            return (
+        {/* Tags — horizontal scroll on mobile, wrap on md+ */}
+        <div className="relative">
+          {/* Mobile: scrollable row */}
+          <div className="md:hidden -mx-4 px-4">
+            <div className="flex items-center gap-1.5 overflow-x-auto scrollbar-hide pb-1 snap-x">
+              {visibleTags.map((tag) => {
+                const isActive = activeTags.includes(tag);
+                return (
+                  <button
+                    key={tag}
+                    type="button"
+                    onClick={() => toggleTag(tag)}
+                    className={
+                      isActive
+                        ? "shrink-0 snap-start text-[11px] font-medium px-2.5 py-1 rounded-full bg-primary-1000 text-white shadow-sm shadow-primary-1000/25 transition-all cursor-pointer"
+                        : "shrink-0 snap-start text-[11px] font-medium px-2.5 py-1 rounded-full border border-primary-1000/40 text-primary-1000 active:bg-primary-1000/15 transition-all cursor-pointer"
+                    }
+                  >
+                    {tag}
+                  </button>
+                );
+              })}
+              {hiddenCount > 0 && (
+                <button
+                  type="button"
+                  onClick={() => setShowAllTags(true)}
+                  className="shrink-0 snap-start text-[11px] font-medium px-2.5 py-1 rounded-full border border-dashed border-primary-1000/40 text-primary-1000/80 cursor-pointer flex items-center gap-0.5"
+                >
+                  +{hiddenCount} <HiChevronDown className="text-xs" />
+                </button>
+              )}
+              {showAllTags && ALL_TAGS.length > MOBILE_VISIBLE_TAGS && (
+                <button
+                  type="button"
+                  onClick={() => setShowAllTags(false)}
+                  className="shrink-0 snap-start text-[11px] font-medium px-2.5 py-1 rounded-full border border-dashed border-primary-1000/40 text-primary-1000/80 cursor-pointer flex items-center gap-0.5"
+                >
+                  Less <HiChevronUp className="text-xs" />
+                </button>
+              )}
+              {hasFilters && (
+                <button
+                  type="button"
+                  onClick={clearFilters}
+                  className="shrink-0 snap-start text-[11px] font-medium px-2.5 py-1 rounded-full border border-red-400/50 text-red-400 active:bg-red-400/10 transition-all cursor-pointer"
+                >
+                  Clear
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Desktop: wrap */}
+          <div className="hidden md:flex flex-wrap items-center gap-2">
+            <span className="text-xs uppercase tracking-wider opacity-50 font-medium mr-1">
+              Filter:
+            </span>
+            {ALL_TAGS.map((tag) => {
+              const isActive = activeTags.includes(tag);
+              return (
+                <button
+                  key={tag}
+                  type="button"
+                  onClick={() => toggleTag(tag)}
+                  className={
+                    isActive
+                      ? "text-xs font-medium px-3 py-1.5 rounded-full bg-primary-1000 text-white shadow-md shadow-primary-1000/25 transition-all cursor-pointer"
+                      : "text-xs font-medium px-3 py-1.5 rounded-full border border-primary-1000/40 text-primary-1000 hover:bg-primary-1000/15 transition-all cursor-pointer"
+                  }
+                >
+                  {tag}
+                </button>
+              );
+            })}
+            {hasFilters && (
               <button
-                key={tag}
                 type="button"
-                onClick={() => toggleTag(tag)}
-                className={
-                  isActive
-                    ? "text-[11px] md:text-xs font-medium px-3 py-1.5 rounded-full bg-primary-1000 text-white shadow-md shadow-primary-1000/25 transition-all cursor-pointer"
-                    : "text-[11px] md:text-xs font-medium px-3 py-1.5 rounded-full border border-primary-1000/40 text-primary-1000 hover:bg-primary-1000/15 transition-all cursor-pointer"
-                }
+                onClick={clearFilters}
+                className="text-xs font-medium px-3 py-1.5 rounded-full border border-red-400/50 text-red-400 hover:bg-red-400/10 transition-all cursor-pointer ml-1"
               >
-                {tag}
+                Clear all
               </button>
-            );
-          })}
-          {hasFilters && (
-            <button
-              type="button"
-              onClick={clearFilters}
-              className="text-[11px] md:text-xs font-medium px-3 py-1.5 rounded-full border border-red-400/50 text-red-400 hover:bg-red-400/10 transition-all cursor-pointer ml-1"
-            >
-              Clear all
-            </button>
-          )}
+            )}
+          </div>
         </div>
 
-        <p className="text-sm opacity-60">
+        {/* Results count */}
+        <p className="text-xs md:text-sm opacity-60">
           {filtered.length === 0
             ? "No projects found"
             : `Showing ${filtered.length} project${filtered.length !== 1 ? "s" : ""}`}
@@ -201,10 +270,10 @@ const AllProjects: React.FC = () => {
                     </p>
 
                     <ul className="flex flex-wrap gap-1.5">
-                      {project.tags.slice(0, 4).map((tag) => (
+                      {project.tags.slice(0, 3).map((tag) => (
                         <li
                           key={tag}
-                          className="text-[11px] md:text-xs text-primary-1000 border border-primary-1000/40 bg-primary-1000/15 px-2 py-0.5 rounded-full cursor-pointer hover:bg-primary-1000/25 transition-colors"
+                          className="text-[10px] md:text-xs text-primary-1000 border border-primary-1000/40 bg-primary-1000/15 px-2 py-0.5 rounded-full cursor-pointer hover:bg-primary-1000/25 transition-colors"
                           onClick={(e) => {
                             e.preventDefault();
                             if (!activeTags.includes(tag)) toggleTag(tag);
@@ -213,9 +282,9 @@ const AllProjects: React.FC = () => {
                           {tag}
                         </li>
                       ))}
-                      {project.tags.length > 4 && (
-                        <li className="text-[11px] md:text-xs opacity-60 px-1 py-0.5">
-                          +{project.tags.length - 4}
+                      {project.tags.length > 3 && (
+                        <li className="text-[10px] md:text-xs opacity-60 px-1 py-0.5">
+                          +{project.tags.length - 3}
                         </li>
                       )}
                     </ul>
@@ -298,6 +367,14 @@ const AllProjects: React.FC = () => {
       )}
 
       <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+
         .project-card-3d {
           perspective: 1200px;
         }
