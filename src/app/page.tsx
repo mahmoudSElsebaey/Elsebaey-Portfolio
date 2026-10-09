@@ -14,22 +14,31 @@ export default function Home() {
   return (
     <>
       <HomePage />
+
       <Title mainTitle="About Me" subTitle="My Resume & Who Am I ?" />
       <AboutMe />
-      <Title mainTitle="My Journey" subTitle="My Education & Experience" />
-      <MyJourney />
-      <Title mainTitle="Skills" subTitle="All Tools & Technologies I Use " />
-      <Skills />
+
       <Title mainTitle="Projects" subTitle="My Work" />
       <Projects />
+
+      <Title mainTitle="Skills" subTitle="All Tools & Technologies I Use " />
+      <Skills />
+
+      <Title mainTitle="My Journey" subTitle="My Education & Experience" />
+      <MyJourney />
+
       <Title mainTitle="Services" subTitle="What I Do ?" />
       <Services />
+
       <Title mainTitle="Features" subTitle="What I Can Build ?" />
       <Features />
+
       <Title mainTitle="Recommendations" subTitle="What People Say About Me" />
       <Recommendations />
+
       <Title mainTitle="Why Work With Me" subTitle="What You Get" />
       <WhyWorkWithMe />
+
       <Title mainTitle="Contact" subTitle="Get In Touch" />
       <Contact />
     </>
