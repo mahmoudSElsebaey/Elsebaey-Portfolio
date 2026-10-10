@@ -78,7 +78,7 @@ export default function Header() {
 
   return (
     <header
-      className={`px-3 md:px-5 flex justify-between items-center sticky top-0 z-[9999] transition-[padding,box-shadow,background-color] duration-300 backdrop-blur-md ${
+      className={`w-full max-w-[100vw] left-0 right-0 px-3 md:px-5 flex justify-between items-center sticky top-0 z-[9999] transition-[padding,box-shadow,background-color] duration-300 backdrop-blur-md ${
         isScrolled
           ? "py-2 xl:py-2 md:px-10 header bg-background/80"
           : "py-4 xl:py-5 bg-transparent"
