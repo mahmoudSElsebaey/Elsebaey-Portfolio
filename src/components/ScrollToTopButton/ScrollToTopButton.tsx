@@ -14,8 +14,9 @@ interface ScrollToTopButtonProps {
 export default function ScrollToTopButton({
   threshold = 240,
   className = "",
-  // Above WhatsApp (bottom-6)
-  offsetClasses = "bottom-24 right-6",
+  // Above WhatsApp; safe-area aware so it never clips on notched phones
+  offsetClasses =
+    "bottom-[max(6rem,calc(env(safe-area-inset-bottom)+5rem))] right-[max(1.5rem,env(safe-area-inset-right))]",
 }: ScrollToTopButtonProps) {
   const [visible, setVisible] = useState(false);
 

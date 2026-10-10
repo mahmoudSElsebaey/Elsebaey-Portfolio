@@ -103,7 +103,11 @@ export default function Services() {
           </div>
 
           {/* ===== Dimensional Switch Gallery (below cards) ===== */}
-          <div className="mt-16" data-aos="fade-up" data-aos-duration="600">
+          <div
+            className="mt-16 w-full max-w-full overflow-x-clip"
+            data-aos="fade-up"
+            data-aos-duration="600"
+          >
             <DimensionalSwitchSlider
               items={serviceSlides}
               infinite

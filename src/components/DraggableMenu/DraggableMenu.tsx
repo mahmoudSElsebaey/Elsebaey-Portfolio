@@ -22,6 +22,10 @@ const navItems = [
 
 export default function DraggableNav() {
   const [isOpen, setIsOpen] = useState(false);
+  const [constraints, setConstraints] = useState({
+    top: 20,
+    bottom: 400,
+  });
   const dragControls = useDragControls();
   const navRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
@@ -46,6 +50,19 @@ export default function DraggableNav() {
     };
   }, [isOpen]);
 
+  // Keep drag constraints inside the viewport (Y only) — never expand document width
+  useEffect(() => {
+    const update = () => {
+      setConstraints({
+        top: 20,
+        bottom: Math.max(80, window.innerHeight - 320),
+      });
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
   const startDrag = (event: React.PointerEvent) => {
     // Only start drag from the toggle button, not the whole menu area
     event.stopPropagation();
@@ -53,30 +70,29 @@ export default function DraggableNav() {
   };
 
   return (
-    <div className="fixed top-0 right-0 z-50 lg:hidden pointer-events-none">
+    // Fixed to viewport edge — pointer-events none on wrapper so it never blocks the page
+    // overflow-hidden prevents the radial nav items from expanding document width
+    <div className="fixed top-0 right-0 z-50 lg:hidden pointer-events-none overflow-visible">
       <motion.nav
         ref={navRef}
         drag="y"
         dragControls={dragControls}
         dragListener={false}
-        dragConstraints={{
-          top: 20,
-          bottom: typeof window !== "undefined" ? window.innerHeight - 350 : 0,
-          left: 0,
-          right: typeof window !== "undefined" ? window.innerWidth - 80 : 0,
-        }}
+        dragConstraints={constraints}
         dragElastic={0.1}
-        initial={{ top: 70, right: 0 }}
+        initial={{ top: 70, right: 8 }}
         animate={{
-          x: isOpen ? 0 : 30,
-          opacity: isOpen ? 1 : 0.5,
+          // Keep fully on-screen when closed (was x:30 → caused horizontal overflow)
+          x: 0,
+          opacity: isOpen ? 1 : 0.85,
         }}
-        className="absolute w-20 h-[300px] flex items-center justify-center cursor-grab z-50 pointer-events-auto"
+        transition={{ type: "spring", stiffness: 320, damping: 28 }}
+        className="absolute w-16 h-[300px] flex items-center justify-center cursor-grab z-50 pointer-events-auto right-0"
         style={{ touchAction: "pan-y" }}
       >
         <div className="flex items-center justify-center [transform:rotate(-45deg)]">
           <motion.div
-            className="w-16 h-16 bg-primary-1000 text-white rounded-full flex items-center justify-center shadow-lg z-50 cursor-pointer"
+            className="w-14 h-14 bg-primary-1000 text-white rounded-full flex items-center justify-center shadow-lg z-50 cursor-pointer"
             onClick={handleToggle}
             onPointerDown={startDrag}
             animate={{ rotate: isOpen ? -225 : 0 }}
