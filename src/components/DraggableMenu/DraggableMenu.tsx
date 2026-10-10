@@ -71,7 +71,6 @@ export default function DraggableNav() {
 
   return (
     // Fixed to viewport edge — pointer-events none on wrapper so it never blocks the page
-    // overflow-hidden prevents the radial nav items from expanding document width
     <div className="fixed top-0 right-0 z-50 lg:hidden pointer-events-none overflow-visible">
       <motion.nav
         ref={navRef}
@@ -81,23 +80,38 @@ export default function DraggableNav() {
         dragConstraints={constraints}
         dragElastic={0.1}
         initial={{ top: 70, right: 8 }}
-        animate={{
-          // Keep fully on-screen when closed (was x:30 → caused horizontal overflow)
-          x: 0,
-          opacity: isOpen ? 1 : 0.85,
-        }}
+        animate={{ x: 0 }}
         transition={{ type: "spring", stiffness: 320, damping: 28 }}
         className="absolute w-16 h-[300px] flex items-center justify-center cursor-grab z-50 pointer-events-auto right-0"
         style={{ touchAction: "pan-y" }}
       >
         <div className="flex items-center justify-center [transform:rotate(-45deg)]">
+          {/*
+            Closed = ghost / glass style (subtle, non-intrusive)
+            Open   = solid primary (clear active state)
+          */}
           <motion.div
-            className="w-14 h-14 bg-primary-1000 text-white rounded-full flex items-center justify-center shadow-lg z-50 cursor-pointer"
+            className={
+              isOpen
+                ? "w-14 h-14 rounded-full flex items-center justify-center z-50 cursor-pointer bg-primary-1000 text-white shadow-lg border border-primary-1000"
+                : "w-14 h-14 rounded-full flex items-center justify-center z-50 cursor-pointer bg-primary-1000/20 text-primary-1000 shadow-md border border-primary-1000/40 backdrop-blur-md"
+            }
             onClick={handleToggle}
             onPointerDown={startDrag}
-            animate={{ rotate: isOpen ? -225 : 0 }}
-            transition={{ duration: 0.6 }}
+            animate={{
+              rotate: isOpen ? -225 : 0,
+              scale: isOpen ? 1 : 0.92,
+              opacity: isOpen ? 1 : 0.55,
+            }}
+            whileHover={{
+              opacity: 1,
+              scale: isOpen ? 1.05 : 1,
+            }}
+            whileTap={{ scale: 0.9 }}
+            transition={{ duration: 0.45, ease: "easeInOut" }}
             style={{ touchAction: "none" }}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
+            aria-expanded={isOpen}
           >
             {isOpen ? (
               <IoClose className="text-3xl" />
