@@ -1,14 +1,23 @@
-import Features from "./features/page";
-import Services from "./services/page";
-import Contact from "./contact/page";
+import dynamic from "next/dynamic";
 import Title from "@/components/TitleSections/Title";
 import HomePage from "@/components/Home/Home";
-import Skills from "./about/skills";
-import AboutMe from "./about/aboutMe";
-import MyJourney from "./about/myJourney";
-import Projects from "./projects/Projects";
-import WhyWorkWithMe from "@/components/WhyWorkWithMe/WhyWorkWithMe";
-import Recommendations from "@/components/Recommendations/Recommendations";
+
+// Below-the-fold: separate chunks so first paint / hero JS stays lighter
+const AboutMe = dynamic(() => import("./about/aboutMe"), { ssr: true });
+const Projects = dynamic(() => import("./projects/Projects"), { ssr: true });
+const Skills = dynamic(() => import("./about/skills"), { ssr: true });
+const MyJourney = dynamic(() => import("./about/myJourney"), { ssr: true });
+const Services = dynamic(() => import("./services/Services"), { ssr: true });
+const Features = dynamic(() => import("./features/Features"), { ssr: true });
+const Recommendations = dynamic(
+  () => import("@/components/Recommendations/Recommendations"),
+  { ssr: true },
+);
+const WhyWorkWithMe = dynamic(
+  () => import("@/components/WhyWorkWithMe/WhyWorkWithMe"),
+  { ssr: true },
+);
+const Contact = dynamic(() => import("./contact/Contact"), { ssr: true });
 
 export default function Home() {
   return (

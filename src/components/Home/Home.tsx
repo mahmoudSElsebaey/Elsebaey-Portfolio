@@ -30,15 +30,9 @@ export default function HomePage() {
 
   return (
     <main className="h-full">
-      <div
-        data-aos="zoom-in"
-        className="container mx-auto my-3 flex flex-col md:flex-row justify-between items-center"
-      >
-        {/*My Informatiom */}
-        <div
-          data-aos="zoom-in"
-          className="overflow-hidden xl:h-[480px] flex flex-col gap-2 xl:gap-6 md:gap-1 items-center md:items-start justify-center order-2 md:order-none"
-        >
+      {/* No data-aos on hero: must be visible on first paint (SSR) before JS hydrates */}
+      <div className="container mx-auto my-3 flex flex-col md:flex-row justify-between items-center">
+        <div className="overflow-hidden xl:h-[480px] flex flex-col gap-2 xl:gap-6 md:gap-1 items-center md:items-start justify-center order-2 md:order-none">
           <p className="text-4xl font-bold flex gap-3 ">
             Hello <MdOutlineWavingHand className="text-primary-1000" /> I{"'"}m
           </p>
@@ -51,7 +45,6 @@ export default function HomePage() {
           </p>
           <ul
             className="h-10 self-start ml-[10%] sm:ml-[15%] md:ml-0"
-            data-aos="zoom-in"
             style={{ userSelect: "none" }}
           >
             <li
@@ -62,12 +55,8 @@ export default function HomePage() {
               {titles[index]}
             </li>
           </ul>
-          {/* <h2 className="typing">Front-End Developer</h2> */}
 
-          <p
-            data-aos="zoom-in"
-            className="dark:text-white/60 text-black/60 max-w-[500px] text-center md:text-left text-sm md:text-base leading-relaxed"
-          >
+          <p className="dark:text-white/60 text-black/60 max-w-[500px] text-center md:text-left text-sm md:text-base leading-relaxed">
             Full-Stack MERN & MEAN Developer. I build modern, responsive, and
             scalable web applications with clean code and seamless user
             experiences using React, TypeScript, Node.js, Express, and MongoDB.
@@ -76,15 +65,8 @@ export default function HomePage() {
               solutions.
             </span>
           </p>
-          <div
-            className="flex flex-col md:flex-row items-center gap-8"
-            data-aos="zoom-in"
-          >
-            {/* Button */}
-            <div
-              className="btn-cv relative p-[2px] overflow-hidden rounded-full"
-              data-aos="zoom-in"
-            >
+          <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="btn-cv relative p-[2px] overflow-hidden rounded-full">
               <a
                 href="/assets/cv/Mahmoud_Elsebaey_Full_Stack_MERN_CV.pdf"
                 download
@@ -105,19 +87,16 @@ export default function HomePage() {
                 </Button>
               </a>
             </div>
-            {/* Socials Icons */}
-            <div className="" data-aos="zoom-in">
+            <div>
               <Socials />
             </div>
           </div>
         </div>
-        {/* My Photo */}
-        <div className="order-1 md:order-none" data-aos="zoom-in">
+        <div className="order-1 md:order-none">
           <Photo />
         </div>
       </div>
-      {/* Stats */}
-      <div className="mb-25 mt-10 xl:mt-6" data-aos="zoom-in">
+      <div className="mb-25 mt-10 xl:mt-6" data-aos="fade-up">
         <Stats />
       </div>
     </main>

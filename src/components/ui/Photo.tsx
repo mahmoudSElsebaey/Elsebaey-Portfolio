@@ -5,45 +5,33 @@ import Image from "next/image";
 export default function Photo() {
   return (
     <div className="w-full h-full my-5 relative flex items-center justify-center">
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{
-          opacity: 1,
-          transition: { delay: 0.4, duration: 0.4, ease: "easeIn" },
-        }}
-      >
-        {/* Image */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: { delay: 0.4, duration: 0.4, ease: "easeInOut" },
-          }}
+      {/* Visible immediately on first paint — no opacity:0 delay that blanks the hero */}
+      <div>
+        <div
           className="w-[280px] h-[280px] xl:w-[480px] xl:h-[480px] rounded-full overflow-hidden
            absolute top-1/2 left-1/2 transform-[translate(-50%,-52%)]"
         >
           <Image
-            // src="/assets/hero-img.png"
             src="/assets/hoda1.png"
-            quality={100}
+            quality={85}
             alt="Mahmoud Elsebaey, Full-Stack MERN Developer"
             priority
             fill
+            sizes="(max-width: 1280px) 280px, 480px"
             className="object-contain scale-[105%]"
           />
-        </motion.div>
-        {/* Circle */}
+        </div>
         <motion.svg
           className="w-[300px] h-[300px] xl:w-[506px] xl:h-[506px]"
           fill="transparent"
           viewBox="0 0 506 506"
           xmlns="http://www.w3.org/2000/svg"
+          initial={false}
         >
           <motion.circle
             cx="253"
             cy="253"
             r="250"
-            // stroke="#b99a57"
             strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"
@@ -60,7 +48,7 @@ export default function Photo() {
             className="stroke-primary-1000"
           />
         </motion.svg>
-      </motion.div>
+      </div>
     </div>
   );
 }
