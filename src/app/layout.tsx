@@ -12,6 +12,7 @@ import ScrollProgressBar from "@/components/ScrollProgressBar/ScrollProgressBar"
 import AOSProvider from "@/components/ui/AOSProvider";
 import WhatsAppButton from "@/components/WhatsAppButton/WhatsAppButton";
 import ThemeColorInit from "@/components/ThemeSwitcher/ThemeColorInit";
+import MouseTrail from "@/components/MouseTrail/MouseTrail";
 
 const jetBrainsMono = JetBrains_Mono({
   variable: "--font-jetBrainsMono",
@@ -162,6 +163,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <ThemeColorInit />
+          <MouseTrail />
           <Header />
           <DraggableNav />
           <AOSProvider>
