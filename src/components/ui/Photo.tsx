@@ -23,6 +23,7 @@ export default function Photo() {
            absolute top-1/2 left-1/2 transform-[translate(-50%,-52%)]"
         >
           <Image
+            // src="/assets/hero-img.png"
             src="/assets/hoda1.png"
             quality={100}
             alt="Mahmoud Elsebaey, Full-Stack MERN Developer"
@@ -42,6 +43,7 @@ export default function Photo() {
             cx="253"
             cy="253"
             r="250"
+            // stroke="#b99a57"
             strokeWidth="4"
             strokeLinecap="round"
             strokeLinejoin="round"

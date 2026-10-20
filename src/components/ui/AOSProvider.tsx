@@ -30,27 +30,24 @@ export default function AOSProvider({
       delay: 0,
       easing: "ease-out",
       mirror: false,
+      // Avoid aggressive reflow while user is scrolling
       debounceDelay: 50,
       throttleDelay: 80,
-      startEvent: "DOMContentLoaded",
     });
 
-    AOS.refresh();
-    revealVisibleAosElements();
-
-    const id = window.requestAnimationFrame(() => {
+    const id = window.setTimeout(() => {
       AOS.refresh();
       revealVisibleAosElements();
-    });
-    return () => window.cancelAnimationFrame(id);
+    }, 30);
+    return () => window.clearTimeout(id);
   }, []);
 
   useEffect(() => {
-    const id = window.requestAnimationFrame(() => {
+    const id = window.setTimeout(() => {
       AOS.refresh();
       revealVisibleAosElements();
-    });
-    return () => window.cancelAnimationFrame(id);
+    }, 40);
+    return () => window.clearTimeout(id);
   }, [pathname]);
 
   return <>{children}</>;
