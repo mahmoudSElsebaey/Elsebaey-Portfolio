@@ -144,13 +144,6 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-        <link
-          rel="preload"
-          as="image"
-          href="/assets/hoda1.png"
-          // @ts-expect-error Next allows fetchPriority on link in app router
-          fetchPriority="high"
-        />
         <script dangerouslySetInnerHTML={{ __html: themeColorBootScript }} />
         <script
           type="application/ld+json"
