@@ -10,6 +10,38 @@ import { HiChevronLeft, HiChevronRight, HiChevronDown, HiChevronUp } from "react
 const PER_PAGE = 9;
 const MOBILE_VISIBLE_TAGS = 6;
 
+const CATEGORY_SHORT: Record<string, string> = {
+  "Admin Dashboard": "Dashboard",
+  "Business Website": "Business",
+  "Coffee Shop Website": "Cafe",
+  "Directory Website": "Directory",
+  "E-commerce Website": "E-commerce",
+  "Fitness Website": "Fitness",
+  "Full Stack Website": "Full Stack",
+  "Furniture Store": "Furniture",
+  "Gaming Portal": "Gaming",
+  "Gaming Website": "Gaming",
+  "MERN SaaS Platform": "MERN SaaS",
+  "MERN Website": "MERN",
+  "Personal Portfolio": "Portfolio",
+  "Real Estate Platform": "Real Estate",
+  "Rental Platform": "Rental",
+  "SaaS / EdTech MVP": "EdTech",
+  "Social Media SPA": "Social",
+};
+
+function shortCategory(category: string): string {
+  if (CATEGORY_SHORT[category]) return CATEGORY_SHORT[category];
+  if (category.length <= 12) return category;
+  const cleaned = category
+    .replace(/\s*Website$/i, "")
+    .replace(/\s*Platform$/i, "")
+    .replace(/\s*Portal$/i, "")
+    .replace(/\s*Store$/i, "")
+    .trim();
+  return cleaned.length <= 14 ? cleaned : cleaned.slice(0, 12).trim();
+}
+
 const AllProjects: React.FC = () => {
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
@@ -199,8 +231,8 @@ const AllProjects: React.FC = () => {
           {pageItems.map((project, index) => (
             <li key={project.slug} className="project-card-3d group/card">
               <div className="project-card-border relative p-[2px] rounded-2xl overflow-hidden h-full">
-                <article className="relative z-10 flex flex-col h-full rounded-2xl overflow-hidden bg-background dark:bg-[#0f1420] border border-white/5 transition-transform duration-500 ease-out">
-                  <Link href={`/projects/${project.slug}`} className="relative block w-full aspect-[16/11] overflow-hidden bg-black/5 dark:bg-white/5">
+                <article className="relative z-10 flex flex-col h-full rounded-2xl overflow-hidden bg-background dark:bg-[#0f1420] border border-transparent transition-transform duration-500 ease-out">
+                  <Link href={`/projects/${project.slug}`} className="relative block w-full aspect-[16/11] overflow-hidden bg-background">
                     <Image
                       src={project.image}
                       fill
@@ -210,20 +242,20 @@ const AllProjects: React.FC = () => {
                       priority={index < 3}
                       className="object-contain p-3 transition-transform duration-700 ease-out group-hover/card:scale-110"
                     />
-                    <span className="absolute top-3 left-3 text-[10px] md:text-[11px] uppercase tracking-wide px-2.5 py-1 rounded-full border border-primary-1000/60 bg-background/90 dark:bg-[#0f1420]/90 text-primary-1000 backdrop-blur-sm">
-                      {project.category}
-                    </span>
                     <span className="project-card-shine pointer-events-none absolute inset-0" />
                   </Link>
 
                   <div className="project-card-divider relative flex items-center justify-center gap-3 px-4" aria-hidden>
                     <span className="h-px flex-1 bg-gradient-to-r from-transparent via-primary-1000/40 to-primary-1000/55" />
-                    <span className="flex items-center gap-1.5 shrink-0">
-                      <span className="project-card-divider-diamond" />
-                      <span className="text-[9px] md:text-[10px] uppercase tracking-[0.22em] text-primary-1000/80 font-semibold select-none project-card-divider-label">
-                        Project
+                    <span className="flex items-center gap-1.5 shrink-0 max-w-[55%]">
+                      <span className="project-card-divider-diamond shrink-0" />
+                      <span
+                        className="text-[9px] md:text-[10px] uppercase tracking-[0.18em] text-primary-1000/80 font-semibold select-none project-card-divider-label truncate"
+                        title={project.category}
+                      >
+                        {shortCategory(project.category)}
                       </span>
-                      <span className="project-card-divider-diamond" />
+                      <span className="project-card-divider-diamond shrink-0" />
                     </span>
                     <span className="h-px flex-1 bg-gradient-to-l from-transparent via-primary-1000/40 to-primary-1000/55" />
                   </div>
