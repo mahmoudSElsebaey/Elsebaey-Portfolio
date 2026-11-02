@@ -112,13 +112,14 @@ export default function ProjectDetailClient({
       dir={isAr ? "rtl" : "ltr"}
       lang={locale}
     >
-      <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 md:bottom-8">
+      {/* Language toggle — in page flow, above All Projects */}
+      <div className="flex justify-end mb-5">
         <motion.button
           type="button"
           onClick={toggleLocale}
           whileHover={{ scale: 1.04 }}
           whileTap={{ scale: 0.96 }}
-          className="group relative flex items-center gap-1 rounded-full p-1.5 bg-background/70 backdrop-blur-xl border border-primary-1000/30 shadow-[0_0_0_1px_rgba(0,0,0,0.04),0_8px_32px_-8px_rgba(0,0,0,0.25),0_0_40px_-12px] shadow-primary-1000/20 hover:border-primary-1000/50 hover:shadow-primary-1000/35 transition-all duration-300"
+          className="group relative flex items-center gap-1 rounded-full p-1.5 bg-background/70 backdrop-blur-xl border border-primary-1000/30 shadow-[0_0_0_1px_rgba(0,0,0,0.04),0_8px_24px_-10px_rgba(0,0,0,0.2)] shadow-primary-1000/15 hover:border-primary-1000/50 hover:shadow-primary-1000/30 transition-all duration-300"
           aria-label={isAr ? "Switch to English" : "التبديل إلى العربية"}
         >
           <span className="pointer-events-none absolute -inset-px rounded-full bg-gradient-to-r from-primary-1000/40 via-transparent to-primary-1000/40 opacity-60 group-hover:opacity-100 blur-[1px]" />
@@ -128,7 +129,7 @@ export default function ProjectDetailClient({
             }`}
           />
           <span
-            className={`relative z-10 flex items-center justify-center gap-1.5 min-w-[4.5rem] px-3 py-2 rounded-full text-xs font-bold tracking-wide transition-colors duration-300 ${
+            className={`relative z-10 flex items-center justify-center gap-1.5 min-w-[4.25rem] px-3 py-2 rounded-full text-xs font-bold tracking-wide transition-colors duration-300 ${
               !isAr ? "text-white" : "text-foreground/70"
             }`}
           >
@@ -136,7 +137,7 @@ export default function ProjectDetailClient({
             EN
           </span>
           <span
-            className={`relative z-10 flex items-center justify-center min-w-[4.5rem] px-3 py-2 rounded-full text-xs font-bold tracking-wide transition-colors duration-300 ${
+            className={`relative z-10 flex items-center justify-center min-w-[4.25rem] px-3 py-2 rounded-full text-xs font-bold tracking-wide transition-colors duration-300 ${
               isAr ? "text-white" : "text-foreground/70"
             }`}
           >
