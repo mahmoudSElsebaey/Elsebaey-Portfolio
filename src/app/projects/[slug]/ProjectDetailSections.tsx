@@ -3,10 +3,27 @@
 import { motion } from "framer-motion";
 import { Sparkles, Zap, ShieldCheck, ArrowRight } from "lucide-react";
 
+interface SectionLabels {
+  featuresLabel: string;
+  featuresTitle: string;
+  featuresHighlight: string;
+  featuresDesc: string;
+  challengesLabel: string;
+  challengesTitle: string;
+  challengesHighlight: string;
+  challengesDesc: string;
+  problemsLabel: string;
+  problemsTitle: string;
+  problemsHighlight: string;
+  problemsDesc: string;
+}
+
 interface ProjectDetailSectionsProps {
   features?: string[];
   challenges?: string[];
   problems?: string[];
+  labels: SectionLabels;
+  isRtl?: boolean;
 }
 
 const container = {
@@ -44,14 +61,26 @@ const itemSlide = {
   },
 };
 
+const itemSlideRtl = {
+  hidden: { opacity: 0, x: 20 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { type: "spring" as const, stiffness: 300, damping: 26 },
+  },
+};
+
 export default function ProjectDetailSections({
   features,
   challenges,
   problems,
+  labels,
+  isRtl = false,
 }: ProjectDetailSectionsProps) {
+  const slideVariant = isRtl ? itemSlideRtl : itemSlide;
+
   return (
     <>
-      {/* ── Signature Features ── */}
       {features && features.length > 0 && (
         <motion.section
           className="mt-16"
@@ -66,18 +95,18 @@ export default function ProjectDetailSections({
                 <Sparkles className="h-4.5 w-4.5" size={18} />
               </span>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-1000/80">
-                The good stuff
+                {labels.featuresLabel}
               </span>
             </div>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-              Signature{" "}
+              {labels.featuresTitle}{" "}
               <span className="text-primary-1000 relative inline-block">
-                Features
+                {labels.featuresHighlight}
                 <span className="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-primary-1000/40" />
               </span>
             </h2>
             <p className="mt-2 max-w-xl text-sm opacity-70">
-              The capabilities that define the product and make it production-ready.
+              {labels.featuresDesc}
             </p>
           </motion.div>
 
@@ -110,7 +139,6 @@ export default function ProjectDetailSections({
         </motion.section>
       )}
 
-      {/* ── Challenges ── */}
       {challenges && challenges.length > 0 && (
         <motion.section
           className="mt-16"
@@ -125,29 +153,32 @@ export default function ProjectDetailSections({
                 <Zap className="h-4.5 w-4.5" size={18} />
               </span>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-600/90 dark:text-amber-400/90">
-                The hard parts
+                {labels.challengesLabel}
               </span>
             </div>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-              Obstacles{" "}
+              {labels.challengesTitle}{" "}
               <span className="relative inline-block text-amber-600 dark:text-amber-400">
-                Faced
+                {labels.challengesHighlight}
                 <span className="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-amber-500/40" />
               </span>
             </h2>
             <p className="mt-2 max-w-xl text-sm opacity-70">
-              Real constraints and design decisions that shaped the architecture.
+              {labels.challengesDesc}
             </p>
           </motion.div>
 
           <motion.ul className="relative space-y-0" variants={container}>
-            {/* vertical line */}
-            <div className="absolute left-[15px] top-3 bottom-3 w-px bg-gradient-to-b from-amber-500/50 via-amber-500/20 to-transparent" />
+            <div
+              className={`absolute top-3 bottom-3 w-px bg-gradient-to-b from-amber-500/50 via-amber-500/20 to-transparent ${
+                isRtl ? "right-[15px]" : "left-[15px]"
+              }`}
+            />
 
             {challenges.map((challenge, i) => (
               <motion.li
                 key={i}
-                variants={itemSlide}
+                variants={slideVariant}
                 className="relative flex gap-5 pb-6 last:pb-0"
               >
                 <span className="relative z-10 mt-1.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 border-amber-500/60 bg-background text-xs font-bold text-amber-600 dark:text-amber-400 shadow-sm">
@@ -164,7 +195,6 @@ export default function ProjectDetailSections({
         </motion.section>
       )}
 
-      {/* ── Problems → Solutions ── */}
       {problems && problems.length > 0 && (
         <motion.section
           className="mt-16"
@@ -179,37 +209,37 @@ export default function ProjectDetailSections({
                 <ShieldCheck className="h-4.5 w-4.5" size={18} />
               </span>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-emerald-600/90 dark:text-emerald-400/90">
-                From friction to flow
+                {labels.problemsLabel}
               </span>
             </div>
             <h2 className="text-2xl md:text-3xl font-bold tracking-tight">
-              How I{" "}
+              {labels.problemsTitle}{" "}
               <span className="relative inline-block text-emerald-600 dark:text-emerald-400">
-                Solved It
+                {labels.problemsHighlight}
                 <span className="absolute -bottom-1 left-0 h-[3px] w-full rounded-full bg-emerald-500/40" />
               </span>
             </h2>
             <p className="mt-2 max-w-xl text-sm opacity-70">
-              Concrete approaches that turned blockers into reliable systems.
+              {labels.problemsDesc}
             </p>
           </motion.div>
 
-          <motion.ul
-            className="grid grid-cols-1 gap-3.5"
-            variants={container}
-          >
+          <motion.ul className="grid grid-cols-1 gap-3.5" variants={container}>
             {problems.map((problem, i) => (
               <motion.li
                 key={i}
                 variants={itemUp}
                 whileHover={{
-                  x: 4,
+                  x: isRtl ? -4 : 4,
                   transition: { type: "spring", stiffness: 400, damping: 22 },
                 }}
                 className="group flex items-start gap-4 rounded-2xl border border-emerald-500/20 bg-gradient-to-r from-emerald-500/[0.06] to-transparent p-4 md:p-5 transition-shadow hover:shadow-[0_8px_28px_-14px] hover:shadow-emerald-500/25"
               >
                 <span className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-500/15 text-emerald-600 dark:text-emerald-400 ring-1 ring-emerald-500/30">
-                  <ArrowRight className="h-4 w-4" size={16} />
+                  <ArrowRight
+                    className={`h-4 w-4 ${isRtl ? "rotate-180" : ""}`}
+                    size={16}
+                  />
                 </span>
                 <p className="flex-1 text-[15px] leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity pt-0.5">
                   {problem}
