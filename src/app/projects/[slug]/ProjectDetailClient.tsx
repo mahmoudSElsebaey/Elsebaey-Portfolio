@@ -14,8 +14,8 @@ type Locale = "en" | "ar";
 
 interface ProjectDetailClientProps {
   project: Project;
-  prevProject: { slug: string; title: string; titleAr?: string } | null;
-  nextProject: { slug: string; title: string; titleAr?: string } | null;
+  prevProject: { slug: string; title: string } | null;
+  nextProject: { slug: string; title: string } | null;
 }
 
 const ui = {
@@ -84,18 +84,16 @@ export default function ProjectDetailClient({
   const content = useMemo(() => {
     if (isAr) {
       return {
-        title: project.titleAr || ar?.titleAr || project.title,
-        category: project.categoryAr || ar?.categoryAr || project.category,
+        title: ar?.titleAr || project.title,
+        category: ar?.categoryAr || project.category,
         description:
-          project.longDescriptionAr ||
           ar?.longDescriptionAr ||
-          project.descriptionAr ||
           ar?.descriptionAr ||
           project.longDescription ||
           project.description,
-        features: project.featuresAr || ar?.featuresAr || project.features,
-        challenges: project.challengesAr || ar?.challengesAr || project.challenges,
-        problems: project.problemsAr || ar?.problemsAr || project.problems,
+        features: ar?.featuresAr || project.features,
+        challenges: ar?.challengesAr || project.challenges,
+        problems: ar?.problemsAr || project.problems,
       };
     }
     return {
@@ -124,18 +122,33 @@ export default function ProjectDetailClient({
           aria-label={isAr ? "Switch to English" : "التبديل إلى العربية"}
         >
           <span className="pointer-events-none absolute -inset-px rounded-full bg-gradient-to-r from-primary-1000/40 via-transparent to-primary-1000/40 opacity-60 group-hover:opacity-100 blur-[1px]" />
-          <span className={`absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] rounded-full bg-primary-1000 shadow-lg shadow-primary-1000/40 transition-all duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${isAr ? "right-1.5 left-auto" : "left-1.5 right-auto"}`} />
-          <span className={`relative z-10 flex items-center justify-center gap-1.5 min-w-[4.5rem] px-3 py-2 rounded-full text-xs font-bold tracking-wide transition-colors duration-300 ${!isAr ? "text-white" : "text-foreground/70"}`}>
+          <span
+            className={`absolute top-1.5 bottom-1.5 w-[calc(50%-6px)] rounded-full bg-primary-1000 shadow-lg shadow-primary-1000/40 transition-all duration-400 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${
+              isAr ? "right-1.5 left-auto" : "left-1.5 right-auto"
+            }`}
+          />
+          <span
+            className={`relative z-10 flex items-center justify-center gap-1.5 min-w-[4.5rem] px-3 py-2 rounded-full text-xs font-bold tracking-wide transition-colors duration-300 ${
+              !isAr ? "text-white" : "text-foreground/70"
+            }`}
+          >
             <Languages className="h-3.5 w-3.5" strokeWidth={2.2} />
             EN
           </span>
-          <span className={`relative z-10 flex items-center justify-center min-w-[4.5rem] px-3 py-2 rounded-full text-xs font-bold tracking-wide transition-colors duration-300 ${isAr ? "text-white" : "text-foreground/70"}`}>
+          <span
+            className={`relative z-10 flex items-center justify-center min-w-[4.5rem] px-3 py-2 rounded-full text-xs font-bold tracking-wide transition-colors duration-300 ${
+              isAr ? "text-white" : "text-foreground/70"
+            }`}
+          >
             ع
           </span>
         </motion.button>
       </div>
 
-      <Link href="/projects" className="inline-flex items-center gap-2 text-primary-1000 hover:opacity-80 transition-opacity mb-8">
+      <Link
+        href="/projects"
+        className="inline-flex items-center gap-2 text-primary-1000 hover:opacity-80 transition-opacity mb-8"
+      >
         {isAr ? (
           <>
             <span className="uppercase text-sm tracking-wide">{t.allProjects}</span>
@@ -159,23 +172,49 @@ export default function ProjectDetailClient({
         >
           <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
             <div className="w-full lg:w-[48%]">
-              <ProjectImageLightbox src={project.image} alt={content.title} enlargeLabel={t.clickEnlarge} />
+              <ProjectImageLightbox
+                src={project.image}
+                alt={content.title}
+                enlargeLabel={t.clickEnlarge}
+              />
             </div>
+
             <div className="w-full lg:w-[52%] flex flex-col gap-5">
-              <div className="text-transparent text-outline text-6xl md:text-7xl font-extrabold" style={{ userSelect: "none" }}>
+              <div
+                className="text-transparent text-outline text-6xl md:text-7xl font-extrabold"
+                style={{ userSelect: "none" }}
+              >
                 {project.num}
               </div>
-              <span className="text-primary-1000 text-sm uppercase tracking-widest">{content.category}</span>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">{content.title}</h1>
-              <p className="opacity-80 leading-relaxed text-base md:text-lg">{content.description}</p>
+
+              <span className="text-primary-1000 text-sm uppercase tracking-widest">
+                {content.category}
+              </span>
+
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
+                {content.title}
+              </h1>
+
+              <p className="opacity-80 leading-relaxed text-base md:text-lg">
+                {content.description}
+              </p>
+
               <div className="flex flex-wrap gap-3 pt-2">
                 {project.live && project.live !== "#" && (
-                  <Link href={project.live} target="_blank" className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary-1000 text-white hover:opacity-90 transition-opacity">
+                  <Link
+                    href={project.live}
+                    target="_blank"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary-1000 text-white hover:opacity-90 transition-opacity"
+                  >
                     {t.liveDemo} <BsArrowUpRight />
                   </Link>
                 )}
                 {project.github && (
-                  <Link href={project.github} target="_blank" className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary-1000 text-primary-1000 hover:bg-primary-1000/10 transition-colors">
+                  <Link
+                    href={project.github}
+                    target="_blank"
+                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary-1000 text-primary-1000 hover:bg-primary-1000/10 transition-colors"
+                  >
                     {t.github} <BsGithub />
                   </Link>
                 )}
@@ -184,10 +223,15 @@ export default function ProjectDetailClient({
           </div>
 
           <div className="mt-14">
-            <h2 className="text-2xl md:text-3xl font-bold mb-5 text-primary-1000">{t.technologies}</h2>
+            <h2 className="text-2xl md:text-3xl font-bold mb-5 text-primary-1000">
+              {t.technologies}
+            </h2>
             <ul className="flex flex-wrap gap-2">
               {project.tools.map((tool, i) => (
-                <li key={i} className="text-primary-1000 text-sm capitalize border border-primary-1000/50 bg-primary-1000/20 py-1.5 px-4 rounded-full">
+                <li
+                  key={i}
+                  className="text-primary-1000 text-sm capitalize border border-primary-1000/50 bg-primary-1000/20 py-1.5 px-4 rounded-full"
+                >
                   {tool.name}
                 </li>
               ))}
@@ -217,7 +261,10 @@ export default function ProjectDetailClient({
 
           <div className="mt-16 pt-8 border-t border-primary-1000/20 flex flex-col sm:flex-row justify-between gap-4">
             {prevProject ? (
-              <Link href={`/projects/${prevProject.slug}`} className="group flex flex-col gap-1 p-4 rounded-xl border border-primary-1000/20 hover:border-primary-1000/50 hover:bg-primary-1000/5 transition-all">
+              <Link
+                href={`/projects/${prevProject.slug}`}
+                className="group flex flex-col gap-1 p-4 rounded-xl border border-primary-1000/20 hover:border-primary-1000/50 hover:bg-primary-1000/5 transition-all"
+              >
                 <span className="text-xs uppercase opacity-60">{t.previous}</span>
                 <span className="font-semibold group-hover:text-primary-1000 transition-colors">
                   {isAr ? (
@@ -231,7 +278,12 @@ export default function ProjectDetailClient({
               <div />
             )}
             {nextProject && (
-              <Link href={`/projects/${nextProject.slug}`} className={`group flex flex-col gap-1 p-4 rounded-xl border border-primary-1000/20 hover:border-primary-1000/50 hover:bg-primary-1000/5 transition-all ${isAr ? "text-left sm:mr-auto" : "text-right sm:ml-auto"}`}>
+              <Link
+                href={`/projects/${nextProject.slug}`}
+                className={`group flex flex-col gap-1 p-4 rounded-xl border border-primary-1000/20 hover:border-primary-1000/50 hover:bg-primary-1000/5 transition-all ${
+                  isAr ? "text-left sm:mr-auto" : "text-right sm:ml-auto"
+                }`}
+              >
                 <span className="text-xs uppercase opacity-60">{t.next}</span>
                 <span className="font-semibold group-hover:text-primary-1000 transition-colors">
                   {isAr ? (
