@@ -74,7 +74,6 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
       ? {
           slug: projectsData[currentIndex - 1].slug,
           title: projectsData[currentIndex - 1].title,
-          titleAr: projectsData[currentIndex - 1].titleAr,
         }
       : null;
   const nextProject =
@@ -82,7 +81,6 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
       ? {
           slug: projectsData[currentIndex + 1].slug,
           title: projectsData[currentIndex + 1].title,
-          titleAr: projectsData[currentIndex + 1].titleAr,
         }
       : null;
 
