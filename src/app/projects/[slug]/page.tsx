@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { BsArrowLeft, BsArrowUpRight, BsGithub } from "react-icons/bs";
 import {
   getAllProjectSlugs,
   getProjectBySlug,
   projectsData,
 } from "../data";
-import ProjectImageLightbox from "./ProjectImageLightbox";
-import ProjectDetailSections from "./ProjectDetailSections";
+import ProjectDetailClient from "./ProjectDetailClient";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -72,123 +69,28 @@ export default async function ProjectDetailsPage({ params }: PageProps) {
   if (!project) notFound();
 
   const currentIndex = projectsData.findIndex((p) => p.slug === slug);
-  const prevProject = currentIndex > 0 ? projectsData[currentIndex - 1] : null;
+  const prevProject =
+    currentIndex > 0
+      ? {
+          slug: projectsData[currentIndex - 1].slug,
+          title: projectsData[currentIndex - 1].title,
+          titleAr: projectsData[currentIndex - 1].titleAr,
+        }
+      : null;
   const nextProject =
     currentIndex < projectsData.length - 1
-      ? projectsData[currentIndex + 1]
+      ? {
+          slug: projectsData[currentIndex + 1].slug,
+          title: projectsData[currentIndex + 1].title,
+          titleAr: projectsData[currentIndex + 1].titleAr,
+        }
       : null;
 
   return (
-    <section className="container mx-auto px-4 py-12 md:py-16">
-      {/* Back */}
-      <Link
-        href="/projects"
-        className="inline-flex items-center gap-2 text-primary-1000 hover:opacity-80 transition-opacity mb-8"
-      >
-        <BsArrowLeft className="text-lg" />
-        <span className="uppercase text-sm tracking-wide">All Projects</span>
-      </Link>
-
-      {/* Header */}
-      <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 items-start">
-        <div className="w-full lg:w-[48%]">
-          <ProjectImageLightbox src={project.image} alt={project.title} />
-        </div>
-
-        <div className="w-full lg:w-[52%] flex flex-col gap-5">
-          <div
-            className="text-transparent text-outline text-6xl md:text-7xl font-extrabold"
-            style={{ userSelect: "none" }}
-          >
-            {project.num}
-          </div>
-
-          <span className="text-primary-1000 text-sm uppercase tracking-widest">
-            {project.category}
-          </span>
-
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight">
-            {project.title}
-          </h1>
-
-          <p className="opacity-80 leading-relaxed text-base md:text-lg">
-            {project.longDescription || project.description}
-          </p>
-
-          <div className="flex flex-wrap gap-3 pt-2">
-            {project.live && project.live !== "#" && (
-              <Link
-                href={project.live}
-                target="_blank"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary-1000 text-white hover:opacity-90 transition-opacity"
-              >
-                Live Demo <BsArrowUpRight />
-              </Link>
-            )}
-            {project.github && (
-              <Link
-                href={project.github}
-                target="_blank"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary-1000 text-primary-1000 hover:bg-primary-1000/10 transition-colors"
-              >
-                GitHub <BsGithub />
-              </Link>
-            )}
-          </div>
-        </div>
-      </div>
-
-      {/* Tech Stack */}
-      <div className="mt-14">
-        <h2 className="text-2xl md:text-3xl font-bold mb-5 text-primary-1000">
-          Technologies
-        </h2>
-        <ul className="flex flex-wrap gap-2">
-          {project.tools.map((tool, i) => (
-            <li
-              key={i}
-              className="text-primary-1000 text-sm capitalize border border-primary-1000/50 bg-primary-1000/20 py-1.5 px-4 rounded-full"
-            >
-              {tool.name}
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      {/* Animated Feature / Challenge / Solution sections */}
-      <ProjectDetailSections
-        features={project.features}
-        challenges={project.challenges}
-        problems={project.problems}
-      />
-
-      {/* Prev / Next */}
-      <div className="mt-16 pt-8 border-t border-primary-1000/20 flex flex-col sm:flex-row justify-between gap-4">
-        {prevProject ? (
-          <Link
-            href={`/projects/${prevProject.slug}`}
-            className="group flex flex-col gap-1 p-4 rounded-xl border border-primary-1000/20 hover:border-primary-1000/50 hover:bg-primary-1000/5 transition-all"
-          >
-            <span className="text-xs uppercase opacity-60">Previous</span>
-            <span className="font-semibold group-hover:text-primary-1000 transition-colors">
-              ← {prevProject.title}
-            </span>
-          </Link>
-        ) : (
-          <div />
-        )}
-        {nextProject && (
-          <Link
-            href={`/projects/${nextProject.slug}`}
-            className="group flex flex-col gap-1 p-4 rounded-xl border border-primary-1000/20 hover:border-primary-1000/50 hover:bg-primary-1000/5 transition-all text-right sm:ml-auto"
-          >
-            <span className="text-xs uppercase opacity-60">Next</span>
-            <span className="font-semibold group-hover:text-primary-1000 transition-colors">
-              {nextProject.title} →
-            </span>
-          </Link>
-        )}
-      </div>
-    </section>
+    <ProjectDetailClient
+      project={project}
+      prevProject={prevProject}
+      nextProject={nextProject}
+    />
   );
 }

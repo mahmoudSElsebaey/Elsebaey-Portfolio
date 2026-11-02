@@ -7,11 +7,13 @@ import { BsX } from "react-icons/bs";
 interface ProjectImageLightboxProps {
   src: string;
   alt: string;
+  enlargeLabel?: string;
 }
 
 export default function ProjectImageLightbox({
   src,
   alt,
+  enlargeLabel = "Click to enlarge",
 }: ProjectImageLightboxProps) {
   const [open, setOpen] = useState(false);
 
@@ -40,7 +42,7 @@ export default function ProjectImageLightbox({
         type="button"
         onClick={() => setOpen(true)}
         className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-primary-1000/20 bg-primary-1000/5 cursor-zoom-in group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-1000"
-        aria-label={`View full size: ${alt}`}
+        aria-label={`${enlargeLabel}: ${alt}`}
       >
         <Image
           src={src}
@@ -51,8 +53,8 @@ export default function ProjectImageLightbox({
           priority
           className="object-contain p-2 transition-transform duration-300 group-hover:scale-[1.02]"
         />
-        <span className="pointer-events-none absolute bottom-3 right-3 rounded-full bg-black/50 text-white text-xs px-3 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
-          Click to enlarge
+        <span className="pointer-events-none absolute bottom-3 end-3 rounded-full bg-black/50 text-white text-xs px-3 py-1 opacity-0 group-hover:opacity-100 transition-opacity">
+          {enlargeLabel}
         </span>
       </button>
 
@@ -67,8 +69,8 @@ export default function ProjectImageLightbox({
           <button
             type="button"
             onClick={close}
-            className="absolute top-4 right-4 z-[101] flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors cursor-pointer"
-            aria-label="Close full size image"
+            className="absolute top-4 end-4 z-[101] flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors cursor-pointer"
+            aria-label="Close"
           >
             <BsX className="text-3xl" />
           </button>
