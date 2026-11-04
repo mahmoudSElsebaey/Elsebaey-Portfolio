@@ -18,7 +18,7 @@ export const projectsPart1 = [
   {
     num: "02",
     slug: "guess-arena",
-    title: "Guess Arena",
+    title: "Guess Arena Game",
     category: "Real-time Multiplayer Game",
     tags: ["Full Stack", "Next.js", "React", "Gaming", "RTL/LTR"],
     tools: [
