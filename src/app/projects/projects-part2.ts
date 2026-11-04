@@ -1,6 +1,6 @@
 export const projectsPart2 = [
   {
-    num: "11",
+    num: "12",
     slug: "authentication-app",
     title: "Authentication App",
     category: "Full Stack Website",
@@ -16,7 +16,7 @@ export const projectsPart2 = [
     github: "https://github.com/mahmoudSElsebaey/Authentication-App",
   },
   {
-    num: "12",
+    num: "13",
     slug: "sakney",
     title: "Sakney — سكني",
     category: "Frontend",
@@ -32,7 +32,7 @@ export const projectsPart2 = [
     github: "https://github.com/mahmoudSElsebaey/Sakney",
   },
   {
-    num: "13",
+    num: "14",
     slug: "electronics-store",
     title: "Electronics Store",
     category: "Frontend",
@@ -48,7 +48,7 @@ export const projectsPart2 = [
     github: "https://github.com/mahmoudselsebaey/Ecommerce_ReactJS",
   },
   {
-    num: "14",
+    num: "15",
     slug: "social-feed",
     title: "Social Feed",
     category: "Social Media SPA",
@@ -64,7 +64,7 @@ export const projectsPart2 = [
     github: "https://github.com/mahmoudSElsebaey/Social-Feed",
   },
   {
-    num: "15",
+    num: "16",
     slug: "sakney-dashboard",
     title: "Sakney Dashboard",
     category: "Admin Dashboard",
@@ -80,7 +80,7 @@ export const projectsPart2 = [
     github: "https://github.com/mahmoudSElsebaey/SakneyDashboard",
   },
   {
-    num: "16",
+    num: "17",
     slug: "game-warrior",
     title: "Game Warrior",
     category: "Gaming Website",
@@ -96,7 +96,7 @@ export const projectsPart2 = [
     github: "https://github.com/mahmoudSElsebaey/GameWarrior",
   },
   {
-    num: "17",
+    num: "18",
     slug: "directory-ads",
     title: "Directory Ads",
     category: "Frontend",
@@ -112,7 +112,7 @@ export const projectsPart2 = [
     github: "https://github.com/mahmoudSElsebaey/DirectoryAds",
   },
   {
-    num: "18",
+    num: "19",
     slug: "barber-shop",
     title: "Barber Shop",
     category: "Frontend",
@@ -128,7 +128,7 @@ export const projectsPart2 = [
     github: "https://github.com/mahmoudSElsebaey/Barber-Shop",
   },
   {
-    num: "19",
+    num: "20",
     slug: "amin-games",
     title: "Amin Games",
     category: "Gaming Website",
@@ -144,7 +144,7 @@ export const projectsPart2 = [
     github: "https://github.com/mahmoudselsebaey/Amin-Games",
   },
   {
-    num: "20",
+    num: "21",
     slug: "chairs-shop",
     title: "Chairs Shop",
     category: "Furniture Store",
@@ -160,7 +160,7 @@ export const projectsPart2 = [
     github: "https://github.com/mahmoudselsebaey/chairs-shops",
   },
   {
-    num: "21",
+    num: "22",
     slug: "wave-cafe",
     title: "Wave Cafe",
     category: "Coffee Shop Website",
