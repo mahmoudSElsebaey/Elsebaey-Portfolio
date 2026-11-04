@@ -13,10 +13,13 @@ import "./header.css";
 const PANEL_WIDTH = 220;
 const EDGE_GAP = 12;
 
+type HeaderTip = "theme-color" | "theme-mode" | null;
+
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showThemeColors, setShowThemeColors] = useState(false);
   const [showIdentity, setShowIdentity] = useState(false);
+  const [headerTip, setHeaderTip] = useState<HeaderTip>(null);
   const [panelPos, setPanelPos] = useState<{ top: number; left: number }>({
     top: 0,
     left: 0,
@@ -24,6 +27,7 @@ export default function Header() {
   const themeRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
   const identityTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const tipTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const updatePanelPosition = useCallback(() => {
     const btn = buttonRef.current;
@@ -78,6 +82,7 @@ export default function Header() {
   useEffect(() => {
     return () => {
       if (identityTimer.current) clearTimeout(identityTimer.current);
+      if (tipTimer.current) clearTimeout(tipTimer.current);
     };
   }, []);
 
@@ -89,6 +94,16 @@ export default function Header() {
   const closeIdentity = () => {
     if (identityTimer.current) clearTimeout(identityTimer.current);
     setShowIdentity(false);
+  };
+
+  const openHeaderTip = (tip: HeaderTip) => {
+    if (tipTimer.current) clearTimeout(tipTimer.current);
+    tipTimer.current = setTimeout(() => setHeaderTip(tip), 120);
+  };
+
+  const closeHeaderTip = () => {
+    if (tipTimer.current) clearTimeout(tipTimer.current);
+    setHeaderTip(null);
   };
 
   return (
@@ -178,34 +193,98 @@ export default function Header() {
       </div>
 
       <div className="flex items-center gap-2 shrink-0" ref={themeRef}>
-        <button
-          ref={buttonRef}
-          type="button"
-          aria-label="Choose theme color"
-          aria-expanded={showThemeColors}
-          title="Choose theme color"
-          className="w-10 h-10 rounded-full cursor-pointer flex items-center justify-center
-            border border-primary-1000/25 bg-primary-1000/5
-            hover:bg-primary-1000/15 hover:border-primary-1000/40
-            transition-all duration-300 active:scale-95
-            focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1000/40"
-          onClick={() => {
-            setShowThemeColors((prev) => {
-              const next = !prev;
-              if (next) {
-                requestAnimationFrame(updatePanelPosition);
-              }
-              return next;
-            });
-          }}
+        <div
+          className="relative"
+          onMouseEnter={() => openHeaderTip("theme-color")}
+          onMouseLeave={closeHeaderTip}
         >
-          <SwatchBook
-            className="h-[18px] w-[18px] text-primary-1000"
-            strokeWidth={2}
-          />
-        </button>
+          <button
+            ref={buttonRef}
+            type="button"
+            aria-label="Choose theme color"
+            aria-expanded={showThemeColors}
+            title="Choose theme color"
+            className="w-10 h-10 rounded-full cursor-pointer flex items-center justify-center
+              border border-primary-1000/25 bg-primary-1000/5
+              hover:bg-primary-1000/15 hover:border-primary-1000/40
+              transition-all duration-300 active:scale-95
+              focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-1000/40"
+            onClick={() => {
+              setShowThemeColors((prev) => {
+                const next = !prev;
+                if (next) {
+                  requestAnimationFrame(updatePanelPosition);
+                }
+                return next;
+              });
+            }}
+          >
+            <SwatchBook
+              className="h-[18px] w-[18px] text-primary-1000"
+              strokeWidth={2}
+            />
+          </button>
 
-        <ThemeToggle />
+          <AnimatePresence>
+            {headerTip === "theme-color" && !showThemeColors && (
+              <motion.div
+                role="tooltip"
+                initial={{ opacity: 0, y: 8, filter: "blur(6px)", scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
+                exit={{ opacity: 0, y: 6, filter: "blur(4px)", scale: 0.98 }}
+                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                className="hidden lg:block absolute top-full right-0 mt-2 z-[10001] w-[200px] pointer-events-none"
+              >
+                <div className="relative rounded-xl border border-primary-1000/30 bg-background/85 backdrop-blur-xl px-3.5 py-3 shadow-[0_8px_28px_-12px_rgba(0,0,0,0.35)] shadow-primary-1000/15">
+                  <span className="pointer-events-none absolute -inset-px rounded-xl bg-gradient-to-br from-primary-1000/20 via-transparent to-primary-1000/10 opacity-70" />
+                  <span className="absolute -top-1.5 right-4 h-3 w-3 rotate-45 border-l border-t border-primary-1000/30 bg-background/85" />
+                  <div className="relative z-10">
+                    <p className="text-[11px] uppercase tracking-[0.16em] text-primary-1000 font-semibold mb-1">
+                      Accent Color
+                    </p>
+                    <p className="text-[12px] leading-snug text-foreground/70">
+                      Pick a primary accent color for the whole site theme.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
+
+        <div
+          className="relative"
+          onMouseEnter={() => openHeaderTip("theme-mode")}
+          onMouseLeave={closeHeaderTip}
+        >
+          <ThemeToggle />
+
+          <AnimatePresence>
+            {headerTip === "theme-mode" && (
+              <motion.div
+                role="tooltip"
+                initial={{ opacity: 0, y: 8, filter: "blur(6px)", scale: 0.96 }}
+                animate={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
+                exit={{ opacity: 0, y: 6, filter: "blur(4px)", scale: 0.98 }}
+                transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                className="hidden lg:block absolute top-full right-0 mt-2 z-[10001] w-[190px] pointer-events-none"
+              >
+                <div className="relative rounded-xl border border-primary-1000/30 bg-background/85 backdrop-blur-xl px-3.5 py-3 shadow-[0_8px_28px_-12px_rgba(0,0,0,0.35)] shadow-primary-1000/15">
+                  <span className="pointer-events-none absolute -inset-px rounded-xl bg-gradient-to-br from-primary-1000/20 via-transparent to-primary-1000/10 opacity-70" />
+                  <span className="absolute -top-1.5 right-4 h-3 w-3 rotate-45 border-l border-t border-primary-1000/30 bg-background/85" />
+                  <div className="relative z-10">
+                    <p className="text-[11px] uppercase tracking-[0.16em] text-primary-1000 font-semibold mb-1">
+                      Light / Dark
+                    </p>
+                    <p className="text-[12px] leading-snug text-foreground/70">
+                      Switch between light and dark appearance modes.
+                    </p>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
 
         {showThemeColors && (
           <div
