@@ -76,17 +76,14 @@ export default function ProjectImageLightbox({
           </button>
 
           <div
-            className="relative w-full h-full max-w-7xl max-h-[92vh] cursor-zoom-out"
+            className="flex h-full w-full max-w-7xl items-center justify-center cursor-default"
             onClick={(event) => event.stopPropagation()}
           >
-            <Image
+            <img
               src={src}
               alt={alt}
-              fill
-              sizes="100vw"
-              quality={90}
-              className="object-contain"
-              priority
+              draggable={false}
+              className="block max-h-[92vh] max-w-full w-auto h-auto object-contain"
             />
           </div>
         </div>
