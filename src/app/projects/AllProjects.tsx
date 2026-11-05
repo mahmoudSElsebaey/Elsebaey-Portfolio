@@ -288,9 +288,14 @@ const AllProjects: React.FC = () => {
                     </ul>
 
                     <div className="mt-auto pt-2 flex items-center gap-2">
-                      <Link href={`/projects/${project.slug}`} className="inline-flex items-center gap-1.5 text-sm font-medium px-3.5 py-2 rounded-full bg-primary-1000 text-white hover:opacity-90 transition-opacity shadow-md shadow-primary-1000/25">
-                        Details <BsArrowRight className="text-sm" />
-                      </Link>
+                      <div className="btn-cv relative p-[2px] overflow-hidden rounded-full" data-aos="zoom-in">
+                        <Link
+                          href={`/projects/${project.slug}`}
+                          className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-primary-1000 bg-primary-1000 px-6 text-sm font-medium uppercase text-white transition-all duration-300 hover:bg-primary-1000"
+                        >
+                          Details <BsArrowRight className="text-sm" />
+                        </Link>
+                      </div>
                       {project.live && project.live !== "#" && (
                         <Link href={project.live} target="_blank" className="inline-flex items-center justify-center w-9 h-9 rounded-full border border-primary-1000/40 text-primary-1000 hover:bg-primary-1000/15 transition-colors" aria-label="Live demo">
                           <BsArrowUpRight className="text-base" />
