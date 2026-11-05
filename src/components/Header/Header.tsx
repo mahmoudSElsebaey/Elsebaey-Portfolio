@@ -6,7 +6,7 @@ import logo from "./../../../public/assets/logo-r.png";
 import { Nav } from "../Nav/Nav";
 import ThemeSwitcher from "../ThemeSwitcher/ThemeSwitcher";
 import Link from "next/link";
-import { SwatchBook } from "lucide-react";
+import { SwatchBook, SunMoon } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./header.css";
 
@@ -156,31 +156,45 @@ export default function Header() {
               animate={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
               exit={{ opacity: 0, y: 6, filter: "blur(4px)", scale: 0.98 }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="hidden sm:block absolute top-full left-0 mt-2 z-[10001] min-w-[240px] max-w-[280px] pointer-events-none"
+              className="hidden sm:block absolute top-full left-0 mt-2 z-[10001] min-w-[260px] max-w-[300px] pointer-events-none"
             >
               <div className="relative rounded-2xl border border-primary-1000/30 bg-background/80 backdrop-blur-xl px-4 py-3.5 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.35)] shadow-primary-1000/20">
                 <span className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-primary-1000/25 via-transparent to-primary-1000/10 opacity-70" />
                 <span className="absolute -top-1.5 left-6 h-3 w-3 rotate-45 border-l border-t border-primary-1000/30 bg-background/80" />
 
-                <div className="relative z-10 flex flex-col gap-1">
-                  <p
-                    className="text-[15px] sm:text-base font-bold leading-tight tracking-wide text-foreground"
-                    style={{
-                      fontFamily: "Teko, system-ui, sans-serif",
-                      letterSpacing: "0.04em",
-                    }}
-                  >
-                    Mahmoud Salah Elsebaey
-                  </p>
-                  <p className="text-[11px] uppercase tracking-[0.18em] text-primary-1000 font-semibold">
-                    Full-Stack MERN Developer
-                  </p>
-                  <p
-                    className="mt-1 text-[12px] leading-snug text-foreground/65 italic"
-                    style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}
-                  >
-                    Modern apps. Clean code. Seamless experiences.
-                  </p>
+                <div className="relative z-10 flex gap-3 items-start">
+                  <div className="shrink-0 mt-0.5 rounded-xl border border-primary-1000/25 bg-primary-1000/10 p-1.5">
+                    <Image
+                      src={logo}
+                      width={40}
+                      height={40}
+                      className="h-9 w-9 object-contain"
+                      alt=""
+                      aria-hidden
+                    />
+                  </div>
+                  <div className="flex flex-col gap-1 min-w-0">
+                    <p
+                      className="text-[15px] sm:text-base font-bold leading-tight tracking-wide text-foreground"
+                      style={{
+                        fontFamily: "Teko, system-ui, sans-serif",
+                        letterSpacing: "0.04em",
+                      }}
+                    >
+                      Mahmoud Salah Elsebaey
+                    </p>
+                    <p className="text-[11px] uppercase tracking-[0.18em] text-primary-1000 font-semibold">
+                      Full-Stack MERN Developer
+                    </p>
+                    <p
+                      className="mt-0.5 text-[12px] leading-snug text-foreground/65 italic"
+                      style={{
+                        fontFamily: "Georgia, 'Times New Roman', serif",
+                      }}
+                    >
+                      Modern apps. Clean code. Seamless experiences.
+                    </p>
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -229,19 +243,39 @@ export default function Header() {
             {headerTip === "theme-color" && !showThemeColors && (
               <motion.div
                 role="tooltip"
-                initial={{ opacity: 0, y: 8, filter: "blur(6px)", scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
-                exit={{ opacity: 0, y: 6, filter: "blur(4px)", scale: 0.98 }}
+                initial={{
+                  opacity: 0,
+                  y: 8,
+                  filter: "blur(6px)",
+                  scale: 0.96,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  filter: "blur(0px)",
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  y: 6,
+                  filter: "blur(4px)",
+                  scale: 0.98,
+                }}
                 transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                className="hidden lg:block absolute top-full right-0 mt-2 z-[10001] w-[200px] pointer-events-none"
+                className="hidden lg:block absolute top-full right-0 mt-2 z-[10001] w-[210px] pointer-events-none"
               >
                 <div className="relative rounded-xl border border-primary-1000/30 bg-background/85 backdrop-blur-xl px-3.5 py-3 shadow-[0_8px_28px_-12px_rgba(0,0,0,0.35)] shadow-primary-1000/15">
                   <span className="pointer-events-none absolute -inset-px rounded-xl bg-gradient-to-br from-primary-1000/20 via-transparent to-primary-1000/10 opacity-70" />
                   <span className="absolute -top-1.5 right-4 h-3 w-3 rotate-45 border-l border-t border-primary-1000/30 bg-background/85" />
                   <div className="relative z-10">
-                    <p className="text-[11px] uppercase tracking-[0.16em] text-primary-1000 font-semibold mb-1">
-                      Accent Color
-                    </p>
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary-1000/15 text-primary-1000">
+                        <SwatchBook className="h-3.5 w-3.5" strokeWidth={2.25} />
+                      </span>
+                      <p className="text-[11px] uppercase tracking-[0.16em] text-primary-1000 font-semibold">
+                        Accent Color
+                      </p>
+                    </div>
                     <p className="text-[12px] leading-snug text-foreground/70">
                       Pick a primary accent color for the whole site theme.
                     </p>
@@ -263,19 +297,39 @@ export default function Header() {
             {headerTip === "theme-mode" && (
               <motion.div
                 role="tooltip"
-                initial={{ opacity: 0, y: 8, filter: "blur(6px)", scale: 0.96 }}
-                animate={{ opacity: 1, y: 0, filter: "blur(0px)", scale: 1 }}
-                exit={{ opacity: 0, y: 6, filter: "blur(4px)", scale: 0.98 }}
+                initial={{
+                  opacity: 0,
+                  y: 8,
+                  filter: "blur(6px)",
+                  scale: 0.96,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  filter: "blur(0px)",
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  y: 6,
+                  filter: "blur(4px)",
+                  scale: 0.98,
+                }}
                 transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
-                className="hidden lg:block absolute top-full right-0 mt-2 z-[10001] w-[190px] pointer-events-none"
+                className="hidden lg:block absolute top-full right-0 mt-2 z-[10001] w-[200px] pointer-events-none"
               >
                 <div className="relative rounded-xl border border-primary-1000/30 bg-background/85 backdrop-blur-xl px-3.5 py-3 shadow-[0_8px_28px_-12px_rgba(0,0,0,0.35)] shadow-primary-1000/15">
                   <span className="pointer-events-none absolute -inset-px rounded-xl bg-gradient-to-br from-primary-1000/20 via-transparent to-primary-1000/10 opacity-70" />
                   <span className="absolute -top-1.5 right-4 h-3 w-3 rotate-45 border-l border-t border-primary-1000/30 bg-background/85" />
                   <div className="relative z-10">
-                    <p className="text-[11px] uppercase tracking-[0.16em] text-primary-1000 font-semibold mb-1">
-                      Light / Dark
-                    </p>
+                    <div className="flex items-center gap-2 mb-1.5">
+                      <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary-1000/15 text-primary-1000">
+                        <SunMoon className="h-3.5 w-3.5" strokeWidth={2.25} />
+                      </span>
+                      <p className="text-[11px] uppercase tracking-[0.16em] text-primary-1000 font-semibold">
+                        Light / Dark
+                      </p>
+                    </div>
                     <p className="text-[12px] leading-snug text-foreground/70">
                       Switch between light and dark appearance modes.
                     </p>
