@@ -202,22 +202,36 @@ export default function ProjectDetailClient({
 
               <div className="flex flex-wrap gap-3 pt-2">
                 {project.live && project.live !== "#" && (
-                  <Link
-                    href={project.live}
-                    target="_blank"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full bg-primary-1000 text-white hover:opacity-90 transition-opacity"
+                  <div
+                    className="btn-cv relative p-[2px] overflow-hidden rounded-full"
+                    data-aos="zoom-in"
                   >
-                    {t.liveDemo} <BsArrowUpRight />
-                  </Link>
+                    <Link
+                      href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-primary-1000 bg-primary-1000 px-6 text-sm font-medium uppercase text-white transition-all duration-300 hover:bg-primary-1000"
+                    >
+                      {t.liveDemo}
+                      <BsArrowUpRight className="text-xl" />
+                    </Link>
+                  </div>
                 )}
                 {project.github && (
-                  <Link
-                    href={project.github}
-                    target="_blank"
-                    className="inline-flex items-center gap-2 px-5 py-3 rounded-full border border-primary-1000 text-primary-1000 hover:bg-primary-1000/10 transition-colors"
+                  <div
+                    className="btn-cv relative p-[2px] overflow-hidden rounded-full"
+                    data-aos="zoom-in"
                   >
-                    {t.github} <BsGithub />
-                  </Link>
+                    <Link
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-10 items-center justify-center gap-2 rounded-full border border-primary-1000 bg-primary-1000 px-6 text-sm font-medium uppercase text-white transition-all duration-300 hover:bg-primary-1000"
+                    >
+                      {t.github}
+                      <BsGithub className="text-xl" />
+                    </Link>
+                  </div>
                 )}
               </div>
             </div>
