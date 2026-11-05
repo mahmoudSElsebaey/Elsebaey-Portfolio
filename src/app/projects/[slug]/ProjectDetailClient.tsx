@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useCallback, useMemo } from "react";
+import { useState, useCallback, useMemo, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { BsArrowLeft, BsArrowUpRight, BsGithub } from "react-icons/bs";
@@ -72,11 +72,32 @@ export default function ProjectDetailClient({
   nextProject,
 }: ProjectDetailClientProps) {
   const [locale, setLocale] = useState<Locale>("en");
+
+  // Restore the user's language choice when opening or refreshing a project page.
+  useEffect(() => {
+    try {
+      const savedLocale = window.localStorage.getItem("project-detail-locale");
+      if (savedLocale === "en" || savedLocale === "ar") {
+        setLocale(savedLocale);
+      }
+    } catch {
+      // Keep English as the default if browser storage is unavailable.
+    }
+  }, []);
+
   const isAr = locale === "ar";
   const t = ui[locale];
 
   const toggleLocale = useCallback(() => {
-    setLocale((prev) => (prev === "en" ? "ar" : "en"));
+    setLocale((prev) => {
+      const next: Locale = prev === "en" ? "ar" : "en";
+      try {
+        window.localStorage.setItem("project-detail-locale", next);
+      } catch {
+        // Language switching still works for the current page.
+      }
+      return next;
+    });
   }, []);
 
   const ar = useMemo(() => getArabicContent(project.slug), [project.slug]);
