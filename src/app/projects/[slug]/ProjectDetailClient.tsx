@@ -46,8 +46,8 @@ const ui = {
   ar: {
     allProjects: "كل المشاريع",
     technologies: "التقنيات",
-    liveDemo: "معاينة مباشرة",
-    github: "جيت هب",
+    liveDemo: "Live Demo",
+    github: "GitHub",
     previous: "السابق",
     next: "التالي",
     featuresLabel: "المميزات",
