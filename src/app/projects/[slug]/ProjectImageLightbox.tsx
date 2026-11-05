@@ -75,7 +75,10 @@ export default function ProjectImageLightbox({
             <BsX className="text-3xl" />
           </button>
 
-          <div className="relative w-full h-full max-w-7xl max-h-[92vh] cursor-zoom-out">
+          <div
+            className="relative w-full h-full max-w-7xl max-h-[92vh] cursor-zoom-out"
+            onClick={(event) => event.stopPropagation()}
+          >
             <Image
               src={src}
               alt={alt}
