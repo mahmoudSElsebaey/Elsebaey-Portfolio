@@ -1,7 +1,8 @@
 "use client";
 
-import Image from "next/image";
+import { createPortal } from "react-dom";
 import { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
 import { BsX } from "react-icons/bs";
 
 interface ProjectImageLightboxProps {
@@ -16,23 +17,22 @@ export default function ProjectImageLightbox({
   enlargeLabel = "Click to enlarge",
 }: ProjectImageLightboxProps) {
   const [open, setOpen] = useState(false);
-
   const close = useCallback(() => setOpen(false), []);
 
   useEffect(() => {
     if (!open) return;
 
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") close();
     };
 
-    document.addEventListener("keydown", onKey);
-    const prevOverflow = document.body.style.overflow;
+    const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", onKey);
 
     return () => {
+      document.body.style.overflow = previousOverflow;
       document.removeEventListener("keydown", onKey);
-      document.body.style.overflow = prevOverflow;
     };
   }, [open, close]);
 
@@ -58,39 +58,43 @@ export default function ProjectImageLightbox({
         </span>
       </button>
 
-      {open && (
-        <div
-          role="dialog"
-          aria-modal="true"
-          aria-label={alt}
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 md:p-8 cursor-zoom-out"
-          onClick={close}
-        >
-          <button
-            type="button"
-            onClick={close}
-            className="absolute top-4 end-4 z-[101] flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors cursor-pointer"
-            aria-label="Close"
-          >
-            <BsX className="text-3xl" />
-          </button>
-
+      {open &&
+        typeof document !== "undefined" &&
+        createPortal(
           <div
-            className="relative h-[92vh] w-full max-w-7xl cursor-default"
-            onClick={(event) => event.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+            aria-label={alt}
+            className="fixed inset-0 z-[99999] flex items-center justify-center bg-black/95 p-4 md:p-8"
+            onClick={close}
           >
-            <Image
-              src={src}
-              alt={alt}
-              fill
-              sizes="100vw"
-              quality={90}
-              priority
-              className="object-contain"
-            />
-          </div>
-        </div>
-      )}
+            <button
+              type="button"
+              onClick={close}
+              className="absolute top-4 end-4 z-[100000] flex h-11 w-11 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors cursor-pointer"
+              aria-label="Close"
+            >
+              <BsX className="text-3xl" />
+            </button>
+
+            <div
+              className="relative h-[88vh] w-[92vw] max-w-7xl"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <Image
+                src={src}
+                alt={alt}
+                fill
+                sizes="92vw"
+                quality={95}
+                priority
+                unoptimized
+                className="object-contain"
+              />
+            </div>
+          </div>,
+          document.body
+        )}
     </>
   );
 }
