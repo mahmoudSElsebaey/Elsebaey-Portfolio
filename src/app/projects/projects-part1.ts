@@ -190,8 +190,8 @@ export const projectsPart1 = [
     challenges: ["Scalable multi-tenant architecture", "Full RTL layout and bilingual content", "Reliable exam engine with timing and grading", "Integrating billing, email, and role permissions"],
     problems: ["Membership model for multi-tenant orgs", "Centralized i18n with direction-aware layouts", "Exam engine with timer and state persistence", "Stripe and Resend with plan limits"],
     image: "/assets/projects images multi devices/15.png",
-    live: "#",
-    github: "https://github.com/mahmoudSElsebaey/examflow",
+    live: "https://client-indol-beta-85.vercel.app/",
+    github: "https://github.com/mahmoudSElsebaey/examflow-saas-platform",
   },
   {
     num: "10",
@@ -222,7 +222,7 @@ export const projectsPart1 = [
     challenges: ["Presenting information attractively and clearly"],
     problems: ["Clear layout and distinct visual sections"],
     image: "/assets/projects images multi devices/2.png",
-    live: "#",
+    live: "https://mahmoudselsebaey.github.io/GYM/",
     github: "https://github.com/mahmoudselsebaey/GYM",
   },
 ];

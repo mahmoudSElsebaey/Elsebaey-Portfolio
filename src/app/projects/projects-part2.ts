@@ -12,8 +12,8 @@ export const projectsPart2 = [
     challenges: ["Clear and easy-to-use forms"],
     problems: ["Reusable form components and simple validation"],
     image: "/assets/projects images multi devices/4.png",
-    live: "#",
-    github: "https://github.com/mahmoudSElsebaey/Authentication-App",
+    live: "https://authentication-app-frontend-seven.vercel.app/",
+    github: "https://github.com/mahmoudSElsebaey/Authentication_app_Backend",
   },
   {
     num: "13",
@@ -28,7 +28,7 @@ export const projectsPart2 = [
     challenges: ["Organizing property lists clearly"],
     problems: ["Consistent unit cards and grid layout"],
     image: "/assets/projects images multi devices/5.png",
-    live: "#",
+    live: "https://mahmoudselsebaey.github.io/Sakney/",
     github: "https://github.com/mahmoudSElsebaey/Sakney",
   },
   {
@@ -92,8 +92,8 @@ export const projectsPart2 = [
     challenges: ["Matching gaming brand aesthetics"],
     problems: ["Strong visual layout and clear sections"],
     image: "/assets/projects images multi devices/8.png",
-    live: "#",
-    github: "https://github.com/mahmoudSElsebaey/GameWarrior",
+    live: "https://mahmoudselsebaey.github.io/Game-Warrior/",
+    github: "https://github.com/mahmoudSElsebaey/Game-Warrior",
   },
   {
     num: "18",
@@ -108,7 +108,7 @@ export const projectsPart2 = [
     challenges: ["Organizing listings for easy browsing"],
     problems: ["Structured grids and visual hierarchy"],
     image: "/assets/projects images multi devices/9.png",
-    live: "#",
+    live: "https://mahmoudselsebaey.github.io/DirectoryAds/",
     github: "https://github.com/mahmoudSElsebaey/DirectoryAds",
   },
   {
@@ -124,7 +124,7 @@ export const projectsPart2 = [
     challenges: ["Conveying the shop atmosphere visually"],
     problems: ["Warm design and clear content sections"],
     image: "/assets/projects images multi devices/10.png",
-    live: "#",
+    live: "https://mahmoudselsebaey.github.io/Barber-Shop/",
     github: "https://github.com/mahmoudSElsebaey/Barber-Shop",
   },
   {
