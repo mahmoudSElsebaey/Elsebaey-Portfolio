@@ -160,7 +160,8 @@ export default function Header() {
             >
               <div className="relative rounded-2xl border border-primary-1000/30 bg-background/80 backdrop-blur-xl px-4 py-3.5 shadow-[0_8px_32px_-12px_rgba(0,0,0,0.35)] shadow-primary-1000/20">
                 <span className="pointer-events-none absolute -inset-px rounded-2xl bg-gradient-to-br from-primary-1000/25 via-transparent to-primary-1000/10 opacity-70" />
-                <span className="absolute -top-1.5 left-6 h-3 w-3 rotate-45 border-l border-t border-primary-1000/30 bg-background/80" />
+                {/* Arrow - matched glass background */}
+                <span className="absolute -top-1.5 left-6 h-3 w-3 rotate-45 border-l border-t border-primary-1000/30 bg-background/80 backdrop-blur-xl" />
 
                 <div className="relative z-10 flex gap-3 items-start">
                   <div className="shrink-0 mt-0.5 rounded-xl border border-primary-1000/25 bg-primary-1000/10 p-1.5">
@@ -266,7 +267,8 @@ export default function Header() {
               >
                 <div className="relative rounded-xl border border-primary-1000/30 bg-background/85 backdrop-blur-xl px-3.5 py-3 shadow-[0_8px_28px_-12px_rgba(0,0,0,0.35)] shadow-primary-1000/15">
                   <span className="pointer-events-none absolute -inset-px rounded-xl bg-gradient-to-br from-primary-1000/20 via-transparent to-primary-1000/10 opacity-70" />
-                  <span className="absolute -top-1.5 right-4 h-3 w-3 rotate-45 border-l border-t border-primary-1000/30 bg-background/85" />
+                  {/* Arrow - matched glass background */}
+                  <span className="absolute -top-1.5 right-4 h-3 w-3 rotate-45 border-l border-t border-primary-1000/30 bg-background/85 backdrop-blur-xl" />
                   <div className="relative z-10">
                     <div className="flex items-center gap-2 mb-1.5">
                       <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary-1000/15 text-primary-1000">
@@ -320,7 +322,8 @@ export default function Header() {
               >
                 <div className="relative rounded-xl border border-primary-1000/30 bg-background/85 backdrop-blur-xl px-3.5 py-3 shadow-[0_8px_28px_-12px_rgba(0,0,0,0.35)] shadow-primary-1000/15">
                   <span className="pointer-events-none absolute -inset-px rounded-xl bg-gradient-to-br from-primary-1000/20 via-transparent to-primary-1000/10 opacity-70" />
-                  <span className="absolute -top-1.5 right-4 h-3 w-3 rotate-45 border-l border-t border-primary-1000/30 bg-background/85" />
+                  {/* Arrow - matched glass background */}
+                  <span className="absolute -top-1.5 right-4 h-3 w-3 rotate-45 border-l border-t border-primary-1000/30 bg-background/85 backdrop-blur-xl" />
                   <div className="relative z-10">
                     <div className="flex items-center gap-2 mb-1.5">
                       <span className="inline-flex h-6 w-6 shrink-0 items-center justify-center rounded-md bg-primary-1000/15 text-primary-1000">
